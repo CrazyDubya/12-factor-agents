@@ -17,7 +17,7 @@ sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 from core.game_theory import GameTheoryEngine, Strategy, PrisonersDilemma
 from core.agents import Agent, Prisoner, Guard, PersonalityType, IntelligenceLevel
-from data_persistence import DataPersistence
+from persistence import SimulationPersistence
 
 def log(message, level="INFO"):
     """Live logging with timestamps and colors"""
@@ -363,13 +363,27 @@ def create_prison_population():
     
     return agents
 
-def run_ollama_simulation():
+def run_ollama_simulation(load_previous: bool = True):
     """Run full simulation with Ollama, social networks, and gang dynamics"""
     
     print("🏢 ETERNAL LOCKDOWN - OLLAMA + SOCIAL NETWORKS + GANG DYNAMICS")
     print("=" * 80)
     print("Multi-Framework Prison Simulation: TinyTroupe + AutoGen + CrewAI Integration")
     print("=" * 80)
+    
+    # Initialize persistence
+    persistence = SimulationPersistence()
+    
+    # Try to load previous state
+    if load_previous:
+        saved_data = persistence.auto_load()
+        if saved_data:
+            log("🔄 Previous simulation found! Starting from saved state...", "INFO")
+            # For now, just show what was loaded - full restoration in next bite
+            log(f"   Agents: {len(saved_data.get('agents', []))}", "INFO")
+            log(f"   Last run: {saved_data.get('timestamp', 'unknown')}", "INFO")
+        else:
+            log("🆕 Starting fresh simulation...", "INFO")
     
     # Initialize systems
     ollama_engine = OllamaDecisionEngine()
@@ -554,9 +568,8 @@ def run_ollama_simulation():
     else:
         log("   📉 Population near Nash equilibrium (defection dominates)", "WARNING")
     
-    # Save all simulation data
-    log("💾 Saving simulation data...", "INFO")
-    persistence = DataPersistence()
+    # Auto-save simulation data
+    log("💾 Auto-saving simulation data...", "INFO")
     
     # Prepare game statistics
     game_statistics = {
@@ -576,8 +589,8 @@ def run_ollama_simulation():
         "scenarios_used": len(scenarios)
     }
     
-    # Save everything
-    timestamp = persistence.save_simulation_state(
+    # Auto-save everything
+    timestamp = persistence.auto_save(
         agents, social_network, game_statistics, simulation_metadata
     )
     
