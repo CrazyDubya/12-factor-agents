@@ -401,6 +401,8 @@ def run_ollama_simulation(load_previous: bool = True):
     ollama_engine = OllamaDecisionEngine()
     social_network = SocialNetwork()
     game_engine = GameTheoryEngine()
+    emotional_engine = EmotionalDecisionEngine()
+    sentence_calc = SentenceCalculator()
     
     # Test Ollama
     if ollama_engine.test_connection():
@@ -408,14 +410,25 @@ def run_ollama_simulation(load_previous: bool = True):
     else:
         log("⚠️  Ollama not available - using enhanced fallback decisions", "WARNING")
     
-    # Create population
+    # Create population with emotional profiles
     log("👥 Creating prison population...", "INFO")
     agents = create_prison_population()
+    agent_emotions = {}  # agent_id -> EmotionalProfile
+    agent_sentences = {}  # agent_id -> SentenceInfo
     
     for agent in agents:
         log(f"   Created {agent.name}: {agent.agent_type.value}, {agent.personality.value}, {agent.ollama_model}", "INFO")
         if hasattr(agent, 'gang_affiliation') and agent.gang_affiliation:
             log(f"      Gang: {agent.gang_affiliation}", "GANG")
+        
+        # Create emotional profile for each agent
+        agent_emotions[agent.id] = EmotionalProfile()
+        
+        # Create sentence info for prisoners
+        if hasattr(agent, 'crime'):
+            sentence_info = sentence_calc.calculate_sentence(agent.crime)
+            agent_sentences[agent.id] = sentence_info
+            log(f"      Sentence: {sentence_info.actual_days} days for {agent.crime}", "INFO")
     
     # Form gangs in social network
     log("🏴 Forming gangs...", "GANG")
@@ -466,15 +479,26 @@ def run_ollama_simulation(load_previous: bool = True):
         
         situation = random.choice(scenarios)
         
-        # Get decisions using Ollama
+        # Get decisions using Ollama with emotional context
         game_context = {
             "round": round_num,
             "total_interactions": total_interactions,
             "cooperation_rate": total_cooperation / max(total_interactions * 2, 1)
         }
         
-        decision1, reasoning1 = ollama_engine.make_decision(agent1, agent2.id, situation, social_network, game_context)
-        decision2, reasoning2 = ollama_engine.make_decision(agent2, agent1.id, situation, social_network, game_context)
+        # Get emotional profiles and sentence info
+        emotion1 = agent_emotions.get(agent1.id)
+        emotion2 = agent_emotions.get(agent2.id)
+        sentence1 = agent_sentences.get(agent1.id)
+        sentence2 = agent_sentences.get(agent2.id)
+        
+        days_remaining1 = sentence1.days_remaining if sentence1 else 0
+        days_remaining2 = sentence2.days_remaining if sentence2 else 0
+        
+        decision1, reasoning1 = ollama_engine.make_decision(
+            agent1, agent2.id, situation, social_network, game_context, emotion1, days_remaining1)
+        decision2, reasoning2 = ollama_engine.make_decision(
+            agent2, agent1.id, situation, social_network, game_context, emotion2, days_remaining2)
         
         # Calculate payoffs
         pd_game = PrisonersDilemma()
