@@ -19,6 +19,7 @@ from core.game_theory import GameTheoryEngine, Strategy, PrisonersDilemma
 from core.agents import Agent, Prisoner, Guard, PersonalityType, IntelligenceLevel
 from persistence import SimulationPersistence
 from sentence_system import SentenceCalculator, SentenceInfo
+from emotional_system import EmotionalProfile, EmotionalDecisionEngine, PrivilegeType
 
 def log(message, level="INFO"):
     """Live logging with timestamps and colors"""
@@ -164,7 +165,9 @@ class OllamaDecisionEngine:
             return False
     
     def make_decision(self, agent: Agent, opponent_id: int, situation: str, 
-                     social_network: SocialNetwork, game_context: Dict) -> Tuple[Strategy, str]:
+                     social_network: SocialNetwork, game_context: Dict, 
+                     emotional_profile: EmotionalProfile = None, 
+                     sentence_days_remaining: int = 0) -> Tuple[Strategy, str]:
         """Make decision using Ollama with full context"""
         
         # Get social context
@@ -176,10 +179,11 @@ class OllamaDecisionEngine:
         relationship_key = tuple(sorted([agent.id, opponent_id]))
         trust_level = social_network.relationships.get(relationship_key, 0.0)
         
-        # Build comprehensive prompt
+        # Build comprehensive prompt with emotional context
         prompt = self._build_decision_prompt(
             agent, opponent_id, situation, trust_level, 
-            gang_members, allies, enemies, game_context
+            gang_members, allies, enemies, game_context,
+            emotional_profile, sentence_days_remaining
         )
         
         # Query Ollama
@@ -213,7 +217,9 @@ class OllamaDecisionEngine:
     
     def _build_decision_prompt(self, agent: Agent, opponent_id: int, situation: str,
                               trust_level: float, gang_members: Set[int], 
-                              allies: Set[int], enemies: Set[int], game_context: Dict) -> str:
+                              allies: Set[int], enemies: Set[int], game_context: Dict,
+                              emotional_profile: EmotionalProfile = None,
+                              sentence_days_remaining: int = 0) -> str:
         """Build comprehensive decision prompt"""
         
         # Determine opponent relationship
@@ -260,7 +266,10 @@ STRATEGIC CONSIDERATIONS:
 - Your reputation affects future interactions
 - {agent.personality.value} personalities tend to act predictably
 
-Think about your personality, relationships, and long-term strategy.
+EMOTIONAL & SENTENCE CONTEXT:
+{emotional_profile.get_emotional_decision_context(sentence_days_remaining) if emotional_profile else "Standard emotional state"}
+
+Think about your personality, relationships, emotional state, remaining sentence time, and privileges.
 
 Respond with:
 DECISION: [COOPERATE or DEFECT]
