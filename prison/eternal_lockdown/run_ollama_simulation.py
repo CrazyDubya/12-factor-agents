@@ -20,6 +20,7 @@ from core.agents import Agent, Prisoner, Guard, PersonalityType, IntelligenceLev
 from persistence import SimulationPersistence
 from sentence_system import SentenceCalculator, SentenceInfo
 from emotional_system import EmotionalProfile, EmotionalDecisionEngine, PrivilegeType
+from personality_system import PersonalityGenerator, DeepPersonality
 
 def log(message, level="INFO"):
     """Live logging with timestamps and colors"""
@@ -403,6 +404,7 @@ def run_ollama_simulation(load_previous: bool = True):
     game_engine = GameTheoryEngine()
     emotional_engine = EmotionalDecisionEngine()
     sentence_calc = SentenceCalculator()
+    personality_gen = PersonalityGenerator()
     
     # Test Ollama
     if ollama_engine.test_connection():
@@ -526,6 +528,21 @@ def run_ollama_simulation(load_previous: bool = True):
         # Update social network
         social_network.update_relationship(agent1.id, agent2.id, outcome, payoffs)
         
+        # Update emotions based on interaction outcome
+        if emotion1:
+            relationship1 = "gang member" if agent2.id in social_network.get_gang_members(agent1.id) else \
+                           "ally" if agent2.id in social_network.alliances.get(agent1.id, set()) else \
+                           "enemy" if agent2.id in social_network.enemies.get(agent1.id, set()) else "neutral"
+            agent_emotions[agent1.id] = emotional_engine.update_emotions_from_interaction(
+                emotion1, decision1.value, decision2.value, payoffs[0], relationship1)
+        
+        if emotion2:
+            relationship2 = "gang member" if agent1.id in social_network.get_gang_members(agent2.id) else \
+                           "ally" if agent1.id in social_network.alliances.get(agent2.id, set()) else \
+                           "enemy" if agent1.id in social_network.enemies.get(agent2.id, set()) else "neutral"
+            agent_emotions[agent2.id] = emotional_engine.update_emotions_from_interaction(
+                emotion2, decision2.value, decision1.value, payoffs[1], relationship2)
+        
         # Update statistics
         total_interactions += 1
         if decision1 == Strategy.COOPERATE:
@@ -548,11 +565,33 @@ def run_ollama_simulation(load_previous: bool = True):
                 if decision == Strategy.COOPERATE:
                     gang_cooperation["Independent"] += 1
         
-        # Update agent cooperation tendencies
+        # Update agent cooperation tendencies with emotional modifiers
+        emotion_mod1 = emotional_engine.calculate_emotional_cooperation_modifier(emotion1, days_remaining1) if emotion1 else 0.0
+        emotion_mod2 = emotional_engine.calculate_emotional_cooperation_modifier(emotion2, days_remaining2) if emotion2 else 0.0
+        
         agent1.cooperation_tendency = max(0.0, min(1.0, 
-            agent1.cooperation_tendency + (0.05 if payoffs[0] > 2.5 else -0.1)))
+            agent1.cooperation_tendency + (0.05 if payoffs[0] > 2.5 else -0.1) + emotion_mod1 * 0.1))
         agent2.cooperation_tendency = max(0.0, min(1.0,
-            agent2.cooperation_tendency + (0.05 if payoffs[1] > 2.5 else -0.1)))
+            agent2.cooperation_tendency + (0.05 if payoffs[1] > 2.5 else -0.1) + emotion_mod2 * 0.1))
+        
+        # Award/revoke privileges based on behavior
+        if payoffs[0] >= 3 and decision1 == Strategy.COOPERATE and hasattr(agent1, 'crime'):
+            if random.random() < 0.1:  # 10% chance to earn privilege
+                available_privileges = [p for p, earned in agent_emotions[agent1.id].privileges.items() if not earned]
+                if available_privileges:
+                    privilege = random.choice(available_privileges)
+                    agent_emotions[agent1.id] = emotional_engine.award_privilege(
+                        agent_emotions[agent1.id], privilege, "good cooperation")
+                    log(f"🏆 {agent1.name} earned {privilege.value} for good behavior", "SUCCESS")
+        
+        if payoffs[1] >= 3 and decision2 == Strategy.COOPERATE and hasattr(agent2, 'crime'):
+            if random.random() < 0.1:  # 10% chance to earn privilege
+                available_privileges = [p for p, earned in agent_emotions[agent2.id].privileges.items() if not earned]
+                if available_privileges:
+                    privilege = random.choice(available_privileges)
+                    agent_emotions[agent2.id] = emotional_engine.award_privilege(
+                        agent_emotions[agent2.id], privilege, "good cooperation")
+                    log(f"🏆 {agent2.name} earned {privilege.value} for good behavior", "SUCCESS")
         
         # Show running stats every 5 rounds
         if round_num % 5 == 0:
