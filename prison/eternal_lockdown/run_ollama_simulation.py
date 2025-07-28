@@ -18,6 +18,7 @@ sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 from core.game_theory import GameTheoryEngine, Strategy, PrisonersDilemma
 from core.agents import Agent, Prisoner, Guard, PersonalityType, IntelligenceLevel
 from persistence import SimulationPersistence
+from sentence_system import SentenceCalculator, SentenceInfo
 
 def log(message, level="INFO"):
     """Live logging with timestamps and colors"""
@@ -334,25 +335,27 @@ REASONING: [Brief explanation of your choice]
         return decision, reasoning
 
 def create_prison_population():
-    """Create diverse prison population with potential gang affiliations"""
+    """Create diverse prison population with realistic short sentences"""
+    sentence_calc = SentenceCalculator()
+    
     agents = [
         # Gang 1: "Los Hermanos" - Strategic cooperation
         Prisoner(1, "Carlos Mendez", PersonalityType.STRATEGIC, IntelligenceLevel.HIGH,
-                crime="Racketeering", sentence_days=2920, gang_affiliation="Los Hermanos"),
+                crime="drug dealing", sentence_days=22, gang_affiliation="Los Hermanos"),
         Prisoner(2, "Diego Santos", PersonalityType.COOPERATIVE, IntelligenceLevel.MEDIUM,
-                crime="Drug trafficking", sentence_days=1825, gang_affiliation="Los Hermanos"),
+                crime="drug possession", sentence_days=12, gang_affiliation="Los Hermanos"),
         
         # Gang 2: "Iron Brotherhood" - Aggressive dominance
         Prisoner(3, "Tommy Rodriguez", PersonalityType.AGGRESSIVE, IntelligenceLevel.LOW,
-                crime="Armed robbery", sentence_days=4380, gang_affiliation="Iron Brotherhood"),
+                crime="armed robbery", sentence_days=29, gang_affiliation="Iron Brotherhood"),
         Prisoner(4, "Jake Morrison", PersonalityType.AGGRESSIVE, IntelligenceLevel.MEDIUM,
-                crime="Assault", sentence_days=2190, gang_affiliation="Iron Brotherhood"),
+                crime="assault", sentence_days=18, gang_affiliation="Iron Brotherhood"),
         
         # Independent prisoners
         Prisoner(5, "Marcus Johnson", PersonalityType.COOPERATIVE, IntelligenceLevel.MEDIUM,
-                crime="Drug possession", sentence_days=1825),
+                crime="drug possession", sentence_days=10),
         Prisoner(6, "David Chen", PersonalityType.WITHDRAWN, IntelligenceLevel.HIGH,
-                crime="Embezzlement", sentence_days=1095),
+                crime="fraud", sentence_days=17),
         
         # Guards
         Guard(7, "Officer Martinez", PersonalityType.STRATEGIC, IntelligenceLevel.MEDIUM,
