@@ -1,0 +1,64 @@
+agent_summary:
+- cooperation_tendency: 0.35
+  gang: Los Hermanos
+  name: Carlos Mendez
+  personality: strategic
+  type: prisoner
+- cooperation_tendency: 0.4
+  gang: Los Hermanos
+  name: Diego Santos
+  personality: cooperative
+  type: prisoner
+- cooperation_tendency: 0.75
+  gang: Iron Brotherhood
+  name: Tommy Rodriguez
+  personality: aggressive
+  type: prisoner
+- cooperation_tendency: 0.9
+  gang: Iron Brotherhood
+  name: Jake Morrison
+  personality: aggressive
+  type: prisoner
+- cooperation_tendency: 0.5
+  gang: null
+  name: Marcus Johnson
+  personality: cooperative
+  type: prisoner
+- cooperation_tendency: 0.5
+  gang: null
+  name: David Chen
+  personality: withdrawn
+  type: prisoner
+- cooperation_tendency: 0.65
+  gang: null
+  name: Officer Martinez
+  personality: strategic
+  type: guard
+- cooperation_tendency: 0.3
+  gang: null
+  name: Sergeant Thompson
+  personality: cooperative
+  type: guard
+network_statistics:
+  average_influence: 0.0
+  cooperation_network_density: 0.5714285714285714
+  positive_relationships: 8
+  total_gang_members: 4
+  total_gangs: 2
+  total_relationships: 14
+simulation_summary:
+  cooperation_rate: 0.725
+  gangs:
+    Iron Brotherhood:
+      members:
+      - 3
+      - 4
+      size: 2
+    Los Hermanos:
+      members:
+      - 1
+      - 2
+      size: 2
+  timestamp: '20250728_005826'
+  total_agents: 8
+  total_interactions: 20
