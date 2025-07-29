@@ -242,26 +242,25 @@ class EmotionalDecisionEngine:
         
         return emotional_profile
     
-    def get_emotional_decision_context(self, emotional_profile: EmotionalProfile,
-                                     sentence_days_remaining: int) -> str:
+    def get_emotional_decision_context(self, sentence_days_remaining: int) -> str:
         """Get emotional context for Ollama decision making"""
         
-        wellbeing = emotional_profile.get_overall_wellbeing()
+        wellbeing = self.get_overall_wellbeing()
         
         # Identify critical needs
-        critical_needs = [need.value for need, level in emotional_profile.needs.items() if level < 0.3]
+        critical_needs = [need.value for need, level in self.needs.items() if level < 0.3]
         
         # Count privileges
-        privilege_count = sum(emotional_profile.privileges.values())
+        privilege_count = sum(self.privileges.values())
         
         context = f"""
-EMOTIONAL STATE: {emotional_profile.current_emotion.value} (intensity: {emotional_profile.emotion_intensity:.1f})
+EMOTIONAL STATE: {self.current_emotion.value} (intensity: {self.emotion_intensity:.1f})
 WELLBEING: {wellbeing:.1f}/1.0 ({'struggling' if wellbeing < 0.4 else 'managing' if wellbeing < 0.7 else 'doing well'})
 DAYS REMAINING: {sentence_days_remaining} days
 PRIVILEGES: {privilege_count}/7 earned
 CRITICAL NEEDS: {', '.join(critical_needs) if critical_needs else 'none'}
 
-Your emotional state affects your decisions. You are {emotional_profile.current_emotion.value} and {'desperate' if wellbeing < 0.3 else 'struggling' if wellbeing < 0.6 else 'stable'}.
+Your emotional state affects your decisions. You are {self.current_emotion.value} and {'desperate' if wellbeing < 0.3 else 'struggling' if wellbeing < 0.6 else 'stable'}.
 """
         
         return context.strip()
