@@ -68,6 +68,29 @@ class EmotionalProfile:
         emotion_factor = 0.7 if self.current_emotion in [EmotionalState.HOPEFUL, EmotionalState.CONTENT] else 0.3
         
         return min(1.0, (need_satisfaction * 0.6) + privilege_bonus + (emotion_factor * 0.2))
+    
+    def get_emotional_decision_context(self, sentence_days_remaining: int) -> str:
+        """Get emotional context for Ollama decision making"""
+        
+        wellbeing = self.get_overall_wellbeing()
+        
+        # Identify critical needs
+        critical_needs = [need.value for need, level in self.needs.items() if level < 0.3]
+        
+        # Count privileges
+        privilege_count = sum(self.privileges.values())
+        
+        context = f"""
+EMOTIONAL STATE: {self.current_emotion.value} (intensity: {self.emotion_intensity:.1f})
+WELLBEING: {wellbeing:.1f}/1.0 ({'struggling' if wellbeing < 0.4 else 'managing' if wellbeing < 0.7 else 'doing well'})
+DAYS REMAINING: {sentence_days_remaining} days
+PRIVILEGES: {privilege_count}/7 earned
+CRITICAL NEEDS: {', '.join(critical_needs) if critical_needs else 'none'}
+
+Your emotional state affects your decisions. You are {self.current_emotion.value} and {'desperate' if wellbeing < 0.3 else 'struggling' if wellbeing < 0.6 else 'stable'}.
+"""
+        
+        return context.strip()
 
 class EmotionalDecisionEngine:
     """Integrates emotions with game theory decisions"""
@@ -241,29 +264,6 @@ class EmotionalDecisionEngine:
             emotional_profile.needs[BasicNeed.RESPECT] - 0.15)
         
         return emotional_profile
-    
-    def get_emotional_decision_context(self, sentence_days_remaining: int) -> str:
-        """Get emotional context for Ollama decision making"""
-        
-        wellbeing = self.get_overall_wellbeing()
-        
-        # Identify critical needs
-        critical_needs = [need.value for need, level in self.needs.items() if level < 0.3]
-        
-        # Count privileges
-        privilege_count = sum(self.privileges.values())
-        
-        context = f"""
-EMOTIONAL STATE: {self.current_emotion.value} (intensity: {self.emotion_intensity:.1f})
-WELLBEING: {wellbeing:.1f}/1.0 ({'struggling' if wellbeing < 0.4 else 'managing' if wellbeing < 0.7 else 'doing well'})
-DAYS REMAINING: {sentence_days_remaining} days
-PRIVILEGES: {privilege_count}/7 earned
-CRITICAL NEEDS: {', '.join(critical_needs) if critical_needs else 'none'}
-
-Your emotional state affects your decisions. You are {self.current_emotion.value} and {'desperate' if wellbeing < 0.3 else 'struggling' if wellbeing < 0.6 else 'stable'}.
-"""
-        
-        return context.strip()
 
 def test_emotional_system():
     """Test the emotional decision system"""
