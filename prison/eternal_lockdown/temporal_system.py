@@ -130,6 +130,11 @@ class PodSchedule:
             duration_minutes=60, cooperation_opportunities=1,
             security_level="low"
         ),
+        ActivityType.EXERCISE: ActivityConstraints(
+            max_participants=4, location=Location.POD_YARD,
+            duration_minutes=60, cooperation_opportunities=2,
+            security_level="medium"
+        ),
         
         # Mandatory activities
         ActivityType.EATING: ActivityConstraints(
