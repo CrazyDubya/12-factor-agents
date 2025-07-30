@@ -24,6 +24,10 @@ def check_autogen_installation():
         print("🔗 Or visit: https://github.com/microsoft/autogen")
         return False
 
+def test_autogen_installation():
+    """Test function for integration tests"""
+    return check_autogen_installation()
+
 def test_ollama_autogen_config():
     """Test AutoGen configuration with Ollama"""
     

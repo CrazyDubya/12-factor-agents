@@ -98,88 +98,78 @@ class OllamaClient:
                     pickle.dump(self.api_cache, f)
             except Exception as e:
                 logger.warning(f"Could not save cache: {e}")
-    
-    def _get_cache_key(self, messages, **kwargs):
-        """Generate cache key for API call"""
-        # Create a hashable representation of the request
-        key_data = {
-            "messages": str(messages),
-            "model": self.model,
-            "temperature": self.temperature,
-            "max_tokens": self.max_tokens,
-            **kwargs
-        }
-        return str(hash(str(sorted(key_data.items()))))
-    
+
     def send_message(self, messages: List[Dict], model: Optional[str] = None, **kwargs) -> Dict:
         """
-        Send messages to Ollama API with OpenAI-compatible interface
-        
-        Args:
-            messages: List of message dictionaries with 'role' and 'content'
-            model: Model name (optional, uses default if not provided)
-            **kwargs: Additional parameters
-            
-        Returns:
-            Response dictionary compatible with OpenAI format
+        Send messages to Ollama API in OpenAI-compatible format
         """
-        if model is None:
-            model = self.model
-            
+        # Use provided model or default
+        model_to_use = model or self.model
+        
+        # Create cache key
+        cache_key = json.dumps({
+            "messages": messages,
+            "model": model_to_use,
+            "temperature": kwargs.get("temperature", self.temperature),
+            "max_tokens": kwargs.get("max_tokens", self.max_tokens)
+        }, sort_keys=True)
+        
         # Check cache first
-        cache_key = None
-        if self.cache_api_calls:
-            cache_key = self._get_cache_key(messages, model=model, **kwargs)
-            if cache_key in self.api_cache:
-                logger.debug("Using cached response")
-                return self.api_cache[cache_key]
-        
-        # Convert messages to Ollama format
-        prompt = self._convert_messages_to_prompt(messages)
-        
-        # Prepare request
-        request_data = {
-            "model": model,
-            "prompt": prompt,
-            "stream": False,
-            "options": {
-                "temperature": kwargs.get("temperature", self.temperature),
-                "num_predict": kwargs.get("max_tokens", self.max_tokens),
-            }
-        }
-        
-        # Handle response format (for structured output)
-        response_format = kwargs.get("response_format")
-        if response_format:
-            # For structured output, we'll add instructions to the prompt
-            if hasattr(response_format, 'model_json_schema'):
-                schema = response_format.model_json_schema()
-                request_data["prompt"] += f"\n\nPlease respond with valid JSON matching this schema: {json.dumps(schema)}"
+        if self.cache_api_calls and cache_key in self.api_cache:
+            logger.debug("Returning cached response")
+            return self.api_cache[cache_key]
         
         try:
-            # Make API call
+            # Convert messages to Ollama prompt format
+            prompt = self._convert_messages_to_prompt(messages)
+            
+            # Prepare Ollama request
+            ollama_request = {
+                "model": model_to_use,
+                "prompt": prompt,
+                "stream": False,
+                "options": {
+                    "temperature": kwargs.get("temperature", self.temperature),
+                    "num_predict": kwargs.get("max_tokens", self.max_tokens)
+                }
+            }
+            
+            # Make request to Ollama
             response = requests.post(
                 f"{self.base_url}/api/generate",
-                json=request_data,
+                json=ollama_request,
                 timeout=self.timeout
             )
-            response.raise_for_status()
             
-            ollama_response = response.json()
-            
-            # Convert to OpenAI-compatible format
-            openai_response = self._convert_ollama_to_openai_response(ollama_response, messages)
-            
-            # Cache the response
-            if self.cache_api_calls and cache_key:
-                self.api_cache[cache_key] = openai_response
-                self._save_cache()
-            
-            return openai_response
-            
+            if response.status_code == 200:
+                ollama_response = response.json()
+                openai_response = self._convert_ollama_to_openai_response(ollama_response, messages)
+                
+                # Cache the response
+                if self.cache_api_calls:
+                    self.api_cache[cache_key] = openai_response
+                    self._save_cache()
+                
+                return openai_response
+            else:
+                error_msg = f"Ollama API error: {response.status_code} - {response.text}"
+                logger.error(error_msg)
+                return {
+                    "choices": [{
+                        "message": {"role": "assistant", "content": f"Error: {error_msg}"},
+                        "finish_reason": "error"
+                    }]
+                }
+                
         except Exception as e:
-            logger.error(f"Error calling Ollama API: {e}")
-            raise
+            error_msg = f"Error calling Ollama API: {str(e)}"
+            logger.error(error_msg)
+            return {
+                "choices": [{
+                    "message": {"role": "assistant", "content": f"Error: {error_msg}"},
+                    "finish_reason": "error"
+                }]
+            }
     
     def _convert_messages_to_prompt(self, messages: List[Dict]) -> str:
         """Convert OpenAI messages format to a single prompt for Ollama"""
@@ -198,8 +188,28 @@ class OllamaClient:
             else:
                 prompt_parts.append(f"{role}: {content}")
         
-        # Add final prompt for assistant response
-        prompt_parts.append("Assistant:")
+        # Add specific JSON formatting instruction for TinyTroupe compatibility
+        prompt_parts.append("""
+Assistant: I must respond with a valid JSON object in the exact format expected by TinyTroupe. My response must be ONLY valid JSON, no additional text or explanations.
+
+The JSON format must be:
+{
+  "action": {
+    "type": "ACTION_TYPE",
+    "content": "action description",
+    "target": "target_name_or_empty"
+  },
+  "cognitive_state": {
+    "goals": ["goal1", "goal2"],
+    "context": ["context1", "context2"],
+    "attention": "what I'm focusing on",
+    "emotions": "how I'm feeling"
+  }
+}
+
+Valid action types: TALK, DONE, THINK, MOVE, WORK, OBSERVE, INTERACT
+
+JSON response:""")
         
         return "\n\n".join(prompt_parts)
     
@@ -207,8 +217,10 @@ class OllamaClient:
         """Convert Ollama response to OpenAI-compatible format"""
         content = ollama_response.get("response", "")
         
-        # Create OpenAI-compatible response
+        # Create OpenAI-compatible response that TinyTroupe expects
         openai_response = {
+            "role": "assistant",
+            "content": content,
             "choices": [{
                 "message": {
                     "role": "assistant",
@@ -220,64 +232,51 @@ class OllamaClient:
             "usage": {
                 "prompt_tokens": self._estimate_tokens(str(original_messages)),
                 "completion_tokens": self._estimate_tokens(content),
-                "total_tokens": 0  # Will be calculated below
-            },
-            "model": ollama_response.get("model", self.model),
-            "object": "chat.completion",
-            "created": int(time.time())
+                "total_tokens": self._estimate_tokens(str(original_messages)) + self._estimate_tokens(content)
+            }
         }
-        
-        # Calculate total tokens
-        openai_response["usage"]["total_tokens"] = (
-            openai_response["usage"]["prompt_tokens"] + 
-            openai_response["usage"]["completion_tokens"]
-        )
         
         return openai_response
     
     def _estimate_tokens(self, text: str) -> int:
-        """Estimate token count for text (rough approximation)"""
-        # Simple estimation: ~4 characters per token
-        return max(1, len(text) // 4)
-    
-    def get_embedding(self, text: str, model: Optional[str] = None) -> List[float]:
-        """
-        Get text embedding from Ollama
-        Note: Not all Ollama models support embeddings
-        """
-        if model is None:
-            model = config.get("Ollama", "EMBEDDING_MODEL", fallback=self.model)
-        
+        """Estimate token count for text"""
         try:
-            response = requests.post(
-                f"{self.base_url}/api/embeddings",
-                json={
-                    "model": model,
-                    "prompt": text
-                },
-                timeout=self.timeout
-            )
-            response.raise_for_status()
-            
-            result = response.json()
-            return result.get("embedding", [])
-            
-        except Exception as e:
-            logger.warning(f"Embedding not available, using dummy embedding: {e}")
-            # Return dummy embedding if not supported
-            return [0.0] * 384  # Common embedding dimension
+            encoding = tiktoken.get_encoding("cl100k_base")
+            return len(encoding.encode(text))
+        except:
+            # Fallback: rough estimate
+            return len(text.split()) * 1.3
+    
+    def get_embedding(self, text: str, model: Optional[str] = None, **kwargs) -> Dict:
+        """
+        Get embeddings from Ollama (if supported by model)
+        """
+        # Note: Not all Ollama models support embeddings
+        # This is a placeholder implementation
+        return {
+            "data": [{
+                "embedding": [0.0] * 1536,  # Placeholder embedding
+                "index": 0
+            }],
+            "usage": {
+                "prompt_tokens": self._estimate_tokens(text),
+                "total_tokens": self._estimate_tokens(text)
+            }
+        }
 
+###########################################################################
 # Global client instance
+###########################################################################
+
 _client = None
 
 def client():
-    """Get the global Ollama client instance"""
+    """Get or create global OllamaClient instance"""
     global _client
     if _client is None:
         _client = OllamaClient()
     return _client
 
-# Compatibility functions to match OpenAI utils interface
 def send_message(messages, **kwargs):
     """Send message using global client"""
     return client().send_message(messages, **kwargs)
@@ -285,3 +284,34 @@ def send_message(messages, **kwargs):
 def get_embedding(text, **kwargs):
     """Get embedding using global client"""
     return client().get_embedding(text, **kwargs)
+
+def setup_ollama_for_tinytroupe():
+    """
+    Configure TinyTroupe to use Ollama instead of OpenAI
+    This replaces the OpenAI API calls with Ollama calls
+    """
+    try:
+        import tinytroupe.openai_utils as openai_utils
+        
+        def ollama_send_message(messages, model=None, **kwargs):
+            """Replace OpenAI send_message with Ollama version"""
+            ollama_client = client()
+            return ollama_client.send_message(messages, model=model, **kwargs)
+        
+        def ollama_send_message_with_retries(messages, model=None, **kwargs):
+            """Replace OpenAI send_message with retries"""
+            return ollama_send_message(messages, model=model, **kwargs)
+        
+        # Replace the functions in openai_utils
+        openai_utils.send_message = ollama_send_message
+        openai_utils.send_message_with_retries = ollama_send_message_with_retries
+        
+        print("TinyTroupe configured to use Ollama LLMs")
+        return True
+        
+    except ImportError as e:
+        print(f"Could not configure TinyTroupe for Ollama: {e}")
+        return False
+    except Exception as e:
+        print(f"Error setting up Ollama for TinyTroupe: {e}")
+        return False
