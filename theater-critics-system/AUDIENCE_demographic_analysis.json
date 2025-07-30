@@ -1,0 +1,292 @@
+{
+  "analysis_metadata": {
+    "analysis_type": "Audience Demographic Appeal Analysis",
+    "analysis_date": "2025-07-30 00:43:06",
+    "total_musicals": 6,
+    "collection_average": 4.12,
+    "score_range": 4.73,
+    "analysis_time_seconds": 0.0,
+    "component_averages": {
+      "age_group_appeal": 3.15,
+      "cultural_accessibility": 3.15,
+      "interest_diversity": 9.17,
+      "commercial_viability": 0.47
+    }
+  },
+  "demographic_rankings": [
+    {
+      "rank": 1,
+      "musical_name": "Electric Dreams Musical - Technology & Desire",
+      "genre": "Techno-Romance",
+      "scene_title": "ACT I FINALE: The Convergence",
+      "demographic_scores": {
+        "overall_demographic_score": 7.49,
+        "age_group_appeal_score": 8.3,
+        "cultural_accessibility_score": 10.0,
+        "interest_diversity_score": 10.0,
+        "commercial_viability_score": 0.0
+      },
+      "demographic_characteristics": {
+        "primary_demographic": "Family",
+        "cultural_scope": "Universal",
+        "commercial_category": "Specialized",
+        "accessibility_level": "Highly Accessible"
+      },
+      "age_group_breakdown": {
+        "children": 3.0,
+        "teens": 2.0,
+        "young_adults": 3.0,
+        "adults": 1.0,
+        "seniors": 0.0
+      },
+      "demographic_details": {
+        "cultural_appeal_factors": [
+          "Universal Themes: 18",
+          "Contemporary References: 10",
+          "Barrier - Complex Themes: 1"
+        ],
+        "interest_categories": [
+          "Music Lovers: 5",
+          "Theater Enthusiasts: 5",
+          "Romance Fans: 14",
+          "Drama Appreciators: 2",
+          "Social Commentary: 2"
+        ],
+        "commercial_indicators": [],
+        "demographic_strengths": [
+          "Strong cross-generational appeal",
+          "High cultural accessibility",
+          "Diverse interest appeal"
+        ]
+      },
+      "analysis_time": 0.01
+    },
+    {
+      "rank": 2,
+      "musical_name": "Midnight at the Majestic Musical - Theater Murder Mystery",
+      "genre": "Murder Mystery",
+      "scene_title": "\"MIDNIGHT SERENADE\"",
+      "demographic_scores": {
+        "overall_demographic_score": 4.17,
+        "age_group_appeal_score": 1.4,
+        "cultural_accessibility_score": 5.0,
+        "interest_diversity_score": 10.0,
+        "commercial_viability_score": 0.0
+      },
+      "demographic_characteristics": {
+        "primary_demographic": "Family",
+        "cultural_scope": "Niche",
+        "commercial_category": "Specialized",
+        "accessibility_level": "Moderately Accessible"
+      },
+      "age_group_breakdown": {
+        "children": 1.0,
+        "teens": 1.0,
+        "young_adults": 0.0,
+        "adults": 0.0,
+        "seniors": 0.0
+      },
+      "demographic_details": {
+        "cultural_appeal_factors": [
+          "Universal Themes: 1",
+          "Inclusive elements: 3"
+        ],
+        "interest_categories": [
+          "Music Lovers: 9",
+          "Theater Enthusiasts: 18",
+          "Romance Fans: 1",
+          "Drama Appreciators: 1",
+          "Multiple interests engaged: 4"
+        ],
+        "commercial_indicators": [],
+        "demographic_strengths": [
+          "Diverse interest appeal"
+        ]
+      },
+      "analysis_time": 0.01
+    },
+    {
+      "rank": 3,
+      "musical_name": "Neon Hearts Burlesque Musical - Underground Cabaret",
+      "genre": "Contemporary Drama",
+      "scene_title": "\"NEON HEARTS\"",
+      "demographic_scores": {
+        "overall_demographic_score": 3.63,
+        "age_group_appeal_score": 2.9,
+        "cultural_accessibility_score": 0.0,
+        "interest_diversity_score": 10.0,
+        "commercial_viability_score": 1.3
+      },
+      "demographic_characteristics": {
+        "primary_demographic": "Family",
+        "cultural_scope": "Niche",
+        "commercial_category": "Specialized",
+        "accessibility_level": "Selective"
+      },
+      "age_group_breakdown": {
+        "children": 1.0,
+        "teens": 1.0,
+        "young_adults": 0.0,
+        "adults": 0.0,
+        "seniors": 0.0
+      },
+      "demographic_details": {
+        "cultural_appeal_factors": [],
+        "interest_categories": [
+          "Music Lovers: 5",
+          "Theater Enthusiasts: 3",
+          "Fantasy Enthusiasts: 2",
+          "Multiple interests engaged: 3"
+        ],
+        "commercial_indicators": [
+          "Star Potential: 1"
+        ],
+        "demographic_strengths": [
+          "Diverse interest appeal"
+        ]
+      },
+      "analysis_time": 0.0
+    },
+    {
+      "rank": 4,
+      "musical_name": "Rainbow Academy Musical - Magic School Adventure",
+      "genre": "Fantasy Musical Theater",
+      "scene_title": "Welcome to Rainbow Academy",
+      "demographic_scores": {
+        "overall_demographic_score": 3.44,
+        "age_group_appeal_score": 3.3,
+        "cultural_accessibility_score": 2.0,
+        "interest_diversity_score": 6.6,
+        "commercial_viability_score": 1.5
+      },
+      "demographic_characteristics": {
+        "primary_demographic": "Family",
+        "cultural_scope": "Niche",
+        "commercial_category": "Specialized",
+        "accessibility_level": "Selective"
+      },
+      "age_group_breakdown": {
+        "children": 5.0,
+        "teens": 1.0,
+        "young_adults": 0.0,
+        "adults": 1.0,
+        "seniors": 2.0
+      },
+      "demographic_details": {
+        "cultural_appeal_factors": [
+          "Universal Themes: 1"
+        ],
+        "interest_categories": [
+          "Music Lovers: 2",
+          "Fantasy Enthusiasts: 5",
+          "Dual interest appeal: 2"
+        ],
+        "commercial_indicators": [
+          "Production Value: 1"
+        ],
+        "demographic_strengths": []
+      },
+      "analysis_time": 0.0
+    },
+    {
+      "rank": 5,
+      "musical_name": "Echo Musical - AI Consciousness & Memory",
+      "genre": "Sci-Fi Drama",
+      "scene_title": "The Lab",
+      "demographic_scores": {
+        "overall_demographic_score": 3.21,
+        "age_group_appeal_score": 1.8,
+        "cultural_accessibility_score": 0.7,
+        "interest_diversity_score": 10.0,
+        "commercial_viability_score": 0.0
+      },
+      "demographic_characteristics": {
+        "primary_demographic": "Mature",
+        "cultural_scope": "Niche",
+        "commercial_category": "Specialized",
+        "accessibility_level": "Selective"
+      },
+      "age_group_breakdown": {
+        "children": 0.0,
+        "teens": 0.0,
+        "young_adults": 0.0,
+        "adults": 1.0,
+        "seniors": 3.0
+      },
+      "demographic_details": {
+        "cultural_appeal_factors": [
+          "Contemporary References: 1",
+          "Barrier - Complex Themes: 1"
+        ],
+        "interest_categories": [
+          "Music Lovers: 6",
+          "Theater Enthusiasts: 6",
+          "Drama Appreciators: 4",
+          "Sci Fi Fans: 4",
+          "Multiple interests engaged: 4"
+        ],
+        "commercial_indicators": [],
+        "demographic_strengths": [
+          "Diverse interest appeal"
+        ]
+      },
+      "analysis_time": 0.01
+    },
+    {
+      "rank": 6,
+      "musical_name": "Neon Rebellion Musical - Dystopian Resistance",
+      "genre": "Dystopian Action",
+      "scene_title": "Algorithm Paradise",
+      "demographic_scores": {
+        "overall_demographic_score": 2.76,
+        "age_group_appeal_score": 1.2,
+        "cultural_accessibility_score": 1.2,
+        "interest_diversity_score": 8.4,
+        "commercial_viability_score": 0.0
+      },
+      "demographic_characteristics": {
+        "primary_demographic": "Young Adult",
+        "cultural_scope": "Niche",
+        "commercial_category": "Specialized",
+        "accessibility_level": "Selective"
+      },
+      "age_group_breakdown": {
+        "children": 0.0,
+        "teens": 1.0,
+        "young_adults": 0.0,
+        "adults": 0.0,
+        "seniors": 0.0
+      },
+      "demographic_details": {
+        "cultural_appeal_factors": [
+          "Contemporary References: 1"
+        ],
+        "interest_categories": [
+          "Music Lovers: 6",
+          "Theater Enthusiasts: 1",
+          "Drama Appreciators: 1",
+          "Multiple interests engaged: 3"
+        ],
+        "commercial_indicators": [],
+        "demographic_strengths": [
+          "Diverse interest appeal"
+        ]
+      },
+      "analysis_time": 0.0
+    }
+  ],
+  "demographic_patterns": {
+    "primary_demographics": {
+      "Family": 4,
+      "Mature": 1,
+      "Young Adult": 1
+    },
+    "cultural_scopes": {
+      "Universal": 1,
+      "Niche": 5
+    },
+    "commercial_categories": {
+      "Specialized": 6
+    }
+  }
+}

@@ -1,0 +1,251 @@
+{
+  "analysis_metadata": {
+    "analysis_type": "Production Complexity & Staging Requirements",
+    "analysis_date": "2025-07-30 00:13:34",
+    "total_musicals": 6,
+    "collection_average": 2.19,
+    "score_range": 3.19,
+    "analysis_time_seconds": 0.0,
+    "component_averages": {
+      "technical_demands": 3.8,
+      "staging_complexity": 2.48,
+      "resource_requirements": 0.23,
+      "production_feasibility": 8.72
+    }
+  },
+  "production_rankings": [
+    {
+      "rank": 1,
+      "musical_name": "Echo Musical - AI Consciousness & Memory",
+      "genre": "Sci-Fi Drama",
+      "scene_title": "The Lab",
+      "production_scores": {
+        "overall_production_score": 3.44,
+        "technical_demands_score": 9.28,
+        "staging_complexity_score": 1.4,
+        "resource_requirements_score": 0.4,
+        "production_feasibility_score": 9.2
+      },
+      "production_characteristics": {
+        "technical_complexity": "Expert",
+        "staging_difficulty": "Simple",
+        "budget_category": "Low",
+        "production_scale": "Intimate"
+      },
+      "production_details": {
+        "technical_elements": [
+          "Lighting: expert level",
+          "Sound: intermediate level",
+          "Set_Design: basic level",
+          "Choreography: basic level",
+          "Cutting-edge technology: 5 innovations"
+        ],
+        "staging_challenges": [
+          "Timing Precision: 1 complexity points",
+          "Complex movement: 1 advanced techniques",
+          "Timing precision: 1 synchronization points"
+        ],
+        "resource_needs": [
+          "Personnel requirements: 2.0 resource points"
+        ],
+        "feasibility_factors": [
+          "Technical Difficulty: 1 challenges"
+        ]
+      },
+      "analysis_time": 0.01
+    },
+    {
+      "rank": 2,
+      "musical_name": "Neon Rebellion Musical - Dystopian Resistance",
+      "genre": "Dystopian Action",
+      "scene_title": "Algorithm Paradise",
+      "production_scores": {
+        "overall_production_score": 3.4,
+        "technical_demands_score": 4.52,
+        "staging_complexity_score": 6.8,
+        "resource_requirements_score": 0.0,
+        "production_feasibility_score": 10.0
+      },
+      "production_characteristics": {
+        "technical_complexity": "Intermediate",
+        "staging_difficulty": "Complex",
+        "budget_category": "Low",
+        "production_scale": "Standard"
+      },
+      "production_details": {
+        "technical_elements": [
+          "Lighting: basic level",
+          "Sound: basic level",
+          "Set_Design: basic level",
+          "Choreography: intermediate level",
+          "Cutting-edge technology: 1 innovations"
+        ],
+        "staging_challenges": [
+          "Cast Size: 2 complexity points",
+          "Movement Complexity: 2 complexity points",
+          "Multi-level staging: 3 vertical elements",
+          "Complex movement: 4 advanced techniques",
+          "Timing precision: 2 synchronization points"
+        ],
+        "resource_needs": [],
+        "feasibility_factors": []
+      },
+      "analysis_time": 0.0
+    },
+    {
+      "rank": 3,
+      "musical_name": "Midnight at the Majestic Musical - Theater Murder Mystery",
+      "genre": "Murder Mystery",
+      "scene_title": "\"MIDNIGHT SERENADE\"",
+      "production_scores": {
+        "overall_production_score": 2.42,
+        "technical_demands_score": 4.2,
+        "staging_complexity_score": 3.6,
+        "resource_requirements_score": 0.4,
+        "production_feasibility_score": 10.0
+      },
+      "production_characteristics": {
+        "technical_complexity": "Intermediate",
+        "staging_difficulty": "Moderate",
+        "budget_category": "Low",
+        "production_scale": "Standard"
+      },
+      "production_details": {
+        "technical_elements": [
+          "Lighting: basic level",
+          "Sound: basic level",
+          "Set_Design: basic level",
+          "Costumes: basic level",
+          "Choreography: intermediate level"
+        ],
+        "staging_challenges": [
+          "Cast Size: 6 complexity points",
+          "Movement Complexity: 2 complexity points",
+          "Ensemble management: 5 group elements"
+        ],
+        "resource_needs": [
+          "Personnel requirements: 2.0 resource points"
+        ],
+        "feasibility_factors": []
+      },
+      "analysis_time": 0.01
+    },
+    {
+      "rank": 4,
+      "musical_name": "Neon Hearts Burlesque Musical - Underground Cabaret",
+      "genre": "Contemporary Drama",
+      "scene_title": "\"NEON HEARTS\"",
+      "production_scores": {
+        "overall_production_score": 2.27,
+        "technical_demands_score": 3.0,
+        "staging_complexity_score": 1.1,
+        "resource_requirements_score": 0.0,
+        "production_feasibility_score": 4.8
+      },
+      "production_characteristics": {
+        "technical_complexity": "Intermediate",
+        "staging_difficulty": "Simple",
+        "budget_category": "Low",
+        "production_scale": "Standard"
+      },
+      "production_details": {
+        "technical_elements": [
+          "Lighting: basic level",
+          "Sound: basic level",
+          "Set_Design: basic level",
+          "Choreography: basic level",
+          "Special_Effects: basic level"
+        ],
+        "staging_challenges": [
+          "Movement Complexity: 1 complexity points",
+          "Complex movement: 1 advanced techniques"
+        ],
+        "resource_needs": [],
+        "feasibility_factors": [
+          "Safety Concerns: 3 challenges",
+          "Implementation risks: 3 risk factors"
+        ]
+      },
+      "analysis_time": 0.0
+    },
+    {
+      "rank": 5,
+      "musical_name": "Electric Dreams Musical - Technology & Desire",
+      "genre": "Techno-Romance",
+      "scene_title": "ACT I FINALE: The Convergence",
+      "production_scores": {
+        "overall_production_score": 1.35,
+        "technical_demands_score": 1.36,
+        "staging_complexity_score": 2.0,
+        "resource_requirements_score": 0.0,
+        "production_feasibility_score": 8.3
+      },
+      "production_characteristics": {
+        "technical_complexity": "Basic",
+        "staging_difficulty": "Simple",
+        "budget_category": "Low",
+        "production_scale": "Standard"
+      },
+      "production_details": {
+        "technical_elements": [
+          "Sound: basic level",
+          "Choreography: basic level"
+        ],
+        "staging_challenges": [
+          "Multi-level staging: 5 vertical elements"
+        ],
+        "resource_needs": [],
+        "feasibility_factors": [
+          "Technical Difficulty: 1 challenges",
+          "Implementation risks: 1 risk factors"
+        ]
+      },
+      "analysis_time": 0.01
+    },
+    {
+      "rank": 6,
+      "musical_name": "Rainbow Academy Musical - Magic School Adventure",
+      "genre": "Fantasy Musical Theater",
+      "scene_title": "Welcome to Rainbow Academy",
+      "production_scores": {
+        "overall_production_score": 0.25,
+        "technical_demands_score": 0.44,
+        "staging_complexity_score": 0.0,
+        "resource_requirements_score": 0.6,
+        "production_feasibility_score": 10.0
+      },
+      "production_characteristics": {
+        "technical_complexity": "Basic",
+        "staging_difficulty": "Simple",
+        "budget_category": "Low",
+        "production_scale": "Spectacular"
+      },
+      "production_details": {
+        "technical_elements": [
+          "Sound: basic level"
+        ],
+        "staging_challenges": [],
+        "resource_needs": [
+          "Equipment complexity: 2 tech points"
+        ],
+        "feasibility_factors": []
+      },
+      "analysis_time": 0.0
+    }
+  ],
+  "production_patterns": {
+    "technical_complexity": {
+      "Expert": 1,
+      "Intermediate": 3,
+      "Basic": 2
+    },
+    "budget_categories": {
+      "Low": 6
+    },
+    "production_scales": {
+      "Intimate": 1,
+      "Standard": 4,
+      "Spectacular": 1
+    }
+  }
+}

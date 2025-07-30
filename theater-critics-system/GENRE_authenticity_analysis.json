@@ -1,0 +1,277 @@
+{
+  "analysis_metadata": {
+    "analysis_type": "Genre Authenticity & Innovation Assessment",
+    "analysis_date": "2025-07-29 23:38:06",
+    "total_musicals": 6,
+    "collection_average": 3.44,
+    "score_range": 2.8,
+    "analysis_time_seconds": 0.0,
+    "component_averages": {
+      "genre_authenticity": 3.55,
+      "innovation_creativity": 3.15,
+      "convention_adherence": 6.33,
+      "creative_risk_taking": 0.73
+    }
+  },
+  "genre_rankings": [
+    {
+      "rank": 1,
+      "musical_name": "Midnight at the Majestic Musical - Theater Murder Mystery",
+      "declared_genre": "Murder Mystery",
+      "scene_title": "\"MIDNIGHT SERENADE\"",
+      "genre_scores": {
+        "overall_genre_score": 4.8,
+        "genre_authenticity_score": 3.1,
+        "innovation_creativity_score": 7.7,
+        "genre_convention_adherence": 7.0,
+        "creative_risk_taking_score": 1.4
+      },
+      "genre_assessment": {
+        "authenticity_level": "Contemporary",
+        "innovation_level": "Moderate",
+        "genre_balance": "Genre Blend"
+      },
+      "genre_details": {
+        "authentic_elements": [
+          "Theme: murder",
+          "Theme: mystery",
+          "Theme: secrets",
+          "Theme: truth",
+          "Setting: theater"
+        ],
+        "innovative_elements": [
+          "Innovation: e frantic*\n\n**vivian**: (breaking character slightly)\n*som",
+          "Innovation: **vivian**: (now fully breaking character, singing direc",
+          "Innovation: singing directly to the audience)\n*you want to know the t",
+          "Innovation: breakdown on stage. the audience is murmuring.*\n\n**frank*",
+          "Innovation: ay*\n\n**vivian**: (to the audience, completely unhinged)\n*y"
+        ],
+        "conventions_met": [
+          "Strong thematic alignment (4 themes)",
+          "Some setting elements (1 settings)",
+          "Some genre vocabulary (1 terms)",
+          "Some genre conflicts (1 types)",
+          "Appropriate tense tone (5 indicators)"
+        ],
+        "creative_risks": [
+          "Complex length: 1065 words",
+          "Complex cast: 30 character voices"
+        ],
+        "cross_genre_influences": []
+      },
+      "analysis_time": 0.0
+    },
+    {
+      "rank": 2,
+      "musical_name": "Echo Musical - AI Consciousness & Memory",
+      "declared_genre": "Sci-Fi Drama",
+      "scene_title": "The Lab",
+      "genre_scores": {
+        "overall_genre_score": 3.75,
+        "genre_authenticity_score": 4.4,
+        "innovation_creativity_score": 2.6,
+        "genre_convention_adherence": 7.0,
+        "creative_risk_taking_score": 1.0
+      },
+      "genre_assessment": {
+        "authenticity_level": "Contemporary",
+        "innovation_level": "Conservative",
+        "genre_balance": "Genre Fusion"
+      },
+      "genre_details": {
+        "authentic_elements": [
+          "Theme: digital",
+          "Theme: consciousness",
+          "Theme: memory",
+          "Setting: laboratory",
+          "Setting: space"
+        ],
+        "innovative_elements": [
+          "Cross-genre: mystery (from Murder Mystery)",
+          "Contemporary theme: \\b(?:social media|internet|digital|virtual reality)\\b",
+          "Contemporary theme: \\b(?:ai|artificial intelligence|machine learning)\\b"
+        ],
+        "conventions_met": [
+          "Strong thematic alignment (3 themes)",
+          "Appropriate setting elements (4 settings)",
+          "Consistent genre vocabulary (3 terms)",
+          "Some genre conflicts (1 types)"
+        ],
+        "creative_risks": [
+          "Complex structure: 1 instances"
+        ],
+        "cross_genre_influences": []
+      },
+      "analysis_time": 0.0
+    },
+    {
+      "rank": 3,
+      "musical_name": "Electric Dreams Musical - Technology & Desire",
+      "declared_genre": "Techno-Romance",
+      "scene_title": "ACT I FINALE: The Convergence",
+      "genre_scores": {
+        "overall_genre_score": 3.7,
+        "genre_authenticity_score": 4.6,
+        "innovation_creativity_score": 2.2,
+        "genre_convention_adherence": 6.0,
+        "creative_risk_taking_score": 2.0
+      },
+      "genre_assessment": {
+        "authenticity_level": "Contemporary",
+        "innovation_level": "Conservative",
+        "genre_balance": "Genre Blend"
+      },
+      "genre_details": {
+        "authentic_elements": [
+          "Theme: love",
+          "Theme: desire",
+          "Theme: technology",
+          "Theme: connection",
+          "Setting: digital world"
+        ],
+        "innovative_elements": [
+          "Cross-genre: technology (from Sci-Fi Drama)",
+          "Cross-genre: artificial (from Sci-Fi Drama)",
+          "Contemporary theme: \\b(?:social media|internet|digital|virtual reality)\\b"
+        ],
+        "conventions_met": [
+          "Strong thematic alignment (4 themes)",
+          "Some setting elements (1 settings)",
+          "Some genre vocabulary (2 terms)",
+          "Genre-appropriate conflicts (4 types)"
+        ],
+        "creative_risks": [
+          "Complex structure: 1 instances",
+          "Technical innovation: 1 instances"
+        ],
+        "cross_genre_influences": [
+          "Sci-Fi Drama elements (2 themes)"
+        ]
+      },
+      "analysis_time": 0.0
+    },
+    {
+      "rank": 4,
+      "musical_name": "Rainbow Academy Musical - Magic School Adventure",
+      "declared_genre": "Fantasy Musical Theater",
+      "scene_title": "Welcome to Rainbow Academy",
+      "genre_scores": {
+        "overall_genre_score": 3.62,
+        "genre_authenticity_score": 4.7,
+        "innovation_creativity_score": 0.8,
+        "genre_convention_adherence": 9.0,
+        "creative_risk_taking_score": 0.0
+      },
+      "genre_assessment": {
+        "authenticity_level": "Contemporary",
+        "innovation_level": "Conservative",
+        "genre_balance": "Pure Genre"
+      },
+      "genre_details": {
+        "authentic_elements": [
+          "Theme: magic",
+          "Theme: adventure",
+          "Theme: friendship",
+          "Theme: wonder",
+          "Setting: magical world"
+        ],
+        "innovative_elements": [
+          "Innovation: icorn demonstrates their unique magic - light, healing,"
+        ],
+        "conventions_met": [
+          "Strong thematic alignment (4 themes)",
+          "Appropriate setting elements (2 settings)",
+          "Consistent genre vocabulary (5 terms)",
+          "Some genre conflicts (1 types)",
+          "Appropriate positive tone (4 indicators)"
+        ],
+        "creative_risks": [],
+        "cross_genre_influences": []
+      },
+      "analysis_time": 0.0
+    },
+    {
+      "rank": 5,
+      "musical_name": "Neon Rebellion Musical - Dystopian Resistance",
+      "declared_genre": "Dystopian Action",
+      "scene_title": "Algorithm Paradise",
+      "genre_scores": {
+        "overall_genre_score": 2.77,
+        "genre_authenticity_score": 4.1,
+        "innovation_creativity_score": 1.0,
+        "genre_convention_adherence": 6.0,
+        "creative_risk_taking_score": 0.0
+      },
+      "genre_assessment": {
+        "authenticity_level": "Contemporary",
+        "innovation_level": "Conservative",
+        "genre_balance": "Pure Genre"
+      },
+      "genre_details": {
+        "authentic_elements": [
+          "Theme: rebellion",
+          "Theme: control",
+          "Theme: resistance",
+          "Theme: dystopia",
+          "Vocabulary: rebellion"
+        ],
+        "innovative_elements": [
+          "Contemporary theme: \\b(?:ai|artificial intelligence|machine learning)\\b"
+        ],
+        "conventions_met": [
+          "Strong thematic alignment (4 themes)",
+          "Consistent genre vocabulary (3 terms)",
+          "Genre-appropriate conflicts (3 types)"
+        ],
+        "creative_risks": [],
+        "cross_genre_influences": []
+      },
+      "analysis_time": 0.0
+    },
+    {
+      "rank": 6,
+      "musical_name": "Neon Hearts Burlesque Musical - Underground Cabaret",
+      "declared_genre": "Contemporary Drama",
+      "scene_title": "\"NEON HEARTS\"",
+      "genre_scores": {
+        "overall_genre_score": 2.0,
+        "genre_authenticity_score": 0.4,
+        "innovation_creativity_score": 4.6,
+        "genre_convention_adherence": 3.0,
+        "creative_risk_taking_score": 0.0
+      },
+      "genre_assessment": {
+        "authenticity_level": "Experimental",
+        "innovation_level": "Conservative",
+        "genre_balance": "Genre Blend"
+      },
+      "genre_details": {
+        "authentic_elements": [
+          "Conflict: dreams vs reality"
+        ],
+        "innovative_elements": [
+          "Innovation: ounting the till.*\n\n*the audience - both onstage and in th",
+          "Innovation: *ruby** (speaking to the audience, voice like whiskey and",
+          "Innovation: arts*\n\n---\n\n## song: the audience - both onstage and in th",
+          "Innovation: ed as glamour.*\n\n*a live jazz quartet sits in the corn",
+          "Innovation: the music starts a live jazz quartet sits in the corn"
+        ],
+        "conventions_met": [
+          "Some genre conflicts (1 types)",
+          "Appropriate positive tone (2 indicators)"
+        ],
+        "creative_risks": [],
+        "cross_genre_influences": []
+      },
+      "analysis_time": 0.0
+    }
+  ],
+  "authenticity_distribution": {
+    "Contemporary": 5,
+    "Experimental": 1
+  },
+  "innovation_distribution": {
+    "Moderate": 1,
+    "Conservative": 5
+  }
+}
