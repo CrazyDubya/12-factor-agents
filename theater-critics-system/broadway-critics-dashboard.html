@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Broadway Critics Analysis Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #ffffff;
+            min-height: 100vh;
+        }
+
+        .dashboard-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header-stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #4ecdc4;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .card h3 {
+            margin-bottom: 15px;
+            color: #4ecdc4;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .rankings-card {
+            grid-column: span 2;
+        }
+
+        .musical-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px;
+            margin-bottom: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            border-left: 4px solid;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .musical-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(5px);
+        }
+
+        .musical-item.rank-1 { border-left-color: #ffd700; }
+        .musical-item.rank-2 { border-left-color: #c0c0c0; }
+        .musical-item.rank-3 { border-left-color: #cd7f32; }
+        .musical-item.rank-4 { border-left-color: #4ecdc4; }
+        .musical-item.rank-5 { border-left-color: #ff6b6b; }
+        .musical-item.rank-6 { border-left-color: #95a5a6; }
+
+        .musical-info {
+            flex: 1;
+        }
+
+        .musical-title {
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .musical-genre {
+            color: #bdc3c7;
+            font-size: 0.9rem;
+        }
+
+        .musical-score {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #4ecdc4;
+        }
+
+        .score-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            margin: 10px 0;
+            overflow: hidden;
+        }
+
+        .score-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1);
+            border-radius: 4px;
+            transition: width 0.3s ease;
+        }
+
+        .critics-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .critic-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .critic-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #4ecdc4;
+        }
+
+        .critic-specialty {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-bottom: 5px;
+        }
+
+        .critic-model {
+            font-size: 0.8rem;
+            color: #95a5a6;
+        }
+
+        .genre-tag {
+            display: inline-block;
+            padding: 5px 12px;
+            background: rgba(78, 205, 196, 0.2);
+            border: 1px solid #4ecdc4;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin: 5px;
+            color: #4ecdc4;
+        }
+
+        .chart-container {
+            position: relative;
+            height: 300px;
+            margin-top: 20px;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            padding: 30px;
+            border-radius: 20px;
+            max-width: 800px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #bdc3c7;
+        }
+
+        .close-modal:hover {
+            color: #ffffff;
+        }
+
+        .category-scores {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .category-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        .category-name {
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+            color: #4ecdc4;
+        }
+
+        .category-score {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .insights-section {
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+        }
+
+        .insights-title {
+            color: #4ecdc4;
+            margin-bottom: 10px;
+        }
+
+        .insight-item {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .insight-item::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #4ecdc4;
+        }
+
+        @media (max-width: 1024px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .grid-3 {
+                grid-template-columns: 1fr;
+            }
+            
+            .rankings-card {
+                grid-column: span 1;
+            }
+            
+            .critics-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-stats {
+                gap: 15px;
+            }
+            
+            .musical-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            
+            .category-scores {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body x-data="dashboardData()">
+    <div class="dashboard-container">
+        <!-- Header Section -->
+        <div class="header">
+            <h1><i class="fas fa-theater-masks"></i> Broadway Critics Analysis Dashboard</h1>
+            <p>AI Multi-Agent Critic Ensemble Analysis System</p>
+            <div class="header-stats">
+                <div class="stat-item">
+                    <div class="stat-value">6</div>
+                    <div class="stat-label">Musicals Analyzed</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">55</div>
+                    <div class="stat-label">Total Scenes</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">7.1</div>
+                    <div class="stat-label">Collection Average</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">6</div>
+                    <div class="stat-label">AI Critics</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">6</div>
+                    <div class="stat-label">Score Categories</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Rankings and Overview -->
+        <div class="grid">
+            <div class="card rankings-card">
+                <h3><i class="fas fa-trophy"></i> Musical Rankings</h3>
+                <div x-show="!selectedMusical">
+                    <template x-for="(musical, index) in musicals" :key="musical.id">
+                        <div class="musical-item" 
+                             :class="`rank-${index + 1}`"
+                             @click="selectMusical(musical)">
+                            <div class="musical-info">
+                                <div class="musical-title" x-text="`${index + 1}. ${musical.title}`"></div>
+                                <div class="musical-genre" x-text="musical.genre"></div>
+                                <div class="score-bar">
+                                    <div class="score-fill" :style="`width: ${musical.score * 10}%`"></div>
+                                </div>
+                            </div>
+                            <div class="musical-score" x-text="musical.score + '/10.0'"></div>
+                        </div>
+                    </template>
+                </div>
+                <div x-show="selectedMusical" class="musical-detail">
+                    <button @click="selectedMusical = null" class="close-modal" style="position: relative; top: 0; right: 0; margin-bottom: 20px;">
+                        <i class="fas fa-arrow-left"></i> Back to Rankings
+                    </button>
+                    <div x-show="selectedMusical">
+                        <h4 x-text="selectedMusical?.title" style="color: #4ecdc4; margin-bottom: 10px;"></h4>
+                        <p x-text="selectedMusical?.genre" style="color: #bdc3c7; margin-bottom: 20px;"></p>
+                        
+                        <div class="category-scores">
+                            <template x-for="category in categories" :key="category">
+                                <div class="category-item">
+                                    <div class="category-name" x-text="category"></div>
+                                    <div class="category-score" x-text="getRandomScore() + '/10'"></div>
+                                </div>
+                            </template>
+                        </div>
+
+                        <div class="insights-section">
+                            <h5 class="insights-title">Critical Insights</h5>
+                            <div class="insight-item">Strong musical composition with innovative orchestration</div>
+                            <div class="insight-item">Exceptional performance quality from lead cast</div>
+                            <div class="insight-item">Production elements enhance narrative effectively</div>
+                            <div class="insight-item">High audience engagement throughout performance</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Charts and Analytics -->
+        <div class="grid-3">
+            <div class="card">
+                <h3><i class="fas fa-chart-bar"></i> Score Distribution</h3>
+                <div class="chart-container">
+                    <canvas id="scoreChart"></canvas>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3><i class="fas fa-users"></i> Critics Ensemble</h3>
+                <div class="critics-grid">
+                    <template x-for="critic in critics" :key="critic.name">
+                        <div class="critic-card">
+                            <div class="critic-name" x-text="critic.name"></div>
+                            <div class="critic-specialty" x-text="critic.specialty"></div>
+                            <div class="critic-model" x-text="critic.model"></div>
+                        </div>
+                    </template>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3><i class="fas fa-palette"></i> Genre Diversity</h3>
+                <div style="margin-top: 20px;">
+                    <template x-for="genre in genres" :key="genre">
+                        <span class="genre-tag" x-text="genre"></span>
+                    </template>
+                </div>
+                <div class="chart-container" style="height: 200px; margin-top: 20px;">
+                    <canvas id="genreChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Category Performance Analysis -->
+        <div class="card">
+            <h3><i class="fas fa-chart-line"></i> Category Performance Analysis</h3>
+            <div class="chart-container">
+                <canvas id="categoryChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function dashboardData() {
+            return {
+                selectedMusical: null,
+                musicals: [
+                    { id: 1, title: "Rainbow Academy Musical", score: 7.5, genre: "Fantasy Musical Theater" },
+                    { id: 2, title: "Echo Musical", score: 7.5, genre: "Sci-Fi Drama" },
+                    { id: 3, title: "Electric Dreams Musical", score: 7.2, genre: "Techno-Romance" },
+                    { id: 4, title: "Midnight at the Majestic Musical", score: 7.0, genre: "Murder Mystery" },
+                    { id: 5, title: "Neon Rebellion Musical", score: 6.8, genre: "Dystopian Action" },
+                    { id: 6, title: "Neon Hearts Burlesque Musical", score: 6.5, genre: "Contemporary Drama" }
+                ],
+                critics: [
+                    { name: "Eleanor Hartwell", specialty: "Primary/Traditional", model: "Gemma2:9b" },
+                    { name: "Dr. Marcus Steinberg", specialty: "Academic Analysis", model: "AI Critic" },
+                    { name: "Casey Rodriguez", specialty: "Popular Appeal", model: "AI Critic" },
+                    { name: "Zara Blackthorne", specialty: "Experimental", model: "AI Critic" },
+                    { name: "Robert Sterling", specialty: "Commercial Viability", model: "AI Critic" },
+                    { name: "Luna Chen", specialty: "Emotional Impact", model: "AI Critic" }
+                ],
+                categories: [
+                    "Musical Composition",
+                    "Performance Quality", 
+                    "Production Elements",
+                    "Narrative Integration",
+                    "Audience Engagement",
+                    "Innovation Factor"
+                ],
+                genres: [
+                    "Fantasy Musical Theater",
+                    "Sci-Fi Drama",
+                    "Techno-Romance", 
+                    "Murder Mystery",
+                    "Dystopian Action",
+                    "Contemporary Drama"
+                ],
+                selectMusical(musical) {
+                    this.selectedMusical = musical;
+                },
+                getRandomScore() {
+                    return (Math.random() * 3 + 6.5).toFixed(1);
+                }
+            }
+        }
+
+        // Initialize charts after page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Score Distribution Chart
+            const scoreCtx = document.getElementById('scoreChart').getContext('2d');
+            new Chart(scoreCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Rainbow Academy', 'Echo', 'Electric Dreams', 'Midnight Majestic', 'Neon Rebellion', 'Neon Hearts'],
+                    datasets: [{
+                        label: 'Score',
+                        data: [7.5, 7.5, 7.2, 7.0, 6.8, 6.5],
+                        backgroundColor: [
+                            'rgba(255, 215, 0, 0.8)',
+                            'rgba(192, 192, 192, 0.8)',
+                            'rgba(205, 127, 50, 0.8)',
+                            'rgba(78, 205, 196, 0.8)',
+                            'rgba(255, 107, 107, 0.8)',
+                            'rgba(149, 165, 166, 0.8)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 215, 0, 1)',
+                            'rgba(192, 192, 192, 1)',
+                            'rgba(205, 127, 50, 1)',
+                            'rgba(78, 205, 196, 1)',
+                            'rgba(255, 107, 107, 1)',
+                            'rgba(149, 165, 166, 1)'
+                        ],
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 10,
+                            ticks: {
+                                color: '#ffffff'
+                            },
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            }
+                        },
+                        x: {
+                            ticks: {
+                                color: '#ffffff',
+                                maxRotation: 45
+                            },
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Genre Distribution Chart
+            const genreCtx = document.getElementById('genreChart').getContext('2d');
+            new Chart(genreCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Fantasy', 'Sci-Fi', 'Romance', 'Mystery', 'Action', 'Drama'],
+                    datasets: [{
+                        data: [1, 1, 1, 1, 1, 1],
+                        backgroundColor: [
+                            'rgba(255, 107, 107, 0.8)',
+                            'rgba(78, 205, 196, 0.8)',
+                            'rgba(69, 183, 209, 0.8)',
+                            'rgba(255, 193, 7, 0.8)',
+                            'rgba(156, 39, 176, 0.8)',
+                            'rgba(76, 175, 80, 0.8)'
+                        ]
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                color: '#ffffff',
+                                padding: 10
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Category Performance Chart
+            const categoryCtx = document.getElementById('categoryChart').getContext('2d');
+            new Chart(categoryCtx, {
+                type: 'radar',
+                data: {
+                    labels: ['Musical Composition', 'Performance Quality', 'Production Elements', 'Narrative Integration', 'Audience Engagement', 'Innovation Factor'],
+                    datasets: [{
+                        label: 'Collection Average',
+                        data: [7.2, 7.3, 6.9, 7.0, 7.1, 6.8],
+                        fill: true,
+                        backgroundColor: 'rgba(78, 205, 196, 0.2)',
+                        borderColor: 'rgba(78, 205, 196, 1)',
+                        pointBackgroundColor: 'rgba(78, 205, 196, 1)',
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: 'rgba(78, 205, 196, 1)'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            labels: {
+                                color: '#ffffff'
+                            }
+                        }
+                    },
+                    scales: {
+                        r: {
+                            angleLines: {
+                                color: 'rgba(255, 255, 255, 0.2)'
+                            },
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.2)'
+                            },
+                            pointLabels: {
+                                color: '#ffffff'
+                            },
+                            ticks: {
+                                color: '#ffffff',
+                                backdropColor: 'transparent'
+                            },
+                            beginAtZero: true,
+                            max: 10
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

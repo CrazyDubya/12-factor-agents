@@ -1,0 +1,122 @@
+{
+  "analysis_type": "Lyrical Content Analysis",
+  "analysis_date": "2025-07-29 21:26:33",
+  "average_score": 4.03,
+  "scenes_analyzed": 3,
+  "results": [
+    {
+      "scene_title": "\"MIDNIGHT SERENADE\"",
+      "overall_lyrical_score": 3.577272727272727,
+      "component_scores": {
+        "rhyme_scheme": 2.0,
+        "metaphor_usage": 3.9333333333333336,
+        "thematic_coherence": 0.30000000000000004,
+        "vocabulary_sophistication": 8.075757575757576
+      },
+      "analysis_details": {
+        "rhyme_patterns": [
+          "Free verse/Irregular"
+        ],
+        "metaphors_identified": [
+          "tage. but her hands are shaking more than be",
+          "ds are shaking more than before, and there's"
+        ],
+        "thematic_elements": [
+          "Transformation (1 references)",
+          "Time (1 references)",
+          "Freedom (1 references)"
+        ],
+        "vocabulary_complexity": "Advanced"
+      },
+      "ai_insights": {
+        "strengths": [
+          "Analysis provided in narrative form"
+        ],
+        "improvements": [
+          "Structured scoring format needed"
+        ],
+        "specialist_commentary": "Free-form analysis from Musical Theater Lyrical Analysis - Rhyme schemes, metaphor usage, thematic coherence, and poetic sophistication in theatrical songwriting perspective"
+      },
+      "analysis_time": 32.07293391227722
+    },
+    {
+      "scene_title": "The Lab",
+      "overall_lyrical_score": 3.605,
+      "component_scores": {
+        "rhyme_scheme": 4.5,
+        "metaphor_usage": 0.0,
+        "thematic_coherence": 2.3,
+        "vocabulary_sophistication": 7.62
+      },
+      "analysis_details": {
+        "rhyme_patterns": [
+          "ABCB (Ballad)",
+          "Free verse/Irregular"
+        ],
+        "metaphors_identified": [],
+        "thematic_elements": [
+          "Love (2 references)",
+          "Identity (1 references)"
+        ],
+        "vocabulary_complexity": "Advanced"
+      },
+      "ai_insights": {
+        "strengths": [
+          "Effective use of metaphors to contrast scientific and poetic viewpoints.",
+          "Clear and direct language that establishes Maya's character voice.",
+          "Intriguing tension created by the clash between scientific explanation and emotional experience."
+        ],
+        "improvements": [
+          "Opportunity for greater lyrical sophistication and poetic imagery.",
+          "Balancing technical vocabulary with moments of emotional resonance."
+        ],
+        "specialist_commentary": "From a Lyrical Analysis perspective, this scene presents a solid foundation. The rhyme scheme is consistent and serves to drive the point home. However, there's potential to explore more complex rhyme"
+      },
+      "analysis_time": 32.38506817817688
+    },
+    {
+      "scene_title": "Welcome to Rainbow Academy",
+      "overall_lyrical_score": 4.907959374468808,
+      "component_scores": {
+        "rhyme_scheme": 2.0,
+        "metaphor_usage": 2.486792452830189,
+        "thematic_coherence": 9.1,
+        "vocabulary_sophistication": 6.045045045045045
+      },
+      "analysis_details": {
+        "rhyme_patterns": [
+          "Free verse/Irregular",
+          "Free verse/Irregular",
+          "Free verse/Irregular",
+          "Free verse/Irregular",
+          "Free verse/Irregular"
+        ],
+        "metaphors_identified": [
+          "n that magic's more than spells and potions f",
+          "princess finds her light where unicorns and h"
+        ],
+        "thematic_elements": [
+          "Love (2 references)",
+          "Hope (4 references)",
+          "Identity (2 references)",
+          "Transformation (1 references)",
+          "Time (2 references)"
+        ],
+        "vocabulary_complexity": "Intermediate"
+      },
+      "ai_insights": {
+        "strengths": [
+          "Catchy melody",
+          "Clear thematic message",
+          "Strong sense of place"
+        ],
+        "improvements": [
+          "Lyrical complexity could be enhanced",
+          "More nuanced metaphors would elevate the writing"
+        ],
+        "specialist_commentary": "From a lyrical analysis perspective, this piece leans heavily on accessible rhyme and repetition to create a memorable introduction. While effective for its target audience (likely young children), it"
+      },
+      "analysis_time": 34.564374923706055
+    }
+  ]
+}

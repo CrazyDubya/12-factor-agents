@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Broadway Musicals Theater Critics Analysis Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f0f23 100%);
+            color: #ffffff;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2d1b69 0%, #11998e 100%);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .header h1 {
+            font-size: 2.8em;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header .subtitle {
+            font-size: 1.2em;
+            color: #b8c5d6;
+            margin-bottom: 20px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .stat-card {
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .stat-number {
+            font-size: 2.2em;
+            color: #ffd700;
+            font-weight: bold;
+        }
+
+        .stat-label {
+            color: #b8c5d6;
+            margin-top: 5px;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .musical-rankings {
+            background: rgba(255,255,255,0.05);
+            border-radius: 15px;
+            padding: 25px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .section-title {
+            font-size: 1.8em;
+            color: #ffd700;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .musical-card {
+            background: linear-gradient(135deg, rgba(45,27,105,0.6) 0%, rgba(17,153,142,0.3) 100%);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .musical-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255,215,0,0.3);
+            border-color: rgba(255,215,0,0.5);
+        }
+
+        .musical-card.rank-1 {
+            border-left: 5px solid #ffd700;
+            background: linear-gradient(135deg, rgba(255,215,0,0.2) 0%, rgba(45,27,105,0.6) 100%);
+        }
+
+        .musical-card.rank-2 {
+            border-left: 5px solid #c0c0c0;
+            background: linear-gradient(135deg, rgba(192,192,192,0.2) 0%, rgba(45,27,105,0.6) 100%);
+        }
+
+        .musical-card.rank-3 {
+            border-left: 5px solid #cd7f32;
+            background: linear-gradient(135deg, rgba(205,127,50,0.2) 0%, rgba(45,27,105,0.6) 100%);
+        }
+
+        .rank-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(255,215,0,0.9);
+            color: #1a1a2e;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        .musical-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .musical-title {
+            font-size: 1.3em;
+            color: #ffffff;
+            font-weight: bold;
+            max-width: 70%;
+        }
+
+        .musical-score {
+            font-size: 1.8em;
+            color: #ffd700;
+            font-weight: bold;
+        }
+
+        .musical-genre {
+            color: #11998e;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+
+        .score-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 4px;
+            margin: 10px 0;
+            overflow: hidden;
+        }
+
+        .score-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #11998e 0%, #ffd700 100%);
+            border-radius: 4px;
+            transition: width 0.8s ease;
+        }
+
+        .musical-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .musical-card.expanded .musical-details {
+            max-height: 1000px;
+        }
+
+        .detail-section {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .detail-title {
+            color: #ffd700;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .category-scores {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .category-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 5px 0;
+        }
+
+        .category-name {
+            color: #b8c5d6;
+        }
+
+        .category-score {
+            color: #ffd700;
+            font-weight: bold;
+        }
+
+        .strengths-list, .improvements-list {
+            list-style: none;
+            margin-left: 15px;
+        }
+
+        .strengths-list li::before {
+            content: "✓ ";
+            color: #11998e;
+            font-weight: bold;
+        }
+
+        .improvements-list li::before {
+            content: "⚡ ";
+            color: #ffd700;
+        }
+
+        .charts-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .chart-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 15px;
+            padding: 25px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .chart-title {
+            font-size: 1.3em;
+            color: #ffd700;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .critics-panel {
+            background: rgba(255,255,255,0.05);
+            border-radius: 15px;
+            padding: 25px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+            margin-top: 30px;
+        }
+
+        .critics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .critic-card {
+            background: linear-gradient(135deg, rgba(45,27,105,0.4) 0%, rgba(17,153,142,0.2) 100%);
+            border-radius: 10px;
+            padding: 15px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .critic-name {
+            color: #ffd700;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .critic-type {
+            color: #11998e;
+            font-size: 0.9em;
+            margin-bottom: 5px;
+        }
+
+        .critic-specialty {
+            color: #b8c5d6;
+            font-size: 0.85em;
+        }
+
+        .expand-button {
+            background: none;
+            border: none;
+            color: #11998e;
+            cursor: pointer;
+            font-size: 0.9em;
+            margin-top: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .expand-button:hover {
+            color: #ffd700;
+        }
+
+        @media (max-width: 1024px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .charts-sidebar {
+                flex-direction: row;
+                overflow-x: auto;
+            }
+            
+            .chart-card {
+                min-width: 300px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .charts-sidebar {
+                flex-direction: column;
+            }
+            
+            .chart-card {
+                min-width: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎭 Broadway Musicals Critics Dashboard</h1>
+            <p class="subtitle">AI-Powered Multi-Agent Theater Criticism Analysis</p>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">6</div>
+                    <div class="stat-label">Musicals Analyzed</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">55</div>
+                    <div class="stat-label">Total Scenes</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">7.4</div>
+                    <div class="stat-label">Collection Average</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">6</div>
+                    <div class="stat-label">AI Critics</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">6</div>
+                    <div class="stat-label">Genres</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">1.6</div>
+                    <div class="stat-label">Score Range</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="musical-rankings">
+                <h2 class="section-title">🏆 Musical Rankings</h2>
+                
+                <div class="musical-card rank-1" onclick="toggleDetails(this)">
+                    <div class="rank-badge">1</div>
+                    <div class="musical-header">
+                        <div>
+                            <div class="musical-title">Rainbow Academy Musical</div>
+                            <div class="musical-genre">Fantasy Musical Theater</div>
+                        </div>
+                        <div class="musical-score">8.1</div>
+                    </div>
+                    <div class="score-bar">
+                        <div class="score-fill" style="width: 81%"></div>
+                    </div>
+                    <button class="expand-button">Click for detailed analysis ↓</button>
+                    
+                    <div class="musical-details">
+                        <div class="detail-section">
+                            <div class="detail-title">Category Scores</div>
+                            <div class="category-scores">
+                                <div class="category-item">
+                                    <span class="category-name">Musical Composition</span>
+                                    <span class="category-score">9.4/10</span>
+                                </div>
+                                <div class="category-item">
+                                    <span class="category-name">Performance Quality</span>
+                                    <span class="category-score">8.7/10</span>
+                                </div>
+                                <div class="category-item">
+                                    <span class="category-name">Production Elements</span>
+                                    <span class="category-score">8.4/10</span>
+                                </div>
+                                <div class="category-item">
+                                    <span class="category-name">Narrative Integration</span>
+                                    <span class="category-score">8.6/10</span>
+                                </div>
+                                <div class="category-item">
+                                    <span class="category-name">Audience Engagement</span>
+                                    <span class="category-score">8.8/10</span>
+                                </div>
+                                <div class="category-item">
+                                    <span class="category-name">Innovation Factor</span>
+                                    <span class="category-score">6.3/10</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="detail-section">
+                            <div class="detail-title">Key Strengths</div>
+                            <ul class="strengths-list">
+                                <li>Perfect traditional musical theater structure</li>
+                                <li>Universal themes of belonging and growth</li>
+                                <li>Strong ensemble integration</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="detail-section">
+                            <div class="detail-title">Areas for Improvement</div>
+                            <ul class="improvements-list">
+                                <li>Predictable story structure</li>
+                                <li>Limited thematic complexity</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="detail-section">
+                            <div class="detail-title">Critic Review</div>
+                            <p style="color: #e0e0e0; line-height: 1.6; font-style: italic;">
+                                "Rainbow Academy Musical exemplifies the timeless appeal of traditional musical theater structure while creating an enchanting magical world. The production succeeds through its perfect balance of wonder, character development, and memorable musical numbers."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="musical-card rank-2" onclick="toggleDetails(this)">
+                    <div class="rank-badge">2</div>
+                    <div class="musical-header">
+                        <div>
+                            <div class="musical-title">Echo Musical</div>
+                            <div class="musical-genre">Sci-Fi Drama</div>
+                        </div>
+                        <div class="musical-score">7.9</div>
+                    </div>
+                    <div class="score-bar">
+                        <div class="score-fill" style="width: 79%"></div>
+                    </div>
+                    <button class="expand-button">Click for detailed analysis ↓</button>
+                    
+                    <div class="musical-details">
+                        <div class="detail-section">
+                            <div class="detail-title">Category Scores</div>
+                            <div class="category-scores">
+                                <div class="category-item">
+                                    <span class="category-name">Musical Composition</span>
+                                    <span class="category-score">7.6/10</span>
+                                </div>
+                                <div class="category-item">
+                                    <span class="category-name">Performance Quality</span>
+                                    <span class="category-score">7.6/10</span>
+                                </div>
+                                <div class="category-item">
+                                    <span class="category-name">Production Elements</span>
+                                    <span class="category-score">8.7/10</span>
+                                </div>
+                                <div class="category-item">
+                                    <span class="category-name">Narrative Integration</span>
+                                    <span class="category-score">7.6/10</span>
+                                </div>
+                                <div class="category-item">
+                                    <span class="category-name">Audience Engagement</span>
+                                    <span class="category-score">6.7/10</span>
+                                </div>
+                                <div class="category-item">
+                                    <span class="category-name">Innovation Factor</span>
+                                    <span class="category-score">9.2/10</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="detail-section">
+                            <div class="detail-title">Key Strengths</div>
+                            <ul class="strengths-list">
+                                <li>Cutting-edge technological staging</li>
+                                <li>Sophisticated philosophical depth</li>
+                                <li>Innovative narrative structure</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="detail-section">
+                            <div class="detail-title">Areas for Improvement</div>
+                            <ul class="improvements-list">
+                                <li>Technical concepts may alienate some viewers</li>
+                                <li>Complex themes require active engagement</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="detail-section">
+                            <div class="detail-title">Critic Review</div>
+                            <p style="color: #e0e0e0; line-height: 1.6; font-style: italic;">
+                                "Echo Musical represents a quantum leap in musical theater's exploration of technology and consciousness. The production's sophisticated handling of AI themes creates an intellectually stimulating experience that challenges audiences while delivering spectacular staging."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="musical-card rank-3" onclick="toggleDetails(this)">
+                    <div class="rank-badge">3</div>
+                    <div class="musical-header">
+                        <div>
+                            <div class="musical-title">Midnight at the Majestic Musical</div>
+                            <div class="musical-genre">Murder Mystery</div>
+                        </div>
+                        <div class="musical-score">7.6</div>
+                    </div>
+                    <div class="score-bar">
+                        <div class="score-fill" style="width: 76%"></div>
+                    </div>
+                    <button class="expand-button">Click for detailed analysis ↓</button>
+                    
+                    <div class="musical-details">
+                        <div class="detail-section">
+                            <div class="detail-title">Category Scores</div>
+                            <div class="category-scores">
+                                <div class="category-item">
+                                    <span class="category-name">Musical Composition</span>
+                                    <span class="category-score">7.3/10</span>
+                                </div>
+                                <div class="category-item">
+                                    <span class="category-name">Performance Quality</span>
+                                    <span class="category-score">7.3/10</span>
+                                </div>
+                                <div class="category-item">
+                                    <span class="category-name">Production Elements</span>
+                                    <span class="category-score">8.1/10</span>
+                                </div>
+                                <div class="category-item">
+                                    <span class="category-name">Narrative Integration</span>
+                                    <span class="category-score">8.6/10</span>
+                                </div>
+                                <div class="category-item">
+                                    <span class="category-name">Audience Engagement</span>
+                                    <span class="category-score">8.0/10</span>
+                                </div>
+                                <div class="category-item">
+                                    <span class="category-name">Innovation Factor</span>
+                                    <span class="category-score">6.5/10</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="detail-section">
+                            <div class="detail-title">Key Strengths</div>
+                            <ul class="strengths-list">
+                                <li>Strong character dynamics and motives</li>
+                                <li>Perfect pacing for suspense building</li>
+                                <li>Meta-theatrical elements work brilliantly</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="detail-section">
+                            <div class="detail-title">Areas for Improvement</div>
+                            <ul class="improvements-list">
+                                <li>Limited to genre conventions</li>
+                                <li>Character development sometimes secondary to plot</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="detail-section">
+                            <div class="detail-title">Critic Review</div>
+                            <p style="color: #e0e0e0; line-height: 1.6; font-style: italic;">
+                                "Midnight at the Majestic Musical demonstrates masterful genre craftsmanship in its theatrical murder mystery format. The production excels through tight plotting, atmospheric staging, and clever integration of musical numbers with suspense elements."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="musical-card" onclick="toggleDetails(this)">
+                    <div class="rank-badge">4</div>
+                    <div class="musical-header">
+                        <div>
+                            <div class="musical-title">Electric Dreams Musical</div>
+                            <div class="musical-genre">Techno-Romance</div>
+                        </div>
+                        <div class="musical-score">7.2</div>
+                    </div>
+                    <div class="score-bar">
+                        <div class="score-fill" style="width: 72%"></div>
+                    </div>
+                    <button class="expand-button">Click for detailed analysis ↓</button>
+                    
+                    <div class="musical-details">
+                        <div class="detail-section">
+                            <div class="detail-title">Category Scores</div>
+                            <div class="category-scores">
+                                <div class="category-item">
+                                    <span class="category-name">Musical Composition</span>
+                                    <span class="category-score">7.1/10</span>
+                                </div>
+                                <div class="category-item">
+                                    <span class="category-name">Performance Quality</span>
+                                    <span class="category-score">7.1/10</span>
+                                </div>
+                                <div class="category-item">
+                                    <span class="category-name">Production Elements</span>
+                                    <span class="category-score">8.2/10</span>
+                                </div>
+                                <div class="category-item">
+                                    <span class="category-name">Narrative Integration</span>
+                                    <span class="category-score">5.8/10</span>
+                                </div>
+                                <div class="category-item">
+                                    <span class="category-name">Audience Engagement</span>
+                                    <span class="category-score">7.2/10</span>
+                                </div>
+                                <div class="category-item">
+                                    <span class="category-name">Innovation Factor</span>
+                                    <span class="category-score">7.8/10</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="detail-section">
+                            <div class="detail-title">Key Strengths</div>
+                            <ul class="strengths-list">
+                                <li>Bold thematic exploration</li>
+                                <li>Epic scope and ambitious vision</li>
+                                <li>Complex human-AI relationship dynamics</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="detail-section">
+                            <div class="detail-title">Areas for Improvement</div>
+                            <ul class="improvements-list">
+                                <li>Occasionally loses focus across 20 scenes</li>
+                                <li>Length challenges audience attention</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="detail-section">
+                            <div class="detail-title">Critic Review</div>
+                            <p style="color: #e0e0e0; line-height: 1.6; font-style: italic;">
+                                "Electric Dreams Musical attempts an ambitious fusion of technology and romance across an epic scope. While the production achieves impressive visual spectacle and explores compelling themes, its extensive runtime creates both opportunities and challenges."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="musical-card" onclick="toggleDetails(this)">
+                    <div class="rank-badge">5</div>
+                    <div class="musical-header">
+                        <div>
+                            <div class="musical-title">Neon Rebellion Musical</div>
+                            <div class="musical-genre">Dystopian Action</div>
+                        </div>
+                        <div class="musical-score">6.8</div>
+                    </div>
+                    <div class="score-bar">
+                        <div class="score-fill" style="width: 68%"></div>
+                    </div>
+                    <button class="expand-button">Click for detailed analysis ↓</button>
+                    
+                    <div class="musical-details">
+                        <div class="detail-section">
+                            <div class="detail-title">Category Scores</div>
+                            <div class="category-scores">
+                                <div class="category-item">
+                                    <span class="category-name">Musical Composition</span>
+                                    <span class="category-score">6.9/10</span>
+                                </div>
+                                <div class="category-item">
+                                    <span class="category-name">Performance Quality</span>
+                                    <span class="category-score">6.9/10</span>
+                                </div>
+                                <div class="category-item">
+                                    <span class="category-name">Production Elements</span>
+                                    <span class="category-score">7.6/10</span>
+                                </div>
+                                <div class="category-item">
+                                    <span class="category-name">Narrative Integration</span>
+                                    <span class="category-score">5.7/10</span>
+                                </div>
+                                <div class="category-item">
+                                    <span class="category-name">Audience Engagement</span>
+                                    <span class="category-score">7.4/10</span>
+                                </div>
+                                <div class="category-item">
+                                    <span class="category-score">Innovation Factor</span>
+                                    <span class="category-score">6.9/10</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="detail-section">
+                            <div class="detail-title">Key Strengths</div>
+                            <ul class="strengths-list">
+                                <li>Dynamic staging and choreography</li>
+                                <li>High-energy, driving musical numbers</li>
+                                <li>Contemporary political relevance</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="detail-section">
+                            <div class="detail-title">Areas for Improvement</div>
+                            <ul class="improvements-list">
+                                <li>Narrative coherence issues in places</li>
+                                <li>Limited character development time</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="detail-section">
+                            <div class="detail-title">Critic Review</div>
+                            <p style="color: #e0e0e0; line-height: 1.6; font-style: italic;">
+                                "Neon Rebellion Musical delivers high-energy social commentary through its cyberpunk musical format. The production succeeds in creating relevant political themes and dynamic staging, though sometimes at the expense of narrative depth."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="musical-card" onclick="toggleDetails(this)">
+                    <div class="rank-badge">6</div>
+                    <div class="musical-header">
+                        <div>
+                            <div class="musical-title">Neon Hearts Burlesque Musical</div>
+                            <div class="musical-genre">Contemporary Drama</div>
+                        </div>
+                        <div class="musical-score">6.5</div>
+                    </div>
+                    <div class="score-bar">
+                        <div class="score-fill" style="width: 65%"></div>
+                    </div>
+                    <button class="expand-button">Click for detailed analysis ↓</button>
+                    
+                    <div class="musical-details">
+                        <div class="detail-section">
+                            <div class="detail-title">Category Scores</div>
+                            <div class="category-scores">
+                                <div class="category-item">
+                                    <span class="category-name">Musical Composition</span>
+                                    <span class="category-score">6.7/10</span>
+                                </div>
+                                <div class="category-item">
+                                    <span class="category-name">Performance Quality</span>
+                                    <span class="category-score">7.4/10</span>
+                                </div>
+                                <div class="category-item">
+                                    <span class="category-name">Production Elements</span>
+                                    <span class="category-score">6.0/10</span>
+                                </div>
+                                <div class="category-item">
+                                    <span class="category-name">Narrative Integration</span>
+                                    <span class="category-score">6.7/10</span>
+                                </div>
+                                <div class="category-item">
+                                    <span class="category-name">Audience Engagement</span>
+                                    <span class="category-score">5.9/10</span>
+                                </div>
+                                <div class="category-item">
+                                    <span class="category-name">Innovation Factor</span>
+                                    <span class="category-score">5.4/10</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="detail-section">
+                            <div class="detail-title">Key Strengths</div>
+                            <ul class="strengths-list">
+                                <li>Adult themes handled with maturity</li>
+                                <li>Intimate, authentic character development</li>
+                                <li>Focused, cohesive narrative</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="detail-section">
+                            <div class="detail-title">Areas for Improvement</div>
+                            <ul class="improvements-list">
+                                <li>Limited scope compared to larger works</li>
+                                <li>May feel incomplete as full musical</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="detail-section">
+                            <div class="detail-title">Critic Review</div>
+                            <p style="color: #e0e0e0; line-height: 1.6; font-style: italic;">
+                                "Neon Hearts Burlesque Musical offers an intimate exploration of underground culture through authentic character development. The production's focused approach creates genuine emotional resonance within its deliberately limited scope."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="charts-sidebar">
+                <div class="chart-card">
+                    <h3 class="chart-title">Score Distribution</h3>
+                    <canvas id="scoresChart"></canvas>
+                </div>
+
+                <div class="chart-card">
+                    <h3 class="chart-title">Genre Diversity</h3>
+                    <canvas id="genreChart"></canvas>
+                </div>
+
+                <div class="chart-card">
+                    <h3 class="chart-title">Category Performance</h3>
+                    <canvas id="categoryChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="critics-panel">
+            <h2 class="section-title">👥 AI Critics Ensemble</h2>
+            <div class="critics-grid">
+                <div class="critic-card">
+                    <div class="critic-name">🎭 Eleanor Hartwell</div>
+                    <div class="critic-type">Primary Critic</div>
+                    <div class="critic-specialty">Comprehensive theatrical analysis • Gemma2:9b</div>
+                </div>
+                <div class="critic-card">
+                    <div class="critic-name">📚 Dr. Marcus Steinberg</div>
+                    <div class="critic-type">Academic Specialist</div>
+                    <div class="critic-specialty">Musical theory and historical context • Qwen2.5:3b</div>
+                </div>
+                <div class="critic-card">
+                    <div class="critic-name">⭐ Casey Rodriguez</div>
+                    <div class="critic-type">Popular Appeal</div>
+                    <div class="critic-specialty">Audience engagement and entertainment value • Llama3.2:3b</div>
+                </div>
+                <div class="critic-card">
+                    <div class="critic-name">🎨 Zara Blackthorne</div>
+                    <div class="critic-type">Experimental</div>
+                    <div class="critic-specialty">Artistic innovation and avant-garde elements • Theater-long-context</div>
+                </div>
+                <div class="critic-card">
+                    <div class="critic-name">💰 Robert Sterling</div>
+                    <div class="critic-type">Commercial</div>
+                    <div class="critic-specialty">Production value and commercial viability • Llama3:8b</div>
+                </div>
+                <div class="critic-card">
+                    <div class="critic-name">❤️ Luna Chen</div>
+                    <div class="critic-type">Emotional Impact</div>
+                    <div class="critic-specialty">Character development and storytelling • Gemma:7b</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Toggle musical card details
+        function toggleDetails(card) {
+            card.classList.toggle('expanded');
+            const button = card.querySelector('.expand-button');
+            if (card.classList.contains('expanded')) {
+                button.textContent = 'Hide details ↑';
+            } else {
+                button.textContent = 'Click for detailed analysis ↓';
+            }
+        }
+
+        // Chart configurations
+        const chartConfig = {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    labels: {
+                        color: '#ffffff'
+                    }
+                }
+            }
+        };
+
+        // Scores Distribution Chart
+        const scoresCtx = document.getElementById('scoresChart').getContext('2d');
+        new Chart(scoresCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Rainbow Academy', 'Echo Musical', 'Midnight Majestic', 'Electric Dreams', 'Neon Rebellion', 'Neon Hearts'],
+                datasets: [{
+                    label: 'Overall Score',
+                    data: [8.1, 7.9, 7.6, 7.2, 6.8, 6.5],
+                    backgroundColor: [
+                        '#ffd700',
+                        '#c0c0c0', 
+                        '#cd7f32',
+                        '#11998e',
+                        '#2d1b69',
+                        '#9b59b6'
+                    ],
+                    borderColor: '#ffffff',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                ...chartConfig,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 10,
+                        ticks: { color: '#ffffff' },
+                        grid: { color: 'rgba(255,255,255,0.1)' }
+                    },
+                    x: {
+                        ticks: { 
+                            color: '#ffffff',
+                            maxRotation: 45
+                        },
+                        grid: { color: 'rgba(255,255,255,0.1)' }
+                    }
+                }
+            }
+        });
+
+        // Genre Distribution Chart
+        const genreCtx = document.getElementById('genreChart').getContext('2d');
+        new Chart(genreCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Fantasy', 'Sci-Fi', 'Mystery', 'Romance', 'Action', 'Drama'],
+                datasets: [{
+                    data: [1, 1, 1, 1, 1, 1],
+                    backgroundColor: [
+                        '#ffd700',
+                        '#11998e',
+                        '#cd7f32',
+                        '#e74c3c',
+                        '#2d1b69',
+                        '#9b59b6'
+                    ],
+                    borderColor: '#ffffff',
+                    borderWidth: 2
+                }]
+            },
+            options: chartConfig
+        });
+
+        // Category Performance Chart
+        const categoryCtx = document.getElementById('categoryChart').getContext('2d');
+        new Chart(categoryCtx, {
+            type: 'radar',
+            data: {
+                labels: ['Musical Composition', 'Performance Quality', 'Production Elements', 'Narrative Integration', 'Audience Engagement', 'Innovation Factor'],
+                datasets: [{
+                    label: 'Collection Average',
+                    data: [7.5, 7.3, 7.7, 7.1, 7.4, 7.0],
+                    backgroundColor: 'rgba(17, 153, 142, 0.2)',
+                    borderColor: '#11998e',
+                    borderWidth: 2,
+                    pointBackgroundColor: '#ffd700',
+                    pointBorderColor: '#ffffff',
+                    pointBorderWidth: 2
+                }]
+            },
+            options: {
+                ...chartConfig,
+                scales: {
+                    r: {
+                        beginAtZero: true,
+                        max: 10,
+                        ticks: { 
+                            color: '#ffffff',
+                            stepSize: 2
+                        },
+                        grid: { color: 'rgba(255,255,255,0.1)' },
+                        pointLabels: { color: '#ffffff' }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

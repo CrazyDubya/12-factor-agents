@@ -1,0 +1,206 @@
+{
+  "analysis_metadata": {
+    "analysis_type": "Character Arc Progression Analysis",
+    "analysis_date": "2025-07-29 21:32:11",
+    "total_musicals": 6,
+    "collection_average": 1.22,
+    "score_range": 5.9,
+    "analysis_time_seconds": 0.0,
+    "component_averages": {
+      "character_development": 0.88,
+      "transformation_depth": 1.47,
+      "motivation_clarity": 1.16,
+      "arc_progression": 1.37
+    }
+  },
+  "character_rankings": [
+    {
+      "rank": 1,
+      "musical_name": "Midnight at the Majestic Musical - Theater Murder Mystery",
+      "genre": "Murder Mystery",
+      "scene_title": "\"MIDNIGHT SERENADE\"",
+      "character_scores": {
+        "overall_character_score": 5.9,
+        "character_development_score": 5.3,
+        "transformation_depth_score": 8.8,
+        "motivation_clarity_score": 5.28,
+        "arc_progression_score": 4.2
+      },
+      "character_details": {
+        "character_count": 9,
+        "characters_identified": [
+          "TOMMY",
+          "EDDIE",
+          "ENSEMBLE",
+          "FRANK",
+          "JONATHAN",
+          "MAGGIE",
+          "VIVIAN",
+          "HELENA",
+          "RUBY"
+        ],
+        "character_relationships": [
+          "TOMMY & EDDIE",
+          "TOMMY & ENSEMBLE",
+          "TOMMY & FRANK",
+          "TOMMY & JONATHAN",
+          "TOMMY & MAGGIE"
+        ],
+        "dialogue_distribution": "Uneven",
+        "arc_completeness": "Developing"
+      },
+      "analysis_insights": {
+        "transformation_moments": [
+          "g the performance\n\n*the stage transforms. we're now watching the show-",
+          "midnight hour, when the world grows cold*\n*i sing the songs that",
+          "r box, watching. his presence changes the energy on stage*\n\n**tommy",
+          "k in the box. her performance becomes more frantic*\n\n**vivian**: (b",
+          "cal**: the show-within-a-show becomes confession, threat, and proph"
+        ],
+        "motivation_indicators": [],
+        "progression_elements": [
+          "Progression markers: 4"
+        ]
+      },
+      "analysis_time": 0.01
+    },
+    {
+      "rank": 2,
+      "musical_name": "Neon Hearts Burlesque Musical - Underground Cabaret",
+      "genre": "Contemporary Drama",
+      "scene_title": "\"NEON HEARTS\"",
+      "character_scores": {
+        "overall_character_score": 1.42,
+        "character_development_score": 0.0,
+        "transformation_depth_score": 0.0,
+        "motivation_clarity_score": 1.68,
+        "arc_progression_score": 4.0
+      },
+      "character_details": {
+        "character_count": 1,
+        "characters_identified": [
+          "RUBY VALENTINE"
+        ],
+        "character_relationships": [
+          "Single character focus"
+        ],
+        "dialogue_distribution": "Single Focus",
+        "arc_completeness": "Minimal"
+      },
+      "analysis_insights": {
+        "transformation_moments": [],
+        "motivation_indicators": [
+          "Obstacles identified: 1"
+        ],
+        "progression_elements": [
+          "Progression markers: 0"
+        ]
+      },
+      "analysis_time": 0.0
+    },
+    {
+      "rank": 3,
+      "musical_name": "Echo Musical - AI Consciousness & Memory",
+      "genre": "Sci-Fi Drama",
+      "scene_title": "The Lab",
+      "character_scores": {
+        "overall_character_score": 0.0,
+        "character_development_score": 0.0,
+        "transformation_depth_score": 0.0,
+        "motivation_clarity_score": 0.0,
+        "arc_progression_score": 0.0
+      },
+      "character_details": {
+        "character_count": 0,
+        "characters_identified": [],
+        "character_relationships": [],
+        "dialogue_distribution": "No Characters",
+        "arc_completeness": "None"
+      },
+      "analysis_insights": {
+        "transformation_moments": [],
+        "motivation_indicators": [],
+        "progression_elements": []
+      },
+      "analysis_time": 0.0
+    },
+    {
+      "rank": 4,
+      "musical_name": "Electric Dreams Musical - Technology & Desire",
+      "genre": "Techno-Romance",
+      "scene_title": "ACT I FINALE: The Convergence",
+      "character_scores": {
+        "overall_character_score": 0.0,
+        "character_development_score": 0.0,
+        "transformation_depth_score": 0.0,
+        "motivation_clarity_score": 0.0,
+        "arc_progression_score": 0.0
+      },
+      "character_details": {
+        "character_count": 0,
+        "characters_identified": [],
+        "character_relationships": [],
+        "dialogue_distribution": "No Characters",
+        "arc_completeness": "None"
+      },
+      "analysis_insights": {
+        "transformation_moments": [],
+        "motivation_indicators": [],
+        "progression_elements": []
+      },
+      "analysis_time": 0.0
+    },
+    {
+      "rank": 5,
+      "musical_name": "Neon Rebellion Musical - Dystopian Resistance",
+      "genre": "Dystopian Action",
+      "scene_title": "Algorithm Paradise",
+      "character_scores": {
+        "overall_character_score": 0.0,
+        "character_development_score": 0.0,
+        "transformation_depth_score": 0.0,
+        "motivation_clarity_score": 0.0,
+        "arc_progression_score": 0.0
+      },
+      "character_details": {
+        "character_count": 0,
+        "characters_identified": [],
+        "character_relationships": [],
+        "dialogue_distribution": "No Characters",
+        "arc_completeness": "None"
+      },
+      "analysis_insights": {
+        "transformation_moments": [],
+        "motivation_indicators": [],
+        "progression_elements": []
+      },
+      "analysis_time": 0.0
+    },
+    {
+      "rank": 6,
+      "musical_name": "Rainbow Academy Musical - Magic School Adventure",
+      "genre": "Fantasy Musical Theater",
+      "scene_title": "Welcome to Rainbow Academy",
+      "character_scores": {
+        "overall_character_score": 0.0,
+        "character_development_score": 0.0,
+        "transformation_depth_score": 0.0,
+        "motivation_clarity_score": 0.0,
+        "arc_progression_score": 0.0
+      },
+      "character_details": {
+        "character_count": 0,
+        "characters_identified": [],
+        "character_relationships": [],
+        "dialogue_distribution": "No Characters",
+        "arc_completeness": "None"
+      },
+      "analysis_insights": {
+        "transformation_moments": [],
+        "motivation_indicators": [],
+        "progression_elements": []
+      },
+      "analysis_time": 0.0
+    }
+  ]
+}
