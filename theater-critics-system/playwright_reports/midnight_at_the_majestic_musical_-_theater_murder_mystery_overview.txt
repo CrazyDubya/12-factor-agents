@@ -1,0 +1,42 @@
+==========================================================================================
+🎭 MUSICAL OVERVIEW REPORT
+==========================================================================================
+Musical: Midnight at the Majestic Musical - Theater Murder Mystery
+Scenes Analyzed: 1
+Generated: 2025-07-30 01:44:54
+==========================================================================================
+
+📊 OVERALL PERFORMANCE
+--------------------------------------------------
+Average Score: 7.3/10 🌟🌟🌟
+Score Range: 7.3 - 7.3
+Total Scenes: 1
+
+🏆 SCENE PERFORMANCE RANKING
+--------------------------------------------------
+ 1. "OPENING NIGHT" - 7.333333333333333/10
+
+🎯 RECURRING STRENGTHS
+--------------------------------------------------
+• compelling (mentioned 1 times)
+• character (mentioned 1 times)
+• introductions (mentioned 1 times)
+• intriguing (mentioned 1 times)
+• multilingual (mentioned 1 times)
+
+📝 RECURRING IMPROVEMENT AREAS
+--------------------------------------------------
+• narrative (mentioned 1 times)
+• development (mentioned 1 times)
+• could (mentioned 1 times)
+• further (mentioned 1 times)
+• strengthened (mentioned 1 times)
+
+==========================================================================================
+🎨 PLAYWRIGHT RECOMMENDATIONS FOR MIDNIGHT AT THE MAJESTIC MUSICAL - THEATER MURDER MYSTERY
+==========================================================================================
+1. Consider expanding the musical with additional scenes for fuller narrative development
+
+==========================================================================================
+End of Musical Overview Report
+==========================================================================================

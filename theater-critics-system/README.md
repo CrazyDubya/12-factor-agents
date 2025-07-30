@@ -1,6 +1,13 @@
-# Theater Critics Multi-Agent System
+# 🎭 Theater Critics System
 
-A sophisticated multi-agent system utilizing Ollama and various language models to provide rotating ensemble theater criticism for musical scenes.
+[![Quality Check](https://github.com/theater-critics/theater-critics-system/actions/workflows/quality-check.yml/badge.svg)](https://github.com/theater-critics/theater-critics-system/actions/workflows/quality-check.yml)
+[![codecov](https://codecov.io/gh/theater-critics/theater-critics-system/branch/main/graph/badge.svg)](https://codecov.io/gh/theater-critics/theater-critics-system)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![Imports: isort](https://img.shields.io/badge/%20imports-isort-%231674b1?style=flat&labelColor=ef8336)](https://pycqa.github.io/isort/)
+[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+A sophisticated multi-agent theater criticism system powered by AI models through Ollama integration. This system provides comprehensive analysis of musical theater scenes across 18 different evaluation dimensions.
 
 ## 🎭 System Overview
 
