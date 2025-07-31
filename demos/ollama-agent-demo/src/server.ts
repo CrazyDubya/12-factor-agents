@@ -195,7 +195,7 @@ export class AgentServer {
         }
 
         // Create temporary agent for single execution
-        const tempThreadId = `temp-${Date.now()}`;
+        const tempThreadId = `temp-${randomUUID()}`;
         const currentModel = model || process.env.SELECTED_MODEL || 'llama3.1:8b';
         
         const state: AgentState = {
