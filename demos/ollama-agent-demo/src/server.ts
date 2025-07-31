@@ -38,7 +38,7 @@ export class AgentServer {
           return res.status(400).json({ error: 'Message is required' });
         }
 
-        const threadId = `thread-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+        const threadId = `thread-${crypto.randomUUID()}`;
         const currentModel = model || process.env.SELECTED_MODEL || 'llama3.1:8b';
         
         // Factor 5: Unify execution state and business state
