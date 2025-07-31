@@ -1,4 +1,11 @@
-import { b } from '../baml_client';
+// The `baml_client` module is generated code. Ensure it is created as part of the build process.
+let b;
+try {
+  b = require('../baml_client');
+} catch (error) {
+  console.error("Error: The 'baml_client' module is missing. Ensure it is generated before running the application.");
+  process.exit(1); // Exit the application if the module is missing
+}
 import { OllamaService, OllamaModel } from './ollama-service';
 
 export interface AgentState {
