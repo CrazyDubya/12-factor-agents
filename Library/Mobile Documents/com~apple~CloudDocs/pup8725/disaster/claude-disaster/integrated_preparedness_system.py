@@ -28,6 +28,11 @@ from emergency_drill_simulator import EmergencyDrillSimulator
 from visualization_dashboard import VisualizationDashboard
 from knowledge_base_search import KnowledgeBaseSearch
 
+# Import Version 2.0 Modern Threat Modules
+from v2_modules.cyber_attack_response import CyberAttackResponseModule
+from v2_modules.emp_hardening_module import EMPHardeningModule
+from v2_modules.nuclear_safety_module import NuclearSafetyModule
+
 class IntegratedPreparednessSystem:
     def __init__(self, data_dir: str = "preparedness_data"):
         """Initialize integrated preparedness system"""
@@ -56,9 +61,14 @@ class IntegratedPreparednessSystem:
         self.dashboard = VisualizationDashboard(data_dir)
         self.knowledge_base = KnowledgeBaseSearch("disaster_knowledge_base", f"{data_dir}/knowledge_base.db")
         
+        # Initialize Version 2.0 Modern Threat Modules
+        self.cyber_response = CyberAttackResponseModule(f"{data_dir}/modern_threats.db")
+        self.emp_hardening = EMPHardeningModule(f"{data_dir}/modern_threats.db")
+        self.nuclear_safety = NuclearSafetyModule(f"{data_dir}/modern_threats.db")
+        
         self.system_status = {
             "initialized": datetime.now().isoformat(),
-            "modules_active": 16,
+            "modules_active": 19,
             "data_directory": data_dir
         }
         
@@ -140,10 +150,15 @@ class IntegratedPreparednessSystem:
         print(" 26. Browse Checklists")
         print(" 27. Generate Quick Reference Cards")
         
+        print("\n🚨 MODERN THREATS (V2.0)")
+        print(" 28. Cyber Attack Response")
+        print(" 29. EMP/Solar Flare Hardening")
+        print(" 30. Nuclear/Radiation Safety")
+        
         print("\n📋 REPORTS & EXPORT")
-        print(" 28. Comprehensive Preparedness Report")
-        print(" 29. Export All Data")
-        print(" 30. Emergency Quick Reference")
+        print(" 31. Comprehensive Preparedness Report")
+        print(" 32. Export All Data")
+        print(" 33. Emergency Quick Reference")
         
         print("\n 0. Exit System")
         print("="*60)
@@ -917,6 +932,213 @@ Generated: {datetime.now().strftime('%Y-%m-%d %H:%M')}
                     f.write("\n\n")
             print(f"✅ Cards saved to: {filename}")
     
+    # Version 2.0 Modern Threat Module Handlers
+    def run_cyber_attack_response(self):
+        """Interface for Cyber Attack Response Module"""
+        print("\n🔒 CYBER ATTACK RESPONSE MODULE v2.0")
+        print("=" * 50)
+        
+        while True:
+            print("\n1. Assess Cyber Preparedness")
+            print("2. Create Offline Backup Plan")
+            print("3. Generate Manual Operations Guide")
+            print("4. Calculate Financial Alternatives")
+            print("5. Setup Communication Backups")
+            print("6. Secure Identity Documents")
+            print("7. Run Cyber Attack Drill")
+            print("8. Generate Comprehensive Report")
+            print("0. Return to Main Menu")
+            
+            choice = input("\nSelect option: ").strip()
+            
+            if choice == "0":
+                break
+            elif choice == "1":
+                assessment = self.cyber_response.assess_cyber_preparedness(4)
+                print(f"\n📊 Cyber Preparedness Score: {assessment['preparedness_score']}%")
+                print(f"Level: {assessment['preparedness_level']}")
+                if assessment['critical_gaps']:
+                    print("\n🚨 Critical Gaps:")
+                    for gap in assessment['critical_gaps']:
+                        print(f"  • {gap}")
+                if assessment['recommendations']:
+                    print("\n💡 Recommendations:")
+                    for rec in assessment['recommendations']:
+                        print(f"  • {rec}")
+            elif choice == "2":
+                backup_plan = self.cyber_response.create_offline_backup_plan()
+                print(f"\n💾 Offline Backup Plan Created")
+                print(f"Priority items to backup: {len(backup_plan['priority_items'])}")
+                print(f"Estimated total time: {backup_plan['total_estimated_time']} hours")
+                print("\nBackup Schedule:")
+                for freq, items in backup_plan['backup_schedule'].items():
+                    print(f"  {freq.title()}: {', '.join(items)}")
+            elif choice == "3":
+                manual_guide = self.cyber_response.generate_manual_operations_guide()
+                print(f"\n📋 Manual Operations Guide Created")
+                print(f"Critical systems covered: {len(manual_guide['critical_systems'])}")
+                print(f"Tools required: {len(manual_guide['tools_required'])} items")
+                print("\nSkills to develop:")
+                for skill in manual_guide['skill_development']:
+                    print(f"  • {skill}")
+            elif choice == "4":
+                financial = self.cyber_response.calculate_financial_alternatives(3000, 4)
+                print(f"\n💰 Financial Alternatives Calculated")
+                print(f"Total recommended value: ${financial['total_recommended_value']:.2f}")
+                print(f"Diversification score: {financial['diversification_score']}/100")
+                print("\nRecommendations by type:")
+                for asset_type, details in financial['recommendations'].items():
+                    print(f"  {asset_type.title()}: {details['amount']} ({details['percentage']})")
+            elif choice == "7":
+                print("\n🎯 Starting Cyber Attack Drill...")
+                drill_result = self.cyber_response.run_cyber_attack_drill("ransomware", ["Adult 1", "Adult 2"])
+                print(f"\nDrill Performance: {drill_result['performance_level']}")
+            elif choice == "8":
+                print("\n📊 Generating Comprehensive Cyber Report...")
+                report = self.cyber_response.generate_comprehensive_report()
+                print(f"Overall Cyber Preparedness: {report['overall_cyber_preparedness']}%")
+                print(f"Level: {report['preparedness_level']}")
+            else:
+                print("❌ Invalid option. Please try again.")
+    
+    def run_emp_hardening(self):
+        """Interface for EMP Hardening Module"""
+        print("\n⚡ EMP/SOLAR FLARE HARDENING MODULE v2.0")
+        print("=" * 50)
+        
+        while True:
+            print("\n1. Assess EMP Vulnerability")
+            print("2. Design Faraday Cage")
+            print("3. Create Manual Systems Plan")
+            print("4. Setup Grid-Independent Utilities")
+            print("5. Create Hardened Communications")
+            print("6. Develop EMP Response Plan")
+            print("7. Run EMP Hardening Drill")
+            print("8. Generate Comprehensive Report")
+            print("0. Return to Main Menu")
+            
+            choice = input("\nSelect option: ").strip()
+            
+            if choice == "0":
+                break
+            elif choice == "1":
+                assessment = self.emp_hardening.assess_emp_vulnerability()
+                print(f"\n📊 EMP Vulnerability Score: {assessment['vulnerability_score']}%")
+                print(f"Protection Level: {assessment['protection_level']}")
+                print(f"Protected Items: {assessment['protected_items']}")
+                print(f"Vulnerable Items: {assessment['vulnerable_items']}")
+                if assessment['critical_gaps']:
+                    print("\n🚨 Critical Gaps:")
+                    for gap in assessment['critical_gaps']:
+                        print(f"  • {gap}")
+            elif choice == "2":
+                size = input("Cage size needed (small/medium/large): ").strip().lower() or "medium"
+                budget = float(input("Budget available ($): ").strip() or "100")
+                cage_design = self.emp_hardening.design_faraday_cage(size, budget)
+                print(f"\n🛡️ Faraday Cage Design Created")
+                print(f"Size: {cage_design['size_category']}")
+                print(f"Total Cost: ${cage_design['total_cost']}")
+                print(f"Effectiveness: {cage_design['effectiveness_rating']} dB")
+                print(f"Materials needed: {len(cage_design['materials_list'])} items")
+            elif choice == "3":
+                manual_plan = self.emp_hardening.create_manual_systems_plan()
+                print(f"\n🔧 Manual Systems Plan Created")
+                print(f"Systems covered: {len(manual_plan['manual_systems'])}")
+                print(f"Total cost estimate: ${manual_plan['total_cost_estimate']}")
+            elif choice == "4":
+                utility_type = input("Utility type (power/water/heating/all): ").strip().lower() or "all"
+                utilities = self.emp_hardening.setup_grid_independent_utilities(utility_type)
+                print(f"\n🏠 Grid-Independent Utilities Designed")
+                print(f"Systems: {len(utilities['systems'])}")
+                print(f"Total cost: ${utilities['total_cost']}")
+            elif choice == "7":
+                print("\n🎯 Starting EMP Hardening Drill...")
+                drill_result = self.emp_hardening.run_emp_hardening_drill("solar_flare")
+                print(f"\nDrill Performance: {drill_result['performance']}")
+            elif choice == "8":
+                print("\n📊 Generating Comprehensive EMP Report...")
+                report = self.emp_hardening.generate_comprehensive_report()
+                print(f"EMP Preparedness: {report['emp_preparedness_score']:.1f}%")
+                print(f"Level: {report['preparedness_level']}")
+            else:
+                print("❌ Invalid option. Please try again.")
+    
+    def run_nuclear_safety(self):
+        """Interface for Nuclear Safety Module"""
+        print("\n☢️ NUCLEAR/RADIATION SAFETY MODULE v2.0")
+        print("=" * 50)
+        
+        while True:
+            print("\n1. Assess Nuclear Preparedness")
+            print("2. Recommend Detection Equipment")
+            print("3. Create Decontamination Protocol")
+            print("4. Plan Evacuation Routes")
+            print("5. Develop Medical Protocols")
+            print("6. Design Radiation Shelter")
+            print("7. Run Nuclear Emergency Drill")
+            print("8. Generate Comprehensive Report")
+            print("0. Return to Main Menu")
+            
+            choice = input("\nSelect option: ").strip()
+            
+            if choice == "0":
+                break
+            elif choice == "1":
+                distance = float(input("Distance to nearest nuclear facility (miles): ").strip() or "20")
+                assessment = self.nuclear_safety.assess_nuclear_preparedness(distance)
+                print(f"\n📊 Nuclear Preparedness Assessment")
+                print(f"Risk Level: {assessment['risk_level']}")
+                print(f"Preparedness Score: {assessment['preparedness_score']}%")
+                print(f"Detection Capability: {assessment['detection_capability']}%")
+                print(f"Medical Readiness: {assessment['medical_readiness']}%")
+                if assessment['critical_gaps']:
+                    print("\n🚨 Critical Gaps:")
+                    for gap in assessment['critical_gaps']:
+                        print(f"  • {gap}")
+            elif choice == "2":
+                budget = float(input("Equipment budget ($): ").strip() or "500")
+                risk = input("Risk level (low/moderate/high): ").strip().lower() or "moderate"
+                equipment = self.nuclear_safety.recommend_detection_equipment(budget, risk)
+                print(f"\n🔍 Detection Equipment Recommendations")
+                if equipment['primary_device']:
+                    print(f"Primary: {equipment['primary_device']['name']} - ${equipment['primary_device']['cost']}")
+                if equipment['secondary_device']:
+                    print(f"Secondary: {equipment['secondary_device']['name']} - ${equipment['secondary_device']['cost']}")
+                print(f"Total cost: ${equipment['total_cost']}")
+            elif choice == "3":
+                contamination_type = input("Contamination type (general/specific): ").strip() or "general"
+                protocol = self.nuclear_safety.create_decontamination_protocol(contamination_type)
+                print(f"\n🚿 Decontamination Protocol Created")
+                print(f"Procedures: {len(protocol['procedures'])}")
+                print(f"Supplies needed: {len(protocol['supplies_needed'])} items")
+            elif choice == "4":
+                home = input("Home address (or 'Unknown'): ").strip() or "Unknown"
+                distance = float(input("Distance to nuclear facility (miles): ").strip() or "20")
+                evacuation = self.nuclear_safety.plan_evacuation_routes(home, distance)
+                print(f"\n🚗 Evacuation Planning Complete")
+                print(f"Facility distance: {evacuation['facility_distance']} miles")
+                print(f"Routes planned: {len(evacuation['routes'])}")
+                print(f"Destinations: {len(evacuation['destinations'])}")
+            elif choice == "6":
+                shelter_type = input("Shelter type (basement/above_ground/purpose_built): ").strip() or "basement"
+                budget = float(input("Budget ($): ").strip() or "1000")
+                shelter = self.nuclear_safety.design_radiation_shelter(shelter_type, budget)
+                print(f"\n🏠 Radiation Shelter Designed")
+                print(f"Protection Factor: {shelter['protection_factor']}")
+                print(f"Total Cost: ${shelter['total_cost']}")
+                print(f"Capacity: {shelter['capacity']} people")
+            elif choice == "7":
+                print("\n🎯 Starting Nuclear Emergency Drill...")
+                drill_result = self.nuclear_safety.run_nuclear_emergency_drill("power_plant_accident")
+                print(f"\nDrill Performance: {drill_result['performance']}")
+            elif choice == "8":
+                print("\n📊 Generating Comprehensive Nuclear Report...")
+                report = self.nuclear_safety.generate_comprehensive_report()
+                print(f"Nuclear Preparedness: {report['nuclear_preparedness_score']}%")
+                print(f"Level: {report['preparedness_level']}")
+            else:
+                print("❌ Invalid option. Please try again.")
+    
     def run(self):
         """Main system interface"""
         print("🚨 Starting Integrated Emergency Preparedness System...")
@@ -959,6 +1181,12 @@ Generated: {datetime.now().strftime('%Y-%m-%d %H:%M')}
             elif choice == "27":
                 self.generate_reference_cards()
             elif choice == "28":
+                self.run_cyber_attack_response()
+            elif choice == "29":
+                self.run_emp_hardening()
+            elif choice == "30":
+                self.run_nuclear_safety()
+            elif choice == "31":
                 report = self.generate_comprehensive_report()
                 print(f"\n📊 PREPAREDNESS SCORE: {report['preparedness_score']:.1f}/100")
                 for section, data in report["sections"].items():
@@ -967,9 +1195,9 @@ Generated: {datetime.now().strftime('%Y-%m-%d %H:%M')}
                     print(f"\n💡 RECOMMENDATIONS:")
                     for rec in report["recommendations"]:
                         print(f"  • {rec}")
-            elif choice == "29":
+            elif choice == "32":
                 self.export_all_data()
-            elif choice == "30":
+            elif choice == "33":
                 quick_ref = self.generate_quick_reference()
                 print(quick_ref)
             else:
