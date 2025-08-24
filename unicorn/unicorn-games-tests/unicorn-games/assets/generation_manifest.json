@@ -1,0 +1,21 @@
+{
+  "generation_date": "2025-08-23T16:07:27.727341",
+  "generator": "Stable Diffusion v1.5",
+  "total_assets": 51,
+  "failed_assets": 14,
+  "success_rate": 78.46153846153847,
+  "total_time": 690.5363879203796,
+  "games": [
+    "crystal-crown",
+    "memory-palace",
+    "princess-academy",
+    "rainbow-bridge",
+    "starlight-stable"
+  ],
+  "asset_types": [
+    "characters",
+    "cards",
+    "tiles",
+    "ui"
+  ]
+}
