@@ -1,0 +1,10 @@
+{
+  "timestamp": "2025-08-31T23:58:11.746880",
+  "running": true,
+  "components": {
+    "adaptive_scheduler": true,
+    "breaking_detector": true,
+    "dashboard": true
+  },
+  "uptime_seconds": 143702.398153
+}
