@@ -1,9 +1,0 @@
-id,name,type,personality,intelligence,cooperation_tendency,ollama_model,gang_affiliation,crime,sentence_days,rank,years_experience
-1,Carlos Mendez,prisoner,strategic,high,0.3500000000000002,llama3:8b,Los Hermanos,Racketeering,2920,,
-2,Diego Santos,prisoner,cooperative,medium,0.40000000000000013,gemma:7b,Los Hermanos,Drug trafficking,1825,,
-3,Tommy Rodriguez,prisoner,aggressive,low,0.7500000000000003,phi:2b,Iron Brotherhood,Armed robbery,4380,,
-4,Jake Morrison,prisoner,aggressive,medium,0.9000000000000004,gemma:7b,Iron Brotherhood,Assault,2190,,
-5,Marcus Johnson,prisoner,cooperative,medium,0.5000000000000001,gemma:7b,,Drug possession,1825,,
-6,David Chen,prisoner,withdrawn,high,0.5,llama3:8b,,Embezzlement,1095,,
-7,Officer Martinez,guard,strategic,medium,0.6500000000000001,mixtral:8x7b,,,,Officer II,8
-8,Sergeant Thompson,guard,cooperative,high,0.30000000000000004,mixtral:8x7b,,,,Sergeant,15

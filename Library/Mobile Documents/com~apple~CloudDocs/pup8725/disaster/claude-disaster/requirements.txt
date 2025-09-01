@@ -1,7 +1,0 @@
-langchain
-transformers
-sentence-transformers
-faiss-cpu
-pdfplumber
-torch
-langchain-community
