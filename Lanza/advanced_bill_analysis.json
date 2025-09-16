@@ -1,0 +1,280 @@
+{
+  "timestamp": "2025-09-15T19:42:42.949488",
+  "bills_analyzed": [
+    {
+      "bill_no": "S5914",
+      "session": 2025,
+      "title": "Relates to waiving certain fees associated with the issuance of an enhanced driver's license",
+      "status": "In Senate Committee"
+    },
+    {
+      "bill_no": "S7356",
+      "session": 2025,
+      "title": "Relates to confidentiality of records in proceedings to vacate convictions for offenses resulting from sex trafficking, labor trafficking and compelling prostitution",
+      "status": "In Senate Committee"
+    },
+    {
+      "bill_no": "S2589",
+      "session": 2017,
+      "title": "Authorizes domestic companion animals be permitted to board any commuter transportation operated by the metropolitan transportation authority in the event of a state of emergency and evacuation",
+      "status": "Signed by Governor"
+    },
+    {
+      "bill_no": "S5988A",
+      "session": 2017,
+      "title": "Establishes the crime of sex trafficking of a child; repealer",
+      "status": "Senate Floor Calendar"
+    },
+    {
+      "bill_no": "S8874",
+      "session": 2017,
+      "title": "Relates to information concerning services for human trafficking victims in certain lodging facilities",
+      "status": "Senate Floor Calendar"
+    }
+  ],
+  "patterns": {
+    "committee_pathway": {
+      "Transportation": [
+        {
+          "bill": "S5914",
+          "title": "Relates to waiving certain fees associated with the issuance of an enhanced driver's license",
+          "status": "In Senate Committee"
+        }
+      ],
+      "Codes": [
+        {
+          "bill": "S7356",
+          "title": "Relates to confidentiality of records in proceedings to vacate convictions for offenses resulting from sex trafficking, labor trafficking and compelling prostitution",
+          "status": "In Senate Committee"
+        }
+      ]
+    },
+    "legislative_complexity": {
+      "S5914": {
+        "score": 6,
+        "factors": [
+          "Multiple versions (7)",
+          "Previous versions exist"
+        ],
+        "memo_length": 1944
+      },
+      "S7356": {
+        "score": 8,
+        "factors": [
+          "Detailed memo",
+          "Multiple versions (9)",
+          "Previous versions exist"
+        ],
+        "memo_length": 3658
+      },
+      "S2589": {
+        "score": 1,
+        "factors": [
+          "Previous versions exist"
+        ],
+        "memo_length": 1653
+      },
+      "S5988": {
+        "score": 3,
+        "factors": [
+          "Detailed memo",
+          "Previous versions exist"
+        ],
+        "memo_length": 9260
+      },
+      "S8874": {
+        "score": 2,
+        "factors": [
+          "Detailed memo"
+        ],
+        "memo_length": 4702
+      }
+    },
+    "policy_areas": {
+      "S5914": {
+        "primary_categories": [
+          "Transportation/Consumer Protection"
+        ],
+        "subcategories": [
+          "Enhanced Documentation",
+          "Fee Relief"
+        ],
+        "policy_innovation": true
+      },
+      "S7356": {
+        "primary_categories": [
+          "Human Trafficking"
+        ],
+        "subcategories": [
+          "Criminal Justice Reform"
+        ],
+        "policy_innovation": true
+      },
+      "S2589": {
+        "primary_categories": [
+          "Animal Welfare"
+        ],
+        "subcategories": [
+          "Emergency Services",
+          "Public Transportation Access"
+        ],
+        "policy_innovation": true
+      },
+      "S5988": {
+        "primary_categories": [
+          "Human Trafficking",
+          "Transportation/Consumer Protection"
+        ],
+        "subcategories": [
+          "Child Protection",
+          "Criminal Justice Reform"
+        ],
+        "policy_innovation": true
+      },
+      "S8874": {
+        "primary_categories": [
+          "Human Trafficking"
+        ],
+        "subcategories": [],
+        "policy_innovation": true
+      }
+    },
+    "strategic_timing": {
+      "S5914": {
+        "session": 2025,
+        "publish_date": "2025-03-04T09:14:30.704319",
+        "reintroduction_count": 4,
+        "persistence_indicator": true,
+        "previous_sessions": [
+          2023,
+          2021,
+          2019,
+          2017
+        ]
+      },
+      "S7356": {
+        "session": 2025,
+        "publish_date": "2025-04-10T15:37:55.700631",
+        "reintroduction_count": 4,
+        "persistence_indicator": true,
+        "previous_sessions": [
+          2023,
+          2021,
+          2019,
+          2017
+        ]
+      },
+      "S2589": {
+        "session": 2017,
+        "publish_date": "2017-01-13T19:12:31",
+        "reintroduction_count": 2,
+        "persistence_indicator": false,
+        "previous_sessions": [
+          2015,
+          2013
+        ]
+      },
+      "S5988": {
+        "session": 2017,
+        "publish_date": "2017-05-09T14:47:46",
+        "reintroduction_count": 1,
+        "persistence_indicator": false,
+        "previous_sessions": [
+          2017
+        ]
+      },
+      "S8874": {
+        "session": 2017,
+        "publish_date": "2018-05-31T11:14:02.307783",
+        "reintroduction_count": 0,
+        "persistence_indicator": false,
+        "previous_sessions": []
+      }
+    },
+    "bill_relationships": {
+      "S5914": {
+        "thematic_groups": [
+          "consumer-protection-initiative"
+        ],
+        "legislative_session": 2025,
+        "status_progression": "IN_SENATE_COMM"
+      },
+      "S7356": {
+        "thematic_groups": [
+          "anti-trafficking-initiative"
+        ],
+        "legislative_session": 2025,
+        "status_progression": "IN_SENATE_COMM"
+      },
+      "S2589": {
+        "thematic_groups": [
+          "animal-welfare-initiative"
+        ],
+        "legislative_session": 2017,
+        "status_progression": "SIGNED_BY_GOV"
+      },
+      "S5988": {
+        "thematic_groups": [
+          "anti-trafficking-initiative"
+        ],
+        "legislative_session": 2017,
+        "status_progression": "SENATE_FLOOR"
+      },
+      "S8874": {
+        "thematic_groups": [
+          "anti-trafficking-initiative"
+        ],
+        "legislative_session": 2017,
+        "status_progression": "SENATE_FLOOR"
+      }
+    }
+  },
+  "insights": [
+    {
+      "type": "Legislative Persistence",
+      "description": "Shows long-term commitment to key issues with 2 bills reintroduced multiple times",
+      "bills": [
+        "S5914",
+        "S7356"
+      ],
+      "strategic_value": "Demonstrates sustained policy focus and determination"
+    },
+    {
+      "type": "Subject Matter Expertise",
+      "description": "Recognized expert in anti-human trafficking legislation with 3 related bills",
+      "bills": [
+        "S7356",
+        "S5988",
+        "S8874"
+      ],
+      "strategic_value": "Establishes policy leadership credentials"
+    },
+    {
+      "type": "Committee Strategy",
+      "description": "Strategic committee placement across 2 committees",
+      "committees": [
+        "Transportation",
+        "Codes"
+      ],
+      "strategic_value": "Demonstrates legislative process expertise"
+    }
+  ],
+  "updated_profile_data": {
+    "bills_count": 5,
+    "sessions_active": [
+      2025,
+      2017
+    ],
+    "primary_expertise_areas": [
+      "Anti-Human Trafficking",
+      "Animal Welfare",
+      "Consumer Protection"
+    ],
+    "committee_experience": [
+      "Transportation",
+      "Codes"
+    ],
+    "legislative_persistence_score": 2,
+    "policy_innovation_indicators": 5
+  }
+}

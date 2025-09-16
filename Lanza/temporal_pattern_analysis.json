@@ -1,0 +1,167 @@
+{
+  "timestamp": "2025-09-16T09:18:37.782004",
+  "data_summary": {
+    "total_bills": 68,
+    "date_range": "2009 - 2019",
+    "sessions": [
+      0,
+      2009,
+      2015,
+      2019
+    ],
+    "policy_areas": {
+      "Other": 36,
+      "Education": 11,
+      "Criminal Justice": 5,
+      "Transportation": 5,
+      "Healthcare": 4,
+      "Fiscal": 3,
+      "Senior Issues": 2,
+      "Animal Welfare": 1,
+      "Human Trafficking": 1
+    }
+  },
+  "temporal_insights": {
+    "yearly_activity": {
+      "bill_count": {
+        "2009": 5,
+        "2014": 1,
+        "2019": 62
+      },
+      "avg_success": {
+        "2009": 0.0,
+        "2014": 0.0,
+        "2019": 0.0
+      },
+      "total_success": {
+        "2009": 0,
+        "2014": 0,
+        "2019": 0
+      },
+      "dominant_policy": {
+        "2009": "Other",
+        "2014": "Criminal Justice",
+        "2019": "Other"
+      }
+    },
+    "seasonal": {
+      "monthly": {
+        "1": 67,
+        "12": 1
+      },
+      "quarterly": {
+        "1": 67,
+        "4": 1
+      }
+    },
+    "policy_evolution": {
+      "Animal Welfare": {
+        "2009": 0,
+        "2014": 0,
+        "2019": 1
+      },
+      "Criminal Justice": {
+        "2009": 1,
+        "2014": 1,
+        "2019": 3
+      },
+      "Education": {
+        "2009": 0,
+        "2014": 0,
+        "2019": 11
+      },
+      "Fiscal": {
+        "2009": 0,
+        "2014": 0,
+        "2019": 3
+      },
+      "Healthcare": {
+        "2009": 0,
+        "2014": 0,
+        "2019": 4
+      },
+      "Human Trafficking": {
+        "2009": 0,
+        "2014": 0,
+        "2019": 1
+      },
+      "Other": {
+        "2009": 3,
+        "2014": 0,
+        "2019": 33
+      },
+      "Senior Issues": {
+        "2009": 1,
+        "2014": 0,
+        "2019": 1
+      },
+      "Transportation": {
+        "2009": 0,
+        "2014": 0,
+        "2019": 5
+      }
+    },
+    "career_phases": [
+      {
+        "phase": "Early Career",
+        "years": [
+          "2009"
+        ],
+        "total_bills": 5,
+        "avg_bills_per_year": 5.0,
+        "success_rate": 0.0,
+        "top_policy_areas": {
+          "Other": 3,
+          "Senior Issues": 1,
+          "Criminal Justice": 1
+        },
+        "productivity_score": 0.0
+      },
+      {
+        "phase": "Mid Career",
+        "years": [
+          "2014"
+        ],
+        "total_bills": 1,
+        "avg_bills_per_year": 1.0,
+        "success_rate": 0.0,
+        "top_policy_areas": {
+          "Criminal Justice": 1
+        },
+        "productivity_score": 0.0
+      },
+      {
+        "phase": "Late Career",
+        "years": [
+          "2019"
+        ],
+        "total_bills": 62,
+        "avg_bills_per_year": 62.0,
+        "success_rate": 0.0,
+        "top_policy_areas": {
+          "Other": 33,
+          "Education": 11,
+          "Transportation": 5
+        },
+        "productivity_score": 0.0
+      }
+    ]
+  },
+  "anomalies": [
+    {
+      "type": "Policy Shift",
+      "year": 2014,
+      "from_policy": "Other",
+      "to_policy": "Criminal Justice",
+      "description": "Policy focus shifted from Other to Criminal Justice in 2014"
+    },
+    {
+      "type": "Policy Shift",
+      "year": 2019,
+      "from_policy": "Criminal Justice",
+      "to_policy": "Other",
+      "description": "Policy focus shifted from Criminal Justice to Other in 2019"
+    }
+  ],
+  "predictions": {}
+}

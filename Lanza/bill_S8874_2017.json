@@ -1,0 +1,593 @@
+{
+  "success": true,
+  "message": "Data for bill S8874-2017",
+  "responseType": "bill",
+  "result": {
+    "basePrintNo": "S8874",
+    "session": 2017,
+    "basePrintNoStr": "S8874-2017",
+    "printNo": "S8874",
+    "billType": {
+      "chamber": "SENATE",
+      "desc": "Senate",
+      "resolution": false
+    },
+    "title": "Relates to information concerning services for human trafficking victims in certain lodging facilities",
+    "activeVersion": "",
+    "year": 2018,
+    "publishedDateTime": "2018-05-31T11:14:02.307783",
+    "substitutedBy": {
+      "basePrintNo": "A10425",
+      "session": 2017,
+      "basePrintNoStr": "A10425-2017"
+    },
+    "sponsor": {
+      "member": {
+        "memberId": 409,
+        "chamber": "SENATE",
+        "incumbent": true,
+        "fullName": "Andrew J. Lanza",
+        "shortName": "LANZA",
+        "imgName": "409_andrew_j_lanza.jpg",
+        "sessionMemberId": 1084,
+        "sessionYear": 2017,
+        "districtCode": 24,
+        "alternate": false
+      },
+      "budget": false,
+      "rules": false,
+      "redistricting": false
+    },
+    "reprintOf": null,
+    "summary": "Requires certain lodging facilities to make available information concerning services for human trafficking victims.",
+    "signed": false,
+    "adopted": false,
+    "vetoed": false,
+    "status": {
+      "statusType": "SENATE_FLOOR",
+      "statusDesc": "Senate Floor Calendar",
+      "actionDate": "2018-06-19",
+      "committeeName": null,
+      "billCalNo": 2012
+    },
+    "milestones": {
+      "items": [
+        {
+          "statusType": "IN_SENATE_COMM",
+          "statusDesc": "In Senate Committee",
+          "actionDate": "2018-06-19",
+          "committeeName": "Rules",
+          "billCalNo": null
+        },
+        {
+          "statusType": "SENATE_FLOOR",
+          "statusDesc": "Senate Floor Calendar",
+          "actionDate": "2018-06-19",
+          "committeeName": null,
+          "billCalNo": 2012
+        }
+      ],
+      "size": 2
+    },
+    "actions": {
+      "items": [
+        {
+          "billId": {
+            "basePrintNo": "S8874",
+            "session": 2017,
+            "basePrintNoStr": "S8874-2017",
+            "printNo": "S8874",
+            "version": ""
+          },
+          "date": "2018-05-31",
+          "chamber": "SENATE",
+          "sequenceNo": 1,
+          "text": "REFERRED TO CONSUMER PROTECTION"
+        },
+        {
+          "billId": {
+            "basePrintNo": "S8874",
+            "session": 2017,
+            "basePrintNoStr": "S8874-2017",
+            "printNo": "S8874",
+            "version": ""
+          },
+          "date": "2018-06-19",
+          "chamber": "SENATE",
+          "sequenceNo": 2,
+          "text": "COMMITTEE DISCHARGED AND COMMITTED TO RULES"
+        },
+        {
+          "billId": {
+            "basePrintNo": "S8874",
+            "session": 2017,
+            "basePrintNoStr": "S8874-2017",
+            "printNo": "S8874",
+            "version": ""
+          },
+          "date": "2018-06-19",
+          "chamber": "SENATE",
+          "sequenceNo": 3,
+          "text": "ORDERED TO THIRD READING CAL.2012"
+        },
+        {
+          "billId": {
+            "basePrintNo": "S8874",
+            "session": 2017,
+            "basePrintNoStr": "S8874-2017",
+            "printNo": "S8874",
+            "version": ""
+          },
+          "date": "2018-06-19",
+          "chamber": "SENATE",
+          "sequenceNo": 4,
+          "text": "SUBSTITUTED BY A10425A"
+        }
+      ],
+      "size": 4
+    },
+    "publishStatusMap": {
+      "items": {
+        "": {
+          "version": "",
+          "published": true,
+          "effectDateTime": "2018-05-31T11:14:02.307783"
+        }
+      },
+      "size": 1
+    },
+    "programInfo": null,
+    "amendmentVersions": {
+      "items": [
+        ""
+      ],
+      "size": 1
+    },
+    "amendments": {
+      "items": {
+        "": {
+          "basePrintNo": "S8874",
+          "session": 2017,
+          "basePrintNoStr": "S8874-2017",
+          "printNo": "S8874",
+          "version": "",
+          "publishDate": "2018-05-31",
+          "sameAs": {
+            "items": [
+              {
+                "basePrintNo": "A10425",
+                "session": 2017,
+                "basePrintNoStr": "A10425-2017",
+                "printNo": "A10425A",
+                "version": "A"
+              }
+            ],
+            "size": 1
+          },
+          "memo": "\n\u00a0\nBILL NUMBER: S8874\n\nSPONSOR: LANZA\n\u00a0\nTITLE OF BILL:  An act to amend the general business law, in relation\nto information concerning services for human trafficking victims\n\n\u00a0\nPURPOSE:\n\nTo require lodging facilities to provide information concerning services\nfor human trafficking victims in certain public spaces of the lodging\nfacilities\n\n\u00a0\nSUMMARY OF PROVISIONS:\n\nSection 1 amends the general business law by adding a new section 206-f\nto provide that every keeper of a lodging facility make available in\nplain view in the public restrooms, the individual guest rooms, and near\nthe public entrance or other conspicuous place in plain sight of the\nguests and employees, where information is customarily displayed, infor-\nmational cards developed by (i) the office of temporary and disability\nassistance in consultation with the New York state interagency task\nforce on human trafficking; or (ii) the United States Department of\nHomeland Security; or (iii) the lodging facility. All informational\ncards shall only contain information concerning services for human traf-\nficking victims and shall prominently include the national human traf-\nficking hotline telephone number. Additionally, the office of temporary\nand disability assistance shall develop a notice which shall include the\nnational human trafficking hotline telephone number, to be made avail-\nable to lodging facilities to post on a voluntary basis.\n\nLodging facility is defined as any inn, hotel, motel, motor court or\nother establishment that provides lodging to transient guests, but shall\nnot include those establishments treated as a dwelling unit or ones\nlocated within a building that has five or less rooms for rent or hire\nand is occupied as a residence for the owner.\n\nSection 2 provides the effective date.\n\n\u00a0\nJUSTIFICATION:\n\nWe know that human trafficking is a $32 billion industry. We also have\nlearned that young girls and boys are being victimized in our state, in\nour neighborhoods, whether urban, suburban, or rural, and regardless of\nsocioeconomic level. Yet even though trafficking victims may be among\nus, we do not see them.\n\nAccording to the Polaris Project, trafficking networks often rely on\nlegitimate businesses, such as hotels, to sustain their illegal oper-\nations. Hotels may be used to house victims while in transit or for the\npurchase and sale of victims' forced services, with traffickers running\ntheir business out of hotel rooms. The traffickers' ability to pay for\nrooms in cash or to change rooms or hotel locations on a frequent basis\ncan make it easy for traffickers to avoid detection and purchasers of\nsex can take advantage of the anonymity that buying sex in a hotel room\ncan provide. According to ECPAT-USA, service providers and law enforce-\nment agencies report when asked that almost every single trafficked\nvictim with whom they came in contact had been exploited at one point in\na hotel.\n\nBecause hotels are a known location for exploitation of victims, hotels\nare an ideal location for presentation of information about services for\nvictims. Information regarding human trafficking services can inform\nboth the victims and other hotel guests about the availability of\nservices for human trafficking victims.\n\nThis bill will provide information about services for human trafficking\nservices on informational cards in public areas in hotels including in\nthe public restrooms, the individual guest rooms, and near the public\nentrance or other conspicuous place in plain sight of the guests and\nemployees. For some victims, this information may be the only opportu-\nnity to learn about services available to them.  Additionally, because\nof the discreet size of the informational cards, it may be possible for\na victim to take a card unnoticed and use the card to call the hotline\nfor help at a later time.\n\nStates have begun to understand the importance of utilizing the hotel\nindustry to end human trafficking. Legislation to post a notice regard-\ning human trafficking, similar to this bill, was introduced in Califor-\nnia earlier this year. Georgia enacted a law in 2013 requiring the post-\ning of notices in hotels as well as bars, adult entertainment\nbusinesses, bus stations, truck stops and airports, among other venues.\n\nWith this legislation, the hotel industry can assume the central role it\nnaturally plays not only in responding to modern day slavery but also in\npreventing it. We must take this next step towards helping human traf-\nficking victims escape their lives of violence and enslavement.\n\n\u00a0\nLEGISLATIVE HISTORY:\n\nNew bill.\n\n\u00a0\nFISCAL IMPLICATIONS:\n\nNone to the State.\n\n\u00a0\nEFFECTIVE DATE:\nThis act shall take effect on the sixtieth day after it shall have\nbecome a law.\n",
+          "lawSection": "General Business Law",
+          "lawCode": "Add \u00a7206-f, Gen Bus L",
+          "actClause": "AN ACT to amend the general business law, in relation to information\nconcerning services for human trafficking victims",
+          "fullTextFormats": [
+            "PLAIN"
+          ],
+          "fullText": "\n \n                     S T A T E   O F   N E W   Y O R K\n ________________________________________________________________________\n \n                                   8874\n \n                             I N  S E N A T E\n \n                               May 31, 2018\n                                ___________\n \n Introduced  by  Sen.  LANZA  -- read twice and ordered printed, and when\n   printed to be committed to the Committee on Consumer Protection\n \n AN ACT to amend the general business law,  in  relation  to  information\n   concerning services for human trafficking victims\n \n   THE  PEOPLE OF THE STATE OF NEW YORK, REPRESENTED IN SENATE AND ASSEM-\n BLY, DO ENACT AS FOLLOWS:\n\n   Section 1. The general business law is amended by adding a new section\n 206-f to read as follows:\n   \u00a7  206-F.  INFORMATION  CONCERNING  SERVICES  FOR  HUMAN   TRAFFICKING\n VICTIMS.  1. FOR PURPOSES OF THIS SECTION, \"LODGING FACILITY\" SHALL MEAN\n ANY INN, HOTEL, MOTEL, MOTOR COURT OR OTHER ESTABLISHMENT THAT  PROVIDES\n LODGING  TO  TRANSIENT GUESTS. SUCH TERM SHALL NOT INCLUDE AN ESTABLISH-\n MENT TREATED AS A DWELLING UNIT FOR THE PURPOSES OF ANY STATE  OR  LOCAL\n LAW OR REGULATION OR AN ESTABLISHMENT LOCATED WITHIN A BUILDING THAT HAS\n FIVE  OR  LESS ROOMS FOR RENT OR HIRE AND THAT IS ACTUALLY OCCUPIED AS A\n RESIDENCE BY THE PROPRIETOR OF SUCH ESTABLISHMENT.\n   2. EVERY KEEPER OF A LODGING FACILITY SHALL MAKE  AVAILABLE  IN  PLAIN\n VIEW  AND IN A CONSPICUOUS PLACE AND MANNER IN THE PUBLIC RESTROOMS, AND\n IN THE INDIVIDUAL GUEST ROOMS, AND NEAR THE PUBLIC ENTRANCE OR IN ANOTH-\n ER CONSPICUOUS LOCATION IN CLEAR VIEW OF THE PUBLIC  AND  THE  EMPLOYEES\n WHERE  SIMILAR  INFORMATION  IS  CUSTOMARILY  DISPLAYED  IN SUCH LODGING\n FACILITY, INFORMATIONAL CARDS DEVELOPED BY: (I) THE OFFICE OF  TEMPORARY\n AND DISABILITY ASSISTANCE IN CONSULTATION WITH THE NEW YORK STATE INTER-\n AGENCY  TASK  FORCE  ON  HUMAN  TRAFFICKING;  OR  (II) THE UNITED STATES\n DEPARTMENT OF HOMELAND SECURITY; OR  (III)  THE  LODGING  FACILITY.  ALL\n INFORMATIONAL  CARDS  SHALL ONLY CONTAIN INFORMATION CONCERNING SERVICES\n FOR HUMAN TRAFFICKING VICTIMS AND SHALL PROMINENTLY INCLUDE THE NATIONAL\n HUMAN TRAFFICKING HOTLINE TELEPHONE NUMBER.  THE OFFICE OF TEMPORARY AND\n DISABILITY ASSISTANCE IN CONSULTATION WITH THE NEW YORK STATE INTERAGEN-\n CY TASK FORCE ON HUMAN TRAFFICKING, SHALL DEVELOP A NOTICE  WHICH  SHALL\n INCLUDE  THE  NATIONAL HUMAN TRAFFICKING HOTLINE TELEPHONE NUMBER, TO BE\n MADE AVAILABLE TO LODGING FACILITIES TO POST ON A VOLUNTARY BASIS.\n   \u00a7 2. This act shall take effect on the sixtieth  day  after  it  shall\n have become a law.\n \n  EXPLANATION--Matter in ITALICS (underscored) is new; matter in brackets\n                       [ ] is old law to be omitted.\n                                                            LBD15495-07-8\n\n\n",
+          "fullTextHtml": "",
+          "fullTextTemplate": "",
+          "coSponsors": {
+            "items": [],
+            "size": 0
+          },
+          "multiSponsors": {
+            "items": [],
+            "size": 0
+          },
+          "uniBill": false,
+          "relatedLaws": {
+            "items": {},
+            "size": 0
+          },
+          "stricken": false
+        }
+      },
+      "size": 1
+    },
+    "votes": {
+      "items": [
+        {
+          "billId": {
+            "basePrintNo": "S8874",
+            "session": 2017,
+            "basePrintNoStr": "S8874-2017",
+            "printNo": "S8874",
+            "version": ""
+          },
+          "version": "",
+          "voteType": "COMMITTEE",
+          "voteDate": "2018-06-19",
+          "sequenceNo": 1,
+          "committee": {
+            "chamber": "SENATE",
+            "name": "Rules"
+          },
+          "memberVotes": {
+            "items": {
+              "AYEWR": {
+                "items": [
+                  {
+                    "memberId": 393,
+                    "chamber": "SENATE",
+                    "incumbent": true,
+                    "fullName": "Joseph A. Griffo",
+                    "shortName": "GRIFFO",
+                    "imgName": "393_joseph_a._griffo.jpg",
+                    "sessionMemberId": 1017,
+                    "sessionYear": 2017,
+                    "districtCode": 47,
+                    "alternate": false
+                  }
+                ],
+                "size": 1
+              },
+              "AYE": {
+                "items": [
+                  {
+                    "memberId": 413,
+                    "chamber": "SENATE",
+                    "incumbent": false,
+                    "fullName": "John J. Bonacic",
+                    "shortName": "BONACIC",
+                    "imgName": "413_john_j._bonacic.jpg",
+                    "sessionMemberId": 1016,
+                    "sessionYear": 2017,
+                    "districtCode": 42,
+                    "alternate": false
+                  },
+                  {
+                    "memberId": 372,
+                    "chamber": "SENATE",
+                    "incumbent": false,
+                    "fullName": "Neil D. Breslin",
+                    "shortName": "BRESLIN",
+                    "imgName": "372_neil_d._breslin.jpg",
+                    "sessionMemberId": 946,
+                    "sessionYear": 2017,
+                    "districtCode": 44,
+                    "alternate": false
+                  },
+                  {
+                    "memberId": 376,
+                    "chamber": "SENATE",
+                    "incumbent": false,
+                    "fullName": "John A. DeFrancisco",
+                    "shortName": "DEFRANCISCO",
+                    "imgName": "376_john_a._defrancisco.jpg",
+                    "sessionMemberId": 939,
+                    "sessionYear": 2017,
+                    "districtCode": 50,
+                    "alternate": false
+                  },
+                  {
+                    "memberId": 426,
+                    "chamber": "SENATE",
+                    "incumbent": false,
+                    "fullName": "Martin Malav\u00e9 Dilan",
+                    "shortName": "DILAN",
+                    "imgName": "426_martin_malave_dilan.jpg",
+                    "sessionMemberId": 927,
+                    "sessionYear": 2017,
+                    "districtCode": 18,
+                    "alternate": false
+                  },
+                  {
+                    "memberId": 399,
+                    "chamber": "SENATE",
+                    "incumbent": false,
+                    "fullName": "John J. Flanagan",
+                    "shortName": "FLANAGAN",
+                    "imgName": "399_john_j._flanagan.jpg",
+                    "sessionMemberId": 1089,
+                    "sessionYear": 2017,
+                    "districtCode": 2,
+                    "alternate": false
+                  },
+                  {
+                    "memberId": 383,
+                    "chamber": "SENATE",
+                    "incumbent": true,
+                    "fullName": "Michael Gianaris",
+                    "shortName": "GIANARIS",
+                    "imgName": "383_michael_gianaris.jpg",
+                    "sessionMemberId": 928,
+                    "sessionYear": 2017,
+                    "districtCode": 12,
+                    "alternate": false
+                  },
+                  {
+                    "memberId": 424,
+                    "chamber": "SENATE",
+                    "incumbent": false,
+                    "fullName": "Kemp Hannon",
+                    "shortName": "HANNON",
+                    "imgName": "424_kemp_hannon.jpg",
+                    "sessionMemberId": 1011,
+                    "sessionYear": 2017,
+                    "districtCode": 6,
+                    "alternate": false
+                  },
+                  {
+                    "memberId": 429,
+                    "chamber": "SENATE",
+                    "incumbent": false,
+                    "fullName": "Timothy M. Kennedy",
+                    "shortName": "KENNEDY",
+                    "imgName": "429_timothy_m._kennedy.jpg",
+                    "sessionMemberId": 929,
+                    "sessionYear": 2017,
+                    "districtCode": 63,
+                    "alternate": false
+                  },
+                  {
+                    "memberId": 390,
+                    "chamber": "SENATE",
+                    "incumbent": false,
+                    "fullName": "Jeffrey D. Klein",
+                    "shortName": "KLEIN",
+                    "imgName": "390_jeffrey_d._klein.jpg",
+                    "sessionMemberId": 1091,
+                    "sessionYear": 2017,
+                    "districtCode": 34,
+                    "alternate": false
+                  },
+                  {
+                    "memberId": 401,
+                    "chamber": "SENATE",
+                    "incumbent": true,
+                    "fullName": "Liz Krueger",
+                    "shortName": "KRUEGER",
+                    "imgName": "401_liz_krueger.jpg",
+                    "sessionMemberId": 935,
+                    "sessionYear": 2017,
+                    "districtCode": 28,
+                    "alternate": false
+                  },
+                  {
+                    "memberId": 409,
+                    "chamber": "SENATE",
+                    "incumbent": true,
+                    "fullName": "Andrew J. Lanza",
+                    "shortName": "LANZA",
+                    "imgName": "409_andrew_j_lanza.jpg",
+                    "sessionMemberId": 1084,
+                    "sessionYear": 2017,
+                    "districtCode": 24,
+                    "alternate": false
+                  },
+                  {
+                    "memberId": 374,
+                    "chamber": "SENATE",
+                    "incumbent": false,
+                    "fullName": "William J. Larkin Jr.",
+                    "shortName": "LARKIN",
+                    "imgName": "374_william_j._larkin_jr.jpg",
+                    "sessionMemberId": 1012,
+                    "sessionYear": 2017,
+                    "districtCode": 39,
+                    "alternate": false
+                  },
+                  {
+                    "memberId": 419,
+                    "chamber": "SENATE",
+                    "incumbent": false,
+                    "fullName": "Kenneth P. LaValle",
+                    "shortName": "LAVALLE",
+                    "imgName": "419_kenneth_p._lavalle.jpg",
+                    "sessionMemberId": 1010,
+                    "sessionYear": 2017,
+                    "districtCode": 1,
+                    "alternate": false
+                  },
+                  {
+                    "memberId": 379,
+                    "chamber": "SENATE",
+                    "incumbent": false,
+                    "fullName": "Betty Little",
+                    "shortName": "LITTLE",
+                    "imgName": "379_betty_little.jpg",
+                    "sessionMemberId": 947,
+                    "sessionYear": 2017,
+                    "districtCode": 45,
+                    "alternate": false
+                  },
+                  {
+                    "memberId": 407,
+                    "chamber": "SENATE",
+                    "incumbent": false,
+                    "fullName": "Carl L. Marcellino",
+                    "shortName": "MARCELLINO",
+                    "imgName": "407_carl_l_marcellino.jpg",
+                    "sessionMemberId": 1088,
+                    "sessionYear": 2017,
+                    "districtCode": 5,
+                    "alternate": false
+                  },
+                  {
+                    "memberId": 381,
+                    "chamber": "SENATE",
+                    "incumbent": false,
+                    "fullName": "Velmanette Montgomery",
+                    "shortName": "MONTGOMERY",
+                    "imgName": "381_velmanette_montgomery.jpg",
+                    "sessionMemberId": 943,
+                    "sessionYear": 2017,
+                    "districtCode": 25,
+                    "alternate": false
+                  },
+                  {
+                    "memberId": 416,
+                    "chamber": "SENATE",
+                    "incumbent": true,
+                    "fullName": "Kevin S. Parker",
+                    "shortName": "PARKER",
+                    "imgName": "416_kevin_s._parker.jpg",
+                    "sessionMemberId": 925,
+                    "sessionYear": 2017,
+                    "districtCode": 21,
+                    "alternate": false
+                  },
+                  {
+                    "memberId": 406,
+                    "chamber": "SENATE",
+                    "incumbent": false,
+                    "fullName": "Michael H. Ranzenhofer",
+                    "shortName": "RANZENHOFER",
+                    "imgName": "406_michael_h._ranzenhofer.jpg",
+                    "sessionMemberId": 948,
+                    "sessionYear": 2017,
+                    "districtCode": 61,
+                    "alternate": false
+                  },
+                  {
+                    "memberId": 377,
+                    "chamber": "SENATE",
+                    "incumbent": true,
+                    "fullName": "Gustavo Rivera",
+                    "shortName": "RIVERA",
+                    "imgName": "377_gustavo_rivera.jpg",
+                    "sessionMemberId": 926,
+                    "sessionYear": 2017,
+                    "districtCode": 33,
+                    "alternate": false
+                  },
+                  {
+                    "memberId": 417,
+                    "chamber": "SENATE",
+                    "incumbent": false,
+                    "fullName": "Joseph E. Robach",
+                    "shortName": "ROBACH",
+                    "imgName": "417_joseph_e._robach.jpg",
+                    "sessionMemberId": 1015,
+                    "sessionYear": 2017,
+                    "districtCode": 56,
+                    "alternate": false
+                  },
+                  {
+                    "memberId": 403,
+                    "chamber": "SENATE",
+                    "incumbent": false,
+                    "fullName": "Diane J. Savino",
+                    "shortName": "SAVINO",
+                    "imgName": "403_diane_j._savino.jpg",
+                    "sessionMemberId": 933,
+                    "sessionYear": 2017,
+                    "districtCode": 23,
+                    "alternate": false
+                  },
+                  {
+                    "memberId": 371,
+                    "chamber": "SENATE",
+                    "incumbent": false,
+                    "fullName": "James L. Seward",
+                    "shortName": "SEWARD",
+                    "imgName": "371_james_l._seward.jpg",
+                    "sessionMemberId": 950,
+                    "sessionYear": 2017,
+                    "districtCode": 51,
+                    "alternate": false
+                  },
+                  {
+                    "memberId": 396,
+                    "chamber": "SENATE",
+                    "incumbent": true,
+                    "fullName": "Andrea Stewart-Cousins",
+                    "shortName": "STEWART-COUSINS",
+                    "imgName": "396_andrea_stewart-cousins.jpg",
+                    "sessionMemberId": 1087,
+                    "sessionYear": 2017,
+                    "districtCode": 35,
+                    "alternate": false
+                  },
+                  {
+                    "memberId": 395,
+                    "chamber": "SENATE",
+                    "incumbent": false,
+                    "fullName": "David J. Valesky",
+                    "shortName": "VALESKY",
+                    "imgName": "395_david_j._valesky.jpg",
+                    "sessionMemberId": 951,
+                    "sessionYear": 2017,
+                    "districtCode": 53,
+                    "alternate": false
+                  }
+                ],
+                "size": 24
+              }
+            },
+            "size": 2
+          },
+          "attendance": {
+            "remote": {
+              "items": [],
+              "size": 0
+            }
+          }
+        }
+      ],
+      "size": 1
+    },
+    "vetoMessages": {
+      "items": [],
+      "size": 0
+    },
+    "approvalMessage": null,
+    "additionalSponsors": {
+      "items": [],
+      "size": 0
+    },
+    "pastCommittees": {
+      "items": [
+        {
+          "chamber": "SENATE",
+          "name": "Consumer Protection",
+          "sessionYear": 2017,
+          "referenceDate": "2018-05-31T00:00"
+        },
+        {
+          "chamber": "SENATE",
+          "name": "Rules",
+          "sessionYear": 2017,
+          "referenceDate": "2018-06-19T00:00"
+        }
+      ],
+      "size": 2
+    },
+    "previousVersions": {
+      "items": [],
+      "size": 0
+    },
+    "committeeAgendas": {
+      "items": [
+        {
+          "agendaId": {
+            "number": 21,
+            "year": 2018
+          },
+          "committeeId": {
+            "chamber": "SENATE",
+            "name": "Rules"
+          }
+        }
+      ],
+      "size": 1
+    },
+    "calendars": {
+      "items": [
+        {
+          "year": 2018,
+          "calendarNumber": 57
+        }
+      ],
+      "size": 1
+    }
+  }
+}

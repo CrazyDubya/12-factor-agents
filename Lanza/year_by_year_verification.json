@@ -1,0 +1,203 @@
+{
+  "verification_timestamp": "2025-09-16T09:49:13.035613",
+  "active_legislative_years": [],
+  "year_by_year_results": {
+    "2007": {
+      "year": 2007,
+      "strategies_tested": [
+        "bills_endpoint"
+      ],
+      "bills_found": [],
+      "total_bills_in_year": 0,
+      "lanza_bills": 0
+    },
+    "2008": {
+      "year": 2008,
+      "strategies_tested": [
+        "bills_endpoint"
+      ],
+      "bills_found": [],
+      "total_bills_in_year": 0,
+      "lanza_bills": 0
+    },
+    "2009": {
+      "year": 2009,
+      "strategies_tested": [
+        "bills_endpoint"
+      ],
+      "bills_found": [],
+      "total_bills_in_year": 100,
+      "lanza_bills": 0
+    },
+    "2010": {
+      "year": 2010,
+      "strategies_tested": [
+        "bills_endpoint"
+      ],
+      "bills_found": [],
+      "total_bills_in_year": 100,
+      "lanza_bills": 0
+    },
+    "2011": {
+      "year": 2011,
+      "strategies_tested": [
+        "bills_endpoint"
+      ],
+      "bills_found": [],
+      "total_bills_in_year": 100,
+      "lanza_bills": 0
+    },
+    "2012": {
+      "year": 2012,
+      "strategies_tested": [
+        "bills_endpoint"
+      ],
+      "bills_found": [],
+      "total_bills_in_year": 100,
+      "lanza_bills": 0
+    },
+    "2013": {
+      "year": 2013,
+      "strategies_tested": [
+        "bills_endpoint"
+      ],
+      "bills_found": [],
+      "total_bills_in_year": 100,
+      "lanza_bills": 0
+    },
+    "2014": {
+      "year": 2014,
+      "strategies_tested": [
+        "bills_endpoint"
+      ],
+      "bills_found": [],
+      "total_bills_in_year": 100,
+      "lanza_bills": 0
+    },
+    "2015": {
+      "year": 2015,
+      "strategies_tested": [
+        "bills_endpoint"
+      ],
+      "bills_found": [],
+      "total_bills_in_year": 100,
+      "lanza_bills": 0
+    },
+    "2016": {
+      "year": 2016,
+      "strategies_tested": [
+        "bills_endpoint"
+      ],
+      "bills_found": [],
+      "total_bills_in_year": 100,
+      "lanza_bills": 0
+    },
+    "2017": {
+      "year": 2017,
+      "strategies_tested": [
+        "bills_endpoint"
+      ],
+      "bills_found": [],
+      "total_bills_in_year": 100,
+      "lanza_bills": 0
+    },
+    "2018": {
+      "year": 2018,
+      "strategies_tested": [
+        "bills_endpoint"
+      ],
+      "bills_found": [],
+      "total_bills_in_year": 100,
+      "lanza_bills": 0
+    },
+    "2019": {
+      "year": 2019,
+      "strategies_tested": [
+        "bills_endpoint"
+      ],
+      "bills_found": [],
+      "total_bills_in_year": 100,
+      "lanza_bills": 0
+    },
+    "2020": {
+      "year": 2020,
+      "strategies_tested": [
+        "bills_endpoint"
+      ],
+      "bills_found": [],
+      "total_bills_in_year": 100,
+      "lanza_bills": 0
+    },
+    "2021": {
+      "year": 2021,
+      "strategies_tested": [
+        "bills_endpoint"
+      ],
+      "bills_found": [],
+      "total_bills_in_year": 100,
+      "lanza_bills": 0
+    },
+    "2022": {
+      "year": 2022,
+      "strategies_tested": [
+        "bills_endpoint"
+      ],
+      "bills_found": [],
+      "total_bills_in_year": 100,
+      "lanza_bills": 0
+    },
+    "2023": {
+      "year": 2023,
+      "strategies_tested": [
+        "bills_endpoint"
+      ],
+      "bills_found": [],
+      "total_bills_in_year": 100,
+      "lanza_bills": 0
+    },
+    "2024": {
+      "year": 2024,
+      "strategies_tested": [
+        "bills_endpoint"
+      ],
+      "bills_found": [],
+      "total_bills_in_year": 100,
+      "lanza_bills": 0
+    },
+    "2025": {
+      "year": 2025,
+      "strategies_tested": [
+        "bills_endpoint"
+      ],
+      "bills_found": [],
+      "total_bills_in_year": 100,
+      "lanza_bills": 0
+    }
+  },
+  "summary": {
+    "total_years_checked": 19,
+    "years_with_lanza_bills": [],
+    "years_with_no_lanza_bills": [
+      2007,
+      2008,
+      2009,
+      2010,
+      2011,
+      2012,
+      2013,
+      2014,
+      2015,
+      2016,
+      2017,
+      2018,
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "total_lanza_bills_found": 0
+  }
+}

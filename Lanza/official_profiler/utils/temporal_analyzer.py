@@ -1,5 +1,6 @@
 """
 Temporal analysis system for tracking position evolution and historical changes.
+Enhanced with predecessor data integration for 25-year analysis.
 """
 import asyncio
 from typing import Dict, List, Optional, Tuple, Any
@@ -11,6 +12,9 @@ from collections import defaultdict
 import structlog
 
 from data.staten_island_officials import STATEN_ISLAND_OFFICIALS
+from data.predecessor_mapping import STATEN_ISLAND_PREDECESSORS, get_official_timeline
+from analyzers.predecessor_analyzer import PredecessorAnalyzer
+from analyzers.position_evolution_tracker import PositionEvolutionTracker
 
 logger = structlog.get_logger()
 
@@ -56,6 +60,9 @@ class TemporalAnalyzer:
     def __init__(self):
         self.position_cache = {}
         self.evolution_patterns = self._initialize_evolution_patterns()
+        self.predecessor_analyzer = PredecessorAnalyzer()
+        self.position_tracker = PositionEvolutionTracker()
+        self.predecessor_cache = {}
 
     def _initialize_evolution_patterns(self) -> Dict[str, Dict]:
         """Initialize patterns for detecting position evolution."""
@@ -401,3 +408,320 @@ class TemporalAnalyzer:
             )
 
         return summaries
+
+    async def analyze_25_year_evolution(self, position: str, issue: str = None) -> Dict[str, Any]:
+        """Comprehensive 25-year evolution analysis including all predecessors."""
+        timeline = get_official_timeline(position, 2000, 2025)
+
+        if not timeline:
+            return {"error": f"No timeline data for position {position}"}
+
+        evolution_analysis = {
+            "position": position,
+            "analysis_period": "2000-2025",
+            "total_officials": len(timeline),
+            "official_timeline": [],
+            "transition_analysis": [],
+            "policy_evolution": {},
+            "institutional_continuity": {}
+        }
+
+        # Build official timeline with achievements
+        for tenure in timeline:
+            start_year = datetime.strptime(tenure.start_date, "%Y-%m-%d").year
+            end_year = datetime.strptime(tenure.end_date, "%Y-%m-%d").year
+
+            official_data = {
+                "name": tenure.name,
+                "party": tenure.party,
+                "start_year": start_year,
+                "end_year": end_year,
+                "tenure_length": end_year - start_year,
+                "key_achievements": tenure.key_achievements,
+                "transition_reason": tenure.transition_reason
+            }
+            evolution_analysis["official_timeline"].append(official_data)
+
+        # Analyze transitions
+        transitions = await self.predecessor_analyzer.analyze_all_transitions()
+        position_transitions = [t for t in transitions if t.position == position]
+
+        for transition in position_transitions:
+            transition_data = {
+                "year": transition.transition_year,
+                "outgoing": transition.outgoing_official,
+                "incoming": transition.incoming_official,
+                "party_change": transition.party_change,
+                "transition_type": transition.transition_type.value,
+                "policy_continuity": transition.policy_continuity_score,
+                "relationship_continuity": transition.relationship_continuity_score,
+                "disruption_level": transition.institutional_disruption_level,
+                "key_changes": transition.key_changes
+            }
+            evolution_analysis["transition_analysis"].append(transition_data)
+
+        # Issue-specific analysis if specified
+        if issue:
+            issue_evolution = await self.position_tracker.track_issue_evolution(issue, position)
+            evolution_analysis["policy_evolution"][issue] = {
+                "evolution_type": issue_evolution.evolution_type.value,
+                "timeline_snapshots": len(issue_evolution.evolution_timeline),
+                "driving_factors": issue_evolution.driving_factors,
+                "stability_periods": issue_evolution.stability_periods,
+                "change_points": issue_evolution.change_points,
+                "current_trajectory": issue_evolution.current_trajectory
+            }
+
+        # Institutional continuity analysis
+        succession_patterns = await self.predecessor_analyzer.analyze_succession_patterns()
+        position_pattern = next((p for p in succession_patterns if p.position == position), None)
+
+        if position_pattern:
+            evolution_analysis["institutional_continuity"] = {
+                "average_tenure_length": position_pattern.average_tenure_length,
+                "party_stability": position_pattern.party_stability,
+                "policy_consistency": position_pattern.policy_consistency_score,
+                "critical_transitions": position_pattern.critical_transition_points
+            }
+
+        return evolution_analysis
+
+    async def compare_predecessor_chains(self, positions: List[str],
+                                       issue: str = None) -> Dict[str, Any]:
+        """Compare evolution patterns across multiple predecessor chains."""
+        comparison_analysis = {
+            "positions_compared": positions,
+            "comparison_period": "2000-2025",
+            "individual_analyses": {},
+            "comparative_metrics": {},
+            "synchronization_analysis": {},
+            "divergence_points": []
+        }
+
+        # Analyze each position individually
+        for position in positions:
+            position_analysis = await self.analyze_25_year_evolution(position, issue)
+            comparison_analysis["individual_analyses"][position] = position_analysis
+
+        # Comparative metrics
+        all_timelines = []
+        for position in positions:
+            timeline = get_official_timeline(position, 2000, 2025)
+            all_timelines.append((position, timeline))
+
+        # Calculate comparative metrics
+        tenure_lengths = {}
+        party_stability = {}
+        transition_frequency = {}
+
+        for position, timeline in all_timelines:
+            if timeline:
+                # Average tenure length
+                tenures = []
+                for tenure in timeline:
+                    start_year = datetime.strptime(tenure.start_date, "%Y-%m-%d").year
+                    end_year = datetime.strptime(tenure.end_date, "%Y-%m-%d").year
+                    tenures.append(end_year - start_year)
+
+                tenure_lengths[position] = sum(tenures) / len(tenures) if tenures else 0
+
+                # Party stability (% of time with same party)
+                party_counts = {}
+                total_years = 0
+                for tenure in timeline:
+                    start_year = datetime.strptime(tenure.start_date, "%Y-%m-%d").year
+                    end_year = datetime.strptime(tenure.end_date, "%Y-%m-%d").year
+                    years = end_year - start_year
+
+                    if tenure.party not in party_counts:
+                        party_counts[tenure.party] = 0
+                    party_counts[tenure.party] += years
+                    total_years += years
+
+                max_party_years = max(party_counts.values()) if party_counts else 0
+                party_stability[position] = max_party_years / total_years if total_years > 0 else 0
+
+                # Transition frequency
+                transition_frequency[position] = len(timeline) / 25  # transitions per year
+
+        comparison_analysis["comparative_metrics"] = {
+            "average_tenure_lengths": tenure_lengths,
+            "party_stability_scores": party_stability,
+            "transition_frequencies": transition_frequency
+        }
+
+        # Synchronization analysis (when positions changed simultaneously)
+        if issue:
+            sync_analysis = await self._analyze_cross_position_synchronization(positions, issue)
+            comparison_analysis["synchronization_analysis"] = sync_analysis
+
+        # Identify major divergence points
+        divergence_points = await self._identify_divergence_points(positions)
+        comparison_analysis["divergence_points"] = divergence_points
+
+        return comparison_analysis
+
+    async def _analyze_cross_position_synchronization(self, positions: List[str],
+                                                    issue: str) -> Dict[str, Any]:
+        """Analyze synchronization of position changes across multiple offices."""
+        sync_analysis = {
+            "synchronized_periods": [],
+            "divergent_periods": [],
+            "coordination_score": 0.0
+        }
+
+        # Get issue evolution for each position
+        evolutions = {}
+        for position in positions:
+            evolution = await self.position_tracker.track_issue_evolution(issue, position)
+            if evolution.evolution_timeline:
+                evolutions[position] = evolution
+
+        if len(evolutions) < 2:
+            return sync_analysis
+
+        # Find synchronized change points
+        all_change_points = {}
+        for position, evolution in evolutions.items():
+            change_points = [cp[0] for cp in evolution.change_points]  # Extract years
+            all_change_points[position] = change_points
+
+        # Identify synchronized changes (within 2 years)
+        sync_tolerance = 2
+        synchronized_changes = []
+
+        for pos1, changes1 in all_change_points.items():
+            for pos2, changes2 in all_change_points.items():
+                if pos1 < pos2:  # Avoid duplicates
+                    for year1 in changes1:
+                        for year2 in changes2:
+                            if abs(year1 - year2) <= sync_tolerance:
+                                synchronized_changes.append({
+                                    "year_range": f"{min(year1, year2)}-{max(year1, year2)}",
+                                    "positions": [pos1, pos2],
+                                    "description": f"Synchronized policy change on {issue}"
+                                })
+
+        sync_analysis["synchronized_periods"] = synchronized_changes
+
+        # Calculate overall coordination score
+        total_changes = sum(len(changes) for changes in all_change_points.values())
+        synchronized_count = len(synchronized_changes) * 2  # Each sync affects 2 positions
+
+        sync_analysis["coordination_score"] = (synchronized_count / total_changes
+                                             if total_changes > 0 else 0.0)
+
+        return sync_analysis
+
+    async def _identify_divergence_points(self, positions: List[str]) -> List[Dict[str, Any]]:
+        """Identify major divergence points between position chains."""
+        divergences = []
+
+        # Get all transitions for these positions
+        all_transitions = await self.predecessor_analyzer.analyze_all_transitions()
+        position_transitions = {pos: [] for pos in positions}
+
+        for transition in all_transitions:
+            if transition.position in positions:
+                position_transitions[transition.position].append(transition)
+
+        # Look for years where positions diverged (party changes, major policy shifts)
+        years_with_changes = set()
+        for transitions in position_transitions.values():
+            for transition in transitions:
+                years_with_changes.add(transition.transition_year)
+
+        for year in sorted(years_with_changes):
+            year_changes = {}
+            for position in positions:
+                position_changes = [t for t in position_transitions[position]
+                                  if t.transition_year == year]
+                if position_changes:
+                    year_changes[position] = position_changes[0]
+
+            if len(year_changes) > 1:
+                # Check for divergent patterns
+                party_changes = [t.party_change for t in year_changes.values()]
+                disruption_levels = [t.institutional_disruption_level for t in year_changes.values()]
+
+                if any(party_changes) or max(disruption_levels) > 0.7:
+                    divergence = {
+                        "year": year,
+                        "positions_affected": list(year_changes.keys()),
+                        "divergence_type": "political_realignment" if any(party_changes) else "policy_shift",
+                        "average_disruption": sum(disruption_levels) / len(disruption_levels),
+                        "details": [
+                            f"{pos}: {t.outgoing_official} → {t.incoming_official} ({t.transition_type.value})"
+                            for pos, t in year_changes.items()
+                        ]
+                    }
+                    divergences.append(divergence)
+
+        return divergences
+
+    async def generate_comprehensive_temporal_report(self) -> Dict[str, Any]:
+        """Generate comprehensive temporal analysis report including all predecessor data."""
+        report = {
+            "executive_summary": {},
+            "25_year_overview": {},
+            "position_analyses": {},
+            "comparative_analysis": {},
+            "issue_evolution": {},
+            "institutional_memory": {},
+            "generated_at": datetime.now().isoformat()
+        }
+
+        # Generate 25-year overview
+        summary = await self.predecessor_analyzer.generate_comprehensive_predecessor_analysis()
+        report["25_year_overview"] = summary["executive_summary"]
+
+        # Analyze key positions
+        key_positions = [
+            "us_senate_ny_senior", "us_senate_ny_junior", "us_house_ny11",
+            "ny_senate_district_24", "si_borough_president"
+        ]
+
+        for position in key_positions:
+            position_analysis = await self.analyze_25_year_evolution(position)
+            report["position_analyses"][position] = position_analysis
+
+        # Comparative analysis across positions
+        comparison = await self.compare_predecessor_chains(key_positions)
+        report["comparative_analysis"] = comparison
+
+        # Issue evolution analysis
+        key_issues = ["transportation_infrastructure", "healthcare_access", "economic_development"]
+        for issue in key_issues:
+            issue_report = await self.position_tracker.analyze_cross_position_coordination(issue)
+            report["issue_evolution"][issue] = {
+                "federal_state_alignment": issue_report.federal_state_alignment,
+                "jurisdictional_consistency": issue_report.jurisdictional_consistency,
+                "coordination_evidence_count": len(issue_report.coordination_evidence),
+                "conflict_evidence_count": len(issue_report.conflict_evidence)
+            }
+
+        # Institutional memory analysis
+        institutional_analysis = await self.predecessor_analyzer.analyze_institutional_memory()
+        report["institutional_memory"] = {
+            "positions_analyzed": len(institutional_analysis),
+            "average_memory_preservation": (
+                sum(m.memory_preservation_score for m in institutional_analysis) /
+                len(institutional_analysis) if institutional_analysis else 0
+            ),
+            "knowledge_transfer_indicators": sum(
+                len(m.knowledge_transfer_indicators) for m in institutional_analysis
+            )
+        }
+
+        # Executive summary
+        report["executive_summary"] = {
+            "analysis_scope": "Staten Island political representation 2000-2025",
+            "total_officials_tracked": summary["executive_summary"]["total_officials_analyzed"],
+            "positions_analyzed": len(key_positions),
+            "major_transitions": len([t for t in summary["transition_analysis"]["detailed_transitions"]
+                                   if t["party_change"]]),
+            "average_policy_continuity": summary["executive_summary"]["average_policy_continuity"],
+            "institutional_stability": summary["executive_summary"]["average_disruption_level"]
+        }
+
+        return report

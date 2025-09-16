@@ -1,0 +1,210 @@
+{
+  "success": true,
+  "message": "Data for bill S5914-2025",
+  "responseType": "bill",
+  "result": {
+    "basePrintNo": "S5914",
+    "session": 2025,
+    "basePrintNoStr": "S5914-2025",
+    "printNo": "S5914",
+    "billType": {
+      "chamber": "SENATE",
+      "desc": "Senate",
+      "resolution": false
+    },
+    "title": "Relates to waiving certain fees associated with the issuance of an enhanced driver's license",
+    "activeVersion": "",
+    "year": 2025,
+    "publishedDateTime": "2025-03-04T09:14:30.704319",
+    "substitutedBy": null,
+    "sponsor": {
+      "member": {
+        "memberId": 409,
+        "chamber": "SENATE",
+        "incumbent": true,
+        "fullName": "Andrew J. Lanza",
+        "shortName": "LANZA",
+        "imgName": "409_andrew_j_lanza.jpg",
+        "sessionMemberId": 2341,
+        "sessionYear": 2025,
+        "districtCode": 24,
+        "alternate": false
+      },
+      "budget": false,
+      "rules": false,
+      "redistricting": false
+    },
+    "reprintOf": null,
+    "summary": "Relates to waiving all additional fees associated with the issuance of an enhanced driver's license if such license is required within thirty days of the issuance or reissuance of a standard driver's license.",
+    "signed": false,
+    "adopted": false,
+    "vetoed": false,
+    "status": {
+      "statusType": "IN_SENATE_COMM",
+      "statusDesc": "In Senate Committee",
+      "actionDate": "2025-03-04",
+      "committeeName": "Transportation",
+      "billCalNo": null
+    },
+    "milestones": {
+      "items": [
+        {
+          "statusType": "IN_SENATE_COMM",
+          "statusDesc": "In Senate Committee",
+          "actionDate": "2025-03-04",
+          "committeeName": "Transportation",
+          "billCalNo": null
+        }
+      ],
+      "size": 1
+    },
+    "actions": {
+      "items": [
+        {
+          "billId": {
+            "basePrintNo": "S5914",
+            "session": 2025,
+            "basePrintNoStr": "S5914-2025",
+            "printNo": "S5914",
+            "version": ""
+          },
+          "date": "2025-03-04",
+          "chamber": "SENATE",
+          "sequenceNo": 1,
+          "text": "REFERRED TO TRANSPORTATION"
+        }
+      ],
+      "size": 1
+    },
+    "publishStatusMap": {
+      "items": {
+        "": {
+          "version": "",
+          "published": true,
+          "effectDateTime": "2025-03-04T09:14:30.704319"
+        }
+      },
+      "size": 1
+    },
+    "programInfo": null,
+    "amendmentVersions": {
+      "items": [
+        ""
+      ],
+      "size": 1
+    },
+    "amendments": {
+      "items": {
+        "": {
+          "basePrintNo": "S5914",
+          "session": 2025,
+          "basePrintNoStr": "S5914-2025",
+          "printNo": "S5914",
+          "version": "",
+          "publishDate": "2025-03-04",
+          "sameAs": {
+            "items": [],
+            "size": 0
+          },
+          "memo": "\u00a0\nBILL NUMBER: S5914\n\nSPONSOR: LANZA\n\u00a0\nTITLE OF BILL:\n\nAn act to amend the vehicle and traffic law, in relation to waiving\ncertain fees associated with the issuance of an enhanced driver's\nlicense\n\n\u00a0\nPURPOSE OR GENERAL IDEA OF BILL:\n\nThis bill relates to waiving certain fees associated with the issuance\nof an enhanced driver's license\n\n\u00a0\nSUMMARY OF SPECIFIC PROVISIONS:\n\nSection one of this bill amends subdivision 3 of section 503 of the\nvehicle and traffic law to waive any additional fee associated with the\nrequest for an enhanced driver's license if such request is made within\nthirty days of the issuance of reissuance of a standard driver's\nlicense.\n\nSection two is the effective date.\n\n\u00a0\nJUSTIFICATION:\n\nThis bill would allow a person to upgrade to and enhanced drivers with-\nout paying an additional fee to the Department of Motor Vehicles (DMV).\nFor example, when someone goes to DMV to get a standard driver's license\nthey may not know until after the fact, that they have the option to\nupgrade to an enhanced license which requires more stringent documenta-\ntion. The 30 day window allows residents to obtain the proper documenta-\ntion that is required in order to get an enhanced license thus waiving\nany additional fees associated with the upgrade above the standard cost\nof the enhanced license. This bill ensures that any fee associated with\nupgrading to such license is exempt when it is done within 30 days after\na standard license has been issued.\n\n\u00a0\nPRIOR LEGISLATIVE HISTORY:\n\n2024:S.4212 - Referred to Transportation\n\n2023:S.4212 - Referred to Transportation\n\n2022:S.4978 - 3rd Reading Calendar\n\n2021:S.4978 - Referred to Finance\n\n2020:S.3178 - Referred to Transportation\n\n2019:S.3178 - Referred to Transportation\n\n2018:S.8280 - Referred to Transportation\n\n\u00a0\nFISCAL IMPLICATIONS FOR STATE AND LOCAL GOVERNMENTS:\n\nNone.\n\n\u00a0\nEFFECTIVE DATE:\nThis act shall take effect on the thirtieth day after it shall have\nbecome a law.\n",
+          "lawSection": "Vehicle and Traffic Law",
+          "lawCode": "Amd \u00a7503, V & T L",
+          "actClause": "AN ACT to amend the vehicle and traffic law, in relation to waiving certain\nfees associated with the issuance of an enhanced driver's license",
+          "fullTextFormats": [
+            "PLAIN"
+          ],
+          "fullText": " \n                     S T A T E   O F   N E W   Y O R K\n ________________________________________________________________________\n \n                                   5914\n \n                        2025-2026 Regular Sessions\n \n                             I N  S E N A T E\n \n                               March 4, 2025\n                                ___________\n \n Introduced  by  Sen.  LANZA  -- read twice and ordered printed, and when\n   printed to be committed to the Committee on Transportation\n \n AN ACT to amend the vehicle and traffic  law,  in  relation  to  waiving\n   certain  fees  associated  with  the  issuance of an enhanced driver's\n   license\n\n   THE PEOPLE OF THE STATE OF NEW YORK, REPRESENTED IN SENATE AND  ASSEM-\n BLY, DO ENACT AS FOLLOWS:\n \n   Section  1.  Subdivision  3  of section 503 of the vehicle and traffic\n law, as amended by chapter 548 of the laws of 1986 and paragraph (i)  as\n amended  by  chapter  322  of  the  laws  of 2021, is amended to read as\n follows:\n   3. Waiver of fee. (A) The commissioner may waive the payment  of  fees\n required by subdivision two of this section if the applicant:\n   (i)  is  an incarcerated individual in an institution under the juris-\n diction of a state department or agency, or\n   (ii) is a victim of crime and the driver's license or learner's permit\n applied for is a replacement for one that was lost  or  destroyed  as  a\n result of the crime.\n   (B)  THE  COMMISSIONER  SHALL WAIVE ANY ADDITIONAL FEE ASSOCIATED WITH\n THE REQUEST FOR AN ENHANCED DRIVER'S LICENSE IF  SUCH  REQUEST  IS  MADE\n WITHIN  THIRTY DAYS OF THE ISSUANCE OR REISSUANCE OF A STANDARD DRIVER'S\n LICENSE. FOR PURPOSES OF THIS PARAGRAPH, \"ADDITIONAL FEE\" SHALL MEAN ANY\n FEE IN EXCESS OF THE STANDARD FEE ASSESSED FOR  SUCH  ENHANCED  DRIVER'S\n LICENSE.\n   \u00a7  2.  This  act shall take effect on the thirtieth day after it shall\n have become a law.\n \n \n  EXPLANATION--Matter in ITALICS (underscored) is new; matter in brackets\n                       [ ] is old law to be omitted.\n                                                            LBD09889-01-5\n\n\n",
+          "fullTextHtml": "",
+          "fullTextTemplate": "",
+          "coSponsors": {
+            "items": [],
+            "size": 0
+          },
+          "multiSponsors": {
+            "items": [],
+            "size": 0
+          },
+          "uniBill": false,
+          "relatedLaws": {
+            "items": {
+              "AMEND": {
+                "items": [
+                  "VAT503"
+                ],
+                "size": 1
+              }
+            },
+            "size": 1
+          },
+          "stricken": false
+        }
+      },
+      "size": 1
+    },
+    "votes": {
+      "items": [],
+      "size": 0
+    },
+    "vetoMessages": {
+      "items": [],
+      "size": 0
+    },
+    "approvalMessage": null,
+    "additionalSponsors": {
+      "items": [],
+      "size": 0
+    },
+    "pastCommittees": {
+      "items": [
+        {
+          "chamber": "SENATE",
+          "name": "Transportation",
+          "sessionYear": 2025,
+          "referenceDate": "2025-03-04T00:00"
+        }
+      ],
+      "size": 1
+    },
+    "previousVersions": {
+      "items": [
+        {
+          "basePrintNo": "S4212",
+          "session": 2023,
+          "basePrintNoStr": "S4212-2023",
+          "printNo": "S4212",
+          "version": ""
+        },
+        {
+          "basePrintNo": "S4928",
+          "session": 2021,
+          "basePrintNoStr": "S4928-2021",
+          "printNo": "S4928",
+          "version": ""
+        },
+        {
+          "basePrintNo": "S3178",
+          "session": 2019,
+          "basePrintNoStr": "S3178-2019",
+          "printNo": "S3178",
+          "version": ""
+        },
+        {
+          "basePrintNo": "S8280",
+          "session": 2017,
+          "basePrintNoStr": "S8280-2017",
+          "printNo": "S8280",
+          "version": ""
+        }
+      ],
+      "size": 4
+    },
+    "committeeAgendas": {
+      "items": [],
+      "size": 0
+    },
+    "calendars": {
+      "items": [],
+      "size": 0
+    }
+  }
+}

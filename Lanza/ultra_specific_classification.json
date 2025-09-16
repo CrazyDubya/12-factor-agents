@@ -1,0 +1,1273 @@
+{
+  "original_misc_count": 243,
+  "ultra_specific_categories": {
+    "Truly Miscellaneous": 88,
+    "Social Services - Child/Family": 25,
+    "Criminal Justice - Offense Definitions": 40,
+    "Government - Deadline Extensions": 2,
+    "Government - Meeting/Notice Requirements": 6,
+    "Transportation - Insurance Requirements": 15,
+    "Animal Welfare - Companion Animals": 12,
+    "Consumer - Product Safety": 14,
+    "Fiscal - Refunds/Credits": 6,
+    "Government - Record Keeping": 10,
+    "Professional - Trade/Business": 4,
+    "Employment - Work Conditions": 4,
+    "Healthcare - Insurance Claims": 2,
+    "Fiscal - Financial Penalties": 10,
+    "Legislative - Commemorative Resolutions": 4,
+    "Legal - Repeal/Sunset": 1
+  },
+  "detailed_breakdown": {
+    "Truly Miscellaneous": [
+      {
+        "bill": "S5521",
+        "year": 2009,
+        "title": "Establishes the John J. Marchi government studies scholarship program for CUNY students enrolled in ..."
+      },
+      {
+        "bill": "S3564",
+        "year": 2009,
+        "title": "Relates to crane inspectors and impairing the integrity of a government licensing examination..."
+      },
+      {
+        "bill": "S487",
+        "year": 2009,
+        "title": "Provides for gifts on tax returns for autism awareness and research..."
+      },
+      {
+        "bill": "S492",
+        "year": 2009,
+        "title": "Creates the New York state autism council..."
+      },
+      {
+        "bill": "S504",
+        "year": 2009,
+        "title": "Relates to increasing the number of members of the MTA from sixteen to eighteen..."
+      },
+      {
+        "bill": "S3006",
+        "year": 2009,
+        "title": "Establishes a person is guilty of criminal mischief in the second degree when he or she damages prop..."
+      },
+      {
+        "bill": "S483",
+        "year": 2009,
+        "title": "Establishes the class D felony of criminal street gang recruitment on school grounds..."
+      },
+      {
+        "bill": "S5521",
+        "year": 2009,
+        "title": "Establishes the John J. Marchi government studies scholarship program for CUNY students enrolled in ..."
+      },
+      {
+        "bill": "S3564",
+        "year": 2009,
+        "title": "Relates to crane inspectors and impairing the integrity of a government licensing examination..."
+      },
+      {
+        "bill": "S487",
+        "year": 2009,
+        "title": "Provides for gifts on tax returns for autism awareness and research..."
+      },
+      {
+        "bill": "S492",
+        "year": 2009,
+        "title": "Creates the New York state autism council..."
+      },
+      {
+        "bill": "S504",
+        "year": 2009,
+        "title": "Relates to increasing the number of members of the MTA from sixteen to eighteen..."
+      },
+      {
+        "bill": "S3006",
+        "year": 2009,
+        "title": "Establishes a person is guilty of criminal mischief in the second degree when he or she damages prop..."
+      },
+      {
+        "bill": "S483",
+        "year": 2009,
+        "title": "Establishes the class D felony of criminal street gang recruitment on school grounds..."
+      },
+      {
+        "bill": "S2940",
+        "year": 2011,
+        "title": "Establishes the class D felony of criminal street gang recruitment on school grounds..."
+      },
+      {
+        "bill": "S2941",
+        "year": 2011,
+        "title": "Establishes a person is guilty of criminal mischief in the second degree when he or she damages prop..."
+      },
+      {
+        "bill": "S2940",
+        "year": 2011,
+        "title": "Establishes the class D felony of criminal street gang recruitment on school grounds..."
+      },
+      {
+        "bill": "S2941",
+        "year": 2011,
+        "title": "Establishes a person is guilty of criminal mischief in the second degree when he or she damages prop..."
+      },
+      {
+        "bill": "S2457",
+        "year": 2013,
+        "title": "Provides for gifts on tax returns for autism awareness and research..."
+      },
+      {
+        "bill": "S2458",
+        "year": 2013,
+        "title": "Establishes the class D felony of criminal street gang recruitment on school grounds..."
+      },
+      {
+        "bill": "S3605",
+        "year": 2013,
+        "title": "Establishes the John J. Marchi government studies scholarship program for CUNY students enrolled in ..."
+      },
+      {
+        "bill": "S2457",
+        "year": 2013,
+        "title": "Provides for gifts on tax returns for autism awareness and research..."
+      },
+      {
+        "bill": "S2458",
+        "year": 2013,
+        "title": "Establishes the class D felony of criminal street gang recruitment on school grounds..."
+      },
+      {
+        "bill": "S3605",
+        "year": 2013,
+        "title": "Establishes the John J. Marchi government studies scholarship program for CUNY students enrolled in ..."
+      },
+      {
+        "bill": "S2887",
+        "year": 2015,
+        "title": "Relates to musical instruments containing ivory or rhinoceros horn..."
+      },
+      {
+        "bill": "S3477",
+        "year": 2015,
+        "title": "Establishes a person is guilty of criminal mischief in the second degree when he or she damages prop..."
+      },
+      {
+        "bill": "S3484",
+        "year": 2015,
+        "title": "Relates to facilitating female genital mutilation..."
+      },
+      {
+        "bill": "S3852",
+        "year": 2015,
+        "title": "Establishes the class D felony of criminal street gang recruitment on school grounds..."
+      },
+      {
+        "bill": "S3933",
+        "year": 2015,
+        "title": "Relates to the timeliness of prosecution or commencing certain civil actions related to certain sex ..."
+      },
+      {
+        "bill": "S2887",
+        "year": 2015,
+        "title": "Relates to musical instruments containing ivory or rhinoceros horn..."
+      },
+      {
+        "bill": "S3477",
+        "year": 2015,
+        "title": "Establishes a person is guilty of criminal mischief in the second degree when he or she damages prop..."
+      },
+      {
+        "bill": "S3484",
+        "year": 2015,
+        "title": "Relates to facilitating female genital mutilation..."
+      },
+      {
+        "bill": "S3852",
+        "year": 2015,
+        "title": "Establishes the class D felony of criminal street gang recruitment on school grounds..."
+      },
+      {
+        "bill": "S3933",
+        "year": 2015,
+        "title": "Relates to the timeliness of prosecution or commencing certain civil actions related to certain sex ..."
+      },
+      {
+        "bill": "S2591",
+        "year": 2017,
+        "title": "Relates to the enforcement of provisions relating to carriers of household goods by motor vehicles..."
+      },
+      {
+        "bill": "S4394",
+        "year": 2017,
+        "title": "Relates to repeat offenders of driving accidents..."
+      },
+      {
+        "bill": "S4407",
+        "year": 2017,
+        "title": "Relates to the age of consent for purposes of marriage..."
+      },
+      {
+        "bill": "S2591",
+        "year": 2017,
+        "title": "Relates to the enforcement of provisions relating to carriers of household goods by motor vehicles..."
+      },
+      {
+        "bill": "S4394",
+        "year": 2017,
+        "title": "Relates to repeat offenders of driving accidents..."
+      },
+      {
+        "bill": "S4407",
+        "year": 2017,
+        "title": "Relates to the age of consent for purposes of marriage..."
+      },
+      {
+        "bill": "S372",
+        "year": 2019,
+        "title": "Relates to establishing a crisis intervention team program..."
+      },
+      {
+        "bill": "S414",
+        "year": 2019,
+        "title": "Relates to the timeliness of prosecution or commencing certain civil actions related to certain sex ..."
+      },
+      {
+        "bill": "S798",
+        "year": 2019,
+        "title": "Relates to repeat offenders of driving accidents..."
+      },
+      {
+        "bill": "S815",
+        "year": 2019,
+        "title": "Relates to single occupancy bathrooms..."
+      },
+      {
+        "bill": "S1122",
+        "year": 2019,
+        "title": "Relates to establishing the John J. Marchi government studies scholarship program for certain CUNY s..."
+      },
+      {
+        "bill": "S1528",
+        "year": 2019,
+        "title": "Establishes the Move New York Fair Plan..."
+      },
+      {
+        "bill": "S1773",
+        "year": 2019,
+        "title": "Establishes the class D felony of criminal street gang recruitment on school grounds..."
+      },
+      {
+        "bill": "S1785",
+        "year": 2019,
+        "title": "Relates to the enforcement of provisions relating to carriers of household goods by motor vehicles..."
+      },
+      {
+        "bill": "S3284",
+        "year": 2019,
+        "title": "Limits the provision of charitable bail to misdemeanor defendants who are first time offenders..."
+      },
+      {
+        "bill": "S4136",
+        "year": 2019,
+        "title": "Relates to establishing September fourth as \"Mother Teresa Remembrance Day\"..."
+      },
+      {
+        "bill": "S372",
+        "year": 2019,
+        "title": "Relates to establishing a crisis intervention team program..."
+      },
+      {
+        "bill": "S414",
+        "year": 2019,
+        "title": "Relates to the timeliness of prosecution or commencing certain civil actions related to certain sex ..."
+      },
+      {
+        "bill": "S798",
+        "year": 2019,
+        "title": "Relates to repeat offenders of driving accidents..."
+      },
+      {
+        "bill": "S815",
+        "year": 2019,
+        "title": "Relates to single occupancy bathrooms..."
+      },
+      {
+        "bill": "S1122",
+        "year": 2019,
+        "title": "Relates to establishing the John J. Marchi government studies scholarship program for certain CUNY s..."
+      },
+      {
+        "bill": "S1528",
+        "year": 2019,
+        "title": "Establishes the Move New York Fair Plan..."
+      },
+      {
+        "bill": "S1773",
+        "year": 2019,
+        "title": "Establishes the class D felony of criminal street gang recruitment on school grounds..."
+      },
+      {
+        "bill": "S1785",
+        "year": 2019,
+        "title": "Relates to the enforcement of provisions relating to carriers of household goods by motor vehicles..."
+      },
+      {
+        "bill": "S3284",
+        "year": 2019,
+        "title": "Limits the provision of charitable bail to misdemeanor defendants who are first time offenders..."
+      },
+      {
+        "bill": "S4136",
+        "year": 2019,
+        "title": "Relates to establishing September fourth as \"Mother Teresa Remembrance Day\"..."
+      },
+      {
+        "bill": "S4298",
+        "year": 2021,
+        "title": "Relates to repeat offenders of driving accidents..."
+      },
+      {
+        "bill": "S4564",
+        "year": 2021,
+        "title": "Relates to the enforcement of provisions relating to carriers of household goods by motor vehicles..."
+      },
+      {
+        "bill": "S4632",
+        "year": 2021,
+        "title": "Establishes the class D felony of criminal street gang recruitment on school grounds..."
+      },
+      {
+        "bill": "S4902",
+        "year": 2021,
+        "title": "Limits the provision of charitable bail to misdemeanor defendants who are first time offenders..."
+      },
+      {
+        "bill": "S4978",
+        "year": 2021,
+        "title": "Establishes September fourth as \"Mother Teresa Remembrance Day\"..."
+      },
+      {
+        "bill": "S4298",
+        "year": 2021,
+        "title": "Relates to repeat offenders of driving accidents..."
+      },
+      {
+        "bill": "S4564",
+        "year": 2021,
+        "title": "Relates to the enforcement of provisions relating to carriers of household goods by motor vehicles..."
+      },
+      {
+        "bill": "S4632",
+        "year": 2021,
+        "title": "Establishes the class D felony of criminal street gang recruitment on school grounds..."
+      },
+      {
+        "bill": "S4902",
+        "year": 2021,
+        "title": "Limits the provision of charitable bail to misdemeanor defendants who are first time offenders..."
+      },
+      {
+        "bill": "S4978",
+        "year": 2021,
+        "title": "Establishes September fourth as \"Mother Teresa Remembrance Day\"..."
+      },
+      {
+        "bill": "S4111",
+        "year": 2023,
+        "title": "Establishes the class D felony of criminal street gang recruitment on school grounds..."
+      },
+      {
+        "bill": "S4119",
+        "year": 2023,
+        "title": "Limits the provision of charitable bail to misdemeanor defendants who are first time offenders..."
+      },
+      {
+        "bill": "S4206",
+        "year": 2023,
+        "title": "Establishes September fourth as \"Mother Teresa Remembrance Day\"..."
+      },
+      {
+        "bill": "S4272",
+        "year": 2023,
+        "title": "Relates to establishing a crisis intervention team program..."
+      },
+      {
+        "bill": "J430",
+        "year": 2023,
+        "title": "Congratulating Anthony Aquaro upon the occasion of his 102nd Birthday..."
+      },
+      {
+        "bill": "S4656",
+        "year": 2023,
+        "title": "Establishes the John J. Marchi government studies scholarship program for certain CUNY students..."
+      },
+      {
+        "bill": "S5038",
+        "year": 2023,
+        "title": "Relates to appointments made by the governor and the senate..."
+      },
+      {
+        "bill": "S5048",
+        "year": 2023,
+        "title": "Relates to resisting arrest..."
+      },
+      {
+        "bill": "S5054",
+        "year": 2023,
+        "title": "Establishes an alternatively assessed student program..."
+      },
+      {
+        "bill": "S4111",
+        "year": 2023,
+        "title": "Establishes the class D felony of criminal street gang recruitment on school grounds..."
+      },
+      {
+        "bill": "S4119",
+        "year": 2023,
+        "title": "Limits the provision of charitable bail to misdemeanor defendants who are first time offenders..."
+      },
+      {
+        "bill": "S4206",
+        "year": 2023,
+        "title": "Establishes September fourth as \"Mother Teresa Remembrance Day\"..."
+      },
+      {
+        "bill": "S4272",
+        "year": 2023,
+        "title": "Relates to establishing a crisis intervention team program..."
+      },
+      {
+        "bill": "J430",
+        "year": 2023,
+        "title": "Congratulating Anthony Aquaro upon the occasion of his 102nd Birthday..."
+      },
+      {
+        "bill": "S4656",
+        "year": 2023,
+        "title": "Establishes the John J. Marchi government studies scholarship program for certain CUNY students..."
+      },
+      {
+        "bill": "S5038",
+        "year": 2023,
+        "title": "Relates to appointments made by the governor and the senate..."
+      },
+      {
+        "bill": "S5048",
+        "year": 2023,
+        "title": "Relates to resisting arrest..."
+      },
+      {
+        "bill": "S5054",
+        "year": 2023,
+        "title": "Establishes an alternatively assessed student program..."
+      }
+    ],
+    "Social Services - Child/Family": [
+      {
+        "bill": "S473",
+        "year": 2009,
+        "title": "Relates to the crime of endangering the welfare of a child..."
+      },
+      {
+        "bill": "S473",
+        "year": 2009,
+        "title": "Relates to the crime of endangering the welfare of a child..."
+      },
+      {
+        "bill": "S2937",
+        "year": 2011,
+        "title": "Establishes the class E felony of dissemination of false missing child information..."
+      },
+      {
+        "bill": "S2937",
+        "year": 2011,
+        "title": "Establishes the class E felony of dissemination of false missing child information..."
+      },
+      {
+        "bill": "S2475",
+        "year": 2013,
+        "title": "Relates to the crime of endangering the welfare of a child..."
+      },
+      {
+        "bill": "S2475",
+        "year": 2013,
+        "title": "Relates to the crime of endangering the welfare of a child..."
+      },
+      {
+        "bill": "S3362",
+        "year": 2015,
+        "title": "Relates to the crime of endangering the welfare of a child..."
+      },
+      {
+        "bill": "S3491",
+        "year": 2015,
+        "title": "Establishes the class E felony of dissemination of false missing child information..."
+      },
+      {
+        "bill": "S3362",
+        "year": 2015,
+        "title": "Relates to the crime of endangering the welfare of a child..."
+      },
+      {
+        "bill": "S3491",
+        "year": 2015,
+        "title": "Establishes the class E felony of dissemination of false missing child information..."
+      },
+      {
+        "bill": "S2619",
+        "year": 2017,
+        "title": "Relates to the crime of endangering the welfare of a child..."
+      },
+      {
+        "bill": "S2630",
+        "year": 2017,
+        "title": "Establishes the class E felony of dissemination of false missing child information..."
+      },
+      {
+        "bill": "S2619",
+        "year": 2017,
+        "title": "Relates to the crime of endangering the welfare of a child..."
+      },
+      {
+        "bill": "S2630",
+        "year": 2017,
+        "title": "Establishes the class E felony of dissemination of false missing child information..."
+      },
+      {
+        "bill": "S368",
+        "year": 2019,
+        "title": "Relates to the crime of endangering the welfare of a child..."
+      },
+      {
+        "bill": "S400",
+        "year": 2019,
+        "title": "Establishes the class E felony of dissemination of false missing child information..."
+      },
+      {
+        "bill": "S368",
+        "year": 2019,
+        "title": "Relates to the crime of endangering the welfare of a child..."
+      },
+      {
+        "bill": "S400",
+        "year": 2019,
+        "title": "Establishes the class E felony of dissemination of false missing child information..."
+      },
+      {
+        "bill": "S4290",
+        "year": 2021,
+        "title": "Relates to the crime of endangering the welfare of a child..."
+      },
+      {
+        "bill": "S4290",
+        "year": 2021,
+        "title": "Relates to the crime of endangering the welfare of a child..."
+      },
+      {
+        "bill": "S2829",
+        "year": 2023,
+        "title": "Relates to the crime of endangering the welfare of a child..."
+      },
+      {
+        "bill": "S4280",
+        "year": 2023,
+        "title": "Establishes the class E felony of dissemination of false missing child information..."
+      },
+      {
+        "bill": "S2829",
+        "year": 2023,
+        "title": "Relates to the crime of endangering the welfare of a child..."
+      },
+      {
+        "bill": "S4280",
+        "year": 2023,
+        "title": "Establishes the class E felony of dissemination of false missing child information..."
+      },
+      {
+        "bill": "S3710",
+        "year": 2025,
+        "title": "Relates to the crime of endangering the welfare of a child..."
+      }
+    ],
+    "Criminal Justice - Offense Definitions": [
+      {
+        "bill": "S482",
+        "year": 2009,
+        "title": "Creates the crime of falsely accusing someone of a crime..."
+      },
+      {
+        "bill": "S486",
+        "year": 2009,
+        "title": "Creates the crimes of dangerous driving in the fifth, fourth, third, second and first degrees..."
+      },
+      {
+        "bill": "S491",
+        "year": 2009,
+        "title": "Creates crimes for disruption of funerals..."
+      },
+      {
+        "bill": "S482",
+        "year": 2009,
+        "title": "Creates the crime of falsely accusing someone of a crime..."
+      },
+      {
+        "bill": "S486",
+        "year": 2009,
+        "title": "Creates the crimes of dangerous driving in the fifth, fourth, third, second and first degrees..."
+      },
+      {
+        "bill": "S491",
+        "year": 2009,
+        "title": "Creates crimes for disruption of funerals..."
+      },
+      {
+        "bill": "S2948",
+        "year": 2011,
+        "title": "Creates the crime of falsely accusing someone of a crime..."
+      },
+      {
+        "bill": "S2948",
+        "year": 2011,
+        "title": "Creates the crime of falsely accusing someone of a crime..."
+      },
+      {
+        "bill": "S2479",
+        "year": 2013,
+        "title": "Creates the crimes of dangerous driving in the fifth, fourth, third, second and first degrees..."
+      },
+      {
+        "bill": "S2479",
+        "year": 2013,
+        "title": "Creates the crimes of dangerous driving in the fifth, fourth, third, second and first degrees..."
+      },
+      {
+        "bill": "S3324",
+        "year": 2015,
+        "title": "Creates the crimes of dangerous driving in the fifth, fourth, third, second and first degrees..."
+      },
+      {
+        "bill": "S3490",
+        "year": 2015,
+        "title": "Creates the crime of falsely accusing someone of a crime..."
+      },
+      {
+        "bill": "S3724",
+        "year": 2015,
+        "title": "Establishes the crime of aggravated reckless driving..."
+      },
+      {
+        "bill": "S3324",
+        "year": 2015,
+        "title": "Creates the crimes of dangerous driving in the fifth, fourth, third, second and first degrees..."
+      },
+      {
+        "bill": "S3490",
+        "year": 2015,
+        "title": "Creates the crime of falsely accusing someone of a crime..."
+      },
+      {
+        "bill": "S3724",
+        "year": 2015,
+        "title": "Establishes the crime of aggravated reckless driving..."
+      },
+      {
+        "bill": "S2627",
+        "year": 2017,
+        "title": "Creates the crime of falsely accusing someone of a crime..."
+      },
+      {
+        "bill": "S3313",
+        "year": 2017,
+        "title": "Creates the crimes of dangerous driving in the fifth, fourth, third, second and first degrees..."
+      },
+      {
+        "bill": "S2627",
+        "year": 2017,
+        "title": "Creates the crime of falsely accusing someone of a crime..."
+      },
+      {
+        "bill": "S3313",
+        "year": 2017,
+        "title": "Creates the crimes of dangerous driving in the fifth, fourth, third, second and first degrees..."
+      },
+      {
+        "bill": "S364",
+        "year": 2019,
+        "title": "Creates the crime of falsely accusing someone of a crime..."
+      },
+      {
+        "bill": "S1786",
+        "year": 2019,
+        "title": "Creates the crimes of dangerous driving in the fifth, fourth, third, second and first degrees..."
+      },
+      {
+        "bill": "S364",
+        "year": 2019,
+        "title": "Creates the crime of falsely accusing someone of a crime..."
+      },
+      {
+        "bill": "S1786",
+        "year": 2019,
+        "title": "Creates the crimes of dangerous driving in the fifth, fourth, third, second and first degrees..."
+      },
+      {
+        "bill": "S4904",
+        "year": 2021,
+        "title": "Creates the crimes of dangerous driving in the fifth, fourth, third, second and first degrees..."
+      },
+      {
+        "bill": "S4983",
+        "year": 2021,
+        "title": "Establishes the crime of feticide..."
+      },
+      {
+        "bill": "S4989",
+        "year": 2021,
+        "title": "Enhances the penalties for crimes committed during a riot..."
+      },
+      {
+        "bill": "S4904",
+        "year": 2021,
+        "title": "Creates the crimes of dangerous driving in the fifth, fourth, third, second and first degrees..."
+      },
+      {
+        "bill": "S4983",
+        "year": 2021,
+        "title": "Establishes the crime of feticide..."
+      },
+      {
+        "bill": "S4989",
+        "year": 2021,
+        "title": "Enhances the penalties for crimes committed during a riot..."
+      },
+      {
+        "bill": "S4093",
+        "year": 2023,
+        "title": "Creates the crimes of dangerous driving in the fifth, fourth, third, second and first degrees..."
+      },
+      {
+        "bill": "S4186",
+        "year": 2023,
+        "title": "Establishes the crime of feticide..."
+      },
+      {
+        "bill": "S4211",
+        "year": 2023,
+        "title": "Enhances the penalties for crimes committed during a riot..."
+      },
+      {
+        "bill": "S4291",
+        "year": 2023,
+        "title": "Creates the crime of falsely accusing someone of a crime..."
+      },
+      {
+        "bill": "S4665",
+        "year": 2023,
+        "title": "Relates to hate crimes and bail eligibility..."
+      },
+      {
+        "bill": "S4093",
+        "year": 2023,
+        "title": "Creates the crimes of dangerous driving in the fifth, fourth, third, second and first degrees..."
+      },
+      {
+        "bill": "S4186",
+        "year": 2023,
+        "title": "Establishes the crime of feticide..."
+      },
+      {
+        "bill": "S4211",
+        "year": 2023,
+        "title": "Enhances the penalties for crimes committed during a riot..."
+      },
+      {
+        "bill": "S4291",
+        "year": 2023,
+        "title": "Creates the crime of falsely accusing someone of a crime..."
+      },
+      {
+        "bill": "S4665",
+        "year": 2023,
+        "title": "Relates to hate crimes and bail eligibility..."
+      }
+    ],
+    "Government - Deadline Extensions": [
+      {
+        "bill": "S4574",
+        "year": 2009,
+        "title": "Extends provisions of law relating to tickets..."
+      },
+      {
+        "bill": "S4574",
+        "year": 2009,
+        "title": "Extends provisions of law relating to tickets..."
+      }
+    ],
+    "Government - Meeting/Notice Requirements": [
+      {
+        "bill": "S732",
+        "year": 2009,
+        "title": "Provides that sellers of certain products give written notice to consumers of the availability of de..."
+      },
+      {
+        "bill": "S732",
+        "year": 2009,
+        "title": "Provides that sellers of certain products give written notice to consumers of the availability of de..."
+      },
+      {
+        "bill": "S3861",
+        "year": 2019,
+        "title": "Relates to the contents of a notice of liability issued for a speed camera violation..."
+      },
+      {
+        "bill": "S3861",
+        "year": 2019,
+        "title": "Relates to the contents of a notice of liability issued for a speed camera violation..."
+      },
+      {
+        "bill": "S5039",
+        "year": 2023,
+        "title": "Relates to the contents of a notice of liability issued for a speed camera violation..."
+      },
+      {
+        "bill": "S5039",
+        "year": 2023,
+        "title": "Relates to the contents of a notice of liability issued for a speed camera violation..."
+      }
+    ],
+    "Transportation - Insurance Requirements": [
+      {
+        "bill": "S3759",
+        "year": 2009,
+        "title": "Removes primary care services from certain insurance provisions..."
+      },
+      {
+        "bill": "S5475",
+        "year": 2009,
+        "title": "Pertains to the limits of certain supplementary insurance policies..."
+      },
+      {
+        "bill": "S3759",
+        "year": 2009,
+        "title": "Removes primary care services from certain insurance provisions..."
+      },
+      {
+        "bill": "S5475",
+        "year": 2009,
+        "title": "Pertains to the limits of certain supplementary insurance policies..."
+      },
+      {
+        "bill": "S1822",
+        "year": 2019,
+        "title": "Imposes strict liability on manufacturers, owners, and operators of unmanned motor vehicles..."
+      },
+      {
+        "bill": "S1822",
+        "year": 2019,
+        "title": "Imposes strict liability on manufacturers, owners, and operators of unmanned motor vehicles..."
+      },
+      {
+        "bill": "S4590",
+        "year": 2021,
+        "title": "Imposes strict liability on manufacturers, owners, and operators of unmanned motor vehicles..."
+      },
+      {
+        "bill": "S5157",
+        "year": 2021,
+        "title": "Establishes strict liability for injuries caused by required immunizations..."
+      },
+      {
+        "bill": "S4590",
+        "year": 2021,
+        "title": "Imposes strict liability on manufacturers, owners, and operators of unmanned motor vehicles..."
+      },
+      {
+        "bill": "S5157",
+        "year": 2021,
+        "title": "Establishes strict liability for injuries caused by required immunizations..."
+      },
+      {
+        "bill": "S4106",
+        "year": 2023,
+        "title": "Imposes strict liability on manufacturers, owners, and operators of unmanned motor vehicles..."
+      },
+      {
+        "bill": "S4316",
+        "year": 2023,
+        "title": "Establishes strict liability for injuries caused by required immunizations..."
+      },
+      {
+        "bill": "S4106",
+        "year": 2023,
+        "title": "Imposes strict liability on manufacturers, owners, and operators of unmanned motor vehicles..."
+      },
+      {
+        "bill": "S4316",
+        "year": 2023,
+        "title": "Establishes strict liability for injuries caused by required immunizations..."
+      },
+      {
+        "bill": "S5415",
+        "year": 2025,
+        "title": "Imposes strict liability on manufacturers, owners, and operators of unmanned motor vehicles..."
+      }
+    ],
+    "Animal Welfare - Companion Animals": [
+      {
+        "bill": "S2283",
+        "year": 2013,
+        "title": "Relates to the composition of community district education councils..."
+      },
+      {
+        "bill": "S2283",
+        "year": 2013,
+        "title": "Relates to the composition of community district education councils..."
+      },
+      {
+        "bill": "S3483",
+        "year": 2015,
+        "title": "Relates to public education and outreach about female genital mutilation..."
+      },
+      {
+        "bill": "S3483",
+        "year": 2015,
+        "title": "Relates to public education and outreach about female genital mutilation..."
+      },
+      {
+        "bill": "S3149",
+        "year": 2017,
+        "title": "Relates to health care and wellness education and outreach programs for preventing sudden cardiac ar..."
+      },
+      {
+        "bill": "S3149",
+        "year": 2017,
+        "title": "Relates to health care and wellness education and outreach programs for preventing sudden cardiac ar..."
+      },
+      {
+        "bill": "S3269",
+        "year": 2019,
+        "title": "Relates to health care and wellness education and outreach programs for preventing sudden cardiac ar..."
+      },
+      {
+        "bill": "S3860",
+        "year": 2019,
+        "title": "Relates to allowing the Yeshiva of Staten Island to provide driver education courses in alternate lo..."
+      },
+      {
+        "bill": "S3269",
+        "year": 2019,
+        "title": "Relates to health care and wellness education and outreach programs for preventing sudden cardiac ar..."
+      },
+      {
+        "bill": "S3860",
+        "year": 2019,
+        "title": "Relates to allowing the Yeshiva of Staten Island to provide driver education courses in alternate lo..."
+      },
+      {
+        "bill": "S4760",
+        "year": 2023,
+        "title": "Relates to health care and wellness education and outreach programs for preventing sudden cardiac ar..."
+      },
+      {
+        "bill": "S4760",
+        "year": 2023,
+        "title": "Relates to health care and wellness education and outreach programs for preventing sudden cardiac ar..."
+      }
+    ],
+    "Consumer - Product Safety": [
+      {
+        "bill": "S3045",
+        "year": 2013,
+        "title": "Creates a homeowners' bill of rights to inform consumers with regards to insuring against catastroph..."
+      },
+      {
+        "bill": "S3607",
+        "year": 2013,
+        "title": "Provides for the prohibition of sale of tobacco products at pharmacies..."
+      },
+      {
+        "bill": "S3045",
+        "year": 2013,
+        "title": "Creates a homeowners' bill of rights to inform consumers with regards to insuring against catastroph..."
+      },
+      {
+        "bill": "S3607",
+        "year": 2013,
+        "title": "Provides for the prohibition of sale of tobacco products at pharmacies..."
+      },
+      {
+        "bill": "S2909",
+        "year": 2015,
+        "title": "Provides for the prohibition of sale of tobacco products at pharmacies..."
+      },
+      {
+        "bill": "S4048",
+        "year": 2015,
+        "title": "Creates a homeowners' bill of rights to inform consumers with regards to insuring against catastroph..."
+      },
+      {
+        "bill": "S2909",
+        "year": 2015,
+        "title": "Provides for the prohibition of sale of tobacco products at pharmacies..."
+      },
+      {
+        "bill": "S4048",
+        "year": 2015,
+        "title": "Creates a homeowners' bill of rights to inform consumers with regards to insuring against catastroph..."
+      },
+      {
+        "bill": "S3866",
+        "year": 2019,
+        "title": "Creates a homeowners' bill of rights to inform consumers with regard to insuring against catastrophi..."
+      },
+      {
+        "bill": "S3866",
+        "year": 2019,
+        "title": "Creates a homeowners' bill of rights to inform consumers with regard to insuring against catastrophi..."
+      },
+      {
+        "bill": "S4977",
+        "year": 2021,
+        "title": "Creates a homeowners' bill of rights to inform consumers with regard to insuring against catastrophi..."
+      },
+      {
+        "bill": "S4977",
+        "year": 2021,
+        "title": "Creates a homeowners' bill of rights to inform consumers with regard to insuring against catastrophi..."
+      },
+      {
+        "bill": "S4184",
+        "year": 2023,
+        "title": "Creates a homeowners' bill of rights to inform consumers with regard to insuring against catastrophi..."
+      },
+      {
+        "bill": "S4184",
+        "year": 2023,
+        "title": "Creates a homeowners' bill of rights to inform consumers with regard to insuring against catastrophi..."
+      }
+    ],
+    "Fiscal - Refunds/Credits": [
+      {
+        "bill": "S3601",
+        "year": 2013,
+        "title": "Establishes a credit for purchase and installation of a seat belt violation alert system..."
+      },
+      {
+        "bill": "S3601",
+        "year": 2013,
+        "title": "Establishes a credit for purchase and installation of a seat belt violation alert system..."
+      },
+      {
+        "bill": "S3262",
+        "year": 2019,
+        "title": "Relates to the application of special rebates and discounts to certain eligible energy users..."
+      },
+      {
+        "bill": "S3262",
+        "year": 2019,
+        "title": "Relates to the application of special rebates and discounts to certain eligible energy users..."
+      },
+      {
+        "bill": "S4761",
+        "year": 2023,
+        "title": "Relates to the application of special rebates and discounts to certain eligible energy users..."
+      },
+      {
+        "bill": "S4761",
+        "year": 2023,
+        "title": "Relates to the application of special rebates and discounts to certain eligible energy users..."
+      }
+    ],
+    "Government - Record Keeping": [
+      {
+        "bill": "S3628",
+        "year": 2013,
+        "title": "Relates to filing of an order imposing against revoked premises a proscription against future licens..."
+      },
+      {
+        "bill": "S3628",
+        "year": 2013,
+        "title": "Relates to filing of an order imposing against revoked premises a proscription against future licens..."
+      },
+      {
+        "bill": "S2823",
+        "year": 2015,
+        "title": "Relates to filing of an order imposing against revoked premises a proscription against future licens..."
+      },
+      {
+        "bill": "S2823",
+        "year": 2015,
+        "title": "Relates to filing of an order imposing against revoked premises a proscription against future licens..."
+      },
+      {
+        "bill": "S2643",
+        "year": 2019,
+        "title": "Relates to accessing records under the freedom of information law..."
+      },
+      {
+        "bill": "S3175",
+        "year": 2019,
+        "title": "Relates to the unlawful possession of a patient record..."
+      },
+      {
+        "bill": "S2643",
+        "year": 2019,
+        "title": "Relates to accessing records under the freedom of information law..."
+      },
+      {
+        "bill": "S3175",
+        "year": 2019,
+        "title": "Relates to the unlawful possession of a patient record..."
+      },
+      {
+        "bill": "S4762",
+        "year": 2023,
+        "title": "Relates to the unlawful possession of a patient record..."
+      },
+      {
+        "bill": "S4762",
+        "year": 2023,
+        "title": "Relates to the unlawful possession of a patient record..."
+      }
+    ],
+    "Professional - Trade/Business": [
+      {
+        "bill": "S3980",
+        "year": 2013,
+        "title": "Establishes the crimes of possession of a counterfeit trademark in the first, second and third degre..."
+      },
+      {
+        "bill": "S3980",
+        "year": 2013,
+        "title": "Establishes the crimes of possession of a counterfeit trademark in the first, second and third degre..."
+      },
+      {
+        "bill": "S2817",
+        "year": 2015,
+        "title": "Establishes the crimes of possession of a counterfeit trademark in the first, second and third degre..."
+      },
+      {
+        "bill": "S2817",
+        "year": 2015,
+        "title": "Establishes the crimes of possession of a counterfeit trademark in the first, second and third degre..."
+      }
+    ],
+    "Employment - Work Conditions": [
+      {
+        "bill": "S4084",
+        "year": 2013,
+        "title": "Enacts the \"public employee whistleblower protection act\"; repealer..."
+      },
+      {
+        "bill": "S4084",
+        "year": 2013,
+        "title": "Enacts the \"public employee whistleblower protection act\"; repealer..."
+      },
+      {
+        "bill": "S3737",
+        "year": 2015,
+        "title": "Enacts the New York state equal pay act requiring equal pay for certain male and female employees..."
+      },
+      {
+        "bill": "S3737",
+        "year": 2015,
+        "title": "Enacts the New York state equal pay act requiring equal pay for certain male and female employees..."
+      }
+    ],
+    "Healthcare - Insurance Claims": [
+      {
+        "bill": "S4049",
+        "year": 2015,
+        "title": "Establishes a civil private cause of action by a policyholder who has suffered unfair claim settleme..."
+      },
+      {
+        "bill": "S4049",
+        "year": 2015,
+        "title": "Establishes a civil private cause of action by a policyholder who has suffered unfair claim settleme..."
+      }
+    ],
+    "Fiscal - Financial Penalties": [
+      {
+        "bill": "S461",
+        "year": 2019,
+        "title": "Relates to segregated confinement..."
+      },
+      {
+        "bill": "S793",
+        "year": 2019,
+        "title": "Relates to increasing fines for certain telemarketing violations..."
+      },
+      {
+        "bill": "S461",
+        "year": 2019,
+        "title": "Relates to segregated confinement..."
+      },
+      {
+        "bill": "S793",
+        "year": 2019,
+        "title": "Relates to increasing fines for certain telemarketing violations..."
+      },
+      {
+        "bill": "S4517",
+        "year": 2021,
+        "title": "Relates to segregated confinement..."
+      },
+      {
+        "bill": "S4917",
+        "year": 2021,
+        "title": "Relates to increasing fines for certain telemarketing violations..."
+      },
+      {
+        "bill": "S4517",
+        "year": 2021,
+        "title": "Relates to segregated confinement..."
+      },
+      {
+        "bill": "S4917",
+        "year": 2021,
+        "title": "Relates to increasing fines for certain telemarketing violations..."
+      },
+      {
+        "bill": "S4214",
+        "year": 2023,
+        "title": "Relates to increasing fines for certain telemarketing violations..."
+      },
+      {
+        "bill": "S4214",
+        "year": 2023,
+        "title": "Relates to increasing fines for certain telemarketing violations..."
+      }
+    ],
+    "Legislative - Commemorative Resolutions": [
+      {
+        "bill": "J384",
+        "year": 2019,
+        "title": "Memorializing Governor Andrew M. Cuomo to proclaim September 4, 2019, as Mother Teresa Day in the St..."
+      },
+      {
+        "bill": "J504",
+        "year": 2019,
+        "title": "Memorializing Governor Andrew M. Cuomo to proclaim March 2019, as Sudden Unexplained Death in Childr..."
+      },
+      {
+        "bill": "J384",
+        "year": 2019,
+        "title": "Memorializing Governor Andrew M. Cuomo to proclaim September 4, 2019, as Mother Teresa Day in the St..."
+      },
+      {
+        "bill": "J504",
+        "year": 2019,
+        "title": "Memorializing Governor Andrew M. Cuomo to proclaim March 2019, as Sudden Unexplained Death in Childr..."
+      }
+    ],
+    "Legal - Repeal/Sunset": [
+      {
+        "bill": "S4705",
+        "year": 2025,
+        "title": "Repeals congestion pricing..."
+      }
+    ]
+  },
+  "truly_misc_count": 88,
+  "final_other_percentage": 4.016430853491556,
+  "success": true
+}

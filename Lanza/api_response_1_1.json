@@ -1,0 +1,13 @@
+{
+  "success": true,
+  "message": "",
+  "responseType": "empty list",
+  "total": 0,
+  "offsetStart": 1,
+  "offsetEnd": 0,
+  "limit": 100,
+  "result": {
+    "items": [],
+    "size": 0
+  }
+}

@@ -1,0 +1,210 @@
+{
+  "success": true,
+  "message": "Data for bill S7356-2025",
+  "responseType": "bill",
+  "result": {
+    "basePrintNo": "S7356",
+    "session": 2025,
+    "basePrintNoStr": "S7356-2025",
+    "printNo": "S7356",
+    "billType": {
+      "chamber": "SENATE",
+      "desc": "Senate",
+      "resolution": false
+    },
+    "title": "Relates to confidentiality of records in proceedings to vacate convictions for offenses resulting from sex trafficking, labor trafficking and compelling prostitution",
+    "activeVersion": "",
+    "year": 2025,
+    "publishedDateTime": "2025-04-10T15:37:55.700631",
+    "substitutedBy": null,
+    "sponsor": {
+      "member": {
+        "memberId": 409,
+        "chamber": "SENATE",
+        "incumbent": true,
+        "fullName": "Andrew J. Lanza",
+        "shortName": "LANZA",
+        "imgName": "409_andrew_j_lanza.jpg",
+        "sessionMemberId": 2341,
+        "sessionYear": 2025,
+        "districtCode": 24,
+        "alternate": false
+      },
+      "budget": false,
+      "rules": false,
+      "redistricting": false
+    },
+    "reprintOf": null,
+    "summary": "Provides for confidentiality of records in proceedings to vacate convictions for offenses resulting from sex trafficking, labor trafficking and compelling prostitution.",
+    "signed": false,
+    "adopted": false,
+    "vetoed": false,
+    "status": {
+      "statusType": "IN_SENATE_COMM",
+      "statusDesc": "In Senate Committee",
+      "actionDate": "2025-04-10",
+      "committeeName": "Codes",
+      "billCalNo": null
+    },
+    "milestones": {
+      "items": [
+        {
+          "statusType": "IN_SENATE_COMM",
+          "statusDesc": "In Senate Committee",
+          "actionDate": "2025-04-10",
+          "committeeName": "Codes",
+          "billCalNo": null
+        }
+      ],
+      "size": 1
+    },
+    "actions": {
+      "items": [
+        {
+          "billId": {
+            "basePrintNo": "S7356",
+            "session": 2025,
+            "basePrintNoStr": "S7356-2025",
+            "printNo": "S7356",
+            "version": ""
+          },
+          "date": "2025-04-10",
+          "chamber": "SENATE",
+          "sequenceNo": 1,
+          "text": "REFERRED TO CODES"
+        }
+      ],
+      "size": 1
+    },
+    "publishStatusMap": {
+      "items": {
+        "": {
+          "version": "",
+          "published": true,
+          "effectDateTime": "2025-04-10T15:37:55.751199"
+        }
+      },
+      "size": 1
+    },
+    "programInfo": null,
+    "amendmentVersions": {
+      "items": [
+        ""
+      ],
+      "size": 1
+    },
+    "amendments": {
+      "items": {
+        "": {
+          "basePrintNo": "S7356",
+          "session": 2025,
+          "basePrintNoStr": "S7356-2025",
+          "printNo": "S7356",
+          "version": "",
+          "publishDate": "2025-04-10",
+          "sameAs": {
+            "items": [],
+            "size": 0
+          },
+          "memo": "\u00a0\nBILL NUMBER: S7356\n\nSPONSOR: LANZA\n\u00a0\nTITLE OF BILL:\n\nAn act to amend the criminal procedure law, in relation to vacating\nconvictions for offenses resulting from sex trafficking, labor traffick-\ning and compelling prostitution\n\n\u00a0\nPURPOSE OR GENERAL IDEA OF BILL:\n\nTo strengthen protections for victims of sex trafficking, labor traf-\nficking, compelling prostitution and trafficking in persons, who are\nconvicted of a range of offenses as a result of that trafficking or\ncompelling.\n\n\u00a0\nSUMMARY OF SPECIFIC PROVISIONS:\n\nSection 1 sets forth legislative intent, stressing that granting relief\nwould be based on consideration of the circumstances and the interest of\njustice.\n\nSection 2 amends CPL 440.10(1)(1) to allow vacating of a conviction\nwhere the offense was a result of sex trafficking, labor trafficking,\ncompelling prostitution and trafficking in persons; CPL 440.10(1)(ii) to\ninclude documentation with regard to labor trafficking and aggravated\nlabor trafficking as additional grounds for a presumption that a victim\nwas a victim of trafficking; adds new CPLS 440.10(1)(iii) to provide\nconfidentiality for motions to vacate a judgement; and adds new CPL\n440.10(1) (iv) to provide that the relief would be based on consider-\nation of the circumstances and the interest of justice. Current law only\napplies to a motion to vacate a conviction for several prostitution-re-\nlated offenses.\n\nSection 3 provides an immediate effective date, except that new subpara-\ngraph (iii) takes effect 60 days after enactment into law.\n\n\u00a0\nJUSTIFICATION:\n\nIn 2010, New York State passed an historic law allowing victims of human\ntrafficking to vacate prostitution-related criminal convictions that\nwere directly tied to their victimization. The law recognized that these\nconvictions should be vacated, because the conviction itself was unjust.\nVictims of human trafficking were allowed a second chance at life, free\nfrom the criminal records forced upon them by their trafficker. Twenty\nseven states have since followed New York's example with similar laws.\n\nSeveral states have gone beyond New York's law, to make this relief\navailable not just for prostitution-related offenses but for all\noffenses. This bill follows that example. Trafficking victims may be\narrested and prosecuted for a variety of offenses resulting from the\ntrafficking. For example, possessing false documents, usually at the\ndirection of their trafficker, who has confiscated their true documents\nas part of the exerted coercion. The CPL is further amended to protect\nthe confidentiality of information contained in motions brought under\nthe statute. This explicit and mandatory protection is necessary to meet\nthe legislation's goals of severing victims of human trafficking from\ntheir traumatic past, and to ensure that victims of human trafficking\nwill not be endangered by the process of vacating their convictions.\nCourts may also take other action, such as offering a closed courtroom\nfor court appearances. The bill stresses - both in legislative intent\nand in explicit statutory language - that the granting of a motion for\nthis relief is to be decided by the court based on consideration of the\ncircumstances and in the interest of justice.\n\n\u00a0\nPRIOR LEGISLATIVE HISTORY:\n\n2024: S.4756-Referred to Codes\n\n2023: S.4756-Referred to Codes\n\n2022: S.6165-Referred to Codes\n\n2021:  S.6165-Referred to Codes\n\n2020: S.3181-Referred to Codes\n\n2019: S.3181-Referred to Codes\n\n2018: S.4997-Third Reading Calendar/A.4540- Passed Assembly\n\n2017: S.4997-Third Reading Calendar/A.4540- Passed Assembly\n\n2016: A.10353- Referred to Codes\n\n\u00a0\nFISCAL IMPLICATIONS:\n\nNone.\n\n\u00a0\nEFFECTIVE DATE:\nImmediately.\n",
+          "lawSection": "Criminal Procedure Law",
+          "lawCode": "Amd \u00a7440.10, CP L",
+          "actClause": "AN ACT to amend the criminal procedure law, in relation to vacating\nconvictions for offenses resulting from sex trafficking, labor trafficking and\ncompelling prostitution",
+          "fullTextFormats": [
+            "PLAIN"
+          ],
+          "fullText": " \n                     S T A T E   O F   N E W   Y O R K\n ________________________________________________________________________\n \n                                   7356\n \n                        2025-2026 Regular Sessions\n \n                             I N  S E N A T E\n \n                              April 10, 2025\n                                ___________\n \n Introduced  by  Sen.  LANZA  -- read twice and ordered printed, and when\n   printed to be committed to the Committee on Codes\n \n AN ACT to amend the criminal procedure  law,  in  relation  to  vacating\n   convictions  for  offenses resulting from sex trafficking, labor traf-\n   ficking and compelling prostitution\n\n   THE PEOPLE OF THE STATE OF NEW YORK, REPRESENTED IN SENATE AND  ASSEM-\n BLY, DO ENACT AS FOLLOWS:\n \n   Section  1.  Legislative intent. The purpose of this legislation is to\n strengthen protection for the victims of sex  trafficking,  labor  traf-\n ficking,  compelling  prostitution  and  trafficking in persons, who are\n convicted of a range of offenses as a  result  of  that  trafficking  or\n compelling. New York's landmark law offering the vacating of convictions\n for prostitution-related offenses that were a result of this trafficking\n has  been  the  model for laws in more than half of the states. However,\n several states wisely offer this relief to victims who may be  compelled\n to  participate in other offenses as well. This legislation would follow\n that example. Granting relief under this provision has always been based\n on consideration of the circumstances and the interest of justice;  this\n legislation reiterates that.\n   \u00a7  2. Paragraph (i) of subdivision 1 of section 440.10 of the criminal\n procedure law, as amended by chapter 629 of the laws of 2021, is amended\n to read as follows:\n   (i) The judgment is a conviction where the  defendant's  participation\n in  the  offense was a result of having been a victim of sex trafficking\n under section 230.34 of the penal law, sex trafficking of a child  under\n section  230.34-a  of  the  penal  law,  labor trafficking under section\n 135.35 of the penal law,  aggravated  labor  trafficking  under  section\n 135.37 of the penal law, compelling prostitution under section 230.33 of\n the  penal  law, or trafficking in persons under the Trafficking Victims\n Protection Act (United States Code, title 22, chapter 78); provided that\n\n  EXPLANATION--Matter in ITALICS (underscored) is new; matter in brackets\n                       [ ] is old law to be omitted.\n                                                            LBD11098-01-5\n S. 7356                             2\n \n   (i) official documentation of the defendant's status as  a  victim  of\n sex   trafficking,  labor  trafficking,  aggravated  labor  trafficking,\n compelling prostitution, or trafficking in persons at the  time  of  the\n offense  from a federal, state or local government agency shall create a\n presumption  that  the  defendant's  participation  in the offense was a\n result of having been a victim of sex  trafficking,  labor  trafficking,\n aggravated  labor trafficking, compelling prostitution or trafficking in\n persons, but shall not be required for  granting  a  motion  under  this\n paragraph;\n   (ii) a motion under this paragraph, and all pertinent papers and docu-\n ments, shall be confidential and may not be made available to any person\n or  public or private entity except where specifically authorized by the\n court; [and]\n   (iii) when a motion is filed under this paragraph, the court may, upon\n the consent of the petitioner and all of the state and local  prosecuto-\n rial agencies that prosecuted each matter, consolidate into one proceed-\n ing  a motion to vacate judgments imposed by distinct or multiple crimi-\n nal courts; AND\n   (IV) THE GRANTING OF A MOTION UNDER THIS PARAGRAPH SHALL BE DETERMINED\n BY THE COURT IN CONSIDERATION OF THE CIRCUMSTANCES AND THE  INTEREST  OF\n JUSTICE; or\n   \u00a7 3. This act shall take effect immediately.\n\n\n",
+          "fullTextHtml": "",
+          "fullTextTemplate": "",
+          "coSponsors": {
+            "items": [],
+            "size": 0
+          },
+          "multiSponsors": {
+            "items": [],
+            "size": 0
+          },
+          "uniBill": false,
+          "relatedLaws": {
+            "items": {
+              "AMEND": {
+                "items": [
+                  "CPL440.10"
+                ],
+                "size": 1
+              }
+            },
+            "size": 1
+          },
+          "stricken": false
+        }
+      },
+      "size": 1
+    },
+    "votes": {
+      "items": [],
+      "size": 0
+    },
+    "vetoMessages": {
+      "items": [],
+      "size": 0
+    },
+    "approvalMessage": null,
+    "additionalSponsors": {
+      "items": [],
+      "size": 0
+    },
+    "pastCommittees": {
+      "items": [
+        {
+          "chamber": "SENATE",
+          "name": "Codes",
+          "sessionYear": 2025,
+          "referenceDate": "2025-04-10T00:00"
+        }
+      ],
+      "size": 1
+    },
+    "previousVersions": {
+      "items": [
+        {
+          "basePrintNo": "S4756",
+          "session": 2023,
+          "basePrintNoStr": "S4756-2023",
+          "printNo": "S4756",
+          "version": ""
+        },
+        {
+          "basePrintNo": "S6165",
+          "session": 2021,
+          "basePrintNoStr": "S6165-2021",
+          "printNo": "S6165",
+          "version": ""
+        },
+        {
+          "basePrintNo": "S3181",
+          "session": 2019,
+          "basePrintNoStr": "S3181-2019",
+          "printNo": "S3181",
+          "version": ""
+        },
+        {
+          "basePrintNo": "S4997",
+          "session": 2017,
+          "basePrintNoStr": "S4997-2017",
+          "printNo": "S4997",
+          "version": ""
+        }
+      ],
+      "size": 4
+    },
+    "committeeAgendas": {
+      "items": [],
+      "size": 0
+    },
+    "calendars": {
+      "items": [],
+      "size": 0
+    }
+  }
+}
