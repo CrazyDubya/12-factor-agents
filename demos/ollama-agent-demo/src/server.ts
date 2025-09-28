@@ -1,4 +1,5 @@
 import express from 'express';
+import { randomUUID } from 'crypto';
 import { TwelveFactorAgent, AgentState } from './agent';
 import { OllamaService } from './ollama-service';
 

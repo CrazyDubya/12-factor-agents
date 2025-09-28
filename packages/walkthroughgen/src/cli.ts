@@ -42,6 +42,12 @@ function getSectionBaseName(section: Section): string {
 
 function copySourceFiles(srcFile: string, projectRoot: string, sectionDir: string): void {
   const srcAbsPath = path.resolve(projectRoot, srcFile);
+  
+  // Security: Prevent path traversal attacks
+  if (!srcAbsPath.startsWith(path.resolve(projectRoot))) {
+    throw new Error(`Path traversal attempt detected: ${srcFile}`);
+  }
+  
   const relPath = path.relative(projectRoot, srcAbsPath);
   const destPath = path.join(sectionDir, relPath);
   fs.mkdirSync(path.dirname(destPath), { recursive: true });
@@ -104,7 +110,24 @@ function applyStepsToWorkingDir(
     // Handle command execution - only run if incremental is explicitly true
     if (step.command && step.incremental === true) {
       try {
-        execSync(step.command, { cwd: workingDir, stdio: 'inherit' });
+        // Security: Validate command to prevent command injection
+        const command = step.command.trim();
+        
+        // Only allow safe commands (whitelist approach)
+        const allowedCommands = ['npm', 'yarn', 'node', 'tsc', 'jest', 'echo', 'mkdir', 'cp', 'mv', 'rm'];
+        const commandName = command.split(' ')[0];
+        
+        if (!allowedCommands.includes(commandName)) {
+          throw new Error(`Command not allowed for security reasons: ${commandName}`);
+        }
+        
+        // Additional validation: prevent dangerous patterns
+        const dangerousPatterns = ['&&', '||', ';', '`', '$('];
+        if (dangerousPatterns.some(pattern => command.includes(pattern))) {
+          throw new Error(`Command contains dangerous patterns: ${command}`);
+        }
+        
+        execSync(command, { cwd: workingDir, stdio: 'inherit' });
       } catch (error) {
         console.error(`Error executing incremental command "${step.command}" in ${workingDir}:`, error);
         // Log error but continue, matching behavior of file copy errors
