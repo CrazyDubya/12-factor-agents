@@ -1,0 +1,207 @@
+{
+  "test_metadata": {
+    "timestamp": "2025-09-30T01:13:43.215188",
+    "dataset_info": {
+      "total_documents": 23,
+      "total_tokens": 1000156,
+      "total_characters": 9317393
+    },
+    "system_config": {
+      "max_memory_gb": 8.0,
+      "chunk_size": 100000,
+      "max_chunks_in_memory": 5,
+      "cache_size": 1000,
+      "k_neighbors": 10
+    },
+    "system_stats": {
+      "count": 2,
+      "avg_recall": 0.75,
+      "avg_cold_time": 0.1204674243927002
+    }
+  },
+  "query_results": [
+    {
+      "query": "What is artificial intelligence?",
+      "difficulty": "easy",
+      "cold_time": 0.06668972969055176,
+      "warm_time": 1.0967254638671875e-05,
+      "quality": {
+        "recall": 1.0,
+        "precision": 0.0008088978766430738,
+        "found_keywords": [
+          "artificial",
+          "intelligence",
+          "machine",
+          "learning"
+        ],
+        "total_keywords": 4
+      },
+      "chunks_searched": 1,
+      "segments_retrieved": 10,
+      "memory_usage": 383.234375
+    },
+    {
+      "query": "How does climate change affect the environment?",
+      "difficulty": "easy",
+      "cold_time": 0.1476900577545166,
+      "warm_time": 1.6927719116210938e-05,
+      "quality": {
+        "recall": 0.75,
+        "precision": 0.0001950585175552666,
+        "found_keywords": [
+          "climate",
+          "change",
+          "environmental"
+        ],
+        "total_keywords": 4
+      },
+      "chunks_searched": 3,
+      "segments_retrieved": 30,
+      "memory_usage": 383.25
+    },
+    {
+      "query": "What renewable energy sources are available?",
+      "difficulty": "easy",
+      "cold_time": 0.04756021499633789,
+      "warm_time": 1.2159347534179688e-05,
+      "quality": {
+        "recall": 1.0,
+        "precision": 0.0003970223325062035,
+        "found_keywords": [
+          "renewable",
+          "energy",
+          "solar",
+          "wind"
+        ],
+        "total_keywords": 4
+      },
+      "chunks_searched": 2,
+      "segments_retrieved": 20,
+      "memory_usage": 383.46875
+    },
+    {
+      "query": "Explain quantum computing principles",
+      "difficulty": "medium",
+      "cold_time": 0.11541509628295898,
+      "warm_time": 1.5974044799804688e-05,
+      "quality": {
+        "recall": 0.75,
+        "precision": 0.00029239766081871346,
+        "found_keywords": [
+          "quantum",
+          "computing",
+          "technology"
+        ],
+        "total_keywords": 4
+      },
+      "chunks_searched": 2,
+      "segments_retrieved": 20,
+      "memory_usage": 383.6875
+    },
+    {
+      "query": "How does biotechnology advance medical research?",
+      "difficulty": "medium",
+      "cold_time": 0.0802459716796875,
+      "warm_time": 1.621246337890625e-05,
+      "quality": {
+        "recall": 1.0,
+        "precision": 0.0008624407072013799,
+        "found_keywords": [
+          "biotechnology",
+          "medical",
+          "research",
+          "advances"
+        ],
+        "total_keywords": 4
+      },
+      "chunks_searched": 1,
+      "segments_retrieved": 10,
+      "memory_usage": 383.90625
+    },
+    {
+      "query": "What space exploration achievements are notable?",
+      "difficulty": "medium",
+      "cold_time": 0.21824312210083008,
+      "warm_time": 1.6927719116210938e-05,
+      "quality": {
+        "recall": 0.5,
+        "precision": 0.00013161358252171624,
+        "found_keywords": [
+          "space",
+          "exploration"
+        ],
+        "total_keywords": 4
+      },
+      "chunks_searched": 3,
+      "segments_retrieved": 30,
+      "memory_usage": 383.96875
+    },
+    {
+      "query": "How do sustainable practices protect biodiversity?",
+      "difficulty": "hard",
+      "cold_time": 0.12210988998413086,
+      "warm_time": 1.811981201171875e-05,
+      "quality": {
+        "recall": 0.75,
+        "precision": 0.00029239766081871346,
+        "found_keywords": [
+          "sustainable",
+          "biodiversity",
+          "protection"
+        ],
+        "total_keywords": 4
+      },
+      "chunks_searched": 2,
+      "segments_retrieved": 20,
+      "memory_usage": 384.0
+    },
+    {
+      "query": "What are the economic impacts of ocean acidification?",
+      "difficulty": "hard",
+      "cold_time": 0.11882495880126953,
+      "warm_time": 1.1920928955078125e-05,
+      "quality": {
+        "recall": 0.75,
+        "precision": 0.00029239766081871346,
+        "found_keywords": [
+          "ocean",
+          "acidification",
+          "economic"
+        ],
+        "total_keywords": 4
+      },
+      "chunks_searched": 2,
+      "segments_retrieved": 20,
+      "memory_usage": 384.03125
+    }
+  ],
+  "performance_summary": {
+    "avg_cold_time": 0.1145973801612854,
+    "avg_warm_time": 1.4901161193847656e-05,
+    "avg_speedup": 7561.40100405583,
+    "avg_recall": 0.8125,
+    "difficulty_stats": {
+      "easy": {
+        "count": 3,
+        "avg_recall": 0.9166666666666666,
+        "avg_cold_time": 0.08731333414713542
+      },
+      "medium": {
+        "count": 3,
+        "avg_recall": 0.75,
+        "avg_cold_time": 0.1379680633544922
+      },
+      "hard": {
+        "count": 2,
+        "avg_recall": 0.75,
+        "avg_cold_time": 0.1204674243927002
+      }
+    },
+    "efficiency_metrics": {
+      "tokens_per_mb": 7787.102676399027,
+      "cold_throughput": 69.80962382159808,
+      "warm_throughput": 536870.912,
+      "cache_hit_rate": 0
+    }
+  }
+}
