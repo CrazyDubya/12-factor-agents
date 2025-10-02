@@ -1,0 +1,47 @@
+# V2 Context Selection System Requirements
+
+# Core dependencies
+numpy>=1.21.0
+scikit-learn>=1.0.0
+
+# Sentence Transformers for embeddings (optional - falls back to mock if not available)
+sentence-transformers>=2.2.0
+
+# Development and testing dependencies
+pytest>=7.0.0
+pytest-cov>=4.0.0
+
+# Documentation (optional)
+sphinx>=5.0.0
+sphinx-rtd-theme>=1.0.0
+
+# Type checking (optional)
+mypy>=1.0.0
+
+# Code formatting (optional)
+black>=22.0.0
+isort>=5.10.0
+
+# Linting (optional)
+flake8>=5.0.0
+
+# Performance profiling (optional)
+memory-profiler>=0.60.0
+line-profiler>=4.0.0
+
+# Jupyter notebook support (optional)
+jupyter>=1.0.0
+matplotlib>=3.5.0
+
+# FastAPI support (optional integration)
+fastapi>=0.95.0
+uvicorn>=0.20.0
+
+# Streamlit support (optional integration)
+streamlit>=1.25.0
+
+# Redis for distributed caching (optional)
+redis>=4.5.0
+
+# Progress bars (optional)
+tqdm>=4.64.0

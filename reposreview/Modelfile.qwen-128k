@@ -1,0 +1,10 @@
+FROM qwen2.5:3b
+
+# 128K context window for large repositories
+PARAMETER num_ctx 131072
+PARAMETER num_predict 16384
+PARAMETER temperature 0.7
+PARAMETER top_p 0.9
+PARAMETER repeat_penalty 1.1
+
+SYSTEM """You are an expert code analyst and technical writer. Provide comprehensive, detailed responses with proper structure and formatting."""

@@ -1,0 +1,1934 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Repository Dashboard V5 - Powered by 128K Expanded Models</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        background-color: #0d1117;
+        color: #c9d1d9;
+        line-height: 1.6;
+      }
+
+      .container {
+        max-width: 1600px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      .header {
+        background: linear-gradient(135deg, #1f6feb 0%, #0d4f8c 100%);
+        border-radius: 12px;
+        padding: 30px;
+        margin-bottom: 30px;
+        text-align: center;
+      }
+
+      .header h1 {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+      }
+
+      .header p {
+        opacity: 0.9;
+      }
+
+      /* Stats Grid */
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+        margin-bottom: 30px;
+      }
+
+      .stat-card {
+        background: #161b22;
+        border: 1px solid #30363d;
+        border-radius: 8px;
+        padding: 20px;
+        text-align: center;
+      }
+
+      .stat-value {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #58a6ff;
+      }
+
+      .stat-label {
+        font-size: 0.9rem;
+        color: #8b949e;
+        margin-top: 5px;
+      }
+
+      /* Analytics Section */
+      .analytics-section {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 20px;
+        margin-bottom: 30px;
+      }
+
+      .chart-container {
+        background: #161b22;
+        border: 1px solid #30363d;
+        border-radius: 8px;
+        padding: 20px;
+      }
+
+      .chart-title {
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 15px;
+        color: #58a6ff;
+      }
+
+      /* Category Pills */
+      .category-filter {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-bottom: 20px;
+        padding: 20px;
+        background: #161b22;
+        border-radius: 8px;
+      }
+
+      .category-pill {
+        padding: 8px 16px;
+        background: #21262d;
+        border: 1px solid #30363d;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: all 0.2s;
+        font-size: 13px;
+      }
+
+      .category-pill:hover {
+        border-color: #58a6ff;
+        background: #1f6feb20;
+      }
+
+      .category-pill.active {
+        background: #1f6feb;
+        border-color: #1f6feb;
+        color: white;
+      }
+
+      .category-pill .count {
+        opacity: 0.7;
+        margin-left: 5px;
+      }
+
+      .category-pill.subcategory {
+        background: #1f6feb20;
+        border-color: #1f6feb;
+        font-size: 12px;
+        padding: 6px 12px;
+      }
+
+      .category-pill.subcategory.active {
+        background: #1f6feb;
+      }
+
+      .aiml-drilldown {
+        display: none;
+        margin-top: 10px;
+        padding: 15px;
+        background: #0d1117;
+        border-radius: 6px;
+        border-left: 3px solid #1f6feb;
+      }
+
+      .aiml-drilldown.show {
+        display: block;
+      }
+
+      .drilldown-title {
+        color: #58a6ff;
+        font-size: 13px;
+        font-weight: 600;
+        margin-bottom: 10px;
+      }
+
+      /* Advanced Filters */
+      .advanced-filters {
+        background: #161b22;
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 20px;
+      }
+
+      .filter-row {
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+        margin-bottom: 15px;
+      }
+
+      .filter-group {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        min-width: 200px;
+        flex: 1;
+      }
+
+      .filter-group label {
+        font-size: 13px;
+        color: #8b949e;
+      }
+
+      input[type='text'],
+      select,
+      input[type='range'] {
+        width: 100%;
+        padding: 10px;
+        background: #0d1117;
+        border: 1px solid #30363d;
+        border-radius: 6px;
+        color: #c9d1d9;
+        font-size: 14px;
+      }
+
+      input[type='text']:focus,
+      select:focus {
+        outline: none;
+        border-color: #58a6ff;
+      }
+
+      .checkbox-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+      }
+
+      .checkbox-label {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        cursor: pointer;
+        font-size: 13px;
+      }
+
+      input[type='checkbox'] {
+        width: 18px;
+        height: 18px;
+        cursor: pointer;
+      }
+
+      /* Repo Cards */
+      .repo-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+        gap: 20px;
+      }
+
+      .repo-card {
+        background: #161b22;
+        border: 1px solid #30363d;
+        border-radius: 8px;
+        padding: 20px;
+        transition: all 0.2s ease;
+        cursor: pointer;
+        position: relative;
+      }
+
+      .repo-card:hover {
+        border-color: #58a6ff;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(88, 166, 255, 0.1);
+      }
+
+      .repo-card.expanded {
+        border-color: #58a6ff;
+      }
+
+      .expand-icon {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        color: #8b949e;
+        font-size: 18px;
+        transition: transform 0.2s;
+      }
+
+      .repo-card.expanded .expand-icon {
+        transform: rotate(180deg);
+      }
+
+      .repo-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: start;
+        margin-bottom: 12px;
+        padding-right: 30px;
+      }
+
+      .repo-name {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #58a6ff;
+      }
+
+      .repo-name a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .repo-name a:hover {
+        text-decoration: underline;
+      }
+
+      .v4-link {
+        display: inline-block;
+        margin-left: 1rem;
+        padding: 0.25rem 0.75rem;
+        background: linear-gradient(135deg, #1f6feb 0%, #388bfd 100%);
+        color: white !important;
+        text-decoration: none !important;
+        border-radius: 6px;
+        font-size: 0.85rem;
+        font-weight: 500;
+        transition: all 0.2s;
+        box-shadow: 0 2px 4px rgba(31, 111, 235, 0.2);
+      }
+
+      .v4-link:hover {
+        background: linear-gradient(135deg, #388bfd 0%, #58a6ff 100%);
+        transform: translateY(-1px);
+        box-shadow: 0 4px 8px rgba(31, 111, 235, 0.3);
+        text-decoration: none !important;
+      }
+
+      .v5-reanalyze-btn {
+        display: inline-block;
+        margin-left: 0.5rem;
+        padding: 0.25rem 0.75rem;
+        background: linear-gradient(135deg, #f778ba 0%, #ff6bcd 100%);
+        color: white;
+        border: none;
+        border-radius: 6px;
+        font-size: 0.85rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.2s;
+        box-shadow: 0 2px 4px rgba(247, 120, 186, 0.2);
+      }
+
+      .v5-reanalyze-btn:hover {
+        background: linear-gradient(135deg, #ff6bcd 0%, #ff85d7 100%);
+        transform: translateY(-1px);
+        box-shadow: 0 4px 8px rgba(247, 120, 186, 0.3);
+      }
+
+      .v5-reanalyze-btn:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+
+      .v5-analysis-badge {
+        display: inline-block;
+        margin-left: 0.5rem;
+        padding: 0.25rem 0.5rem;
+        background: rgba(247, 120, 186, 0.2);
+        color: #f778ba;
+        border: 1px solid #f778ba;
+        border-radius: 4px;
+        font-size: 0.75rem;
+        font-weight: 600;
+      }
+
+      .v5-deploy-btn {
+        display: inline-block;
+        margin-left: 0.5rem;
+        padding: 0.25rem 0.75rem;
+        background: linear-gradient(135deg, #f6821f 0%, #ff9933 100%);
+        color: white;
+        border: none;
+        border-radius: 6px;
+        font-size: 0.85rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.2s;
+        box-shadow: 0 2px 4px rgba(246, 130, 31, 0.2);
+      }
+
+      .v5-deploy-btn:hover {
+        background: linear-gradient(135deg, #ff9933 0%, #ffaa55 100%);
+        transform: translateY(-1px);
+        box-shadow: 0 4px 8px rgba(246, 130, 31, 0.3);
+      }
+
+      .v5-deploy-btn:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+
+      .v5-issues-btn {
+        display: inline-block;
+        margin-left: 0.5rem;
+        padding: 0.25rem 0.75rem;
+        background: linear-gradient(135deg, #238636 0%, #2ea043 100%);
+        color: white;
+        border: none;
+        border-radius: 6px;
+        font-size: 0.85rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.2s;
+        box-shadow: 0 2px 4px rgba(35, 134, 54, 0.2);
+      }
+
+      .v5-issues-btn:hover {
+        background: linear-gradient(135deg, #2ea043 0%, #3fb950 100%);
+        transform: translateY(-1px);
+        box-shadow: 0 4px 8px rgba(35, 134, 54, 0.3);
+      }
+
+      .v5-pr-btn {
+        display: inline-block;
+        margin-left: 0.5rem;
+        padding: 0.25rem 0.75rem;
+        background: linear-gradient(135deg, #8250df 0%, #9466e8 100%);
+        color: white;
+        border: none;
+        border-radius: 6px;
+        font-size: 0.85rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.2s;
+        box-shadow: 0 2px 4px rgba(130, 80, 223, 0.2);
+      }
+
+      .v5-pr-btn:hover {
+        background: linear-gradient(135deg, #9466e8 0%, #a57cf0 100%);
+        transform: translateY(-1px);
+        box-shadow: 0 4px 8px rgba(130, 80, 223, 0.3);
+      }
+
+      .badge-group {
+        display: flex;
+        gap: 6px;
+        flex-wrap: wrap;
+        margin-top: 5px;
+      }
+
+      .badge {
+        padding: 3px 8px;
+        border-radius: 4px;
+        font-size: 11px;
+        font-weight: 500;
+      }
+
+      .badge.category {
+        background: #1f6feb;
+        color: white;
+      }
+
+      .badge.quality {
+        background: #238636;
+        color: white;
+      }
+
+      .badge.quality.good {
+        background: #58a6ff40;
+        color: #58a6ff;
+      }
+
+      .badge.quality.fair {
+        background: #f8514940;
+        color: #f85149;
+      }
+
+      .badge.complexity {
+        background: #8b949e40;
+        color: #8b949e;
+      }
+
+      .badge.fork {
+        background: #f85149;
+        color: white;
+      }
+
+      .badge.original {
+        background: #238636;
+        color: white;
+      }
+
+      .repo-desc {
+        color: #8b949e;
+        font-size: 14px;
+        margin-bottom: 12px;
+        line-height: 1.5;
+      }
+
+      .repo-meta {
+        display: flex;
+        gap: 15px;
+        margin-top: 12px;
+        font-size: 13px;
+        color: #8b949e;
+        flex-wrap: wrap;
+      }
+
+      .repo-purposes {
+        display: flex;
+        gap: 6px;
+        flex-wrap: wrap;
+        margin-top: 10px;
+      }
+
+      .purpose-tag {
+        background: #8b949e20;
+        color: #8b949e;
+        padding: 2px 8px;
+        border-radius: 12px;
+        font-size: 11px;
+      }
+
+      .repo-details {
+        display: none;
+        margin-top: 15px;
+        padding-top: 15px;
+        border-top: 1px solid #30363d;
+        animation: slideDown 0.2s ease;
+      }
+
+      .repo-card.expanded .repo-details {
+        display: block;
+      }
+
+      @keyframes slideDown {
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .detail-section {
+        margin-bottom: 15px;
+      }
+
+      .detail-title {
+        font-size: 13px;
+        font-weight: 600;
+        color: #58a6ff;
+        margin-bottom: 8px;
+      }
+
+      .detail-content {
+        font-size: 12px;
+        color: #8b949e;
+      }
+
+      .tech-stack-item {
+        display: flex;
+        justify-content: space-between;
+        padding: 4px 0;
+      }
+
+      .loading,
+      .no-results {
+        text-align: center;
+        padding: 50px;
+        color: #8b949e;
+      }
+
+      .results-count {
+        text-align: center;
+        padding: 10px;
+        color: #8b949e;
+        font-size: 14px;
+      }
+
+      @media (max-width: 768px) {
+        .stats-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .analytics-section {
+          grid-template-columns: 1fr;
+        }
+
+        .repo-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .filter-row {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>🚀 Repository Dashboard V5</h1>
+        <p>
+          Powered by 128K Expanded Models • 199 Repositories • Real-time Deep Analysis • GitHub &
+          Cloudflare Integration
+        </p>
+        <div
+          style="
+            margin-top: 15px;
+            padding: 10px;
+            background: rgba(247, 120, 186, 0.2);
+            border-radius: 8px;
+            border: 2px solid #f778ba;
+            margin-bottom: 10px;
+          "
+        >
+          <strong style="color: #f778ba">NEW in V5:</strong> Click "⚡ Re-Analyze" for 128K context
+          analysis • "☁️ Deploy" to push to Cloudflare Pages
+        </div>
+        <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap">
+          <button
+            onclick="loadGitHubRepos()"
+            style="
+              padding: 10px 20px;
+              background: #238636;
+              color: white;
+              border: none;
+              border-radius: 6px;
+              cursor: pointer;
+              font-weight: 500;
+            "
+          >
+            📥 Load from GitHub
+          </button>
+          <button
+            onclick="showCreateRepoModal()"
+            style="
+              padding: 10px 20px;
+              background: #1f6feb;
+              color: white;
+              border: none;
+              border-radius: 6px;
+              cursor: pointer;
+              font-weight: 500;
+            "
+          >
+            ➕ Create Repo
+          </button>
+          <button
+            onclick="showCloudflareProjects()"
+            style="
+              padding: 10px 20px;
+              background: #f6821f;
+              color: white;
+              border: none;
+              border-radius: 6px;
+              cursor: pointer;
+              font-weight: 500;
+            "
+          >
+            ☁️ CF Projects
+          </button>
+        </div>
+      </div>
+
+      <!-- Stats Grid -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-value" id="totalRepos">199</div>
+          <div class="stat-label">Total Repositories</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="categoryCount">0</div>
+          <div class="stat-label">Categories</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="excellentCount">0</div>
+          <div class="stat-label">Excellent Quality</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="activeCount">0</div>
+          <div class="stat-label">Recently Active</div>
+        </div>
+      </div>
+
+      <!-- Analytics Charts -->
+      <div class="analytics-section">
+        <div class="chart-container">
+          <div class="chart-title">📊 Category Distribution</div>
+          <canvas id="categoryChart"></canvas>
+        </div>
+        <div class="chart-container">
+          <div class="chart-title">⭐ Quality & Complexity</div>
+          <canvas id="qualityChart"></canvas>
+        </div>
+      </div>
+
+      <!-- Category Filter Pills -->
+      <div class="category-filter" id="categoryPills">
+        <!-- Dynamically populated -->
+      </div>
+
+      <!-- AI/ML Sub-Category Drill-down -->
+      <div class="aiml-drilldown" id="aimlDrilldown">
+        <div class="drilldown-title">🤖 AI/ML Sub-Categories (Click to filter)</div>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap" id="aimlSubcategoryPills">
+          <!-- Dynamically populated when AI/ML selected -->
+        </div>
+      </div>
+
+      <!-- Advanced Filters -->
+      <div class="advanced-filters">
+        <div class="filter-row">
+          <div class="filter-group">
+            <label>🔍 Search (name, description, README)</label>
+            <input type="text" id="searchInput" placeholder="Search repositories..." />
+          </div>
+          <div class="filter-group">
+            <label>Primary Language</label>
+            <select id="langFilter">
+              <option value="all">All Languages</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label>Sort By</label>
+            <select id="sortBy">
+              <option value="quality">Quality Score</option>
+              <option value="updated">Recently Updated</option>
+              <option value="name">Name</option>
+              <option value="stars">Stars</option>
+              <option value="complexity">Complexity</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="filter-row">
+          <div class="filter-group">
+            <label>Quality Rating</label>
+            <select id="qualityFilter">
+              <option value="all">All Qualities</option>
+              <option value="Excellent">Excellent</option>
+              <option value="Good">Good</option>
+              <option value="Fair">Fair</option>
+              <option value="Poor">Poor</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label>Activity Level</label>
+            <select id="activityFilter">
+              <option value="all">All Activity Levels</option>
+              <option value="Very Active">Very Active (7d)</option>
+              <option value="Active">Active (30d)</option>
+              <option value="Moderate">Moderate (6mo)</option>
+              <option value="Low Activity">Low Activity (1yr)</option>
+              <option value="Dormant">Dormant (>1yr)</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label>Complexity</label>
+            <select id="complexityFilter">
+              <option value="all">All Complexity Levels</option>
+              <option value="Very Complex">Very Complex</option>
+              <option value="Complex">Complex</option>
+              <option value="Moderate">Moderate</option>
+              <option value="Simple">Simple</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="checkbox-group">
+          <label class="checkbox-label">
+            <input type="checkbox" id="filterOpenIssues" />
+            <span>Has Open Issues</span>
+          </label>
+          <label class="checkbox-label">
+            <input type="checkbox" id="filterGithubPages" />
+            <span>Has GitHub Pages</span>
+          </label>
+          <label class="checkbox-label">
+            <input type="checkbox" id="filterOriginalOnly" />
+            <span>Original Repos Only</span>
+          </label>
+          <label class="checkbox-label">
+            <input type="checkbox" id="filterForksOnly" />
+            <span>Forks Only</span>
+          </label>
+        </div>
+      </div>
+
+      <div id="loading" class="loading">Loading AI-analyzed repositories...</div>
+      <div id="resultsCount" class="results-count"></div>
+      <div id="repoContainer" class="repo-grid"></div>
+    </div>
+
+    <script>
+      let repos = [];
+      let filteredRepos = [];
+      let activeCategory = 'all';
+      let activeAIMLSubcategory = 'all';
+      let charts = {};
+
+      // Initialize
+      document.addEventListener('DOMContentLoaded', async () => {
+        await loadRepos();
+        setupFilters();
+        renderCharts();
+        renderCategoryPills();
+        filterAndRender();
+      });
+
+      // Load complete AI/ML deep analysis data
+      async function loadRepos() {
+        try {
+          console.log('Loading complete AI/ML deep analysis data...');
+          let response = await fetch('./data/crazydubya_repositories_aiml_deep.json');
+
+          if (!response.ok) {
+            throw new Error(`Failed to load data: ${response.status} ${response.statusText}`);
+          }
+
+          const data = await response.json();
+          repos = data.repositories || data || [];
+
+          if (!Array.isArray(repos)) {
+            console.error('Data format error. Expected array, got:', typeof repos);
+            throw new Error('Invalid data format - expected array of repositories');
+          }
+
+          filteredRepos = [...repos];
+
+          updateStats();
+          document.getElementById('loading').style.display = 'none';
+
+          // Populate language filter
+          const langs = [...new Set(repos.map(r => r.language).filter(Boolean))].sort();
+          const langSelect = document.getElementById('langFilter');
+          langs.forEach(lang => {
+            const opt = document.createElement('option');
+            opt.value = lang;
+            opt.textContent = lang;
+            langSelect.appendChild(opt);
+          });
+        } catch (error) {
+          console.error('Error loading repos:', error);
+          const loadingDiv = document.getElementById('loading');
+          loadingDiv.innerHTML = `
+                    <div style="color: #f85149; padding: 20px;">
+                        <h3>❌ Error loading data</h3>
+                        <p><strong>Error:</strong> ${error.message}</p>
+                        <p><strong>Troubleshooting:</strong></p>
+                        <ul style="text-align: left; max-width: 600px; margin: 10px auto;">
+                            <li>Make sure you're accessing via http://localhost:8899 (not file://)</li>
+                            <li>Check browser console (F12) for detailed errors</li>
+                            <li>Verify JSON file exists: <a href="./data/crazydubya_repositories_aiml_deep.json" style="color: #58a6ff;">data/crazydubya_repositories_aiml_deep.json</a></li>
+                        </ul>
+                        <pre style="background: #0d1117; padding: 10px; border-radius: 4px; margin-top: 10px; overflow-x: auto;">${error.stack || 'No stack trace available'}</pre>
+                    </div>
+                `;
+        }
+      }
+
+      // Update statistics
+      function updateStats() {
+        const categories = new Set(
+          repos.map(r => r.ai_analysis?.categories?.primary).filter(Boolean)
+        );
+        const excellent = repos.filter(r => r.ai_analysis?.quality?.rating === 'Excellent').length;
+        const active = repos.filter(r => {
+          const pattern = r.ai_analysis?.activity?.pattern;
+          return pattern === 'Very Active' || pattern === 'Active';
+        }).length;
+
+        document.getElementById('totalRepos').textContent = repos.length;
+        document.getElementById('categoryCount').textContent = categories.size;
+        document.getElementById('excellentCount').textContent = excellent;
+        document.getElementById('activeCount').textContent = active;
+      }
+
+      // Render charts
+      function renderCharts() {
+        // Category distribution
+        const categoryData = {};
+        repos.forEach(r => {
+          const cat = r.ai_analysis?.categories?.primary || 'Unknown';
+          categoryData[cat] = (categoryData[cat] || 0) + 1;
+        });
+
+        const sortedCategories = Object.entries(categoryData)
+          .sort((a, b) => b[1] - a[1])
+          .slice(0, 10);
+
+        const categoryCtx = document.getElementById('categoryChart').getContext('2d');
+        charts.category = new Chart(categoryCtx, {
+          type: 'bar',
+          data: {
+            labels: sortedCategories.map(([cat]) => cat),
+            datasets: [
+              {
+                label: 'Repositories',
+                data: sortedCategories.map(([, count]) => count),
+                backgroundColor: '#1f6feb',
+                borderColor: '#58a6ff',
+                borderWidth: 1
+              }
+            ]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: true,
+            plugins: {
+              legend: { display: false },
+              tooltip: {
+                backgroundColor: '#161b22',
+                titleColor: '#c9d1d9',
+                bodyColor: '#c9d1d9',
+                borderColor: '#30363d',
+                borderWidth: 1
+              }
+            },
+            scales: {
+              y: {
+                beginAtZero: true,
+                ticks: { color: '#8b949e' },
+                grid: { color: '#30363d' }
+              },
+              x: {
+                ticks: { color: '#8b949e' },
+                grid: { display: false }
+              }
+            }
+          }
+        });
+
+        // Quality distribution
+        const qualityData = {
+          Excellent: 0,
+          Good: 0,
+          Fair: 0,
+          Poor: 0
+        };
+
+        repos.forEach(r => {
+          const rating = r.ai_analysis?.quality?.rating;
+          if (rating && qualityData.hasOwnProperty(rating)) {
+            qualityData[rating]++;
+          }
+        });
+
+        const qualityCtx = document.getElementById('qualityChart').getContext('2d');
+        charts.quality = new Chart(qualityCtx, {
+          type: 'doughnut',
+          data: {
+            labels: Object.keys(qualityData),
+            datasets: [
+              {
+                data: Object.values(qualityData),
+                backgroundColor: ['#238636', '#58a6ff', '#f85149', '#8b949e'],
+                borderColor: '#161b22',
+                borderWidth: 2
+              }
+            ]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: true,
+            plugins: {
+              legend: {
+                position: 'bottom',
+                labels: { color: '#c9d1d9' }
+              },
+              tooltip: {
+                backgroundColor: '#161b22',
+                titleColor: '#c9d1d9',
+                bodyColor: '#c9d1d9',
+                borderColor: '#30363d',
+                borderWidth: 1
+              }
+            }
+          }
+        });
+      }
+
+      // Render category pills
+      function renderCategoryPills() {
+        const categoryData = {};
+        repos.forEach(r => {
+          const cat = r.ai_analysis?.categories?.primary || 'Unknown';
+          categoryData[cat] = (categoryData[cat] || 0) + 1;
+        });
+
+        const sorted = Object.entries(categoryData).sort((a, b) => b[1] - a[1]);
+        const container = document.getElementById('categoryPills');
+
+        // Add "All" pill
+        container.innerHTML = `
+                <div class="category-pill active" onclick="selectCategory('all')">
+                    All <span class="count">(${repos.length})</span>
+                </div>
+            `;
+
+        // Add category pills
+        sorted.forEach(([cat, count]) => {
+          const pill = document.createElement('div');
+          pill.className = 'category-pill';
+          pill.onclick = () => selectCategory(cat);
+          pill.innerHTML = `${cat} <span class="count">(${count})</span>`;
+          container.appendChild(pill);
+        });
+      }
+
+      // Select category
+      function selectCategory(category) {
+        activeCategory = category;
+        activeAIMLSubcategory = 'all'; // Reset subcategory when changing main category
+
+        // Update active state
+        document.querySelectorAll('.category-pill').forEach(pill => {
+          pill.classList.remove('active');
+        });
+        event.target.classList.add('active');
+
+        // Show/hide AI/ML drill-down
+        const drilldown = document.getElementById('aimlDrilldown');
+        if (category === 'AI/ML') {
+          drilldown.classList.add('show');
+          renderAIMLSubcategories();
+        } else {
+          drilldown.classList.remove('show');
+        }
+
+        filterAndRender();
+      }
+
+      // Render AI/ML sub-categories
+      function renderAIMLSubcategories() {
+        const aimlRepos = repos.filter(r => r.ai_analysis?.categories?.primary === 'AI/ML');
+        const subcatData = {};
+        aimlRepos.forEach(r => {
+          const subcat = r.ai_analysis?.aiml_subcategory?.primary_subcategory || 'General AI/ML';
+          subcatData[subcat] = (subcatData[subcat] || 0) + 1;
+        });
+
+        const sorted = Object.entries(subcatData).sort((a, b) => b[1] - a[1]);
+        const container = document.getElementById('aimlSubcategoryPills');
+
+        container.innerHTML = `
+                <div class="category-pill subcategory active" onclick="selectAIMLSubcategory('all')">
+                    All AI/ML <span class="count">(${aimlRepos.length})</span>
+                </div>
+            `;
+
+        sorted.forEach(([subcat, count]) => {
+          const pill = document.createElement('div');
+          pill.className = 'category-pill subcategory';
+          pill.onclick = () => selectAIMLSubcategory(subcat);
+          pill.innerHTML = `${subcat} <span class="count">(${count})</span>`;
+          container.appendChild(pill);
+        });
+      }
+
+      // Select AI/ML sub-category
+      function selectAIMLSubcategory(subcategory) {
+        activeAIMLSubcategory = subcategory;
+
+        // Update active state
+        document.querySelectorAll('.category-pill.subcategory').forEach(pill => {
+          pill.classList.remove('active');
+        });
+        event.target.classList.add('active');
+
+        filterAndRender();
+      }
+
+      // Setup filter event listeners
+      function setupFilters() {
+        document.getElementById('searchInput').addEventListener('input', filterAndRender);
+        document.getElementById('langFilter').addEventListener('change', filterAndRender);
+        document.getElementById('sortBy').addEventListener('change', filterAndRender);
+        document.getElementById('qualityFilter').addEventListener('change', filterAndRender);
+        document.getElementById('activityFilter').addEventListener('change', filterAndRender);
+        document.getElementById('complexityFilter').addEventListener('change', filterAndRender);
+        document.getElementById('filterOpenIssues').addEventListener('change', filterAndRender);
+        document.getElementById('filterGithubPages').addEventListener('change', filterAndRender);
+        document.getElementById('filterOriginalOnly').addEventListener('change', filterAndRender);
+        document.getElementById('filterForksOnly').addEventListener('change', filterAndRender);
+      }
+
+      // Filter and render repositories
+      function filterAndRender() {
+        const search = document.getElementById('searchInput').value.toLowerCase();
+        const lang = document.getElementById('langFilter').value;
+        const quality = document.getElementById('qualityFilter').value;
+        const activity = document.getElementById('activityFilter').value;
+        const complexity = document.getElementById('complexityFilter').value;
+        const hasIssues = document.getElementById('filterOpenIssues').checked;
+        const hasPages = document.getElementById('filterGithubPages').checked;
+        const originalOnly = document.getElementById('filterOriginalOnly').checked;
+        const forksOnly = document.getElementById('filterForksOnly').checked;
+
+        filteredRepos = repos.filter(repo => {
+          // Category filter
+          if (activeCategory !== 'all') {
+            const repoCat = repo.ai_analysis?.categories?.primary;
+            if (repoCat !== activeCategory) return false;
+          }
+
+          // AI/ML Sub-category filter
+          if (activeCategory === 'AI/ML' && activeAIMLSubcategory !== 'all') {
+            const repoSubcat = repo.ai_analysis?.aiml_subcategory?.primary_subcategory;
+            if (repoSubcat !== activeAIMLSubcategory) return false;
+          }
+
+          // Search filter (name, description, README)
+          if (search) {
+            const searchText = [
+              repo.name,
+              repo.description,
+              repo.enhanced_description,
+              repo.readme_content?.substring(0, 1000)
+            ]
+              .join(' ')
+              .toLowerCase();
+
+            if (!searchText.includes(search)) return false;
+          }
+
+          // Language filter
+          if (lang !== 'all' && repo.language !== lang) return false;
+
+          // Quality filter
+          if (quality !== 'all') {
+            const repoQuality = repo.ai_analysis?.quality?.rating;
+            if (repoQuality !== quality) return false;
+          }
+
+          // Activity filter
+          if (activity !== 'all') {
+            const repoActivity = repo.ai_analysis?.activity?.pattern;
+            if (repoActivity !== activity) return false;
+          }
+
+          // Complexity filter
+          if (complexity !== 'all') {
+            const repoComplexity = repo.ai_analysis?.complexity?.level;
+            if (repoComplexity !== complexity) return false;
+          }
+
+          // Checkbox filters
+          if (hasIssues && repo.open_issues_count === 0) return false;
+          if (hasPages && !repo.has_pages) return false;
+          if (originalOnly && repo.is_fork) return false;
+          if (forksOnly && !repo.is_fork) return false;
+
+          return true;
+        });
+
+        sortRepos();
+        renderRepos();
+      }
+
+      // Sort repositories
+      function sortRepos() {
+        const sortBy = document.getElementById('sortBy').value;
+
+        filteredRepos.sort((a, b) => {
+          switch (sortBy) {
+            case 'quality':
+              const scoreA = a.ai_analysis?.quality?.score || 0;
+              const scoreB = b.ai_analysis?.quality?.score || 0;
+              return scoreB - scoreA;
+            case 'updated':
+              return new Date(b.updated_at) - new Date(a.updated_at);
+            case 'stars':
+              return (b.stargazers_count || 0) - (a.stargazers_count || 0);
+            case 'complexity':
+              const compA = a.ai_analysis?.complexity?.score || 0;
+              const compB = b.ai_analysis?.complexity?.score || 0;
+              return compB - compA;
+            default:
+              return a.name.localeCompare(b.name);
+          }
+        });
+      }
+
+      // Render repositories
+      function renderRepos() {
+        const container = document.getElementById('repoContainer');
+        const resultsCount = document.getElementById('resultsCount');
+
+        resultsCount.textContent = `Showing ${filteredRepos.length} of ${repos.length} repositories`;
+
+        if (filteredRepos.length === 0) {
+          container.innerHTML = '<div class="no-results">No repositories match your filters</div>';
+          return;
+        }
+
+        container.innerHTML = filteredRepos
+          .map((repo, index) => {
+            const analysis = repo.ai_analysis || {};
+            const category = analysis.categories?.primary || 'Unknown';
+            const quality = analysis.quality?.rating || 'Unknown';
+            const complexity = analysis.complexity?.level || 'Unknown';
+            const purposes = analysis.purposes || [];
+            const techStack = analysis.tech_stack || [];
+            const activity = analysis.activity || {};
+
+            // AI/ML specific data
+            const aimlSubcat =
+              category === 'AI/ML' ? analysis.aiml_subcategory?.primary_subcategory : null;
+            const aimlChars = category === 'AI/ML' ? analysis.aiml_characteristics : null;
+
+            const description = repo.enhanced_description || repo.description || 'No description';
+
+            return `
+                    <div class="repo-card" onclick="toggleRepoDetails(${index})" id="repo-${index}">
+                        <span class="expand-icon">▼</span>
+
+                        <div class="repo-header">
+                            <div>
+                                <div class="repo-name">
+                                    <a href="${repo.html_url}" target="_blank" onclick="event.stopPropagation()">${repo.name}</a>
+                                    <a href="v5/repo-detail.html?repo=${encodeURIComponent(repo.name)}"
+                                       class="v4-link"
+                                       onclick="event.stopPropagation()"
+                                       title="Open V5 Deep Analysis (128K Context)">
+                                        🔬 Deep Dive
+                                    </a>
+                                    <button class="v5-reanalyze-btn"
+                                            onclick="reanalyzeRepo(event, '${repo.name}', ${index})"
+                                            id="reanalyze-${index}"
+                                            title="Re-analyze with 128K expanded models">
+                                        ⚡ Re-Analyze
+                                    </button>
+                                    <button class="v5-deploy-btn"
+                                            onclick="smartDeploy(event, '${repo.name}', ${index})"
+                                            id="deploy-${index}"
+                                            title="Smart deploy (detects Dockerfile/static)">
+                                        ☁️ Deploy
+                                    </button>
+                                    <button class="v5-issues-btn"
+                                            onclick="viewIssues(event, '${repo.name}', ${index})"
+                                            id="issues-${index}"
+                                            title="View Issues">
+                                        🐛 Issues
+                                    </button>
+                                    <button class="v5-pr-btn"
+                                            onclick="viewPRs(event, '${repo.name}', ${index})"
+                                            id="prs-${index}"
+                                            title="View Pull Requests">
+                                        🔀 PRs
+                                    </button>
+                                    ${repo.v5_analysis ? '<span class="v5-analysis-badge">V5 ✓</span>' : ''}
+                                </div>
+                                <div class="badge-group">
+                                    <span class="badge category">${category}</span>
+                                    ${aimlSubcat ? `<span class="badge" style="background: #1f6feb80; color: #58a6ff;">🤖 ${aimlSubcat}</span>` : ''}
+                                    <span class="badge quality ${quality.toLowerCase()}">${quality}</span>
+                                    <span class="badge complexity">${complexity}</span>
+                                    <span class="badge ${repo.is_fork ? 'fork' : 'original'}">${repo.is_fork ? 'Fork' : 'Original'}</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="repo-desc">${description}</div>
+
+                        ${
+                          purposes.length > 0
+                            ? `
+                            <div class="repo-purposes">
+                                ${purposes.map(p => `<span class="purpose-tag">${p}</span>`).join('')}
+                            </div>
+                        `
+                            : ''
+                        }
+
+                        <div class="repo-meta">
+                            <span>⭐ ${repo.stargazers_count || 0}</span>
+                            <span>🍴 ${repo.forks_count || 0}</span>
+                            <span>🐛 ${repo.open_issues_count || 0} issues</span>
+                            <span>📅 ${activity.pattern || 'Unknown'}</span>
+                        </div>
+
+                        <div class="repo-details">
+                            ${
+                              repo.v5_analysis
+                                ? `
+                                <div class="detail-section" style="background: rgba(247, 120, 186, 0.1); padding: 15px; border-radius: 6px; border: 1px solid #f778ba;">
+                                    <div class="detail-title" style="color: #f778ba;">⚡ V5 Deep Analysis (${repo.v5_analysis.context_size} Context - ${repo.v5_analysis.model})</div>
+                                    <div class="detail-content">
+                                        <div style="font-size: 11px; color: #8b949e; margin-bottom: 10px;">
+                                            Analyzed: ${new Date(repo.v5_analysis.timestamp).toLocaleString()}
+                                        </div>
+                                        <div style="max-height: 300px; overflow-y: auto; background: #0d1117; padding: 10px; border-radius: 4px; white-space: pre-wrap; font-family: monospace; font-size: 11px;">
+${repo.v5_analysis.analysis}
+                                        </div>
+                                    </div>
+                                </div>
+                            `
+                                : ''
+                            }
+
+                            ${
+                              aimlChars && aimlChars.frameworks?.length > 0
+                                ? `
+                                <div class="detail-section">
+                                    <div class="detail-title">🔧 AI/ML Frameworks</div>
+                                    <div class="detail-content">
+                                        ${aimlChars.frameworks.map(fw => `<span class="lang-tag">${fw}</span>`).join(' ')}
+                                        ${
+                                          aimlChars.model_types?.length > 0
+                                            ? `
+                                            <div style="margin-top: 8px;">
+                                                <strong>Model Types:</strong> ${aimlChars.model_types.join(', ')}
+                                            </div>
+                                        `
+                                            : ''
+                                        }
+                                        ${aimlChars.deployment_ready ? '<div style="margin-top: 5px;">🚀 <strong>Deployment Ready</strong></div>' : ''}
+                                        ${aimlChars.has_pretrained_models ? '<div>📦 <strong>Includes Pre-trained Models</strong></div>' : ''}
+                                        ${aimlChars.research_oriented ? '<div>📚 <strong>Research Oriented</strong></div>' : ''}
+                                    </div>
+                                </div>
+                            `
+                                : ''
+                            }
+
+                            ${
+                              techStack.length > 0
+                                ? `
+                                <div class="detail-section">
+                                    <div class="detail-title">💻 Technology Stack</div>
+                                    <div class="detail-content">
+                                        ${techStack
+                                          .map(
+                                            tech => `
+                                            <div class="tech-stack-item">
+                                                <span>${tech.language} (${tech.role})</span>
+                                                <span>${tech.percentage}%</span>
+                                            </div>
+                                        `
+                                          )
+                                          .join('')}
+                                    </div>
+                                </div>
+                            `
+                                : ''
+                            }
+
+                            ${
+                              analysis.complexity?.factors?.length > 0
+                                ? `
+                                <div class="detail-section">
+                                    <div class="detail-title">🔧 Complexity Factors</div>
+                                    <div class="detail-content">
+                                        ${analysis.complexity.factors.map(f => `• ${f}`).join('<br>')}
+                                    </div>
+                                </div>
+                            `
+                                : ''
+                            }
+
+                            ${
+                              activity.last_push
+                                ? `
+                                <div class="detail-section">
+                                    <div class="detail-title">📊 Activity Timeline</div>
+                                    <div class="detail-content">
+                                        Created: ${activity.created}<br>
+                                        Last Push: ${activity.last_push} (${activity.days_since_push} days ago)<br>
+                                        Age: ${Math.floor(activity.age_days / 365)} years
+                                    </div>
+                                </div>
+                            `
+                                : ''
+                            }
+
+                            ${
+                              repo.key_features?.length > 0
+                                ? `
+                                <div class="detail-section">
+                                    <div class="detail-title">✨ Key Features</div>
+                                    <div class="detail-content">
+                                        ${repo.key_features.map(f => `• ${f}`).join('<br>')}
+                                    </div>
+                                </div>
+                            `
+                                : ''
+                            }
+                        </div>
+                    </div>
+                `;
+          })
+          .join('');
+      }
+
+      // Toggle repo details
+      function toggleRepoDetails(index) {
+        const card = document.getElementById(`repo-${index}`);
+        card.classList.toggle('expanded');
+      }
+
+      // Re-analyze repository with V5 expanded models
+      async function reanalyzeRepo(event, repoName, index) {
+        event.stopPropagation();
+
+        const btn = document.getElementById(`reanalyze-${index}`);
+        btn.disabled = true;
+        btn.textContent = '⏳ Analyzing...';
+
+        try {
+          const repo = filteredRepos[index];
+
+          // Calculate repo size to select appropriate model
+          const totalBytes = Object.values(repo.languages || {}).reduce((a, b) => a + b, 0);
+          const fileCount = (repo.topics || []).length + 10;
+
+          let model, contextSize;
+          if (totalBytes > 500000 || fileCount > 100) {
+            model = 'qwen-128k';
+            contextSize = '128K';
+          } else if (totalBytes > 100000 || fileCount > 50) {
+            model = 'llama3-32k';
+            contextSize = '32K';
+          } else {
+            model = 'gemma2-32k';
+            contextSize = '32K';
+          }
+
+          // Build comprehensive analysis prompt
+          const prompt = `Analyze this GitHub repository in depth:
+
+Repository: ${repoName}
+Description: ${repo.description || 'No description'}
+Languages: ${Object.keys(repo.languages || {}).join(', ')}
+Stars: ${repo.stargazers_count || 0}
+Forks: ${repo.forks_count || 0}
+
+README Content:
+${repo.readme_content?.substring(0, 50000) || 'No README available'}
+
+Provide a comprehensive analysis covering:
+1. Architecture & Design Patterns
+2. Code Quality & Best Practices
+3. Security Considerations
+4. Performance Characteristics
+5. Documentation Quality
+6. Maintainability Score
+7. Recommended Improvements
+8. Technology Stack Deep Dive
+
+Format your response as structured JSON with these sections.`;
+
+          // Call Ollama API with expanded model (streaming mode)
+          btn.textContent = '⏳ Calling ' + model + '...';
+
+          const response = await fetch('http://localhost:11434/api/generate', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              model: model,
+              prompt: prompt,
+              stream: true, // Enable streaming for faster feedback
+              options: {
+                num_predict: 8192, // Reduced from 16K for faster response
+                temperature: 0.6,
+                top_p: 0.85
+              }
+            })
+          });
+
+          if (!response.ok) {
+            throw new Error(`Ollama API error: ${response.status}`);
+          }
+
+          // Read streaming response
+          btn.textContent = '⏳ Generating...';
+          const reader = response.body.getReader();
+          const decoder = new TextDecoder();
+          let fullResponse = '';
+
+          while (true) {
+            const { done, value } = await reader.read();
+            if (done) break;
+
+            const chunk = decoder.decode(value);
+            const lines = chunk.split('\n').filter(line => line.trim());
+
+            for (const line of lines) {
+              try {
+                const json = JSON.parse(line);
+                if (json.response) {
+                  fullResponse += json.response;
+                }
+                if (json.done) {
+                  break;
+                }
+              } catch (e) {
+                console.warn('Failed to parse chunk:', line);
+              }
+            }
+          }
+
+          const result = { response: fullResponse };
+
+          // Store V5 analysis in repo object
+          repo.v5_analysis = {
+            model: model,
+            context_size: contextSize,
+            timestamp: new Date().toISOString(),
+            analysis: result.response
+          };
+
+          // Update button to show success
+          btn.textContent = '✓ Analyzed';
+          btn.style.background = 'linear-gradient(135deg, #238636 0%, #2ea043 100%)';
+
+          // Re-render to show V5 badge
+          setTimeout(() => {
+            filterAndRender();
+          }, 1000);
+
+          console.log(
+            `V5 Analysis complete for ${repoName} using ${model} (${contextSize} context)`
+          );
+        } catch (error) {
+          console.error('Re-analysis error:', error);
+          btn.textContent = '❌ Error';
+          btn.style.background = 'linear-gradient(135deg, #f85149 0%, #ff6b6b 100%)';
+          alert(
+            `Analysis failed: ${error.message}\\n\\nMake sure Ollama is running with expanded models installed.`
+          );
+
+          setTimeout(() => {
+            btn.textContent = '⚡ Re-Analyze';
+            btn.style.background = '';
+            btn.disabled = false;
+          }, 3000);
+        }
+      }
+
+      // Deploy to Cloudflare Pages
+      async function deployToCloudflare(event, repoName, index) {
+        event.stopPropagation();
+
+        const btn = document.getElementById(`deploy-${index}`);
+        const repo = filteredRepos[index];
+
+        // Prompt for project name
+        const projectName = prompt(
+          `Deploy "${repoName}" to Cloudflare Pages\n\nProject name:`,
+          repoName.toLowerCase().replace(/[^a-z0-9-]/g, '-')
+        );
+        if (!projectName) return;
+
+        btn.disabled = true;
+        btn.textContent = '⏳ Cloning...';
+
+        try {
+          // Step 1: Clone repo
+          btn.textContent = '⏳ Cloning from GitHub...';
+          const cloneResponse = await fetch('http://localhost:3000/api/github/repo/clone', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              owner: repo.owner?.login || 'CrazyDubya',
+              name: repoName,
+              directory: `/tmp/${repoName}-deploy-${Date.now()}`
+            })
+          });
+
+          if (!cloneResponse.ok) {
+            const error = await cloneResponse.json();
+            throw new Error(`Clone failed: ${error.error}`);
+          }
+
+          const cloneData = await cloneResponse.json();
+          const cloneDir = cloneData.directory;
+
+          // Step 2: Create Cloudflare project if needed
+          btn.textContent = '⏳ Creating CF project...';
+          try {
+            await fetch('http://localhost:3000/api/cloudflare/project/create', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                projectName: projectName,
+                productionBranch: 'main'
+              })
+            });
+          } catch (e) {
+            // Project might already exist, continue
+            console.log('Project creation skipped (may already exist)');
+          }
+
+          // Step 3: Deploy
+          btn.textContent = '⏳ Deploying...';
+          const deployResponse = await fetch('http://localhost:3000/api/cloudflare/deploy', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              projectName: projectName,
+              directory: cloneDir,
+              accountId: '18e002ebc857b38bc8fd572fee926f75'
+            })
+          });
+
+          if (!deployResponse.ok) {
+            const error = await deployResponse.json();
+            throw new Error(`Deploy failed: ${error.error}`);
+          }
+
+          const deployData = await deployResponse.json();
+
+          // Success!
+          btn.textContent = '✓ Deployed';
+          btn.style.background = 'linear-gradient(135deg, #238636 0%, #2ea043 100%)';
+
+          // Show deployment URL
+          if (deployData.deploymentUrl) {
+            setTimeout(() => {
+              if (
+                confirm(
+                  `Deployment successful!\\n\\nURL: ${deployData.deploymentUrl}\\n\\nOpen in browser?`
+                )
+              ) {
+                window.open(deployData.deploymentUrl, '_blank');
+              }
+            }, 500);
+          }
+
+          console.log('Deployment complete:', deployData);
+        } catch (error) {
+          console.error('Deployment error:', error);
+          btn.textContent = '❌ Error';
+          btn.style.background = 'linear-gradient(135deg, #f85149 0%, #ff6b6b 100%)';
+          alert(
+            `Deployment failed: ${error.message}\\n\\nMake sure:\\n1. API server is running (npm start)\\n2. GitHub CLI is authenticated (gh auth login)\\n3. Wrangler is authenticated (wrangler login)`
+          );
+
+          setTimeout(() => {
+            btn.textContent = '☁️ Deploy';
+            btn.style.background = '';
+            btn.disabled = false;
+          }, 3000);
+        }
+      }
+
+      // Load repos from GitHub CLI
+      async function loadGitHubRepos() {
+        try {
+          const response = await fetch('http://localhost:3000/api/github/repos?limit=100');
+          if (!response.ok) {
+            throw new Error('Failed to load GitHub repos');
+          }
+
+          const data = await response.json();
+          alert(
+            `Loaded ${data.repos.length} repos from GitHub CLI!\\n\\nNote: This replaces local JSON data. Refresh page to restore.`
+          );
+
+          // Transform GitHub CLI format to match our data structure
+          repos = data.repos.map(r => ({
+            name: r.name,
+            description: r.description,
+            html_url: r.url,
+            language: r.primaryLanguage?.name || 'Unknown',
+            updated_at: r.updatedAt,
+            is_private: r.isPrivate,
+            owner: { login: 'CrazyDubya' }, // Assume current user
+            ai_analysis: {
+              categories: { primary: 'Unknown' },
+              quality: { rating: 'Unknown' },
+              complexity: { level: 'Unknown' }
+            }
+          }));
+
+          filteredRepos = [...repos];
+          updateStats();
+          renderCharts();
+          renderCategoryPills();
+          filterAndRender();
+        } catch (error) {
+          alert(
+            `Failed to load GitHub repos: ${error.message}\\n\\nMake sure API server is running (npm start)`
+          );
+        }
+      }
+
+      // Show create repo modal
+      function showCreateRepoModal() {
+        const name = prompt('Repository name:');
+        if (!name) return;
+
+        const description = prompt('Description (optional):');
+        const isPrivate = confirm('Make repository private?');
+
+        createGitHubRepo(name, description, isPrivate);
+      }
+
+      // Create GitHub repo
+      async function createGitHubRepo(name, description, isPrivate) {
+        try {
+          const response = await fetch('http://localhost:3000/api/github/repo/create', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              name,
+              description,
+              isPrivate,
+              gitignore: 'Node',
+              license: 'mit'
+            })
+          });
+
+          if (!response.ok) {
+            const error = await response.json();
+            throw new Error(error.error);
+          }
+
+          const data = await response.json();
+          alert(`Repository "${name}" created successfully!\\n\\n${data.output}`);
+
+          // Optionally reload repos
+          if (confirm('Reload repository list?')) {
+            loadGitHubRepos();
+          }
+        } catch (error) {
+          alert(`Failed to create repository: ${error.message}`);
+        }
+      }
+
+      // Show Cloudflare projects
+      async function showCloudflareProjects() {
+        try {
+          const response = await fetch('http://localhost:3000/api/cloudflare/projects');
+          if (!response.ok) {
+            throw new Error('Failed to load Cloudflare projects');
+          }
+
+          const data = await response.json();
+          const projectList = data.projects.map(p => p.name).join('\\n• ');
+          alert(`Cloudflare Pages Projects (${data.projects.length}):\\n\\n• ${projectList}`);
+        } catch (error) {
+          alert(
+            `Failed to load Cloudflare projects: ${error.message}\\n\\nMake sure API server is running and Wrangler is authenticated`
+          );
+        }
+      }
+
+      // Smart deploy - detects repo type and deploys accordingly
+      async function smartDeploy(event, repoName, index) {
+        event.stopPropagation();
+
+        const repo = filteredRepos[index];
+        const owner = repo.owner?.login || 'CrazyDubya';
+
+        // Ask user which type of deployment
+        const choice = confirm(
+          `Deploy "${repoName}" to Cloudflare\\n\\nOK = Pages (static sites)\\nCancel = Check for Container (Dockerfile)`
+        );
+
+        if (choice) {
+          // Deploy as Pages
+          deployToCloudflare(event, repoName, index);
+        } else {
+          // Check for Dockerfile and deploy as container
+          deployAsContainer(event, repoName, index, owner);
+        }
+      }
+
+      // Deploy as Cloudflare Container
+      async function deployAsContainer(event, repoName, index, owner) {
+        const btn = document.getElementById(`deploy-${index}`);
+        const projectName = prompt(
+          `Deploy "${repoName}" as Container\\n\\nProject name:`,
+          repoName.toLowerCase().replace(/[^a-z0-9-]/g, '-')
+        );
+        if (!projectName) return;
+
+        btn.disabled = true;
+        btn.textContent = '⏳ Cloning...';
+
+        try {
+          // Clone repo
+          const cloneResponse = await fetch('http://localhost:3000/api/github/repo/clone', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              owner: owner,
+              name: repoName,
+              directory: `/tmp/${repoName}-container-${Date.now()}`
+            })
+          });
+
+          if (!cloneResponse.ok) {
+            const error = await cloneResponse.json();
+            throw new Error(`Clone failed: ${error.error}`);
+          }
+
+          const cloneData = await cloneResponse.json();
+          const cloneDir = cloneData.directory;
+
+          // Deploy as container
+          btn.textContent = '🐳 Deploying Container...';
+          const deployResponse = await fetch(
+            'http://localhost:3000/api/cloudflare/container/deploy',
+            {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                projectName: projectName,
+                directory: cloneDir,
+                accountId: '18e002ebc857b38bc8fd572fee926f75'
+              })
+            }
+          );
+
+          if (!deployResponse.ok) {
+            const error = await deployResponse.json();
+            throw new Error(`Container deploy failed: ${error.error}`);
+          }
+
+          const deployData = await deployResponse.json();
+
+          btn.textContent = '✓ Container Deployed';
+          btn.style.background = 'linear-gradient(135deg, #238636 0%, #2ea043 100%)';
+
+          if (deployData.deploymentUrl) {
+            setTimeout(() => {
+              if (
+                confirm(
+                  `Container deployed!\\n\\nURL: ${deployData.deploymentUrl}\\n\\nOpen in browser?`
+                )
+              ) {
+                window.open(deployData.deploymentUrl, '_blank');
+              }
+            }, 500);
+          }
+        } catch (error) {
+          console.error('Container deployment error:', error);
+          btn.textContent = '❌ Error';
+          btn.style.background = 'linear-gradient(135deg, #f85149 0%, #ff6b6b 100%)';
+          alert(
+            `Container deployment failed: ${error.message}\\n\\nMake sure:\\n1. Repo has a Dockerfile\\n2. Docker is running\\n3. Wrangler is authenticated`
+          );
+
+          setTimeout(() => {
+            btn.textContent = '☁️ Deploy';
+            btn.style.background = '';
+            btn.disabled = false;
+          }, 3000);
+        }
+      }
+
+      // View Issues
+      async function viewIssues(event, repoName, index) {
+        event.stopPropagation();
+
+        const repo = filteredRepos[index];
+        const owner = repo.owner?.login || 'CrazyDubya';
+
+        try {
+          const response = await fetch(
+            `http://localhost:3000/api/github/issue/list?owner=${owner}&repo=${repoName}&limit=10`
+          );
+          if (!response.ok) throw new Error('Failed to fetch issues');
+
+          const data = await response.json();
+
+          if (data.issues.length === 0) {
+            const create = confirm(`No open issues in ${repoName}.\\n\\nCreate a new issue?`);
+            if (create) {
+              createIssue(owner, repoName);
+            }
+            return;
+          }
+
+          const issueList = data.issues
+            .map(i => `#${i.number}: ${i.title} (@${i.author.login}) - ${i.state}`)
+            .join('\\n');
+
+          alert(
+            `Open Issues in ${repoName} (${data.issues.length}):\\n\\n${issueList}\\n\\nView in GitHub for more details.`
+          );
+        } catch (error) {
+          alert(`Failed to load issues: ${error.message}`);
+        }
+      }
+
+      // Create Issue
+      async function createIssue(owner, repo) {
+        const title = prompt('Issue title:');
+        if (!title) return;
+
+        const body = prompt('Issue description (optional):');
+
+        try {
+          const response = await fetch('http://localhost:3000/api/github/issue/create', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ owner, repo, title, body })
+          });
+
+          if (!response.ok) throw new Error('Failed to create issue');
+
+          const data = await response.json();
+          if (confirm(`Issue created!\\n\\nURL: ${data.url}\\n\\nOpen in browser?`)) {
+            window.open(data.url, '_blank');
+          }
+        } catch (error) {
+          alert(`Failed to create issue: ${error.message}`);
+        }
+      }
+
+      // View Pull Requests
+      async function viewPRs(event, repoName, index) {
+        event.stopPropagation();
+
+        const repo = filteredRepos[index];
+        const owner = repo.owner?.login || 'CrazyDubya';
+
+        try {
+          const response = await fetch(
+            `http://localhost:3000/api/github/pr/list?owner=${owner}&repo=${repoName}&limit=10`
+          );
+          if (!response.ok) throw new Error('Failed to fetch PRs');
+
+          const data = await response.json();
+
+          if (data.prs.length === 0) {
+            alert(
+              `No open pull requests in ${repoName}.\\n\\nCreate PRs on GitHub when you have branches to merge.`
+            );
+            return;
+          }
+
+          const prList = data.prs
+            .map(
+              pr =>
+                `#${pr.number}: ${pr.title} (${pr.headRefName} → ${pr.baseRefName}) - ${pr.state}${pr.isDraft ? ' [DRAFT]' : ''}`
+            )
+            .join('\\n');
+
+          const action = confirm(
+            `Open PRs in ${repoName} (${data.prs.length}):\\n\\n${prList}\\n\\nOK to view in GitHub, Cancel to close`
+          );
+          if (action && data.prs[0]) {
+            window.open(data.prs[0].url, '_blank');
+          }
+        } catch (error) {
+          alert(`Failed to load PRs: ${error.message}`);
+        }
+      }
+    </script>
+  </body>
+</html>

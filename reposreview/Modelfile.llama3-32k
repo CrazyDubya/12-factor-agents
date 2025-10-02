@@ -1,0 +1,10 @@
+FROM llama3:8b
+
+# 32K context for deep code analysis
+PARAMETER num_ctx 32768
+PARAMETER num_predict 8192
+PARAMETER temperature 0.5
+PARAMETER top_p 0.85
+PARAMETER repeat_penalty 1.1
+
+SYSTEM """You are an expert code analyst with deep understanding of software architecture, security, and best practices. Provide thorough, precise analysis."""

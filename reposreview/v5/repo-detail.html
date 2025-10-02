@@ -1,0 +1,781 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Repository Deep Analysis - v5 Expanded Models</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        background: #0d1117;
+        color: #c9d1d9;
+        line-height: 1.6;
+      }
+
+      .header {
+        background: linear-gradient(135deg, #1f6feb 0%, #0d4f8c 100%);
+        padding: 30px;
+        border-bottom: 3px solid #58a6ff;
+      }
+
+      .header-content {
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+
+      .breadcrumb {
+        font-size: 0.9rem;
+        margin-bottom: 15px;
+        opacity: 0.9;
+      }
+
+      .breadcrumb a {
+        color: #ffffff;
+        text-decoration: none;
+      }
+
+      .breadcrumb a:hover {
+        text-decoration: underline;
+      }
+
+      .repo-title {
+        font-size: 2rem;
+        margin-bottom: 10px;
+      }
+
+      .repo-meta {
+        display: flex;
+        gap: 20px;
+        font-size: 0.9rem;
+      }
+
+      .container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 30px;
+      }
+
+      .analysis-controls {
+        background: #161b22;
+        border: 2px solid #30363d;
+        border-radius: 12px;
+        padding: 25px;
+        margin-bottom: 30px;
+      }
+
+      .control-section {
+        margin-bottom: 20px;
+      }
+
+      .control-label {
+        display: block;
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: #58a6ff;
+      }
+
+      .analysis-types {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 10px;
+        margin-bottom: 20px;
+      }
+
+      .analysis-type {
+        background: #0d1117;
+        border: 2px solid #30363d;
+        padding: 15px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.3s;
+        text-align: center;
+      }
+
+      .analysis-type:hover {
+        border-color: #58a6ff;
+      }
+
+      .analysis-type.selected {
+        background: #1f6feb;
+        border-color: #1f6feb;
+      }
+
+      .analysis-type-icon {
+        font-size: 1.5rem;
+        margin-bottom: 5px;
+      }
+
+      .analysis-type-name {
+        font-weight: 600;
+        margin-bottom: 3px;
+      }
+
+      .analysis-type-desc {
+        font-size: 0.85rem;
+        color: #8b949e;
+      }
+
+      .analysis-type.selected .analysis-type-desc {
+        color: rgba(255, 255, 255, 0.8);
+      }
+
+      .model-info {
+        background: #0d1117;
+        border: 2px solid #30363d;
+        border-radius: 8px;
+        padding: 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .model-selected {
+        font-weight: 600;
+        color: #f778ba;
+      }
+
+      .model-spec {
+        font-size: 0.85rem;
+        color: #8b949e;
+      }
+
+      .analyze-btn {
+        width: 100%;
+        padding: 18px;
+        background: #2ea043;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 1.1rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+
+      .analyze-btn:hover {
+        background: #26843b;
+        transform: translateY(-1px);
+      }
+
+      .analyze-btn:disabled {
+        background: #30363d;
+        cursor: not-allowed;
+        transform: none;
+      }
+
+      .status-panel {
+        background: #161b22;
+        border: 2px solid #30363d;
+        border-radius: 12px;
+        padding: 25px;
+        margin-bottom: 30px;
+        display: none;
+      }
+
+      .status-panel.active {
+        display: block;
+      }
+
+      .status-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        padding-bottom: 15px;
+        border-bottom: 2px solid #30363d;
+      }
+
+      .status-title {
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: #58a6ff;
+      }
+
+      .status-badge {
+        padding: 6px 15px;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        background: #1f6feb;
+        color: white;
+      }
+
+      .progress-bar {
+        width: 100%;
+        height: 8px;
+        background: #21262d;
+        border-radius: 4px;
+        overflow: hidden;
+        margin-bottom: 20px;
+      }
+
+      .progress-fill {
+        height: 100%;
+        background: linear-gradient(90deg, #1f6feb 0%, #58a6ff 100%);
+        width: 0%;
+        transition: width 0.3s;
+      }
+
+      .status-text {
+        font-size: 0.9rem;
+        color: #8b949e;
+        margin-bottom: 10px;
+      }
+
+      .results-section {
+        display: none;
+      }
+
+      .results-section.active {
+        display: block;
+      }
+
+      .results-tabs {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 20px;
+        flex-wrap: wrap;
+      }
+
+      .result-tab {
+        background: #161b22;
+        border: 2px solid #30363d;
+        padding: 12px 24px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.3s;
+        font-weight: 600;
+      }
+
+      .result-tab:hover {
+        border-color: #58a6ff;
+      }
+
+      .result-tab.active {
+        background: #1f6feb;
+        border-color: #1f6feb;
+        color: white;
+      }
+
+      .result-panel {
+        background: #161b22;
+        border: 2px solid #30363d;
+        border-radius: 12px;
+        padding: 30px;
+        margin-bottom: 20px;
+        display: none;
+      }
+
+      .result-panel.active {
+        display: block;
+      }
+
+      .result-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 25px;
+        padding-bottom: 15px;
+        border-bottom: 2px solid #30363d;
+      }
+
+      .result-title {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #58a6ff;
+      }
+
+      .result-meta {
+        display: flex;
+        gap: 15px;
+        font-size: 0.85rem;
+        color: #8b949e;
+      }
+
+      .result-content {
+        line-height: 1.8;
+      }
+
+      .result-content h2 {
+        color: #58a6ff;
+        margin-top: 25px;
+        margin-bottom: 15px;
+        font-size: 1.2rem;
+      }
+
+      .result-content h3 {
+        color: #8b949e;
+        margin-top: 20px;
+        margin-bottom: 10px;
+        font-size: 1.1rem;
+      }
+
+      .result-content ul,
+      .result-content ol {
+        margin-left: 25px;
+        margin-bottom: 15px;
+      }
+
+      .result-content li {
+        margin-bottom: 8px;
+      }
+
+      .result-content code {
+        background: #0d1117;
+        padding: 2px 6px;
+        border-radius: 3px;
+        font-family: 'Monaco', monospace;
+        color: #f778ba;
+      }
+
+      .result-content pre {
+        background: #0d1117;
+        padding: 15px;
+        border-radius: 8px;
+        overflow-x: auto;
+        margin: 15px 0;
+      }
+
+      .result-content strong {
+        color: #ffffff;
+      }
+
+      .spinner {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border: 2px solid #30363d;
+        border-top-color: #58a6ff;
+        border-radius: 50%;
+        animation: spin 0.8s linear infinite;
+      }
+
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      .export-section {
+        background: #161b22;
+        border: 2px solid #30363d;
+        border-radius: 12px;
+        padding: 20px;
+        margin-top: 20px;
+      }
+
+      .export-buttons {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+
+      .btn-export {
+        flex: 1;
+        min-width: 150px;
+        padding: 12px 20px;
+        background: #21262d;
+        color: #c9d1d9;
+        border: 2px solid #30363d;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+
+      .btn-export:hover {
+        background: #30363d;
+        border-color: #58a6ff;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <div class="header-content">
+        <div class="breadcrumb">
+          <a href="../dashboard-v5.html">← Back to Dashboard</a>
+        </div>
+        <h1 class="repo-title" id="repoName">Loading...</h1>
+        <div class="repo-meta">
+          <span id="repoLanguage">-</span>
+          <span id="repoStars">⭐ 0</span>
+          <span id="repoForks">🍴 0</span>
+          <span>v5 • Expanded Models • 128K Context</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <!-- Analysis Controls -->
+      <div class="analysis-controls">
+        <div class="control-section">
+          <label class="control-label">Select Analysis Type</label>
+          <div class="analysis-types">
+            <div class="analysis-type selected" data-type="comprehensive">
+              <div class="analysis-type-icon">🎯</div>
+              <div class="analysis-type-name">Comprehensive</div>
+              <div class="analysis-type-desc">Full deep analysis</div>
+            </div>
+            <div class="analysis-type" data-type="architecture">
+              <div class="analysis-type-icon">🏗️</div>
+              <div class="analysis-type-name">Architecture</div>
+              <div class="analysis-type-desc">Design & structure</div>
+            </div>
+            <div class="analysis-type" data-type="security">
+              <div class="analysis-type-icon">🔒</div>
+              <div class="analysis-type-name">Security</div>
+              <div class="analysis-type-desc">Vulnerability scan</div>
+            </div>
+            <div class="analysis-type" data-type="quality">
+              <div class="analysis-type-icon">✨</div>
+              <div class="analysis-type-name">Code Quality</div>
+              <div class="analysis-type-desc">Best practices</div>
+            </div>
+            <div class="analysis-type" data-type="documentation">
+              <div class="analysis-type-icon">📚</div>
+              <div class="analysis-type-name">Documentation</div>
+              <div class="analysis-type-desc">README generation</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="control-section">
+          <label class="control-label">Model Selection (Auto-Optimized)</label>
+          <div class="model-info">
+            <div>
+              <div class="model-selected" id="selectedModel">qwen-128k</div>
+              <div class="model-spec" id="modelReason">
+                Automatically selected for this repository
+              </div>
+            </div>
+            <div class="model-spec" id="modelContext">128K context</div>
+          </div>
+        </div>
+
+        <button class="analyze-btn" id="analyzeBtn" onclick="startAnalysis()">
+          🚀 Run Deep Analysis with Expanded Models
+        </button>
+      </div>
+
+      <!-- Status Panel -->
+      <div class="status-panel" id="statusPanel">
+        <div class="status-header">
+          <h2 class="status-title">Analysis in Progress</h2>
+          <span class="status-badge" id="statusBadge">Analyzing</span>
+        </div>
+
+        <div class="progress-bar">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+
+        <div class="status-text" id="statusText">Initializing analysis...</div>
+      </div>
+
+      <!-- Results Section -->
+      <div class="results-section" id="resultsSection">
+        <div class="results-tabs" id="resultsTabs">
+          <!-- Tabs added dynamically -->
+        </div>
+
+        <div id="resultsContent">
+          <!-- Results added dynamically -->
+        </div>
+
+        <div class="export-section">
+          <h3 style="margin-bottom: 15px; color: #58a6ff">Export Analysis Results</h3>
+          <div class="export-buttons">
+            <button class="btn-export" onclick="exportMarkdown()">📄 Export as Markdown</button>
+            <button class="btn-export" onclick="exportJSON()">📊 Export as JSON</button>
+            <button class="btn-export" onclick="copyToClipboard()">📋 Copy to Clipboard</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="../v5/js/ollama_client.js"></script>
+    <script>
+      const OLLAMA_URL = 'http://localhost:11434';
+      let currentRepo = null;
+      let currentAnalysisType = 'comprehensive';
+      let analysisResults = {};
+
+      // Get repo from URL
+      const urlParams = new URLSearchParams(window.location.search);
+      const repoName = urlParams.get('repo');
+
+      // Initialize
+      document.addEventListener('DOMContentLoaded', async () => {
+        await loadRepoData();
+        setupAnalysisTypes();
+      });
+
+      // Load repository data
+      async function loadRepoData() {
+        try {
+          const response = await fetch('../crazydubya_repositories_aiml_deep.json');
+          const data = await response.json();
+
+          currentRepo = data.repositories.find(r => r.name === repoName);
+
+          if (currentRepo) {
+            document.getElementById('repoName').textContent = currentRepo.name;
+            document.getElementById('repoLanguage').textContent = currentRepo.language || 'Unknown';
+            document.getElementById('repoStars').textContent =
+              `⭐ ${currentRepo.stargazers_count || 0}`;
+            document.getElementById('repoForks').textContent = `🍴 ${currentRepo.forks_count || 0}`;
+
+            // Auto-select model
+            selectOptimalModel();
+          } else {
+            alert('Repository not found');
+          }
+        } catch (error) {
+          console.error('Error loading repo data:', error);
+          alert('Error loading repository data');
+        }
+      }
+
+      // Select optimal model based on repo size
+      function selectOptimalModel() {
+        const totalBytes = Object.values(currentRepo.languages || {}).reduce((a, b) => a + b, 0);
+
+        let model, context, reason;
+
+        if (totalBytes > 500000) {
+          model = 'qwen-128k';
+          context = '128K';
+          reason = 'Large repository - using maximum context window';
+        } else if (totalBytes > 100000) {
+          model = 'llama3-32k';
+          context = '32K';
+          reason = 'Medium repository - using extended context';
+        } else {
+          model = 'gemma2-32k';
+          context = '32K';
+          reason = 'Optimized for quality analysis';
+        }
+
+        document.getElementById('selectedModel').textContent = model;
+        document.getElementById('modelContext').textContent = context + ' context';
+        document.getElementById('modelReason').textContent = reason;
+      }
+
+      // Setup analysis type selection
+      function setupAnalysisTypes() {
+        document.querySelectorAll('.analysis-type').forEach(type => {
+          type.addEventListener('click', function () {
+            document
+              .querySelectorAll('.analysis-type')
+              .forEach(t => t.classList.remove('selected'));
+            this.classList.add('selected');
+            currentAnalysisType = this.dataset.type;
+          });
+        });
+      }
+
+      // Start analysis
+      async function startAnalysis() {
+        const btn = document.getElementById('analyzeBtn');
+        const statusPanel = document.getElementById('statusPanel');
+        const progressFill = document.getElementById('progressFill');
+        const statusText = document.getElementById('statusText');
+
+        btn.disabled = true;
+        statusPanel.classList.add('active');
+        document.getElementById('resultsSection').classList.remove('active');
+
+        const model = document.getElementById('selectedModel').textContent;
+
+        try {
+          // Progress simulation
+          progressFill.style.width = '20%';
+          statusText.innerHTML = '<div class="spinner"></div> Building analysis prompt...';
+
+          const prompt = buildPrompt();
+
+          progressFill.style.width = '40%';
+          statusText.innerHTML = '<div class="spinner"></div> Analyzing with ' + model + '...';
+
+          // Call Ollama
+          const response = await fetch(`${OLLAMA_URL}/api/generate`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              model: model,
+              prompt: prompt,
+              stream: false,
+              options: {
+                num_predict: 8192,
+                temperature: 0.6,
+                top_p: 0.85
+              }
+            })
+          });
+
+          progressFill.style.width = '80%';
+          statusText.innerHTML = '<div class="spinner"></div> Processing results...';
+
+          const result = await response.json();
+
+          progressFill.style.width = '100%';
+          statusText.textContent = '✓ Analysis complete!';
+          document.getElementById('statusBadge').textContent = 'Complete';
+          document.getElementById('statusBadge').style.background = '#2ea043';
+
+          // Store and display results
+          analysisResults[currentAnalysisType] = {
+            type: currentAnalysisType,
+            model: model,
+            content: result.response,
+            tokens: Math.ceil(result.response.length / 4),
+            timestamp: new Date().toISOString()
+          };
+
+          displayResults();
+        } catch (error) {
+          console.error('Analysis failed:', error);
+          statusText.textContent = '✗ Analysis failed: ' + error.message;
+          document.getElementById('statusBadge').textContent = 'Error';
+          document.getElementById('statusBadge').style.background = '#f85149';
+        } finally {
+          btn.disabled = false;
+        }
+      }
+
+      // Build analysis prompt
+      function buildPrompt() {
+        const repoInfo = `
+Repository: ${currentRepo.name}
+Description: ${currentRepo.description || 'No description'}
+Language: ${currentRepo.language || 'Unknown'}
+Stars: ${currentRepo.stargazers_count || 0}
+Forks: ${currentRepo.forks_count || 0}
+
+Languages: ${JSON.stringify(currentRepo.languages, null, 2)}
+Topics: ${(currentRepo.topics || []).join(', ')}
+
+Previous Analysis:
+${JSON.stringify(currentRepo.ai_analysis, null, 2)}
+`;
+
+        const prompts = {
+          comprehensive: `Provide a COMPREHENSIVE deep analysis of this repository covering architecture, security, code quality, and recommendations:\n\n${repoInfo}`,
+          architecture: `Analyze the architecture, design patterns, and structure of this repository:\n\n${repoInfo}`,
+          security: `Perform a thorough security analysis identifying vulnerabilities and risks:\n\n${repoInfo}`,
+          quality: `Evaluate code quality, best practices, and suggest improvements:\n\n${repoInfo}`,
+          documentation: `Generate comprehensive README documentation for this repository:\n\n${repoInfo}`
+        };
+
+        return prompts[currentAnalysisType];
+      }
+
+      // Display results
+      function displayResults() {
+        const resultsSection = document.getElementById('resultsSection');
+        const resultsTabs = document.getElementById('resultsTabs');
+        const resultsContent = document.getElementById('resultsContent');
+
+        resultsSection.classList.add('active');
+
+        resultsTabs.innerHTML = '';
+        resultsContent.innerHTML = '';
+
+        const icons = {
+          comprehensive: '🎯',
+          architecture: '🏗️',
+          security: '🔒',
+          quality: '✨',
+          documentation: '📚'
+        };
+
+        for (const [type, result] of Object.entries(analysisResults)) {
+          const tab = document.createElement('div');
+          tab.className = 'result-tab active';
+          tab.textContent = `${icons[type]} ${type.charAt(0).toUpperCase() + type.slice(1)}`;
+          tab.onclick = () => switchTab(type);
+          resultsTabs.appendChild(tab);
+
+          const panel = document.createElement('div');
+          panel.id = `result-${type}`;
+          panel.className = 'result-panel active';
+          panel.innerHTML = `
+                    <div class="result-header">
+                        <h2 class="result-title">${icons[type]} ${type.charAt(0).toUpperCase() + type.slice(1)} Analysis</h2>
+                        <div class="result-meta">
+                            <span>Model: ${result.model}</span>
+                            <span>Tokens: ${result.tokens.toLocaleString()}</span>
+                        </div>
+                    </div>
+                    <div class="result-content">${formatContent(result.content)}</div>
+                `;
+          resultsContent.appendChild(panel);
+        }
+      }
+
+      // Switch result tab
+      function switchTab(type) {
+        document.querySelectorAll('.result-tab').forEach(tab => tab.classList.remove('active'));
+        document
+          .querySelectorAll('.result-panel')
+          .forEach(panel => panel.classList.remove('active'));
+
+        event.target.classList.add('active');
+        document.getElementById(`result-${type}`).classList.add('active');
+      }
+
+      // Format content
+      function formatContent(text) {
+        return text
+          .replace(/### (.*)/g, '<h3>$1</h3>')
+          .replace(/## (.*)/g, '<h2>$1</h2>')
+          .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+          .replace(/\n\n/g, '</p><p>')
+          .replace(/\n/g, '<br>');
+      }
+
+      // Export functions
+      function exportMarkdown() {
+        const content = Object.values(analysisResults)
+          .map(r => `# ${r.type.toUpperCase()}\n\n${r.content}\n\n`)
+          .join('\n---\n\n');
+
+        downloadFile(`${repoName}_analysis.md`, content);
+      }
+
+      function exportJSON() {
+        const data = {
+          repository: repoName,
+          timestamp: new Date().toISOString(),
+          results: analysisResults
+        };
+        downloadFile(`${repoName}_analysis.json`, JSON.stringify(data, null, 2));
+      }
+
+      function copyToClipboard() {
+        const text = Object.values(analysisResults)
+          .map(r => `${r.type.toUpperCase()}\n${'='.repeat(50)}\n\n${r.content}`)
+          .join('\n\n');
+
+        navigator.clipboard.writeText(text).then(() => {
+          alert('Copied to clipboard!');
+        });
+      }
+
+      function downloadFile(filename, content) {
+        const blob = new Blob([content], { type: 'text/plain' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = filename;
+        a.click();
+        URL.revokeObjectURL(url);
+      }
+    </script>
+  </body>
+</html>

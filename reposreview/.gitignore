@@ -1,0 +1,40 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# Logs
+*.log
+npm-debug.log*
+/tmp/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Build outputs
+dist/
+build/
+*.min.js
+*.min.css
+
+# Data (keep data directory structure, ignore large files)
+data/*.json
+!data/.gitkeep
+
+# Temporary files
+.cache/
+.temp/
+tmp/
+
+# OS
+Thumbs.db
+.DS_Store

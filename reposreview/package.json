@@ -1,0 +1,28 @@
+{
+  "name": "reposreview-api",
+  "version": "1.0.0",
+  "description": "API server for GitHub and Cloudflare CLI integration",
+  "main": "api-server.js",
+  "scripts": {
+    "start": "node api-server.js",
+    "dev": "node api-server.js",
+    "lint": "eslint *.js v5/**/*.js",
+    "lint:fix": "eslint --fix *.js v5/**/*.js",
+    "format": "prettier --write '**/*.{js,json,html,css,md}'",
+    "format:check": "prettier --check '**/*.{js,json,html,css,md}'"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.36.0",
+    "eslint": "^9.36.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-node": "^11.1.0",
+    "prettier": "^3.6.2"
+  }
+}

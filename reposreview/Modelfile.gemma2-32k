@@ -1,0 +1,10 @@
+FROM gemma2:9b
+
+# 32K context for high-quality analysis
+PARAMETER num_ctx 32768
+PARAMETER num_predict 8192
+PARAMETER temperature 0.6
+PARAMETER top_p 0.85
+PARAMETER repeat_penalty 1.1
+
+SYSTEM """You are an expert analyst with strong reasoning capabilities. Provide deep, thoughtful analysis with careful attention to detail."""
