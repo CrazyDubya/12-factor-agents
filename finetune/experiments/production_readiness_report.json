@@ -1,0 +1,58 @@
+{
+  "corpus_statistics": {
+    "total_documents": 2000,
+    "total_tokens": 465986,
+    "avg_tokens_per_doc": 232,
+    "cross_references": 6000,
+    "avg_quality": 0.8757915319732408,
+    "doc_types": {
+      "news_article": 408,
+      "letter": 309,
+      "treaty": 195,
+      "chronicle": 391,
+      "diary": 401,
+      "speech": 90,
+      "technical_note": 206
+    }
+  },
+  "projected_results": {
+    "final_loss": 1.6004188914280975,
+    "final_coherence": 1.0178957659866203,
+    "quality_bonus": 0.03789576598662037,
+    "size_bonus": 0.12,
+    "cross_ref_bonus": 0.08
+  },
+  "document_samples": [
+    {
+      "type": "news_article",
+      "length": 277,
+      "quality": 0.8497805968737753,
+      "preview": "<|news_article|>\n\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\nTHE AETHERMOOR DAILY CHRONICLE\nYear 1240, First Moon, Day 1\n\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\n\nSPECIAL CO..."
+    },
+    {
+      "type": "letter",
+      "length": 229,
+      "quality": 0.9365374817219392,
+      "preview": "<|letter|>\nFrom: Elder Willow, Ancient tree spirit\nFaction: Elderwood\nTo: Chronicler Aria, Keeper of histories\nFaction: Floating Library\nDate: Official Correspondence #1001\nSeal: Authenticated by the ..."
+    },
+    {
+      "type": "letter",
+      "length": 228,
+      "quality": 0.8016406237553951,
+      "preview": "<|letter|>\nFrom: Commander Gearhart, Steam Knight General\nFaction: Iron Forge\nTo: Ambassador Kael, Peace negotiator\nFaction: Neutral\nDate: Official Correspondence #1002\nSeal: Authenticated by the Neut..."
+    },
+    {
+      "type": "treaty",
+      "length": 326,
+      "quality": 0.8213995371698447,
+      "preview": "<|treaty|>\nOFFICIAL TREATY DOCUMENT\nTreaty: The Non-Aggression Accord of 1243\nParties: The Scholars of the Floating Library and The Techno-Mages of the Crystal Spire\nDate: Sealed on the 4th day of the..."
+    },
+    {
+      "type": "chronicle",
+      "length": 178,
+      "quality": 0.9015886642844468,
+      "preview": "<|chronicle|>\nTitle: The Convergence Chronicles - Year 1244, Entry 5\nDate: 1244 of the New Calendar, First Moon\nLocation: Iron Forge\nRecorded by: The Historians of the Floating Library\n\nCURRENT EVENTS..."
+    }
+  ],
+  "timestamp": "2025-09-30T00:47:19.562739"
+}

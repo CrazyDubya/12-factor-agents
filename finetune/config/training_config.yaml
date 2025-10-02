@@ -1,0 +1,151 @@
+# Narrative Model Training Configuration
+# Complete configuration for fine-tuning language models on synthetic narrative data
+
+# Model Selection
+model_name: "qwen-1.5b"  # Options: qwen-1.5b, llama-3b, mistral-7b
+
+# Training Parameters
+num_train_epochs: 3
+per_device_train_batch_size: 4
+per_device_eval_batch_size: 8
+gradient_accumulation_steps: 2
+learning_rate: 2.0e-4
+weight_decay: 0.01
+lr_scheduler_type: "cosine"
+warmup_steps: 100
+
+# Model Architecture
+max_sequence_length: 2048
+document_context_length: 1024
+
+# PEFT Configuration (LoRA)
+use_quantization: true
+lora_r: 16
+lora_alpha: 32
+lora_target_modules: ["q_proj", "v_proj", "k_proj", "o_proj", "gate_proj", "up_proj", "down_proj"]
+lora_dropout: 0.05
+
+# Narrative-Specific Training
+cross_document_coherence_weight: 0.1
+temporal_consistency_weight: 0.05
+character_consistency_weight: 0.05
+
+# Advanced Training Options
+gradient_checkpointing: true
+fp16: false  # Auto-detected based on hardware
+bf16: true   # Preferred for modern GPUs
+dataloader_num_workers: 4
+dataloader_pin_memory: true
+
+# Evaluation Settings
+eval_strategy: "steps"
+eval_steps: 100
+eval_accumulation_steps: 1
+
+# Logging and Saving
+logging_steps: 10
+save_steps: 500
+save_total_limit: 3
+
+# Data Generation Settings (when using --generate-data)
+data_generation:
+  num_worlds: 5
+  documents_per_world: 200
+  document_types:
+    - chronicle
+    - diary
+    - letter
+    - news_article
+    - legal_document
+    - song
+    - map
+    - inventory
+    - treaty
+    - speech
+
+  # Quality control thresholds
+  min_coherence_score: 0.6
+  min_grammar_score: 0.7
+  max_repetition_penalty: 0.3
+
+# World Building Parameters
+world_generation:
+  characters_per_world: 8
+  locations_per_world: 6
+  events_per_world: 12
+
+  # Character diversity
+  character_archetypes:
+    - ruler
+    - merchant
+    - scholar
+    - warrior
+    - artisan
+    - farmer
+    - noble
+    - clergy
+
+  # Location types
+  location_types:
+    - city
+    - village
+    - castle
+    - temple
+    - market
+    - forest
+    - mountain
+    - coast
+
+# Evaluation Metrics Configuration
+evaluation:
+  # Core metrics weights
+  coherence_weight: 0.35
+  quality_weight: 0.25
+  consistency_weight: 0.25
+  creativity_weight: 0.15
+
+  # Specific metric settings
+  use_neural_metrics: true
+  max_eval_samples: 200
+  generate_sample_outputs: true
+  sample_prompts:
+    - "<|chronicle|>\nTitle: The Dawn of Change\nDate: Year 1205\n\n"
+    - "<|diary_entry|>\nAuthor: Sarah the Scribe\nDate: Spring Equinox\n\n"
+    - "<|letter|>\nFrom: Lord Commander\nTo: High Council\nDate: Third Moon\n\n"
+
+# Hardware Optimization
+hardware:
+  # Automatically detected, but can be overridden
+  use_flash_attention: true
+  mixed_precision: "bf16"  # Options: fp16, bf16, none
+
+  # Memory optimization
+  gradient_checkpointing: true
+  cpu_offload: false
+
+  # For multi-GPU training
+  ddp_backend: "nccl"
+  find_unused_parameters: false
+
+# Logging Integration
+logging:
+  use_wandb: false  # Set to true to enable Weights & Biases
+  use_tensorboard: true
+  log_level: "INFO"
+
+  # Experiment tracking
+  project_name: "narrative-finetuning"
+  experiment_tags: ["synthetic-data", "narrative", "coherence"]
+
+# Output and Checkpointing
+output:
+  base_dir: "./models"
+  save_optimizer_states: true
+  create_model_card: true
+
+  # Best model saving
+  save_best_models: true
+  best_model_metrics:
+    - overall_score
+    - overall_coherence
+    - overall_quality

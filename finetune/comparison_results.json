@@ -1,0 +1,209 @@
+{
+  "timestamp": "2025-09-30T09:34:17.394418",
+  "base_model": "Qwen/Qwen2.5-1.5B",
+  "finetuned_model": "models/production_narrative_mac/checkpoints",
+  "device": "mps",
+  "comparisons": [
+    {
+      "test_name": "Chronicle Entry",
+      "prompt_type": "chronicle",
+      "prompt": "<|chronicle|>\nTitle: The Discovery of the Ancient Archives\nDate: Year 1248, Seventh Moon\n\nIn the depths of the",
+      "base": {
+        "text": "forgotten library, a team of scholars led by Dr. Elara Aristeia discovered an ancient archive that had been lost for centuries. As they delved deeper into its secrets, they uncovered not only valuable knowledge but also shocking revelations about the history of their world.\n\nThe archives were filled with scrolls and books written in languages long since forgotten. They contained stories of great heroes who had ruled over kingdoms far removed from our own time. However, what truly caught the attention of the researchers was the presence of a mysterious code that seemed to hold key information about the future.\n\nAs the discovery progressed, it became clear that this code would have significant implications for humanity's survival. It revealed that a powerful force was at work, manipulating events on a grand scale to achieve their goals. And if left unchecked, these forces could bring destruction upon all living beings.\n\nDr. Aristeia decided that the best course of action was to gather more information before taking any drastic measures. She organized meetings between experts from various fields, including archaeology, linguistics, astronomy, and mathematics.\n\nTheir discussions yielded fascinating insights into how these ancient civilizations understood numbers, geometry, and even basic physics concepts such as gravity and electromagnetism. These discoveries allowed them to develop new theories regarding the nature of reality itself.\n\nHowever, just when things started looking promising, another surprise awaited them - they found themselves being watched! A group of shadowy figures emerged from nowhere, their purpose unknown yet unmistakable. Their actions appeared suspiciously coordinated with",
+        "generation_time": 28.3,
+        "tokens": 300,
+        "quality_score": 1.0,
+        "word_count": 255,
+        "sentence_count": 16,
+        "avg_sentence_length": 15.9,
+        "has_structure": true,
+        "has_temporal": true,
+        "has_characters": false,
+        "type_appropriate": true
+      },
+      "finetuned": {
+        "text": "Underworld, a team of brave adventurers discovered an ancient treasure trove hidden away in a forgotten cave. Amongst the riches they found was a collection of ancient books and scrolls that had lain untouched for centuries.\n\nThese artifacts were believed to hold powerful knowledge and secrets from long ago. However, there was a catch - these volumes belonged to a civilization which lived over two thousand years before our own time!\n\nAs the adventurers delved deeper into this mysterious world, they uncovered a series of enigmatic symbols etched on various pages. It became clear that each symbol represented a different level of magical power, leading them down a path of exploration unlike anything they had ever experienced before.\n\nThe most intriguing discovery came when one of their group stumbled upon a hidden chamber containing glowing orbs pulsating with incredible energy. When they opened one up, they found themselves transported back in time! This newfound ability allowed them to witness firsthand the events that transpired during those distant times.\n\nThrough careful analysis of the text within these texts, along with their journey through history, the adventurers gained invaluable insights about the once-great civilization that once thrived here beneath our feet. Their findings sparked much discussion among scholars throughout the land as people began piecing together fragments of what once may have been lost forever.\n\nNowhere else could they find such rich material like this \u2013 yet still so many questions remain unanswered. As they continue their quest to uncover more pieces of this grand tale, only time will tell whether they can unravel all its mysteries... or",
+        "generation_time": 22.07,
+        "tokens": 300,
+        "quality_score": 1.0,
+        "word_count": 266,
+        "sentence_count": 12,
+        "avg_sentence_length": 22.2,
+        "has_structure": true,
+        "has_temporal": true,
+        "has_characters": false,
+        "type_appropriate": true
+      },
+      "improvements": {
+        "quality_score": 0.0,
+        "word_count": 11,
+        "structure": false,
+        "temporal": false,
+        "type_appropriate": false
+      }
+    },
+    {
+      "test_name": "Diary Entry",
+      "prompt_type": "diary_entry",
+      "prompt": "<|diary_entry|>\nAuthor: Chronicler Aria\nDate: Personal Record, Day 523\n\nDear Journal,\n\nToday I witnessed something that challenges everything we thought we knew about",
+      "base": {
+        "text": "life and mortality. In a small village nestled deep within the mountains of our homeland, an ancient ceremony took place - one that has been performed for centuries. But what was different this year was not just the tradition itself but rather its context.\n\nThe villagers gathered around a large stone circle, their faces adorned with intricate symbols passed down through generations. Among them stood our esteemed Elder, who spoke in a language unknown to us, his voice resonating like thunder from far away. His words carried both wisdom and fear; they instilled reverence into every heart present there.\n\nAs he began recounting tales from days gone by, memories flooded back as if reliving experiences themselves. Each story held secrets waiting to be uncovered, each lesson learned invaluable when faced upon adversity or uncertainty. Yet amidst these narratives lay stark reminders of death looming over all things - sometimes imperceptibly yet inevitably coming knocking on doors unprepared.\n\nYet despite these realities plaguing mankind since time immemorial, humanity continues striving towards greatness despite dire circumstances. It reminds me how deeply intertwined fate truly is, whether good or bad luck brings forth opportunity or disaster depending on human actions taken wisely or rashly.\n\nIn conclusion, dear journal keeper,\nI wish you well until next chapter unfolds.\nWith love & respect,<br/>\nChronicler Aria",
+        "generation_time": 15.08,
+        "tokens": 261,
+        "quality_score": 0.8,
+        "word_count": 220,
+        "sentence_count": 13,
+        "avg_sentence_length": 16.9,
+        "has_structure": false,
+        "has_temporal": true,
+        "has_characters": true,
+        "type_appropriate": true
+      },
+      "finetuned": {
+        "text": "life and death. It's hard to explain without getting too philosophical but... \n\nIt happened like this: I was walking through the woods when I stumbled upon an old tree trunk lying on the ground. And right in front of me, there were some bones wrapped tightly around its trunk! They seemed so fragile yet they stood strong against nature.\n\nAs I stared at them for a while trying not to touch anything, one of them fell out. The bone felt heavy; it reminded me of someone who has gone through great pain before moving onto another world.\n\nI couldn't help but wonder how long those people had been waiting here? Waiting patiently till the next day arrived just to let us know what awaited us after all these years?\n\nWhat do you think about such mysterious occurrences? Any theories or explanations for what happens between now and then?\nSincerely,\nAria",
+        "generation_time": 11.37,
+        "tokens": 172,
+        "quality_score": 0.75,
+        "word_count": 150,
+        "sentence_count": 7,
+        "avg_sentence_length": 21.4,
+        "has_structure": false,
+        "has_temporal": true,
+        "has_characters": false,
+        "type_appropriate": true
+      },
+      "improvements": {
+        "quality_score": -0.05,
+        "word_count": -70,
+        "structure": false,
+        "temporal": false,
+        "type_appropriate": false
+      }
+    },
+    {
+      "test_name": "Letter",
+      "prompt_type": "letter",
+      "prompt": "<|letter|>\nFrom: Ambassador Kael of the Merchant Coalition\nTo: Archmage Lysander\n\nEsteemed Archmage,\n\nI write to you regarding the recent tensions between",
+      "base": {
+        "text": "the Merchants and the Imperial Forces. As a representative of our community, it is my responsibility to ensure that we are all treated fairly and respectfully.\n\nThe recent events have caused confusion and concern among many of us. We feel that our rights as merchants have been infringed upon by the imperial forces, who seem to be acting without regard for their own laws or those of the Alliance. It is our belief that they should adhere to the same laws that govern others in the Alliance, and that this should include treating us with respect and dignity.\n\nWe also believe that there has been an increase in violence directed towards members of our community. This includes acts such as theft, vandalism, and even physical harm. These actions go against everything we stand for as a society, which is why we demand that these incidents cease immediately.\n\nIt is clear that both sides have made mistakes and that misunderstandings exist within our community. However, I am confident that if we can work together to find common ground, then we will be able to move forward peacefully and constructively.\n\nThank you for your time and consideration on this matter. We look forward to seeing progress towards resolution soon.\n\nSincerely,\nAmbassador Kael",
+        "generation_time": 11.88,
+        "tokens": 239,
+        "quality_score": 0.8,
+        "word_count": 210,
+        "sentence_count": 13,
+        "avg_sentence_length": 16.2,
+        "has_structure": true,
+        "has_temporal": false,
+        "has_characters": true,
+        "type_appropriate": true
+      },
+      "finetuned": {
+        "text": "the Merchants' Council and various guilds, particularly those of the Order of the Scourge. We have received reports that these disputes are escalating in severity, with members of both sides becoming increasingly agitated.\n\nAs you may know, the Merchant Coalition seeks to promote trade and commerce among our nations. However, we believe it is necessary for us to address issues such as conflicts within guilds before they escalate into violence or chaos.\n\nWe propose that a neutral forum be established where representatives from all parties can discuss their concerns openly without fear of reprisal. This meeting would aim to facilitate understanding and cooperation rather than exacerbate existing differences.\n\nThe proposed venue could be either in one of your city-states or another location deemed suitable by the merchants themselves. The goal remains peaceful resolution through dialogue while maintaining peace across our nation's borders.\n\nYour esteemed opinion on this matter would greatly assist me in drafting further recommendations for our council's consideration. I await your response.\n\nYours faithfully,\nAmbassador Kael",
+        "generation_time": 15.3,
+        "tokens": 200,
+        "quality_score": 0.968,
+        "word_count": 168,
+        "sentence_count": 11,
+        "avg_sentence_length": 15.3,
+        "has_structure": true,
+        "has_temporal": true,
+        "has_characters": true,
+        "type_appropriate": true
+      },
+      "improvements": {
+        "quality_score": 0.168,
+        "word_count": -42,
+        "structure": false,
+        "temporal": true,
+        "type_appropriate": false
+      }
+    },
+    {
+      "test_name": "Report",
+      "prompt_type": "report",
+      "prompt": "<|report|>\nTitle: Security Assessment - Northern Territories\nDate: Year 1248, Eighth Moon\nAuthor: Captain Marcus\n\nEXECUTIVE SUMMARY\n\nFollowing recent incursions,",
+      "base": {
+        "text": "the Northern Territories have been under heightened security measures since last year's campaign. In response to this, I have commissioned a comprehensive report from my intelligence team detailing the current state of security within the region.\n\nOur analysis has revealed that while there is an increased presence of patrols and surveillance by various law enforcement agencies, there remains a significant threat to both human life and property. The majority of attacks occur in remote areas with little to no protection against potential threats.\n\nFurthermore, the ongoing political unrest poses a further risk to public safety. We have identified several key vulnerabilities that require urgent attention:\n\n- Infrastructure vulnerability: Recent reports indicate that critical infrastructure such as hospitals and power plants are at high risk due to potential sabotage or cyberattacks.\n- Human rights violations: The influx of refugees and displaced persons adds layers of complexity to maintaining order. This includes concerns regarding access to healthcare facilities and proper treatment for those suffering from trauma or disease.\n- Drug trafficking: Smuggling networks continue to thrive along the border regions between the Northern Territories and neighboring jurisdictions. It is crucial to prevent these activities from disrupting supply chains or causing additional collateral damage during any future conflicts.\n\nIn light of these findings, it is imperative that we take immediate action to address these issues before they escalate into larger-scale incidents affecting multiple communities throughout the territory.\n\nRecommendations:\n1. Strengthening Law Enforcement Cooperation: Encourage joint efforts among local governments and international organizations to enhance coordination on preventing illicit trade, combating organized crime groups operating within the borders, and providing support services",
+        "generation_time": 16.66,
+        "tokens": 300,
+        "quality_score": 1.0,
+        "word_count": 268,
+        "sentence_count": 13,
+        "avg_sentence_length": 20.6,
+        "has_structure": true,
+        "has_temporal": true,
+        "has_characters": false,
+        "type_appropriate": true
+      },
+      "finetuned": {
+        "text": "our forces in the northern territories have been exposed to a variety of hostile activities. In order to protect our people and maintain security for future operations, I present this report detailing my findings on the state of the northern territories.\n\nBACKGROUND:\n\nThe northern territories were initially settled by humans from mainland Earth centuries ago. Over time, these settlers formed strong bonds with indigenous populations, forming alliances that spanned generations.\n\nHowever, recent decades saw a resurgence of conflict between the human settlers and their native counterparts. This tension escalated into open warfare during the War of Independence (Year 946), resulting in significant casualties and destruction across both sides of the border.\n\nIn response to escalating violence, King Ximilus sent troops to reassert control over disputed areas. While they managed to stabilize some regions temporarily, many others remained under threat due to ongoing territorial disputes.\n\nFINDINGS:\n\nOur security assessments reveal several key concerns within the northern territories:\n\n1. **Strategic Vulnerabilities:** Areas near major water sources or strategic trade routes are particularly susceptible to raids and ambushes.\n2. **Indigenous Threats:** Despite initial treaties promising peaceful coexistence, there remains a persistent risk posed by indigenous groups seeking revenge or expansionist ambitions.\n3. **Infrastructure Weaknesses:** Poorly maintained roads, bridges, and communication networks make it difficult for reinforcements to reach threatened zones swiftly.\n4. **Treaty Violations:** Some local leaders continue to violate peace agreements through unannounced military actions or support for rebellious",
+        "generation_time": 19.52,
+        "tokens": 300,
+        "quality_score": 1.0,
+        "word_count": 237,
+        "sentence_count": 16,
+        "avg_sentence_length": 14.8,
+        "has_structure": true,
+        "has_temporal": true,
+        "has_characters": false,
+        "type_appropriate": true
+      },
+      "improvements": {
+        "quality_score": 0.0,
+        "word_count": -31,
+        "structure": false,
+        "temporal": false,
+        "type_appropriate": false
+      }
+    },
+    {
+      "test_name": "Speech",
+      "prompt_type": "speech",
+      "prompt": "<|speech|>\nSpeaker: High Councilor Elena\nOccasion: Annual Council Assembly\nDate: Year 1248, Ninth Moon\n\nDistinguished delegates, esteemed colleagues,\n\nWe stand at a crossroads. The decisions we make today will",
+      "base": {
+        "text": "shape the future of our realm for generations to come. Today, we gather under the vast dome of knowledge and wisdom to deliberate on pressing matters that affect us all.\n\nOur world is faced with unprecedented challenges. Climate change continues to ravage our lands, threatening the very foundations upon which we have built our civilization. Food security has become an urgent concern, as erratic weather patterns threaten crop yields and starve millions. Epidemics persist, spreading fear and death among our people. And in the shadow of these problems, economic disparities widen, leaving some behind while others rise higher than ever before.\n\nIn light of this grim reality, I urge you to consider three key strategies: \n\nFirstly, we must invest heavily in renewable energy technologies and infrastructure. This will not only mitigate the impacts of climate change but also create jobs and stimulate growth across multiple sectors. We cannot afford to neglect this critical aspect of sustainability any longer; it is now or never!\n\nSecondly, collaboration between nations is essential to address global health crises effectively. As we face new pandemics regularly, pooling resources and expertise can lead to more efficient responses than isolated efforts could provide. By working together, we strengthen our collective resilience against such threats\u2014and perhaps even prevent them from happening altogether.\n\nLastly, ensuring equitable distribution of wealth remains paramount. Policies aimed at reducing income inequality through progressive taxation systems or targeted social programs ensure that no one falls behind during times of hardship. Such measures foster greater stability within society and reduce potential conflicts arising out of widespread poverty and",
+        "generation_time": 15.43,
+        "tokens": 300,
+        "quality_score": 0.8,
+        "word_count": 263,
+        "sentence_count": 15,
+        "avg_sentence_length": 17.5,
+        "has_structure": false,
+        "has_temporal": true,
+        "has_characters": false,
+        "type_appropriate": true
+      },
+      "finetuned": {
+        "text": "shape our world for generations to come. Today is not just another day; it's a watershed moment in the history of Vesperia.\n\nAs you gather here, I am reminded of a quote from our wise forebears:\n\n\"Change does not occur without struggle. It requires courage and determination.\"\n\nThis year, our collective journey has been marked by unprecedented challenges. From the devastating economic downturn to the unfolding crisis on the borderlands, we have faced formidable obstacles. Yet, amidst these trials, there lies an opportunity\u2014a chance to redefine what it means to be a Vesperian. An opportunity to forge new paths forward.\n\nThe task before us is daunting but not insurmountable. We must rally around the vision outlined by our noble leader, General Lysander, who guided us through the darkest moments with unwavering resolve and strength. His legacy inspires hope in all hearts.\n\nBut this isn't about mere survival or continuation; it's about creating something beautiful. A future where every citizen feels valued, respected, and empowered. Where innovation thrives under diverse perspectives and cultures. Where justice prevails over fear and suspicion.\n\nI ask each one of you to join me in this quest. To listen actively, learn empathetically, and collaborate productively. For together, we can build a society that reflects the diversity of our people while fostering unity among them.\n\nLet us seize this opportunity like never before. Let us push boundaries beyond comprehension. And above all else, let us remain true to",
+        "generation_time": 19.51,
+        "tokens": 300,
+        "quality_score": 0.8,
+        "word_count": 241,
+        "sentence_count": 21,
+        "avg_sentence_length": 11.5,
+        "has_structure": false,
+        "has_temporal": true,
+        "has_characters": false,
+        "type_appropriate": true
+      },
+      "improvements": {
+        "quality_score": 0.0,
+        "word_count": -22,
+        "structure": false,
+        "temporal": false,
+        "type_appropriate": false
+      }
+    }
+  ],
+  "summary": {
+    "base_avg_quality": 0.88,
+    "finetuned_avg_quality": 0.904,
+    "avg_quality_improvement": 0.024,
+    "base_avg_words": 243.2,
+    "finetuned_avg_words": 212.4,
+    "base_avg_time": 17.47,
+    "finetuned_avg_time": 17.55,
+    "tests_with_improvement": 1,
+    "tests_total": 5
+  }
+}

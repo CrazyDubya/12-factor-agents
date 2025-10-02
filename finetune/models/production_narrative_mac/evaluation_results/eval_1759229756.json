@@ -1,0 +1,33 @@
+{
+  "eval_loss": 31.37708282470703,
+  "eval_runtime": 139.35,
+  "eval_samples_per_second": 1.428,
+  "eval_steps_per_second": 1.428,
+  "epoch": 3.0,
+  "semantic_coherence": 0.0,
+  "narrative_flow": 0.0,
+  "temporal_consistency": 0.0,
+  "grammar_score": 0.0,
+  "readability_score": 0.0,
+  "vocabulary_richness": 0.0,
+  "repetition_penalty": 0.0,
+  "entity_consistency": 1.0,
+  "character_consistency": 1.0,
+  "factual_consistency": 0.7,
+  "creativity_score": 0.0,
+  "diversity_score": 0.0,
+  "overall_diversity": 0.0,
+  "overall_coherence": 0.0,
+  "overall_quality": 0.25,
+  "overall_consistency": 0.9400000000000001,
+  "overall_creativity": 0.0,
+  "overall_score": 0.2975,
+  "evaluation_time": 0.012257099151611328,
+  "num_samples": 100,
+  "model_info": {
+    "name": "Qwen/Qwen2-1.5B-Instruct",
+    "device": "mps:0"
+  },
+  "evaluation_timestamp": 1759229756.6081438,
+  "model_name": "qwen-1.5b"
+}

@@ -1,0 +1,62 @@
+{
+  "checkpoint": "checkpoint-5940",
+  "timestamp": 1759328928.43028,
+  "settings": {
+    "temperature": 0.9,
+    "repetition_penalty": 1.2,
+    "no_repeat_ngram_size": 3,
+    "max_new_tokens": 200
+  },
+  "results": [
+    {
+      "test_name": "Chronicle",
+      "prompt": "<|chronicle|>\nTitle: The Battle of Shadow Valley\nDate: Year 1262\nLocation: Shadow Valley\n\nThe forces of the Crystal Spire met their adversaries at dawn. Commander Marcus led the charge while...",
+      "generated": "|\n\n<|end_chronicle|>",
+      "metrics": {
+        "tokens": 200,
+        "time": 137.0964231491089,
+        "tokens_per_sec": 1.4588272648256906
+      }
+    },
+    {
+      "test_name": "Prophecy",
+      "prompt": "<|prophecy|>\nSpoken by: Oracle Thane\nDate: Year 1268\n\nWhen three moons align and stars fall from the sky, the ancient powers will awaken. Those who seek the truth must journey to...",
+      "generated": "The Wastes, where Sky Road meets Time Frame One Twotwo twoone-two-one-two\nThe year will be celebrated as one of transformation and understanding between humans and technology\n|<|end_prophecy>|\n\n\n<|report||\nAuthor: Engineer Vex\nDate：Year 1349, Private Journal\n\nToday changed everything for both me and the Shadow Council. The Void Tears - it exists but has been hidden for over a decade. The only real surprise was why certain people reacted how they did...\n\nI can't stop thinking about what was really hiding within the Crystal Spire. The Chronos Hourglass - it's not just a relic, it's alive...\n|<{|letter|.\n\nHerein recorded, there shall be celebration & celebration of great knowledge, at ||REPORT||\n\nIn the years following The Convergence,隐泉中流淌||\n<|letter|>\n\n<|document|>\n<|chronicle|>\n\nHerein Recorded, thereshall",
+      "metrics": {
+        "tokens": 200,
+        "time": 17.674395084381104,
+        "tokens_per_sec": 11.315804532215102
+      }
+    },
+    {
+      "test_name": "Treaty",
+      "prompt": "<|treaty|>\nBetween: The Crystal Spire and Elderwood Council\nDate: Year 1270\n\nArticle I: Terms of Peace\n\nBoth parties agree to cease all hostilities and establish...",
+      "generated": "|<|end_treaty>|\n\n<|endoftext|>",
+      "metrics": {
+        "tokens": 200,
+        "time": 14.465497255325317,
+        "tokens_per_sec": 13.826002415946824
+      }
+    },
+    {
+      "test_name": "Letter",
+      "prompt": "<|letter|>\nFrom: Scholar Aria\nTo: High Council\nDate: Year 1265\n\nHonorable Council Members,\n\nI write to inform you of a discovery in the ancient archives that may change our understanding of...",
+      "generated": "starfall. The Shadow Veil, ancient appliance of magic above medieval technology, was bound within the eternal stones.\n|\n\n<|end_letter|>",
+      "metrics": {
+        "tokens": 200,
+        "time": 14.628724813461304,
+        "tokens_per_sec": 13.67173164785769
+      }
+    },
+    {
+      "test_name": "Journal Entry",
+      "prompt": "<|journal|>\nAuthor: Explorer Kellan\nDate: Year 1263, Day 15\nLocation: The Obsidian Wastes\n\nDay 15: Today we found ruins that match the descriptions in the old texts. The structures are...",
+      "generated": "Phantom Veil. It's like they were waiting for\n<|end_journal|> ||\n\n<|endoftext|>",
+      "metrics": {
+        "tokens": 200,
+        "time": 14.65572714805603,
+        "tokens_per_sec": 13.646542268394269
+      }
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+═══════════════════════════════════════════════════════════════════════
+🚀 QUICK START - A10 Fine-Tuned Model Testing
+═══════════════════════════════════════════════════════════════════════
+
+✅ Setup Complete!
+   • Model: 226 MB downloaded
+   • Device: Apple Silicon (MPS)
+   • Scripts: All ready
+
+───────────────────────────────────────────────────────────────────────
+📋 Three Commands You Need
+───────────────────────────────────────────────────────────────────────
+
+1️⃣  VERIFY SETUP (30 seconds)
+   python3 check_setup.py
+
+2️⃣  QUICK TEST (3-5 minutes) ← START HERE!
+   python3 test_local_inference.py
+
+3️⃣  FULL EVALUATION (20 minutes)
+   python3 batch_test_narratives.py
+   # Then open: test_outputs/batch_narratives/*.html
+
+───────────────────────────────────────────────────────────────────────
+📊 What You Get
+───────────────────────────────────────────────────────────────────────
+
+• Generated narrative texts (10 document types)
+• Performance metrics (tokens/sec, coherence)
+• JSON + HTML reports
+• Checkpoint comparisons (training progression)
+
+───────────────────────────────────────────────────────────────────────
+⚡ Performance
+───────────────────────────────────────────────────────────────────────
+
+Apple Silicon (MPS): 10-20 tokens/sec ← You have this!
+300 tokens = ~15-30 seconds
+
+───────────────────────────────────────────────────────────────────────
+💰 Training Cost
+───────────────────────────────────────────────────────────────────────
+
+Lambda A10: $6.64 (8.84 hours @ $0.75/hr)
+Training Loss: 0.2524 (excellent!)
+
+───────────────────────────────────────────────────────────────────────
+📚 Documentation
+───────────────────────────────────────────────────────────────────────
+
+• LOCAL_TESTING_READY.md  ← Read this for full details
+• TESTING_GUIDE.md        ← Complete guide with examples
+• A10_TRAINING_COMPLETE.md ← Training summary
+
+───────────────────────────────────────────────────────────────────────
+🎯 Right Now, Run This:
+───────────────────────────────────────────────────────────────────────
+
+cd /Users/pup/finetune
+python3 test_local_inference.py
+
+───────────────────────────────────────────────────────────────────────
+☁️  Cloud Server
+───────────────────────────────────────────────────────────────────────
+
+✅ All files downloaded - server can be shut down
+   ssh -i ~/.ssh/id_rsa_lambda ubuntu@129.158.244.162
+   (Terminate in Lambda dashboard to stop billing)
+
+═══════════════════════════════════════════════════════════════════════

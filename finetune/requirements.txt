@@ -1,0 +1,60 @@
+# Core ML Libraries
+torch>=2.0.0
+transformers>=4.40.0
+datasets>=2.14.0
+peft>=0.8.0
+bitsandbytes>=0.42.0
+accelerate>=0.25.0
+
+# Training Optimization
+unsloth>=2024.1
+trl>=0.7.0
+wandb>=0.16.0
+
+# Multi-Agent Framework
+dspy-ai>=2.4.0
+langchain>=0.1.0
+langgraph>=0.0.40
+langsmith>=0.0.87
+
+# Knowledge Graph
+neo4j>=5.15.0
+py2neo>=2021.2.4
+networkx>=3.0
+
+# Data Processing
+pandas>=2.0.0
+numpy>=1.24.0
+jsonlines>=4.0.0
+pydantic>=2.5.0
+python-dotenv>=1.0.0
+
+# NLP Utilities
+spacy>=3.7.0
+nltk>=3.8.0
+sentence-transformers>=2.2.0
+
+# Evaluation
+rouge-score>=0.1.2
+bert-score>=0.3.13
+ragas>=0.0.22
+textstat>=0.7.3
+scikit-learn>=1.3.0
+tensorboardX>=2.6.2.2
+
+# Web Interface (Optional)
+gradio>=4.0.0
+streamlit>=1.28.0
+
+# Utilities
+tqdm>=4.66.0
+rich>=13.0.0
+typer>=0.9.0
+pyyaml>=6.0.0
+python-dateutil>=2.8.0
+
+# Development
+pytest>=7.4.0
+black>=23.0.0
+isort>=5.12.0
+mypy>=1.7.0

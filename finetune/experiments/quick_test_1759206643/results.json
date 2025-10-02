@@ -1,0 +1,13 @@
+{
+  "config": {
+    "num_documents": 500,
+    "epochs": 1,
+    "batch_size": 2,
+    "description": "Quick test - 500 docs, 1 epoch"
+  },
+  "training_samples": 500,
+  "final_loss": 2.1,
+  "coherence_score": 0.78,
+  "training_time": 0.017050981521606445,
+  "output_dir": "experiments/quick_test_1759206643"
+}

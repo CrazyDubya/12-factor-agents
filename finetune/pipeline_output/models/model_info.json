@@ -1,0 +1,8 @@
+{
+  "model_name": "qwen-1.5b",
+  "training_completed": "2025-09-30T00:14:06.317565",
+  "training_samples": 100,
+  "final_loss": 0.523,
+  "coherence_score": 0.867,
+  "model_path": "pipeline_output/models/aethermoor_model"
+}

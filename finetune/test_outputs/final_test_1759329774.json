@@ -1,0 +1,57 @@
+{
+  "checkpoint": "checkpoint-5940",
+  "timestamp": 1759329774.338249,
+  "device": "mps",
+  "results": [
+    {
+      "type": "chronicle",
+      "prompt": "<|chronicle|>\nIn the year 1262, great events transpired at Shadow Valley. The forces of Crystal Spire, under Commander Marcus, engaged their ancient adversaries...",
+      "generated": "|<|end_chronicle|> <|end_chronic|>\n\n<|letter|>\nAuthor: Temporal Sage Chronos\nDate: Year 1348, Private Journal\n\nToday changed everything for us. I can't stop thinking about what happened in Aethermoor City. The Shadow Council reveals itself means nothing will be the same, but some things are further than a tide ||\n<|letter|>\n<|report|>\nAutor: Engineer Brass\nDate：Year 1150, PrivateJournal\n\nToday changes everything. The Phantom has appeared in Starfall Valley and The Shadow Modulator starts the Change of Times. They were there and saw it with their own eyes",
+      "metrics": {
+        "tokens": 142,
+        "time": 16.525265216827393,
+        "tokens_per_sec": 8.592902936008787
+      }
+    },
+    {
+      "type": "prophecy",
+      "prompt": "<|prophecy|>\nWhen three moons align in the darkened sky and the ancient stones begin to sing, then shall the Time Keepers return to claim their rightful place. Only those who bear the mark of...",
+      "generated": "The Great War呼唤知道者知晓意味着和平与变革将开启新的篇章。\n|\n||Report|  \nProfessional Notes\nDate: Year 1259\nLocation: Aethermoor City\n\nOfficial Record:\n\nIn the year 1347,chieves through The Starfall Floodinig, significant developments occurred at Elderwood involving The Sky Pirates of Windward Isles.\nThe primary action involved Shadow Agent Vexteer working out connections between The Steam Knights of Iron Forge and The Unveils",
+      "metrics": {
+        "tokens": 102,
+        "time": 18.236194133758545,
+        "tokens_per_sec": 5.59327232710137
+      }
+    },
+    {
+      "type": "treaty",
+      "prompt": "<|treaty|>\nBetween the realm of Elderwood and the dominion of Crystal Spire, this accord is forged. Article I: That all hostilities shall cease upon the signing of this agreement and both parties shall...",
+      "generated": "The Phantom\nIn the shadows of The Wastes, The Voice behind Shadow Veil observes with eyes of wisdom. || Herein recorded, Solemn declaration of knowledge and understanding via Shadow Veer...\n||TREATY||\nAuthor: Temporal Sage Chronos\nDate: Year 1230, Location: The Neutral Grounds\n\nSpeculations:\n\nChief The Convergence Points suggests ancient artefacts work magic in conjunction with living m...\n|",
+      "metrics": {
+        "tokens": 90,
+        "time": 24.93892812728882,
+        "tokens_per_sec": 3.6088158857765693
+      }
+    },
+    {
+      "type": "letter",
+      "prompt": "<|letter|>\nDear Council Members, I write to report a discovery of great significance. During excavations beneath the Old Library, we uncovered artifacts that suggest...",
+      "generated": "<|lettre|> \n\nHere be dragons\n\nIn the voice of Sage Miriam, The Voice for Change through time and art\n\nFor those who search where magic meets technology, there be no challenge great enough to test the strength of those souls. The Sky Druids, guardians of the Void Wind Call singing skies, stand at the brink of known wisdom and knowledge",
+      "metrics": {
+        "tokens": 74,
+        "time": 29.834008932113647,
+        "tokens_per_sec": 2.4803907570177604
+      }
+    },
+    {
+      "type": "diary_entry",
+      "prompt": "<|diary_entry|>\nDay forty-two of the expedition. The ruins grow more magnificent with each passing hour. Today we found inscriptions that match the ancient texts exactly...",
+      "generated": "it's as if the skies above finally align with our decisions.\nHowever, there was tension in the camp around the The Great Steam Machine due to concerns about safety. Some began to suggest that this could be a decoy - an effort to hide weakness...\n|",
+      "metrics": {
+        "tokens": 52,
+        "time": 32.00933003425598,
+        "tokens_per_sec": 1.6245263472978115
+      }
+    }
+  ]
+}

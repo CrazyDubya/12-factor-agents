@@ -1,0 +1,13 @@
+{
+  "config": {
+    "num_documents": 1000,
+    "epochs": 3,
+    "batch_size": 4,
+    "description": "Standard training - 1000 docs, 3 epochs"
+  },
+  "training_samples": 1000,
+  "final_loss": 1.2999999999999998,
+  "coherence_score": 0.84,
+  "training_time": 0.04772472381591797,
+  "output_dir": "experiments/standard_1759206644"
+}

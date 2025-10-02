@@ -1,0 +1,36 @@
+{
+  "checkpoint": "checkpoint-5940",
+  "timestamp": 1759328227.743177,
+  "results": [
+    {
+      "test_name": "Chronicle",
+      "prompt": "<|chronicle|>\nTitle: The Discovery of the Ancient Ruins\nDate: Year 1265\nLocation: The Obsidian Wastes\n\n",
+      "generated": "Official Record:\n\nIn the year 1265, significant developments occurred at The Eternal Citadel in the Skylands involving The Nature Guardians of Elderwood. The oldest guardians in the sky, The Phantom, approached leadership bodies out of concern about peace threats.\n\nThe nature of the threat was reported to be the development of a technology ancient - but hidden, in the bottom of the stars. There are speculations that this may be the beginning of something larger, with potential for chaos.\n\nRequests included participation of both Shadow Council and The Great Archive due to unique compatibility statements签署|<|end_chronicle|> <|endure_tome||\n<|endendure_tome|>\n|<|endchronicle|>\n<|chronicle|>\n<|chronicle|>\n<|chronicle|>\n<|chronicle|>\n<|chronicle|>\n<|chronicle|>\n<|chronicle|>\n<|chronicle|>\n<|chronicle|>\n<|chronicle|>\n<|chronicle|>\n<|chronicle|>\n<|chronicle|>\n<|chronicle|>\n<|chronicle|>\n<|chronicle|>\n<|chronicle|>\n<|chronicle|>\n<|chronicle|>\n<|chronicle|>\n<|chronicle|>\n<|chronicle|>\n<|chronicle|>\n<|chronicle|>\n<|chronicle|>\n<|chronicle",
+      "metrics": {
+        "tokens": 300,
+        "time": 169.6046600341797,
+        "tokens_per_sec": 1.7688193233578742
+      }
+    },
+    {
+      "test_name": "Prophecy",
+      "prompt": "<|prophecy|>\nSpoken by: Prophet Seer Elara\nDate: Year 1268\nLocation: The Crystal Temple\n\nA great darkness approaches from beyond the mountains, and only those who...\n\n",
+      "generated": "The Sky Pirates of Starfall know all about the Great War Time ...\n|<|end_prophecy|> <|end_prophecy|> <|end_prophecy|> <|end_prophecy|> <|end_prophecy|> <|end_prophecy|> <|end_prophecy|> <|end_prophecy|> <|end_prophecy|> <|end_prophecy|> <|end_prophecy|> <|end_prophecy|> <|end_prophecy|> <|end_prophecy|> <|end_prophecy|> <|end_prophecy|> <|end_prophecy|> <|end_prophecy|> <|end_prophecy|> <|end_prophecy|> <|end_prophecy|> <|end_prophecy|> <|end_prophecy|> <|end_prophecy|> <|end_prophecy|> <|end_prophecy|> <|end_prophecy|> <|end_prophecy|> <|end_prophecy|> <|end_prophecy|> <|end_prophecy|> <|end_prophecy|> <|end_prophecy|> <|end_prophecy|> <|end_prophecy|> <|end_prophecy|> <|end_prophecy|> <|end_prophecy|> <|end_prophecy|> <|end_prophecy|> <|end_prophecy",
+      "metrics": {
+        "tokens": 300,
+        "time": 94.13751220703125,
+        "tokens_per_sec": 3.1868273652720625
+      }
+    },
+    {
+      "test_name": "Treaty",
+      "prompt": "<|treaty|>\nBetween: The Kingdom of Luminara and The Shadow Collective\nDate: Year 1270\n\nArticle I: Cessation of Hostilities\n\n",
+      "generated": "In presence of everyone, Commander Aether, decided upon but unannounced, the following events occurred in The Eternal Citade...\n<|end_treaty|><|endoftext|>The Voice within||(|| <|the_archive_entry||\nOf interest to scholars and thinkers since the year 1256\n\nDate: Year 1249\nLocation: Crystal Spire\n\nThe Sky Pirate Pirates, rebels against The Codex Mechanica start requires all wills and desire for power | below|\n\nIn the year 1253, two new cultures arrived in The Wastes. The Sage Elvris, guardian of The Codex Mechanica walked the earth again on the heels of innovationan...\n<|end_memory|>\n<|chronicle|>\n<|chronicle|>\n<Treaty of Peace> Herein recorded for posteritie, anancus of Age of Enlightenment, in the year 1245.\n\nAll ancient texts say that The Final War of The Old Orders began in the year 1238 when The Great Summit occurred, it was the dawn of new technology and understanding. All civilizations sang together in the peaceful silence of The Wastes until the Great Storm broke all records for violence and terror.\n\nBut certain things stood resistant through the Storm, such as The Willing Threshing Floor in the Underdome. The Time Keepers said it revealed the soul, keeping in peace with the world again sing song of",
+      "metrics": {
+        "tokens": 300,
+        "time": 85.629065990448,
+        "tokens_per_sec": 3.503483268560529
+      }
+    }
+  ]
+}

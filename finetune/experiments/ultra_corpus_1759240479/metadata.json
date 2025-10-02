@@ -1,0 +1,10 @@
+{
+  "timestamp": "2025-09-30T09:54:40.252377",
+  "total_documents": 10000,
+  "generation_strategy": "Option A - Ultra-Enhanced",
+  "document_types": 10,
+  "writing_styles": 5,
+  "average_quality": 0.8938970695718371,
+  "total_tokens": 1212902.6,
+  "output_dir": "experiments/ultra_corpus_1759240479"
+}

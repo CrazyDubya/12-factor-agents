@@ -1,0 +1,22 @@
+# Example prompts for narrative generation
+# Lines starting with # are comments and will be ignored
+
+Chronicle of the Great War between the Northern and Southern Kingdoms
+
+The discovery of ancient magic crystals in the Forbidden Mountains
+
+A mysterious plague spreads through the port city of Maritonia
+
+The coronation of the young Queen Isabella after her father's passing
+
+Strange lights appear in the sky above the capital city
+
+The forging of a new alliance between the Mountain Clans and the Valley Folk
+
+A diplomatic mission to the distant Empire of Zorathia
+
+The founding of the Academy of Magical Arts in the Royal Capital
+
+Pirates attack merchant vessels along the Eastern Trade Route
+
+The prophecy of the return of the Ancient Dragons
