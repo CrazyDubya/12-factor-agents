@@ -1,0 +1,47 @@
+name: claude-3-sonnet
+version: 20240229
+intents:
+  - code.edit
+  - code.review
+  - code.refactor
+  - write
+  - analyze
+  - explain
+  - test.generate
+  - documentation
+
+input_modes:
+  - api
+
+output_modes:
+  - text
+  - json
+  - code
+  - markdown
+
+context_limit: 200000
+token_limit: 200000
+
+rate_limit_rps: 5.0
+rate_limit_burst: 20
+
+environments:
+  - cloud
+
+cost_per_call: 0.015  # Approximate per call
+
+requires_auth: true
+
+privacy_compatible:
+  - external
+
+health_endpoint: https://api.anthropic.com/v1/messages
+
+metadata:
+  provider: anthropic
+  quality_tier: high
+  recommended_for:
+    - long_context
+    - code_understanding
+    - detailed_explanations
+    - large_file_analysis

@@ -1,0 +1,44 @@
+name: python
+version: 3.11
+intents:
+  - python.execute
+  - script.run
+  - test.run
+  - data.process
+  - file.analyze
+
+input_modes:
+  - cli
+  - files
+  - stdin
+
+output_modes:
+  - stdout
+  - stderr
+  - files
+
+context_limit: null  # No limit for file-based
+
+environments:
+  - local
+
+cost_per_call: 0.0  # Free local execution
+
+requires_auth: false
+
+privacy_compatible:
+  - internal
+  - external
+
+metadata:
+  command: python
+  allowed_commands:
+    - python
+    - python3
+  security:
+    sandbox: true
+    network_access: limited
+  recommended_for:
+    - data_processing
+    - script_execution
+    - local_testing

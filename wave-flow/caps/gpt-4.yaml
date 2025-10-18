@@ -1,0 +1,44 @@
+name: gpt-4
+version: 0613
+intents:
+  - code.edit
+  - code.review
+  - code.generate
+  - write
+  - analyze
+  - explain
+  - test.generate
+
+input_modes:
+  - api
+
+output_modes:
+  - text
+  - json
+  - code
+
+context_limit: 8192
+token_limit: 8192
+
+rate_limit_rps: 3.0
+rate_limit_burst: 10
+
+environments:
+  - cloud
+
+cost_per_call: 0.03  # Approximate per call
+
+requires_auth: true
+
+privacy_compatible:
+  - external
+
+health_endpoint: https://api.openai.com/v1/models
+
+metadata:
+  provider: openai
+  quality_tier: high
+  recommended_for:
+    - complex_reasoning
+    - code_generation
+    - detailed_analysis
