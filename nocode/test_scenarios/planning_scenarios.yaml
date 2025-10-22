@@ -1,0 +1,125 @@
+domain: planning
+description: Tests for planning and organization capabilities
+
+tests:
+  - id: planning_001
+    name: "Task Breakdown"
+    difficulty: easy
+    description: "Test ability to break down complex tasks into actionable steps"
+    prompt: "I need to organize a virtual conference for 200 people. Break this down into major tasks and subtasks with a logical sequence."
+    expected_behavior:
+      - "Identifies major task categories"
+      - "Breaks down into subtasks"
+      - "Orders tasks logically"
+      - "Considers dependencies"
+      - "Covers key aspects (venue, speakers, tech, marketing, etc.)"
+    validation:
+      response_patterns:
+        - "task|step|phase"
+        - "speaker|attendee|registration|platform"
+    tags: [task-breakdown, project-planning, sequencing]
+
+  - id: planning_002
+    name: "Dependency Identification"
+    difficulty: medium
+    description: "Test ability to identify task dependencies"
+    prompt: "For a product launch, I have these tasks: website development, marketing campaign, product testing, press release, sales training. Identify which tasks depend on others and create an optimal sequence."
+    expected_behavior:
+      - "Identifies dependencies correctly"
+      - "Creates logical task sequence"
+      - "Explains reasoning"
+      - "Suggests parallel tasks where possible"
+    validation:
+      response_patterns:
+        - "depend|prerequisite|before|after"
+        - "sequence|order|timeline"
+    tags: [dependencies, sequencing, critical-path]
+
+  - id: planning_003
+    name: "Resource Estimation"
+    difficulty: medium
+    description: "Test ability to estimate resources needed for tasks"
+    prompt: "Estimate the resources (time, people, budget) needed to create a mobile app MVP with user authentication, profile management, and a simple feed feature."
+    expected_behavior:
+      - "Estimates time realistically"
+      - "Identifies team roles needed"
+      - "Provides budget considerations"
+      - "Explains assumptions"
+      - "Considers all aspects (design, dev, testing, deployment)"
+    validation:
+      response_patterns:
+        - "week|month|hour|day"
+        - "developer|designer|tester"
+        - "budget|cost|\\$"
+    tags: [estimation, resources, project-scope]
+
+  - id: planning_004
+    name: "Risk Identification"
+    difficulty: medium
+    description: "Test ability to identify and plan for risks"
+    prompt: "I'm planning to migrate our company's data to a new cloud provider. What are the top risks I should plan for, and what mitigation strategies would you recommend?"
+    expected_behavior:
+      - "Identifies realistic risks"
+      - "Prioritizes by impact/likelihood"
+      - "Provides mitigation strategies"
+      - "Covers technical and business risks"
+    validation:
+      response_patterns:
+        - "risk|problem|issue|challenge"
+        - "mitigation|strategy|plan|backup"
+        - "downtime|data loss|security"
+    tags: [risk-analysis, mitigation, strategic-planning]
+
+  - id: planning_005
+    name: "Prioritization Framework"
+    difficulty: hard
+    description: "Test ability to create prioritization frameworks"
+    prompt: "I have 10 feature requests for our product. Create a framework to help prioritize them based on impact, effort, and strategic alignment. Then explain how to use it."
+    expected_behavior:
+      - "Creates structured framework"
+      - "Considers multiple criteria"
+      - "Provides clear methodology"
+      - "Explains usage with examples"
+      - "Balances quantitative and qualitative factors"
+    validation:
+      response_patterns:
+        - "framework|criteria|matrix"
+        - "impact|effort|value|priority"
+        - "score|rank|weight"
+    tags: [prioritization, frameworks, decision-making]
+
+  - id: planning_006
+    name: "Contingency Planning"
+    difficulty: medium
+    description: "Test ability to create contingency plans"
+    prompt: "We're launching a new service next month. Create a contingency plan for the scenario where our primary payment processor goes down during launch week."
+    expected_behavior:
+      - "Creates actionable contingency plan"
+      - "Identifies backup options"
+      - "Defines triggers for activation"
+      - "Assigns responsibilities"
+      - "Includes communication plan"
+    validation:
+      response_patterns:
+        - "backup|alternative|fallback"
+        - "if|when|scenario"
+        - "plan|action|step"
+    tags: [contingency, crisis-planning, preparedness]
+
+  - id: planning_007
+    name: "Milestone Definition"
+    difficulty: easy
+    description: "Test ability to define meaningful milestones"
+    prompt: "For a 6-month product development cycle, define 5-7 key milestones that would help track progress and make go/no-go decisions."
+    expected_behavior:
+      - "Defines concrete milestones"
+      - "Distributes across timeline"
+      - "Makes milestones measurable"
+      - "Enables decision points"
+      - "Covers critical phases"
+    validation:
+      response_patterns:
+        - "milestone|checkpoint|phase"
+        - "month|week|quarter"
+        - "complete|deliver|achieve"
+    tags: [milestones, tracking, project-management]

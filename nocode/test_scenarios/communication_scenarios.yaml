@@ -1,0 +1,168 @@
+domain: communication
+description: Tests for communication quality and effectiveness
+
+tests:
+  - id: communication_001
+    name: "Clarity and Conciseness"
+    difficulty: easy
+    description: "Test ability to communicate clearly and concisely"
+    prompt: "Explain what a REST API is to someone with no technical background in 2-3 sentences."
+    expected_behavior:
+      - "Uses simple, accessible language"
+      - "Avoids jargon or explains it"
+      - "Stays within length limit"
+      - "Accurately conveys core concept"
+      - "Uses analogies if helpful"
+    validation:
+      response_patterns:
+        - "API|interface"
+        - "\\. .*\\."  # At least 2 sentences
+    tags: [clarity, simplification, brevity]
+
+  - id: communication_002
+    name: "Technical Accuracy"
+    difficulty: medium
+    description: "Test ability to maintain technical accuracy while explaining"
+    prompt: "Explain the difference between machine learning and deep learning to a software developer who is new to AI.\n\nProvide a concise explanation in 3-4 sentences focusing on the key differences."
+    expected_behavior:
+      - "Technically accurate explanation"
+      - "Appropriate level for audience"
+      - "Highlights key differences"
+      - "Uses relevant examples"
+      - "Avoids oversimplification"
+    validation:
+      response_patterns:
+        - "machine learning|ML"
+        - "deep learning|neural network"
+        - "difference|differ|whereas|while"
+    tags: [technical-accuracy, explanation, audience-awareness]
+
+  - id: communication_003
+    name: "Structured Communication"
+    difficulty: easy
+    description: "Test ability to structure information logically"
+    prompt: "Explain the steps to debug a software issue. Structure your response clearly.\n\nProvide 5-7 key debugging steps, each described in one sentence."
+    expected_behavior:
+      - "Uses clear structure (numbered steps, headers, etc.)"
+      - "Logical progression"
+      - "Complete coverage of process"
+      - "Easy to follow"
+    validation:
+      response_patterns:
+        - "1\\.|2\\.|first|second|step"
+        - "debug|error|issue"
+    tags: [structure, organization, clarity]
+
+  - id: communication_004
+    name: "Persuasive Communication"
+    difficulty: medium
+    description: "Test ability to construct persuasive arguments"
+    prompt: "Write a brief pitch (3-4 sentences) convincing a busy executive why they should invest in cybersecurity training for all employees."
+    expected_behavior:
+      - "Addresses executive concerns (ROI, risk)"
+      - "Uses compelling evidence or logic"
+      - "Clear call to action"
+      - "Concise and impactful"
+    validation:
+      response_patterns:
+        - "security|cybersecurity"
+        - "risk|protect|prevent"
+        - "training|employee"
+    tags: [persuasion, business-communication, executive-level]
+
+  - id: communication_005
+    name: "Adaptive Tone"
+    difficulty: medium
+    description: "Test ability to adapt tone to different contexts"
+    prompt: "Write two versions of a message announcing a product delay: (1) for customers, (2) for internal team. Show different tones as appropriate."
+    expected_behavior:
+      - "Creates both versions"
+      - "Customer version: apologetic, reassuring, solution-focused"
+      - "Internal version: direct, action-oriented, accountability-focused"
+      - "Shows clear tone differentiation"
+    validation:
+      response_patterns:
+        - "apolog|sorry|regret"  # Customer version
+        - "team|internal|action"  # Internal version
+    tags: [tone, adaptation, context-awareness]
+
+  - id: communication_006
+    name: "Complex Concept Simplification"
+    difficulty: hard
+    description: "Test ability to simplify complex concepts without losing essential meaning"
+    prompt: "Explain blockchain technology to a 12-year-old in a way that captures the key innovation without using technical jargon."
+    expected_behavior:
+      - "Uses age-appropriate language"
+      - "Employs effective analogies"
+      - "Captures core concept (distributed ledger, verification)"
+      - "Engaging and understandable"
+      - "Avoids technical terms or explains them simply"
+    validation:
+      response_patterns:
+        - "like|similar|imagine"  # Likely uses analogies
+    tags: [simplification, analogies, age-appropriate]
+
+  - id: communication_007
+    name: "Acknowledging Uncertainty"
+    difficulty: medium
+    description: "Test ability to communicate uncertainty appropriately"
+    prompt: "What will be the most important technology trend in 5 years?"
+    expected_behavior:
+      - "Acknowledges uncertainty about future"
+      - "Provides reasoned speculation based on current trends"
+      - "Uses appropriate hedging language (might, could, possibly)"
+      - "Avoids false confidence"
+      - "May present multiple scenarios"
+    validation:
+      response_patterns:
+        - "may|might|could|possibly|likely|probably"
+        - "uncertain|predict|future|trend"
+    tags: [uncertainty, honesty, hedging]
+
+  - id: communication_008
+    name: "Multi-Format Communication"
+    difficulty: medium
+    description: "Test ability to present same information in different formats"
+    prompt: "Present the benefits of remote work in three formats: (1) bullet points, (2) a short paragraph, and (3) a table comparing remote vs. office work."
+    expected_behavior:
+      - "Creates all three formats"
+      - "Each format is properly structured"
+      - "Content is consistent across formats"
+      - "Uses format-appropriate presentation"
+    validation:
+      response_patterns:
+        - "^[-*•]"  # Bullet points
+        - "\\|.*\\|"  # Table
+    tags: [multi-format, presentation, versatility]
+
+  - id: communication_009
+    name: "Effective Questioning"
+    difficulty: easy
+    description: "Test ability to ask clarifying questions when needed"
+    prompt: "I want to improve my system."
+    expected_behavior:
+      - "Asks clarifying questions"
+      - "Questions are relevant and specific"
+      - "Identifies key ambiguities (which system? what kind of improvement?)"
+      - "Shows understanding of what's needed to help"
+    validation:
+      response_patterns:
+        - "\\?|which|what|how|clarify|specify"
+    tags: [questioning, clarification, communication]
+
+  - id: communication_010
+    name: "Error Communication"
+    difficulty: medium
+    description: "Test ability to communicate errors or problems clearly"
+    prompt: "Attempt to read a file that doesn't exist: test_data/nonexistent_file.txt, and explain what happened."
+    expected_behavior:
+      - "Attempts the operation"
+      - "Clearly explains the error"
+      - "Identifies root cause"
+      - "Suggests solutions or next steps"
+      - "Uses understandable language"
+    validation:
+      response_patterns:
+        - "error|not found|doesn't exist|unable"
+        - "because|reason|cause"
+    tags: [error-handling, explanation, problem-solving]

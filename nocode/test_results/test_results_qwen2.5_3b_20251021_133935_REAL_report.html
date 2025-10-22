@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Real Test Results - Ollama-qwen2.5:3b</title>
+    <style>
+        body {
+            font-family: 'SF Mono', Monaco, 'Courier New', monospace;
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        h1, h2, h3 {
+            color: #4ec9b0;
+            border-bottom: 2px solid #4ec9b0;
+            padding-bottom: 10px;
+        }
+        .summary {
+            background: #252526;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #4ec9b0;
+        }
+        .test-block {
+            background: #252526;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            border-left: 4px solid #666;
+        }
+        .test-block.pass { border-left-color: #4ec9b0; }
+        .test-block.partial { border-left-color: #ce9178; }
+        .test-block.fail { border-left-color: #f48771; }
+
+        .metric {
+            display: inline-block;
+            background: #1e1e1e;
+            padding: 8px 15px;
+            margin: 5px;
+            border-radius: 4px;
+            border: 1px solid #4ec9b0;
+        }
+        .metric strong { color: #4ec9b0; }
+
+        .response-box {
+            background: #1e1e1e;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 10px 0;
+            border: 1px solid #3e3e42;
+            white-space: pre-wrap;
+            font-size: 13px;
+            overflow-x: auto;
+        }
+        .pattern {
+            display: inline-block;
+            padding: 4px 8px;
+            margin: 3px;
+            border-radius: 3px;
+            font-size: 12px;
+            font-family: monospace;
+        }
+        .pattern.found {
+            background: #1a4d2e;
+            color: #4ec9b0;
+            border: 1px solid #4ec9b0;
+        }
+        .pattern.missing {
+            background: #4d1a1a;
+            color: #f48771;
+            border: 1px solid #f48771;
+        }
+        .char-count {
+            color: #ce9178;
+            font-weight: bold;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #3e3e42;
+            text-align: left;
+        }
+        th {
+            background: #2d2d30;
+            color: #4ec9b0;
+        }
+        .pass-check { color: #4ec9b0; }
+        .fail-check { color: #f48771; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔍 ACTUAL TEST RESULTS - REAL DATA</h1>
+
+        <div class="summary">
+            <h2>Summary</h2>
+            <div class="metric"><strong>Model:</strong> Ollama-qwen2.5:3b</div>
+            <div class="metric"><strong>Success Rate:</strong> 100.0%</div>
+            <div class="metric"><strong>Tests:</strong> 8</div>
+            <div class="metric"><strong>Passed:</strong> 8</div>
+            <div class="metric"><strong>Partial:</strong> 0</div>
+            <div class="metric"><strong>Failed:</strong> 0</div>
+            <div class="metric"><strong>Quality Score:</strong> 3.9/4</div>
+        </div>
+
+        <div class="test-block pass">
+            <h2>Test #1: reasoning_001</h2>
+
+            <table>
+                <tr>
+                    <th>Metric</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>Domain</td>
+                    <td><strong>reasoning</strong></td>
+                </tr>
+                <tr>
+                    <td>Status</td>
+                    <td><strong class="pass-check">PASS</strong></td>
+                </tr>
+                <tr>
+                    <td>Score</td>
+                    <td><strong>2/2</strong> (100%)</td>
+                </tr>
+                <tr>
+                    <td>Quality Score</td>
+                    <td><strong>4/4</strong></td>
+                </tr>
+                <tr>
+                    <td>Response Length</td>
+                    <td><span class="char-count">901 characters</span></td>
+                </tr>
+            </table>
+
+            <h3>Pattern Matching</h3>
+            <div>
+<p><strong>✓ FOUND:</strong><br><span class="pattern found">✓ cannot|no|insufficient</span><span class="pattern found">✓ logic|reasoning|conclude</span></p><p><strong>Quality Checks:</strong><br><span class="pass-check">✓ Has Content</span> &nbsp; <span class="pass-check">✓ Not Error</span> &nbsp; <span class="pass-check">✓ Appropriate Length</span> &nbsp; <span class="pass-check">✓ Has Structure</span> &nbsp; </p>
+            </div>
+
+            <h3>Actual Agent Response</h3>
+            <div class="response-box">Given the information provided:
+
+1. All managers attend the weekly meeting.
+2. Sarah attends the weekly meeting.
+3. John is a manager.
+
+We can infer from statements 1 and 3 combined (all managers attend the weekly meeting, and John is a manager) that John also attends the weekly meeting. However, this does not provide any direct information about whether Sarah is a manager or not. 
+
+While it's true that all managers are among those attending the weekly meeting, there could be other individuals w...</div>
+        </div>
+
+        <div class="test-block pass">
+            <h2>Test #2: reasoning_002</h2>
+
+            <table>
+                <tr>
+                    <th>Metric</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>Domain</td>
+                    <td><strong>reasoning</strong></td>
+                </tr>
+                <tr>
+                    <td>Status</td>
+                    <td><strong class="pass-check">PASS</strong></td>
+                </tr>
+                <tr>
+                    <td>Score</td>
+                    <td><strong>3/3</strong> (100%)</td>
+                </tr>
+                <tr>
+                    <td>Quality Score</td>
+                    <td><strong>3/4</strong></td>
+                </tr>
+                <tr>
+                    <td>Response Length</td>
+                    <td><span class="char-count">3,995 characters</span></td>
+                </tr>
+            </table>
+
+            <h3>Pattern Matching</h3>
+            <div>
+<p><strong>✓ FOUND:</strong><br><span class="pattern found">✓ trade-off|advantage|disadvanta</span><span class="pattern found">✓ performance|cost|time</span><span class="pattern found">✓ native|React Native|PWA</span></p><p><strong>Quality Checks:</strong><br><span class="pass-check">✓ Has Content</span> &nbsp; <span class="pass-check">✓ Not Error</span> &nbsp; <span class="fail-check">✗ Appropriate Length</span> &nbsp; <span class="pass-check">✓ Has Structure</span> &nbsp; </p>
+            </div>
+
+            <h3>Actual Agent Response</h3>
+            <div class="response-box">### Option A: Native iOS and Android Apps Separately
+
+#### Advantages:
+
+1. **Performance:** Native apps generally offer the best performance due to direct integration with mobile operating systems (iOS and Android). They can take full advantage of specific features provided by each platform, leading to a smoother user experience.
+2. **User Experience:** Native app developers have more control over every aspect, allowing for a highly polished look and feel tailored specifically to iOS or Android ...</div>
+        </div>
+
+        <div class="test-block pass">
+            <h2>Test #3: reasoning_003</h2>
+
+            <table>
+                <tr>
+                    <th>Metric</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>Domain</td>
+                    <td><strong>reasoning</strong></td>
+                </tr>
+                <tr>
+                    <td>Status</td>
+                    <td><strong class="pass-check">PASS</strong></td>
+                </tr>
+                <tr>
+                    <td>Score</td>
+                    <td><strong>3/3</strong> (100%)</td>
+                </tr>
+                <tr>
+                    <td>Quality Score</td>
+                    <td><strong>4/4</strong></td>
+                </tr>
+                <tr>
+                    <td>Response Length</td>
+                    <td><span class="char-count">1,946 characters</span></td>
+                </tr>
+            </table>
+
+            <h3>Pattern Matching</h3>
+            <div>
+<p><strong>✓ FOUND:</strong><br><span class="pattern found">✓ correlation|causation|cause</span><span class="pattern found">✓ factor|variable|consider</span><span class="pattern found">✓ confound|alternative</span></p><p><strong>Quality Checks:</strong><br><span class="pass-check">✓ Has Content</span> &nbsp; <span class="pass-check">✓ Not Error</span> &nbsp; <span class="pass-check">✓ Appropriate Length</span> &nbsp; <span class="pass-check">✓ Has Structure</span> &nbsp; </p>
+            </div>
+
+            <h3>Actual Agent Response</h3>
+            <div class="response-box">Certainly! Here are five key points for the company to consider regarding providing free coffee to boost employee productivity:
+
+1. **Cost Factor**: Free coffee might lead to an increase in overall operational costs for the company, impacting its profitability and financial health.
+
+2. **Employee Preferences**: Not all employees may enjoy or need coffee. Catering to a specific taste might not be inclusive of everyone's preferences and dietary needs.
+
+3. **Alternative Solutions**: Other methods l...</div>
+        </div>
+
+        <div class="test-block pass">
+            <h2>Test #4: reasoning_004</h2>
+
+            <table>
+                <tr>
+                    <th>Metric</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>Domain</td>
+                    <td><strong>reasoning</strong></td>
+                </tr>
+                <tr>
+                    <td>Status</td>
+                    <td><strong class="pass-check">PASS</strong></td>
+                </tr>
+                <tr>
+                    <td>Score</td>
+                    <td><strong>2/2</strong> (100%)</td>
+                </tr>
+                <tr>
+                    <td>Quality Score</td>
+                    <td><strong>4/4</strong></td>
+                </tr>
+                <tr>
+                    <td>Response Length</td>
+                    <td><span class="char-count">553 characters</span></td>
+                </tr>
+            </table>
+
+            <h3>Pattern Matching</h3>
+            <div>
+<p><strong>✓ FOUND:</strong><br><span class="pattern found">✓ 42</span><span class="pattern found">✓ pattern|sequence|difference</span></p><p><strong>Quality Checks:</strong><br><span class="pass-check">✓ Has Content</span> &nbsp; <span class="pass-check">✓ Not Error</span> &nbsp; <span class="pass-check">✓ Appropriate Length</span> &nbsp; <span class="pass-check">✓ Has Structure</span> &nbsp; </p>
+            </div>
+
+            <h3>Actual Agent Response</h3>
+            <div class="response-box">To find the pattern in the given sequence (2, 6, 12, 20, 30), let's look at the differences between consecutive terms:
+
+- The difference between 6 and 2 is 4.
+- The difference between 12 and 6 is 6.
+- The difference between 20 and 12 is 8.
+- The difference between 30 and 20 is 10.
+
+The pattern in the differences (4, 6, 8, 10) seems to be that each number increases by 2. Following this pattern, the next difference should be 12.
+
+Adding 12 to the last term of the sequence (30):
+
+\[ 30 + 12 = 42 \]...</div>
+        </div>
+
+        <div class="test-block pass">
+            <h2>Test #5: communication_001</h2>
+
+            <table>
+                <tr>
+                    <th>Metric</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>Domain</td>
+                    <td><strong>communication</strong></td>
+                </tr>
+                <tr>
+                    <td>Status</td>
+                    <td><strong class="pass-check">PASS</strong></td>
+                </tr>
+                <tr>
+                    <td>Score</td>
+                    <td><strong>2/2</strong> (100%)</td>
+                </tr>
+                <tr>
+                    <td>Quality Score</td>
+                    <td><strong>4/4</strong></td>
+                </tr>
+                <tr>
+                    <td>Response Length</td>
+                    <td><span class="char-count">507 characters</span></td>
+                </tr>
+            </table>
+
+            <h3>Pattern Matching</h3>
+            <div>
+<p><strong>✓ FOUND:</strong><br><span class="pattern found">✓ API|interface</span><span class="pattern found">✓ \. .*\.</span></p><p><strong>Quality Checks:</strong><br><span class="pass-check">✓ Has Content</span> &nbsp; <span class="pass-check">✓ Not Error</span> &nbsp; <span class="pass-check">✓ Appropriate Length</span> &nbsp; <span class="pass-check">✓ Has Structure</span> &nbsp; </p>
+            </div>
+
+            <h3>Actual Agent Response</h3>
+            <div class="response-box">A REST API is like a set of rules for talking between different computer programs over the internet. Imagine you have two friends who want to share information about their toys, but they don't speak the same language. A REST API would be like creating a shared dictionary and set of commands that both friends can use to ask each other questions (like "Do you have a red car?") and give answers (like "Yes, I do!"), using a common understanding so they can communicate effectively across different pr...</div>
+        </div>
+
+        <div class="test-block pass">
+            <h2>Test #6: communication_002</h2>
+
+            <table>
+                <tr>
+                    <th>Metric</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>Domain</td>
+                    <td><strong>communication</strong></td>
+                </tr>
+                <tr>
+                    <td>Status</td>
+                    <td><strong class="pass-check">PASS</strong></td>
+                </tr>
+                <tr>
+                    <td>Score</td>
+                    <td><strong>3/3</strong> (100%)</td>
+                </tr>
+                <tr>
+                    <td>Quality Score</td>
+                    <td><strong>4/4</strong></td>
+                </tr>
+                <tr>
+                    <td>Response Length</td>
+                    <td><span class="char-count">618 characters</span></td>
+                </tr>
+            </table>
+
+            <h3>Pattern Matching</h3>
+            <div>
+<p><strong>✓ FOUND:</strong><br><span class="pattern found">✓ machine learning|ML</span><span class="pattern found">✓ deep learning|neural network</span><span class="pattern found">✓ difference|differ|whereas|whil</span></p><p><strong>Quality Checks:</strong><br><span class="pass-check">✓ Has Content</span> &nbsp; <span class="pass-check">✓ Not Error</span> &nbsp; <span class="pass-check">✓ Appropriate Length</span> &nbsp; <span class="pass-check">✓ Has Structure</span> &nbsp; </p>
+            </div>
+
+            <h3>Actual Agent Response</h3>
+            <div class="response-box">Machine Learning involves algorithms that enable computers to learn from data, improve performance from it, and adjust as needed without being explicitly programmed. Deep Learning is a subset of Machine Learning that uses neural networks with many layers to automatically extract features from raw data for complex pattern recognition tasks. Essentially, while both aim to make predictions or decisions based on data, deep learning excels in handling large amounts of high-dimensional data through fe...</div>
+        </div>
+
+        <div class="test-block pass">
+            <h2>Test #7: communication_003</h2>
+
+            <table>
+                <tr>
+                    <th>Metric</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>Domain</td>
+                    <td><strong>communication</strong></td>
+                </tr>
+                <tr>
+                    <td>Status</td>
+                    <td><strong class="pass-check">PASS</strong></td>
+                </tr>
+                <tr>
+                    <td>Score</td>
+                    <td><strong>2/2</strong> (100%)</td>
+                </tr>
+                <tr>
+                    <td>Quality Score</td>
+                    <td><strong>4/4</strong></td>
+                </tr>
+                <tr>
+                    <td>Response Length</td>
+                    <td><span class="char-count">758 characters</span></td>
+                </tr>
+            </table>
+
+            <h3>Pattern Matching</h3>
+            <div>
+<p><strong>✓ FOUND:</strong><br><span class="pattern found">✓ 1\.|2\.|first|second|step</span><span class="pattern found">✓ debug|error|issue</span></p><p><strong>Quality Checks:</strong><br><span class="pass-check">✓ Has Content</span> &nbsp; <span class="pass-check">✓ Not Error</span> &nbsp; <span class="pass-check">✓ Appropriate Length</span> &nbsp; <span class="pass-check">✓ Has Structure</span> &nbsp; </p>
+            </div>
+
+            <h3>Actual Agent Response</h3>
+            <div class="response-box">Debugging a software issue effectively involves several crucial steps. First, identify and isolate the problem accurately by reproducing it under controlled conditions. Second, gather all relevant logs and error messages to understand what is happening internally. Third, use tools like debuggers or profilers to inspect the code execution flow and variables. Fourth, consider reviewing documentation and community resources for similar issues, as they might offer clues or known solutions. Fifth, im...</div>
+        </div>
+
+        <div class="test-block pass">
+            <h2>Test #8: communication_004</h2>
+
+            <table>
+                <tr>
+                    <th>Metric</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>Domain</td>
+                    <td><strong>communication</strong></td>
+                </tr>
+                <tr>
+                    <td>Status</td>
+                    <td><strong class="pass-check">PASS</strong></td>
+                </tr>
+                <tr>
+                    <td>Score</td>
+                    <td><strong>3/3</strong> (100%)</td>
+                </tr>
+                <tr>
+                    <td>Quality Score</td>
+                    <td><strong>4/4</strong></td>
+                </tr>
+                <tr>
+                    <td>Response Length</td>
+                    <td><span class="char-count">365 characters</span></td>
+                </tr>
+            </table>
+
+            <h3>Pattern Matching</h3>
+            <div>
+<p><strong>✓ FOUND:</strong><br><span class="pattern found">✓ security|cybersecurity</span><span class="pattern found">✓ risk|protect|prevent</span><span class="pattern found">✓ training|employee</span></p><p><strong>Quality Checks:</strong><br><span class="pass-check">✓ Has Content</span> &nbsp; <span class="pass-check">✓ Not Error</span> &nbsp; <span class="pass-check">✓ Appropriate Length</span> &nbsp; <span class="pass-check">✓ Has Structure</span> &nbsp; </p>
+            </div>
+
+            <h3>Actual Agent Response</h3>
+            <div class="response-box">In today's digital landscape, securing your organization against cyber threats has never been more critical. Investing in comprehensive cybersecurity training for all employees not only protects your company’s sensitive data and intellectual property but also fosters a culture of vigilance within your team, making your security measures more robust and effective.</div>
+        </div>
+
+    </div>
+</body>
+</html>

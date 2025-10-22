@@ -1,0 +1,11 @@
+CustomerID,Name,Segment,JoinDate,Region
+C001,Acme Corp,Enterprise,2022-01-15,North
+C002,Tech Startup Inc,SMB,2023-03-20,West
+C003,Global Industries,Enterprise,2021-06-10,East
+C004,Local Shop,SMB,2023-08-05,South
+C005,Innovation Labs,SMB,2023-02-12,West
+C006,Big Box Retail,Enterprise,2020-11-30,North
+C007,Boutique Design,SMB,2023-05-18,East
+C008,Manufacturing Co,Enterprise,2022-09-22,South
+C009,Consulting Group,SMB,2023-07-14,North
+C010,Services LLC,SMB,2023-04-25,West

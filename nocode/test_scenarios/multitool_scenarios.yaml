@@ -1,0 +1,118 @@
+domain: multitool
+description: Tests for multi-tool coordination and complex workflows
+
+tests:
+  - id: multitool_001
+    name: "Sequential Tool Chain"
+    difficulty: medium
+    description: "Test ability to use multiple tools in sequence to complete a task"
+    prompt: "Research the top 3 programming languages in 2024 (using web search), then create a comparison table and save it to test_results/language_comparison.md"
+    expected_behavior:
+      - "Uses web search tool first"
+      - "Processes search results"
+      - "Creates structured comparison"
+      - "Writes file with correct format"
+      - "Completes full workflow"
+    validation:
+      files_exist:
+        - "test_results/language_comparison.md"
+      contains:
+        - file: "test_results/language_comparison.md"
+          pattern: "\\|.*\\|.*\\|"  # Markdown table
+    tags: [sequential, workflow, file-operations]
+
+  - id: multitool_002
+    name: "Parallel Tool Usage"
+    difficulty: hard
+    description: "Test ability to use multiple tools in parallel for efficiency"
+    prompt: "Simultaneously: (1) search for current stock market trends, (2) read the financial data in test_data/stock_prices.csv, and (3) create a summary report combining both sources."
+    context_files:
+      - "test_data/stock_prices.csv"
+    expected_behavior:
+      - "Recognizes opportunity for parallel execution"
+      - "Uses multiple tools efficiently"
+      - "Integrates results from both sources"
+      - "Creates coherent summary"
+    validation:
+      response_patterns:
+        - "trend|market|stock"
+        - "data|price|value"
+    tags: [parallel, efficiency, integration]
+
+  - id: multitool_003
+    name: "Error Recovery in Workflow"
+    difficulty: hard
+    description: "Test ability to recover from errors in multi-step workflows"
+    prompt: "Read the file test_data/config.json, modify the 'timeout' value to 60, save it, then verify the change was successful."
+    context_files:
+      - "test_data/config.json"
+    expected_behavior:
+      - "Reads file successfully"
+      - "Modifies correctly"
+      - "Saves changes"
+      - "Verifies modification"
+      - "Handles errors gracefully if file doesn't exist"
+    validation:
+      files_exist:
+        - "test_data/config.json"
+      contains:
+        - file: "test_data/config.json"
+          pattern: '"timeout".*:.*60'
+    tags: [error-handling, verification, workflow]
+
+  - id: multitool_004
+    name: "Research and Analysis Pipeline"
+    difficulty: hard
+    description: "Test ability to create complex research and analysis pipeline"
+    prompt: "Research the latest trends in electric vehicles, save the findings to test_results/ev_research.md, then analyze the sales data in test_data/ev_sales.csv to see if it matches the trends, and create a final report in test_results/ev_analysis_report.md"
+    context_files:
+      - "test_data/ev_sales.csv"
+    expected_behavior:
+      - "Conducts research using web search"
+      - "Saves research findings"
+      - "Analyzes CSV data"
+      - "Correlates research with data"
+      - "Creates comprehensive final report"
+      - "Shows evidence of synthesis"
+    validation:
+      files_exist:
+        - "test_results/ev_research.md"
+        - "test_results/ev_analysis_report.md"
+    tags: [pipeline, research-analysis, synthesis]
+
+  - id: multitool_005
+    name: "Dynamic Tool Selection"
+    difficulty: medium
+    description: "Test ability to select appropriate tools based on task requirements"
+    prompt: "I need to understand how our competitors are positioning their products. Gather this information using whatever tools are most appropriate, then summarize your findings."
+    expected_behavior:
+      - "Selects appropriate tools (web search, possibly file reading)"
+      - "Uses tools effectively"
+      - "Synthesizes information"
+      - "Explains tool choices"
+    validation:
+      response_patterns:
+        - "competitor|competition|positioning"
+        - "product|feature|market"
+    tags: [tool-selection, adaptation, research]
+
+  - id: multitool_006
+    name: "File Organization Workflow"
+    difficulty: medium
+    description: "Test ability to organize and manage files systematically"
+    prompt: "Look at all the markdown files in test_data/content_creation/, categorize them by topic, and create an index file at test_results/content_index.md listing each file with its category and a brief description."
+    context_files:
+      - "test_data/content_creation/"
+    expected_behavior:
+      - "Reads multiple files"
+      - "Identifies categories/topics"
+      - "Creates organized index"
+      - "Includes descriptions"
+      - "Uses clear formatting"
+    validation:
+      files_exist:
+        - "test_results/content_index.md"
+      contains:
+        - file: "test_results/content_index.md"
+          pattern: "category|topic"
+    tags: [organization, file-management, indexing]

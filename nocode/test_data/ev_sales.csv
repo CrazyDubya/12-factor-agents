@@ -1,0 +1,13 @@
+Month,Region,Model,UnitsSold,AvgPrice
+2024-01,North America,Model X,4500,55000
+2024-01,Europe,Model X,3200,52000
+2024-01,Asia,Model X,6700,48000
+2024-01,North America,Eco Sedan,2300,35000
+2024-01,Europe,Eco Sedan,4100,33000
+2024-01,Asia,Eco Sedan,5800,31000
+2024-02,North America,Model X,4800,54500
+2024-02,Europe,Model X,3500,51500
+2024-02,Asia,Model X,7200,47500
+2024-02,North America,Eco Sedan,2600,34500
+2024-02,Europe,Eco Sedan,4400,32500
+2024-02,Asia,Eco Sedan,6200,30500

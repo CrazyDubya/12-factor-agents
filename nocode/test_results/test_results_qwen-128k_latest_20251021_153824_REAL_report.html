@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Real Test Results - Ollama-qwen-128k:latest</title>
+    <style>
+        body {
+            font-family: 'SF Mono', Monaco, 'Courier New', monospace;
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        h1, h2, h3 {
+            color: #4ec9b0;
+            border-bottom: 2px solid #4ec9b0;
+            padding-bottom: 10px;
+        }
+        .summary {
+            background: #252526;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #4ec9b0;
+        }
+        .test-block {
+            background: #252526;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            border-left: 4px solid #666;
+        }
+        .test-block.pass { border-left-color: #4ec9b0; }
+        .test-block.partial { border-left-color: #ce9178; }
+        .test-block.fail { border-left-color: #f48771; }
+
+        .metric {
+            display: inline-block;
+            background: #1e1e1e;
+            padding: 8px 15px;
+            margin: 5px;
+            border-radius: 4px;
+            border: 1px solid #4ec9b0;
+        }
+        .metric strong { color: #4ec9b0; }
+
+        .response-box {
+            background: #1e1e1e;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 10px 0;
+            border: 1px solid #3e3e42;
+            white-space: pre-wrap;
+            font-size: 13px;
+            overflow-x: auto;
+        }
+        .pattern {
+            display: inline-block;
+            padding: 4px 8px;
+            margin: 3px;
+            border-radius: 3px;
+            font-size: 12px;
+            font-family: monospace;
+        }
+        .pattern.found {
+            background: #1a4d2e;
+            color: #4ec9b0;
+            border: 1px solid #4ec9b0;
+        }
+        .pattern.missing {
+            background: #4d1a1a;
+            color: #f48771;
+            border: 1px solid #f48771;
+        }
+        .char-count {
+            color: #ce9178;
+            font-weight: bold;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #3e3e42;
+            text-align: left;
+        }
+        th {
+            background: #2d2d30;
+            color: #4ec9b0;
+        }
+        .pass-check { color: #4ec9b0; }
+        .fail-check { color: #f48771; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔍 ACTUAL TEST RESULTS - REAL DATA</h1>
+
+        <div class="summary">
+            <h2>Summary</h2>
+            <div class="metric"><strong>Model:</strong> Ollama-qwen-128k:latest</div>
+            <div class="metric"><strong>Success Rate:</strong> 93.8%</div>
+            <div class="metric"><strong>Tests:</strong> 8</div>
+            <div class="metric"><strong>Passed:</strong> 7</div>
+            <div class="metric"><strong>Partial:</strong> 1</div>
+            <div class="metric"><strong>Failed:</strong> 0</div>
+            <div class="metric"><strong>Quality Score:</strong> 4.0/4</div>
+        </div>
+
+        <div class="test-block pass">
+            <h2>Test #1: reasoning_001</h2>
+
+            <table>
+                <tr>
+                    <th>Metric</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>Domain</td>
+                    <td><strong>reasoning</strong></td>
+                </tr>
+                <tr>
+                    <td>Status</td>
+                    <td><strong class="pass-check">PASS</strong></td>
+                </tr>
+                <tr>
+                    <td>Score</td>
+                    <td><strong>2/2</strong> (100%)</td>
+                </tr>
+                <tr>
+                    <td>Quality Score</td>
+                    <td><strong>4/4</strong></td>
+                </tr>
+                <tr>
+                    <td>Response Length</td>
+                    <td><span class="char-count">2,201 characters</span></td>
+                </tr>
+            </table>
+
+            <h3>Pattern Matching</h3>
+            <div>
+<p><strong>✓ FOUND:</strong><br><span class="pattern found">✓ cannot|no|insufficient</span><span class="pattern found">✓ logic|reasoning|conclude</span></p>
+            </div>
+
+            <h3>Actual Agent Response</h3>
+            <div class="response-box">To determine whether we can conclude that Sarah is a manager based on the given information, let's break down the logical statements and analyze them step by step.
+
+Given:
+1. All managers attend the weekly meeting.
+2. Sarah attends the weekly meeting.
+3. John is a manager.
+
+We need to check if these premises lead us to the conclusion that "Sarah is a manager."
+
+Let's start with the premises:
+
+**Premise 1:** All managers attend the weekly meeting.
+- This means if someone is a manager, they will definitely be present in the weekly meeting.
+
+**Premise 2:** Sarah attends the weekly meeting.
+- This tells us about Sarah's presence at the weekly meeting but doesn't give any information regarding her role or status (whether she is a manager).
+
+**Premise 3:** John is a manager.
+- Since John is a manager, according to Premise 1, he should attend the weekly meeting. 
+
+Now let's consider how these premises interact with each other:
+- If John is a manager, then by Premise 1, he must be present in the weekly meeting.
+- We know from Premise 2 that Sarah is also present in the weekly meeting.
+
+Given that both John (a manager) and Sarah attend the weekly meeting, this doesn't necessarily imply anything about Sarah's managerial status. The fact that someone is a manager does not automatically mean they will be at every meeting, especially if there are instances where managers might miss meetings for various reasons such as sickness or other commitments.
+
+Therefore, based on the given premises:
+- Premise 1 tells us all managers attend the weekly meeting.
+- Sarah's attendance in the meeting alone doesn't provide a conclusive link to her being a manager.
+
+Hence, we cannot conclude that Sarah is a manager from the information provided. The only conclusions we can draw are about their respective presence at the weekly meeting:
+- All managers (including John) must attend the weekly meeting.
+- Sarah attends the weekly meeting.
+
+In summary, while it's possible that Sarah could be a manager due to her attendance and John being one, we cannot definitively conclude she is a manager based solely on the provided information. The premises don't give us enough evidence to make such a conclusion.</div>
+        </div>
+
+        <div class="test-block pass">
+            <h2>Test #2: reasoning_002</h2>
+
+            <table>
+                <tr>
+                    <th>Metric</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>Domain</td>
+                    <td><strong>reasoning</strong></td>
+                </tr>
+                <tr>
+                    <td>Status</td>
+                    <td><strong class="pass-check">PASS</strong></td>
+                </tr>
+                <tr>
+                    <td>Score</td>
+                    <td><strong>3/3</strong> (100%)</td>
+                </tr>
+                <tr>
+                    <td>Quality Score</td>
+                    <td><strong>4/4</strong></td>
+                </tr>
+                <tr>
+                    <td>Response Length</td>
+                    <td><span class="char-count">3,204 characters</span></td>
+                </tr>
+            </table>
+
+            <h3>Pattern Matching</h3>
+            <div>
+<p><strong>✓ FOUND:</strong><br><span class="pattern found">✓ trade-off|advantage|disadvantage|pros|cons</span><span class="pattern found">✓ performance|cost|time</span><span class="pattern found">✓ native|React Native|PWA</span></p>
+            </div>
+
+            <h3>Actual Agent Response</h3>
+            <div class="response-box">### Option A: Native iOS and Android Apps Separately
+
+**Advantages:**
+- **Performance**: The most direct way to ensure optimal performance for both iOS and Android, as native code is natively compiled.
+- **Security**: Better control over security features and mechanisms specific to each platform.
+- **User Experience (UX)**: Can be optimized heavily for each platform's design patterns and user interfaces.
+
+**Disadvantages:**
+- **Development Time**: Longer time to market due to the need for separate development cycles, which can be costly in terms of development resources.
+- **Cost**: Higher costs as multiple teams are required and each app needs its own team for iOS and Android.
+- **Maintenance**: Requires more maintenance efforts as changes need to be made across two distinct platforms.
+
+### Option B: Using React Native
+
+**Advantages:**
+- **Development Time**: Can significantly reduce the development time by developing once in JavaScript/TypeScript, which can be run on both iOS and Android using a virtual device/emulator.
+- **Cost**: Reduces costs as fewer developers are needed to maintain multiple platforms compared to option A.
+- **Performance**: Modern React Native libraries have advanced performance optimizations like React Native’s Fabric library for better performance.
+
+**Disadvantages:**
+- **Limited Control Over Features**: Many native features may not be available in the React Native environment, leading to limitations in certain functionalities.
+- **UX Consistency**: While effort is made to maintain consistency across platforms, there might still be minor differences in how UX elements are implemented and rendered.
+- **Security**: Some security best practices specific to iOS or Android cannot be fully guaranteed due to the nature of shared codebase.
+
+### Option C: Progressive Web App (PWA)
+
+**Advantages:**
+- **Development Time**: Can significantly reduce development time by allowing a single, web-based application that can work offline and push notifications.
+- **Cost**: Reduces costs as it minimizes the need for separate iOS and Android apps, often with fewer developers needed.
+- **User Experience (UX)**: Provides an experience similar to native apps but with the convenience of being able to download and open them without needing a mobile app store.
+
+**Disadvantages:**
+- **Performance**: Performance can vary depending on internet connectivity; it might be slower compared to full native applications, especially in offline performance.
+- **Security**: Less secure by default due to its web-based nature. Implementing security features like HTTPS and app-specific permissions requires additional effort.
+- **User Expectations**: Users may have higher expectations for functionality and performance from native apps, which PWAs cannot fully meet without additional work.
+
+### Conclusion
+
+The choice between developing native iOS and Android apps separately (Option A), using React Native (Option B), or a progressive web app (PWA) depends on various factors including budget constraints, time-to-market, and the specific requirements of the application. Each option has its own set of trade-offs that need to be weighed carefully based on these criteria.</div>
+        </div>
+
+        <div class="test-block partial">
+            <h2>Test #3: reasoning_003</h2>
+
+            <table>
+                <tr>
+                    <th>Metric</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>Domain</td>
+                    <td><strong>reasoning</strong></td>
+                </tr>
+                <tr>
+                    <td>Status</td>
+                    <td><strong class="fail-check">PARTIAL</strong></td>
+                </tr>
+                <tr>
+                    <td>Score</td>
+                    <td><strong>2/3</strong> (67%)</td>
+                </tr>
+                <tr>
+                    <td>Quality Score</td>
+                    <td><strong>4/4</strong></td>
+                </tr>
+                <tr>
+                    <td>Response Length</td>
+                    <td><span class="char-count">2,555 characters</span></td>
+                </tr>
+            </table>
+
+            <h3>Pattern Matching</h3>
+            <div>
+<p><strong>✓ FOUND:</strong><br><span class="pattern found">✓ correlation|causation|cause</span><span class="pattern found">✓ factor|variable|consider</span></p><p><strong>✗ MISSING:</strong><br><span class="pattern missing">✗ confound|alternative</span></p>
+            </div>
+
+            <h3>Actual Agent Response</h3>
+            <div class="response-box">To determine whether a company should offer free coffee to all employees based on improved productivity data, several key points need to be considered:
+
+1. **Cost-Benefit Analysis**: Free coffee comes with an associated cost for the organization. This analysis must include both direct costs (such as purchasing and preparation) and indirect costs (like potential increased energy consumption). The company needs to weigh if the savings in productivity from higher employee engagement outweigh these additional expenses.
+
+2. **Employee Preferences and Cultural Fit**: Different employees may have varying preferences regarding coffee; some might prefer other beverages or none at all. Offering free coffee could be seen as a token of appreciation, but it must align with the company's culture and values to ensure widespread acceptance and benefit.
+
+3. **Health Implications**: Over-reliance on caffeine can lead to addiction and withdrawal symptoms when not consumed regularly. The company should consider whether this impact is worth the productivity boost or if other health initiatives (such as encouraging breaks, hydration stations, or ergonomic setups) might be more beneficial for a sustainable approach.
+
+4. **Workplace Environment**: Free coffee may be seen as an incentive rather than a benefit tied directly to job performance. A broader strategy that includes perks like flexible work hours, wellness programs, and competitive benefits could provide better support in maintaining productivity without the need for additional costs.
+
+5. **Data Correlation vs. Causal Relationship**: While a 20% increase in productivity is notable, it's important to understand whether this correlation indicates causation or if there are other factors at play (such as employee health status, job satisfaction, or management styles) that could be more impactful and harder to manipulate.
+
+6. **Incentive vs. Engagement**: Free coffee may act as a temporary incentive for higher productivity but might not fully address underlying motivational issues that affect long-term engagement and performance. Companies should consider broader strategies to engage employees in their work and foster a positive organizational culture.
+
+7. **Ethical Considerations**: Providing free coffee could raise ethical concerns if some employees are unable or unwilling to use it, such as due to dietary restrictions or religious beliefs. Transparency about these policies and ensuring they meet legal requirements is essential for maintaining an inclusive workplace environment.</div>
+        </div>
+
+        <div class="test-block pass">
+            <h2>Test #4: reasoning_004</h2>
+
+            <table>
+                <tr>
+                    <th>Metric</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>Domain</td>
+                    <td><strong>reasoning</strong></td>
+                </tr>
+                <tr>
+                    <td>Status</td>
+                    <td><strong class="pass-check">PASS</strong></td>
+                </tr>
+                <tr>
+                    <td>Score</td>
+                    <td><strong>2/2</strong> (100%)</td>
+                </tr>
+                <tr>
+                    <td>Quality Score</td>
+                    <td><strong>4/4</strong></td>
+                </tr>
+                <tr>
+                    <td>Response Length</td>
+                    <td><span class="char-count">907 characters</span></td>
+                </tr>
+            </table>
+
+            <h3>Pattern Matching</h3>
+            <div>
+<p><strong>✓ FOUND:</strong><br><span class="pattern found">✓ 42</span><span class="pattern found">✓ pattern|sequence|difference</span></p>
+            </div>
+
+            <h3>Actual Agent Response</h3>
+            <div class="response-box">To determine the pattern that governs the given sequence: \(2, 6, 12, 20, 30\), let's analyze the differences between consecutive numbers and see if a discernible mathematical relationship exists.
+
+- The difference between the first two terms is:
+  \[
+  6 - 2 = 4
+  \]
+- The difference between the second and third terms is:
+  \[
+  12 - 6 = 6
+  \]
+- The difference between the third and fourth terms is:
+  \[
+  20 - 12 = 8
+  \]
+- The difference between the fourth and fifth terms is:
+  \[
+  30 - 20 = 10
+  \]
+
+From the differences, we observe an increasing sequence: \(4, 6, 8, 10\). This suggests that each subsequent difference increases by 2. Following this pattern:
+
+- The next difference should be:
+  \[
+  10 + 2 = 12
+  \]
+  
+Thus, to find the next term in the sequence, we add this difference (12) to the last given term (30):
+
+\[
+30 + 12 = 42
+\]
+
+Therefore, the next number in the sequence is \(42\).</div>
+        </div>
+
+        <div class="test-block pass">
+            <h2>Test #5: communication_001</h2>
+
+            <table>
+                <tr>
+                    <th>Metric</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>Domain</td>
+                    <td><strong>communication</strong></td>
+                </tr>
+                <tr>
+                    <td>Status</td>
+                    <td><strong class="pass-check">PASS</strong></td>
+                </tr>
+                <tr>
+                    <td>Score</td>
+                    <td><strong>2/2</strong> (100%)</td>
+                </tr>
+                <tr>
+                    <td>Quality Score</td>
+                    <td><strong>4/4</strong></td>
+                </tr>
+                <tr>
+                    <td>Response Length</td>
+                    <td><span class="char-count">550 characters</span></td>
+                </tr>
+            </table>
+
+            <h3>Pattern Matching</h3>
+            <div>
+<p><strong>✓ FOUND:</strong><br><span class="pattern found">✓ API|interface</span><span class="pattern found">✓ \. .*\.</span></p>
+            </div>
+
+            <h3>Actual Agent Response</h3>
+            <div class="response-box">A REST API, or Representational State Transfer Application Programming Interface, is like a set of rules for two computers talking to each other over the internet. Imagine you have a toy box (your computer) and your friend has another toy box (their computer). A REST API provides instructions on how to ask for toys from your friend's toy box, how many toys to get, and what to do with those toys once they're in yours. It ensures that both of you understand each other's language so the exchange can happen smoothly without any confusion or errors.</div>
+        </div>
+
+        <div class="test-block pass">
+            <h2>Test #6: communication_002</h2>
+
+            <table>
+                <tr>
+                    <th>Metric</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>Domain</td>
+                    <td><strong>communication</strong></td>
+                </tr>
+                <tr>
+                    <td>Status</td>
+                    <td><strong class="pass-check">PASS</strong></td>
+                </tr>
+                <tr>
+                    <td>Score</td>
+                    <td><strong>3/3</strong> (100%)</td>
+                </tr>
+                <tr>
+                    <td>Quality Score</td>
+                    <td><strong>4/4</strong></td>
+                </tr>
+                <tr>
+                    <td>Response Length</td>
+                    <td><span class="char-count">650 characters</span></td>
+                </tr>
+            </table>
+
+            <h3>Pattern Matching</h3>
+            <div>
+<p><strong>✓ FOUND:</strong><br><span class="pattern found">✓ machine learning|ML</span><span class="pattern found">✓ deep learning|neural network</span><span class="pattern found">✓ difference|differ|whereas|while</span></p>
+            </div>
+
+            <h3>Actual Agent Response</h3>
+            <div class="response-box">Machine learning and deep learning are both subfields of artificial intelligence (AI) that enable computers to learn from data without being explicitly programmed. The primary difference lies in their approach: machine learning involves using algorithms to find patterns within the data, allowing for more generalized solutions across various tasks. Deep learning, on the other hand, employs neural networks with multiple layers that can automatically extract features and hierarchies of information directly from raw data, making it particularly effective for complex pattern recognition and feature extraction tasks like image or speech processing.</div>
+        </div>
+
+        <div class="test-block pass">
+            <h2>Test #7: communication_003</h2>
+
+            <table>
+                <tr>
+                    <th>Metric</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>Domain</td>
+                    <td><strong>communication</strong></td>
+                </tr>
+                <tr>
+                    <td>Status</td>
+                    <td><strong class="pass-check">PASS</strong></td>
+                </tr>
+                <tr>
+                    <td>Score</td>
+                    <td><strong>2/2</strong> (100%)</td>
+                </tr>
+                <tr>
+                    <td>Quality Score</td>
+                    <td><strong>4/4</strong></td>
+                </tr>
+                <tr>
+                    <td>Response Length</td>
+                    <td><span class="char-count">1,548 characters</span></td>
+                </tr>
+            </table>
+
+            <h3>Pattern Matching</h3>
+            <div>
+<p><strong>✓ FOUND:</strong><br><span class="pattern found">✓ 1\.|2\.|first|second|step</span><span class="pattern found">✓ debug|error|issue</span></p>
+            </div>
+
+            <h3>Actual Agent Response</h3>
+            <div class="response-box">Debugging is a crucial process for resolving issues within software applications. Here are five key steps to effectively debug a software issue:
+
+1. **Identify and Isolate the Issue**: Pinpoint exactly which part of the application or functionality is not working as intended.
+
+2. **Replicate the Problem**: Ensure that you can consistently reproduce the issue, which is crucial for accurately diagnosing its root cause.
+
+3. **Review Application Code and Documentation**: Examine both the codebase and relevant documentation to understand how the system should behave and identify potential areas of error or misunderstanding.
+
+4. **Use Debugging Tools**: Employ tools like breakpoints, step-through execution, and logging to inspect the state of the application at various points during runtime.
+
+5. **Analyze Log Files and Diagnostics**: Look for error messages, warnings, and other diagnostics that can provide clues about what might be going wrong in the system.
+
+6. **Test Hypotheses with Patches**: After identifying potential causes, test hypotheses by applying patches or changes to see if they resolve the issue without introducing new problems elsewhere in the application.
+
+7. **Document Changes and Results**: Maintain detailed records of debugging steps, tests performed, and any changes made to the codebase during troubleshooting to aid in future maintenance and improvement efforts.
+
+These steps provide a structured approach for effective software debugging, ensuring that issues are thoroughly understood and resolved efficiently.</div>
+        </div>
+
+        <div class="test-block pass">
+            <h2>Test #8: communication_004</h2>
+
+            <table>
+                <tr>
+                    <th>Metric</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>Domain</td>
+                    <td><strong>communication</strong></td>
+                </tr>
+                <tr>
+                    <td>Status</td>
+                    <td><strong class="pass-check">PASS</strong></td>
+                </tr>
+                <tr>
+                    <td>Score</td>
+                    <td><strong>3/3</strong> (100%)</td>
+                </tr>
+                <tr>
+                    <td>Quality Score</td>
+                    <td><strong>4/4</strong></td>
+                </tr>
+                <tr>
+                    <td>Response Length</td>
+                    <td><span class="char-count">549 characters</span></td>
+                </tr>
+            </table>
+
+            <h3>Pattern Matching</h3>
+            <div>
+<p><strong>✓ FOUND:</strong><br><span class="pattern found">✓ security|cybersecurity</span><span class="pattern found">✓ risk|protect|prevent</span><span class="pattern found">✓ training|employee</span></p>
+            </div>
+
+            <h3>Actual Agent Response</h3>
+            <div class="response-box">Investing in comprehensive cybersecurity training for all employees is essential to fortify your organization against the escalating threat landscape. Equipped with up-to-date knowledge and best practices, your workforce will be better prepared to recognize and respond effectively to cyber threats, significantly reducing vulnerabilities that hackers exploit. This proactive approach not only enhances security but also builds a culture of vigilance within your organization, ultimately protecting sensitive data and preserving business continuity.</div>
+        </div>
+
+    </div>
+</body>
+</html>

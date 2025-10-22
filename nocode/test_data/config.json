@@ -1,0 +1,23 @@
+{
+  "application": {
+    "name": "TestApp",
+    "version": "1.0.0",
+    "environment": "development"
+  },
+  "server": {
+    "port": 8080,
+    "host": "localhost",
+    "timeout": 30
+  },
+  "database": {
+    "type": "postgresql",
+    "host": "localhost",
+    "port": 5432,
+    "name": "testdb"
+  },
+  "features": {
+    "enable_analytics": true,
+    "enable_cache": true,
+    "debug_mode": false
+  }
+}

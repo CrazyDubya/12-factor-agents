@@ -1,0 +1,139 @@
+domain: analysis
+description: Tests for data analysis and interpretation capabilities
+
+tests:
+  - id: analysis_001
+    name: "CSV Data Analysis - Basic Stats"
+    difficulty: easy
+    description: "Test ability to analyze CSV data and extract basic statistics"
+    prompt: "Analyze the sales data in test_data/sales_data.csv. Calculate total revenue, average units sold per product, and identify the best-selling product."
+    context_files:
+      - "test_data/sales_data.csv"
+    expected_behavior:
+      - "Reads CSV file correctly"
+      - "Calculates total revenue"
+      - "Calculates average units"
+      - "Identifies best-seller"
+      - "Presents results clearly"
+    validation:
+      response_patterns:
+        - "total.*revenue|revenue.*total"
+        - "average|mean"
+        - "best.*selling|top.*product"
+    tags: [csv, statistics, basic-analysis]
+
+  - id: analysis_002
+    name: "Pattern Recognition"
+    difficulty: medium
+    description: "Test ability to identify patterns in data"
+    prompt: "Look at the file test_data/time_series.csv which contains daily sales data. Identify any patterns (e.g., day-of-week effects, trends, anomalies)."
+    context_files:
+      - "test_data/time_series.csv"
+    expected_behavior:
+      - "Identifies temporal patterns"
+      - "Recognizes trends or seasonality"
+      - "Spots anomalies if present"
+      - "Provides data-driven insights"
+    validation:
+      response_patterns:
+        - "pattern|trend|seasonal"
+        - "day|week|month"
+    tags: [pattern-recognition, time-series, insights]
+
+  - id: analysis_003
+    name: "Multi-File Data Synthesis"
+    difficulty: hard
+    description: "Test ability to combine and analyze data from multiple sources"
+    prompt: "Analyze the customer data in test_data/customers.csv and the orders data in test_data/orders.csv. Identify which customer segment generates the most revenue and explain why."
+    context_files:
+      - "test_data/customers.csv"
+      - "test_data/orders.csv"
+    expected_behavior:
+      - "Reads multiple CSV files"
+      - "Joins/correlates data appropriately"
+      - "Segments customers"
+      - "Calculates revenue by segment"
+      - "Provides explanatory insights"
+    validation:
+      response_patterns:
+        - "segment|group|category"
+        - "revenue|sales"
+        - "customer"
+    tags: [multi-file, synthesis, segmentation]
+
+  - id: analysis_004
+    name: "Text Data Analysis"
+    difficulty: medium
+    description: "Test ability to analyze unstructured text data"
+    prompt: "Analyze the customer reviews in test_data/reviews.txt. Identify the top 3 most common complaints and the top 3 most praised features."
+    context_files:
+      - "test_data/reviews.txt"
+    expected_behavior:
+      - "Reads and processes text data"
+      - "Identifies common themes"
+      - "Distinguishes complaints from praise"
+      - "Provides frequency/importance ranking"
+    validation:
+      response_patterns:
+        - "complaint|issue|problem"
+        - "praise|positive|like"
+        - "common|frequent"
+    tags: [text-analysis, sentiment, themes]
+
+  - id: analysis_005
+    name: "Comparative Analysis"
+    difficulty: medium
+    description: "Test ability to compare datasets and draw conclusions"
+    prompt: "Compare the performance metrics in test_data/q1_metrics.json and test_data/q2_metrics.json. Which quarter performed better and in what areas?"
+    context_files:
+      - "test_data/q1_metrics.json"
+      - "test_data/q2_metrics.json"
+    expected_behavior:
+      - "Reads JSON data"
+      - "Compares metrics across periods"
+      - "Identifies improvements and declines"
+      - "Provides nuanced analysis"
+    validation:
+      response_patterns:
+        - "better|worse|improved|declined"
+        - "Q1|Q2|quarter"
+        - "compare|comparison"
+    tags: [comparison, json, metrics]
+
+  - id: analysis_006
+    name: "Root Cause Analysis"
+    difficulty: hard
+    description: "Test ability to identify root causes from data"
+    prompt: "The file test_data/incident_log.csv shows system incidents over the past month. Analyze the data to identify the root cause of the spike in incidents during week 3."
+    context_files:
+      - "test_data/incident_log.csv"
+    expected_behavior:
+      - "Analyzes incident patterns"
+      - "Identifies temporal correlations"
+      - "Proposes root cause hypotheses"
+      - "Uses data to support conclusions"
+    validation:
+      response_patterns:
+        - "root cause|cause|reason"
+        - "week|spike|increase"
+        - "correlation|pattern"
+    tags: [root-cause, incidents, problem-solving]
+
+  - id: analysis_007
+    name: "Statistical Insight Generation"
+    difficulty: medium
+    description: "Test ability to generate actionable insights from statistics"
+    prompt: "Review the A/B test results in test_data/ab_test_results.csv. Determine if there's a statistically significant difference and recommend which variant to implement."
+    context_files:
+      - "test_data/ab_test_results.csv"
+    expected_behavior:
+      - "Understands A/B testing concepts"
+      - "Evaluates statistical significance"
+      - "Makes data-driven recommendation"
+      - "Explains reasoning"
+    validation:
+      response_patterns:
+        - "significant|significance"
+        - "recommend|suggestion"
+        - "variant|version|control"
+    tags: [statistics, ab-testing, recommendations]

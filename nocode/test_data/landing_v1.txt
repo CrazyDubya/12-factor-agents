@@ -1,0 +1,14 @@
+Welcome to TaskMaster Pro
+
+TaskMaster Pro is a task management application. It helps you manage your tasks and projects. You can create tasks, organize them into projects, and track your progress.
+
+Features:
+- Create and manage tasks
+- Organize tasks into projects
+- Set due dates and priorities
+- Track task completion
+- Collaborate with team members
+
+Sign up today to start managing your tasks more effectively. Our pricing starts at $9.99 per month for individuals and $29.99 per month for teams.
+
+Get Started Now

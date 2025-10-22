@@ -1,0 +1,138 @@
+domain: reasoning
+description: Tests for reasoning and problem-solving capabilities
+
+tests:
+  - id: reasoning_001
+    name: "Logical Deduction"
+    difficulty: medium
+    description: "Test ability to perform logical deduction"
+    prompt: "Given: All managers attend the weekly meeting. Sarah attends the weekly meeting. John is a manager. Can we conclude that Sarah is a manager? Explain your reasoning."
+    expected_behavior:
+      - "Identifies logical fallacy (affirming the consequent)"
+      - "Explains that attending meeting doesn't prove manager status"
+      - "Shows clear logical reasoning"
+      - "Provides correct answer (No, we cannot conclude)"
+    validation:
+      response_patterns:
+        - "cannot|no|insufficient"
+        - "logic|reasoning|conclude"
+    tags: [logic, deduction, critical-thinking]
+
+  - id: reasoning_002
+    name: "Trade-off Analysis"
+    difficulty: medium
+    description: "Test ability to analyze trade-offs between options"
+    prompt: "Compare building a mobile app as: (A) native iOS and Android apps separately, (B) using React Native, or (C) as a progressive web app. Analyze the trade-offs in terms of performance, development time, cost, and user experience.\n\nFor each option, structure your answer:\n**Advantages:** [list]\n**Disadvantages:** [list]\n\nKeep your entire response under 500 words."
+    expected_behavior:
+      - "Identifies multiple trade-off dimensions"
+      - "Evaluates each option fairly"
+      - "Shows nuanced understanding"
+      - "Doesn't oversimplify"
+      - "Considers context dependency"
+    validation:
+      response_patterns:
+        - "trade-off|advantage|disadvantage|pros|cons"
+        - "performance|cost|time"
+        - "native|React Native|PWA"
+    tags: [trade-offs, comparison, decision-analysis]
+
+  - id: reasoning_003
+    name: "Causal Reasoning"
+    difficulty: hard
+    description: "Test ability to distinguish correlation from causation"
+    prompt: "A company noticed that employees who drink coffee have 20% higher productivity. Should the company provide free coffee to all employees to boost productivity? What other factors should they consider?\n\nSummarize your answer in 5-7 key points, each explained in 1-2 sentences."
+    expected_behavior:
+      - "Distinguishes correlation from causation"
+      - "Identifies confounding variables"
+      - "Considers alternative explanations"
+      - "Shows critical thinking"
+      - "Recommends proper investigation"
+    validation:
+      response_patterns:
+        - "correlation|causation|cause"
+        - "factor|variable|consider"
+        - "confound|alternative"
+    tags: [causation, critical-thinking, analysis]
+
+  - id: reasoning_004
+    name: "Pattern Completion"
+    difficulty: easy
+    description: "Test ability to identify and complete patterns"
+    prompt: "What comes next in this sequence? 2, 6, 12, 20, 30, ?"
+    expected_behavior:
+      - "Identifies pattern (differences are even numbers: 4, 6, 8, 10...)"
+      - "Provides correct answer (42)"
+      - "Explains reasoning"
+    validation:
+      response_patterns:
+        - "42"
+        - "pattern|sequence|difference"
+    tags: [patterns, sequences, problem-solving]
+
+  - id: reasoning_005
+    name: "Hypothesis Generation"
+    difficulty: medium
+    description: "Test ability to generate and evaluate hypotheses"
+    prompt: "A SaaS company's customer churn rate suddenly increased from 5% to 12% last month. Generate at least 3 plausible hypotheses for why this happened and suggest how to test each one."
+    expected_behavior:
+      - "Generates multiple diverse hypotheses"
+      - "Hypotheses are plausible and testable"
+      - "Suggests appropriate testing methods"
+      - "Shows systematic thinking"
+    validation:
+      response_patterns:
+        - "hypothesis|hypotheses|theory"
+        - "test|validate|check|investigate"
+        - "churn|customer|retention"
+    tags: [hypotheses, testing, problem-solving]
+
+  - id: reasoning_006
+    name: "Constraint Satisfaction"
+    difficulty: hard
+    description: "Test ability to solve problems with multiple constraints"
+    prompt: "I need to schedule 4 meetings (A, B, C, D) with these constraints: A must be before B, C must be after A but before D, B and C cannot be on the same day, and all must be completed within a 3-day week (Mon-Wed). Provide a valid schedule."
+    expected_behavior:
+      - "Identifies all constraints"
+      - "Finds valid solution"
+      - "Explains reasoning"
+      - "Verifies all constraints satisfied"
+    validation:
+      response_patterns:
+        - "Monday|Tuesday|Wednesday|Mon|Tue|Wed"
+        - "schedule|day|meeting"
+    tags: [constraints, scheduling, logic]
+
+  - id: reasoning_007
+    name: "Counterfactual Reasoning"
+    difficulty: medium
+    description: "Test ability to reason about hypothetical scenarios"
+    prompt: "If the internet had never been invented, how might modern business communication and collaboration have evolved differently? Provide a reasoned analysis."
+    expected_behavior:
+      - "Considers alternative technologies"
+      - "Reasons about ripple effects"
+      - "Shows historical awareness"
+      - "Provides plausible alternatives"
+      - "Avoids speculation without reasoning"
+    validation:
+      response_patterns:
+        - "if|would|might|could"
+        - "communication|collaboration|business"
+        - "alternative|instead|different"
+    tags: [counterfactual, hypothetical, analysis]
+
+  - id: reasoning_008
+    name: "Ethical Reasoning"
+    difficulty: hard
+    description: "Test ability to reason about ethical dilemmas"
+    prompt: "A company has developed an AI hiring tool that is very accurate but shows a slight bias against certain demographic groups. Should they: (A) use it as-is since it's more accurate than humans, (B) adjust it to remove bias even if it reduces accuracy, or (C) not use it at all? Analyze each option."
+    expected_behavior:
+      - "Identifies ethical dimensions"
+      - "Considers multiple perspectives"
+      - "Analyzes each option thoughtfully"
+      - "Shows nuanced understanding"
+      - "Doesn't oversimplify complex ethics"
+    validation:
+      response_patterns:
+        - "ethical|ethics|fairness|bias"
+        - "consider|perspective|implication"
+    tags: [ethics, decision-making, analysis]

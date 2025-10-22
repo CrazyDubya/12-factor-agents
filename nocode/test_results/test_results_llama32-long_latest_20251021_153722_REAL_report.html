@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Real Test Results - Ollama-llama32-long:latest</title>
+    <style>
+        body {
+            font-family: 'SF Mono', Monaco, 'Courier New', monospace;
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        h1, h2, h3 {
+            color: #4ec9b0;
+            border-bottom: 2px solid #4ec9b0;
+            padding-bottom: 10px;
+        }
+        .summary {
+            background: #252526;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #4ec9b0;
+        }
+        .test-block {
+            background: #252526;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            border-left: 4px solid #666;
+        }
+        .test-block.pass { border-left-color: #4ec9b0; }
+        .test-block.partial { border-left-color: #ce9178; }
+        .test-block.fail { border-left-color: #f48771; }
+
+        .metric {
+            display: inline-block;
+            background: #1e1e1e;
+            padding: 8px 15px;
+            margin: 5px;
+            border-radius: 4px;
+            border: 1px solid #4ec9b0;
+        }
+        .metric strong { color: #4ec9b0; }
+
+        .response-box {
+            background: #1e1e1e;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 10px 0;
+            border: 1px solid #3e3e42;
+            white-space: pre-wrap;
+            font-size: 13px;
+            overflow-x: auto;
+        }
+        .pattern {
+            display: inline-block;
+            padding: 4px 8px;
+            margin: 3px;
+            border-radius: 3px;
+            font-size: 12px;
+            font-family: monospace;
+        }
+        .pattern.found {
+            background: #1a4d2e;
+            color: #4ec9b0;
+            border: 1px solid #4ec9b0;
+        }
+        .pattern.missing {
+            background: #4d1a1a;
+            color: #f48771;
+            border: 1px solid #f48771;
+        }
+        .char-count {
+            color: #ce9178;
+            font-weight: bold;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #3e3e42;
+            text-align: left;
+        }
+        th {
+            background: #2d2d30;
+            color: #4ec9b0;
+        }
+        .pass-check { color: #4ec9b0; }
+        .fail-check { color: #f48771; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔍 ACTUAL TEST RESULTS - REAL DATA</h1>
+
+        <div class="summary">
+            <h2>Summary</h2>
+            <div class="metric"><strong>Model:</strong> Ollama-llama32-long:latest</div>
+            <div class="metric"><strong>Success Rate:</strong> 93.8%</div>
+            <div class="metric"><strong>Tests:</strong> 8</div>
+            <div class="metric"><strong>Passed:</strong> 7</div>
+            <div class="metric"><strong>Partial:</strong> 1</div>
+            <div class="metric"><strong>Failed:</strong> 0</div>
+            <div class="metric"><strong>Quality Score:</strong> 4.0/4</div>
+        </div>
+
+        <div class="test-block pass">
+            <h2>Test #1: reasoning_001</h2>
+
+            <table>
+                <tr>
+                    <th>Metric</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>Domain</td>
+                    <td><strong>reasoning</strong></td>
+                </tr>
+                <tr>
+                    <td>Status</td>
+                    <td><strong class="pass-check">PASS</strong></td>
+                </tr>
+                <tr>
+                    <td>Score</td>
+                    <td><strong>2/2</strong> (100%)</td>
+                </tr>
+                <tr>
+                    <td>Quality Score</td>
+                    <td><strong>4/4</strong></td>
+                </tr>
+                <tr>
+                    <td>Response Length</td>
+                    <td><span class="char-count">1,455 characters</span></td>
+                </tr>
+            </table>
+
+            <h3>Pattern Matching</h3>
+            <div>
+<p><strong>✓ FOUND:</strong><br><span class="pattern found">✓ cannot|no|insufficient</span><span class="pattern found">✓ logic|reasoning|conclude</span></p>
+            </div>
+
+            <h3>Actual Agent Response</h3>
+            <div class="response-box">**Conclusion Analysis**
+
+Let's break down the given information:
+
+1. **All managers attend the weekly meeting**: This statement can be translated to "∀x (Manager(x) → Attend(wk_meeting))". It implies that any person who holds the role of a manager will attend the weekly meeting.
+2. **Sarah attends the weekly meeting**: We have an individual instance: Sarah, whose presence at the meeting is known (∃s (Attend(s, wk_meeting)))).
+3. **John is a manager**: Another specific case where John's membership in the Manager set is confirmed (∃j (Manager(j) ∧ j = John))).
+
+**Reasoning**
+
+To determine if we can conclude that Sarah is a manager based on this information:
+
+* We know all managers attend the weekly meeting, which establishes a relationship between being a manager and attending the meeting.
+* The fact that Sarah attends the meeting does not directly imply she's a manager. It only confirms her presence at an event where all managers are present.
+
+**Conclusion**
+
+We cannot conclude definitively from this information alone that Sarah is a manager. While it may be possible, we do not have enough evidence to support such a conclusion with absolute certainty based on the provided statements about attendance and membership in the Manager set.
+
+To determine whether Sarah holds the role of a manager beyond her single instance attending the meeting, additional context or explicit mention of her as a member of the Manager set would be necessary.</div>
+        </div>
+
+        <div class="test-block pass">
+            <h2>Test #2: reasoning_002</h2>
+
+            <table>
+                <tr>
+                    <th>Metric</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>Domain</td>
+                    <td><strong>reasoning</strong></td>
+                </tr>
+                <tr>
+                    <td>Status</td>
+                    <td><strong class="pass-check">PASS</strong></td>
+                </tr>
+                <tr>
+                    <td>Score</td>
+                    <td><strong>3/3</strong> (100%)</td>
+                </tr>
+                <tr>
+                    <td>Quality Score</td>
+                    <td><strong>4/4</strong></td>
+                </tr>
+                <tr>
+                    <td>Response Length</td>
+                    <td><span class="char-count">2,809 characters</span></td>
+                </tr>
+            </table>
+
+            <h3>Pattern Matching</h3>
+            <div>
+<p><strong>✓ FOUND:</strong><br><span class="pattern found">✓ trade-off|advantage|disadvantage|pros|cons</span><span class="pattern found">✓ performance|cost|time</span><span class="pattern found">✓ native|React Native|PWA</span></p>
+            </div>
+
+            <h3>Actual Agent Response</h3>
+            <div class="response-box">Here's a comparison of building mobile apps using different approaches:
+
+**Option A: Native iOS and Android Apps**
+
+### Advantages
+* **Performance**: Optimized for each platform, resulting in faster app performance.
+* **Security**: Each platform has its own security features, providing an added layer of protection.
+* **Customization**: Developers can create a unique user experience tailored to the specific operating system.
+
+### Disadvantages
+* **Development Time and Cost**: Requires separate development teams or experts for each platform (iOS and Android).
+* **Maintenance Complexity**: Upgrades require updates on both platforms, which increases complexity and costs.
+* **Code Reuse Limitations**: Codebases are not compatible between iOS and Android due to differences in architecture.
+
+**Option B: Using React Native**
+
+### Advantages
+* **Faster Development Time**: A single codebase can be shared across multiple platforms with minimal modifications.
+* **Cost-Effective**: Reduced development time translates into lower costs for maintenance, updates, and bug fixes.
+* **Performance**: Still offers good performance comparable to native apps.
+
+### Disadvantages
+* **Cross-Platform Compatibility Issues**: May require additional effort to resolve platform-specific issues or bugs.
+* **Limited Native Integration**: Some features might not be natively supported due to the JavaScript-based framework.
+* **Learning Curve for Developers**: Familiarity with React Native and both iOS/Android frameworks may take time.
+
+**Option C: Progressive Web App (PWA)**
+
+### Advantages
+* **Fast Load Times**: PWAs can load instantly, providing a seamless user experience on various devices.
+* **Native-Like Experience**: Can be designed to mimic native apps' behavior using web technologies like CSS and JavaScript.
+* **Lower Development Costs**: A single codebase with minimal modifications for multiple platforms.
+
+### Disadvantages
+* **Limited Offline Support**: PWAs often rely on network connectivity, which can lead to poor user experience in areas with weak internet coverage.
+* **No App Store Submission Required**: Missing the opportunity to reach users through app stores and discoverability features.
+* **Security Concerns**: May pose security risks due to web-based technologies relying on client-side execution.
+
+**Conclusion**
+
+The choice of building a mobile app depends on specific project requirements, target audience, and budget constraints. Native apps provide optimal performance but come with higher development costs and complexity maintenance. React Native offers faster development time at lower costs while still delivering good performance. Progressive Web Apps can offer fast load times and native-like experiences without the need for separate codebases or platform-specific expertise.</div>
+        </div>
+
+        <div class="test-block pass">
+            <h2>Test #3: reasoning_003</h2>
+
+            <table>
+                <tr>
+                    <th>Metric</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>Domain</td>
+                    <td><strong>reasoning</strong></td>
+                </tr>
+                <tr>
+                    <td>Status</td>
+                    <td><strong class="pass-check">PASS</strong></td>
+                </tr>
+                <tr>
+                    <td>Score</td>
+                    <td><strong>3/3</strong> (100%)</td>
+                </tr>
+                <tr>
+                    <td>Quality Score</td>
+                    <td><strong>4/4</strong></td>
+                </tr>
+                <tr>
+                    <td>Response Length</td>
+                    <td><span class="char-count">2,110 characters</span></td>
+                </tr>
+            </table>
+
+            <h3>Pattern Matching</h3>
+            <div>
+<p><strong>✓ FOUND:</strong><br><span class="pattern found">✓ correlation|causation|cause</span><span class="pattern found">✓ factor|variable|consider</span><span class="pattern found">✓ confound|alternative</span></p>
+            </div>
+
+            <h3>Actual Agent Response</h3>
+            <div class="response-box">Here are 6 key points for the company to consider when deciding whether to provide free coffee:
+
+**Key Point 1: Correlation vs. Causation**
+While there is a positive correlation between coffee consumption and productivity, it's essential to establish causality through further research or experimentation to ensure that providing free coffee directly leads to increased productivity.
+
+**Key Point 2: Alternative Explanations for Productivity Gain**
+Other factors might contribute to the observed increase in productivity among employees who drink coffee. For example, some individuals may be more productive due to their natural circadian rhythms, health conditions, or individual differences in caffeine sensitivity and tolerance.
+
+**Key Point 3: Cost-Benefit Analysis**
+Providing free coffee for all employees can have significant financial implications, including increased costs for purchasing and maintaining a large quantity of coffee supplies. The company should weigh these expenses against potential productivity gains to determine whether the benefits justify the additional cost.
+
+**Key Point 4: Employee Preferences and Allergies**
+Some employees may be allergic or intolerant to caffeine or other common ingredients found in coffee, so providing free coffee might inadvertently create health risks for certain individuals. A survey of employee preferences would help identify any potential issues before offering complimentary beverages.
+
+**Key Point 5: Environmental Impact and Sustainability**
+The company should consider the environmental impact of a large-scale coffee consumption program. This includes waste management, energy usage in storage and serving facilities, and packaging materials used to transport and dispense coffee supplies.
+
+**Key Point 6: Other Productivity Boosters**
+Before investing in free coffee, the company might explore alternative ways to boost employee productivity, such as providing ergonomic workspaces, flexible work arrangements, or additional training opportunities. These solutions may be more cost-effective and have a broader impact on overall well-being.</div>
+        </div>
+
+        <div class="test-block partial">
+            <h2>Test #4: reasoning_004</h2>
+
+            <table>
+                <tr>
+                    <th>Metric</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>Domain</td>
+                    <td><strong>reasoning</strong></td>
+                </tr>
+                <tr>
+                    <td>Status</td>
+                    <td><strong class="fail-check">PARTIAL</strong></td>
+                </tr>
+                <tr>
+                    <td>Score</td>
+                    <td><strong>1/2</strong> (50%)</td>
+                </tr>
+                <tr>
+                    <td>Quality Score</td>
+                    <td><strong>4/4</strong></td>
+                </tr>
+                <tr>
+                    <td>Response Length</td>
+                    <td><span class="char-count">1,797 characters</span></td>
+                </tr>
+            </table>
+
+            <h3>Pattern Matching</h3>
+            <div>
+<p><strong>✓ FOUND:</strong><br><span class="pattern found">✓ pattern|sequence|difference</span></p><p><strong>✗ MISSING:</strong><br><span class="pattern missing">✗ 42</span></p>
+            </div>
+
+            <h3>Actual Agent Response</h3>
+            <div class="response-box">To determine the pattern of the sequence, let's analyze the differences between consecutive terms:
+
+- From 2 to 6: increase by 4
+- From 6 to 12: increase by 6
+- From 12 to 20: increase by 8
+- From 20 to 30: increase by 10
+
+We can observe that each time, the difference between consecutive terms is increasing by 2. This pattern suggests a quadratic relationship.
+
+With this understanding, we can try to find a formula for the nth term of the sequence:
+
+Let's denote the first term as `a1 = 2`.
+
+If we consider the differences:
+- The second difference (between 6 and 12) is twice the increment between 4 and 6.
+- The third difference (between 8 and 10) is also twice the increment.
+
+This suggests that each time, the next difference should be `2 *` its predecessor's increase. Therefore:
+
+1st term = a1
+2nd term - first term = d1 (difference)
+3rd term - second term = d2 (difference between increases)
+
+We can express it mathematically as:
+t_n + 1 = t_{n-1} + d_n
+
+Where `d_n` is the nth difference. In this case, we have:
+
+a_4+1= a_3+11
+a_5+1=a_4+10 
+
+Based on these observations and mathematical analysis, I can propose that there exists an underlying quadratic relationship.
+
+Given the provided terms (2, 6, 12, 20, 30), let's try to deduce a formula for this sequence. The most likely candidate would be:
+
+t_n = n^2 -n +2
+
+Using our last given term and plugging in `n=5` into it gives us the value of `a_5`, which should equal the provided fifth term, 30.
+
+Now let's plug-in values for n to see if we can confirm that formula:
+
+t_n = (n^2 -n +2)
+ 
+
+We have already confirmed t(1)=0 
+and also checked it against a few examples and given numbers in your prompt.
+
+
+Therefore, the next number in this sequence would be:
+t_6= 36
+
+I made an educated guess about its underlying mathematical structure.</div>
+        </div>
+
+        <div class="test-block pass">
+            <h2>Test #5: communication_001</h2>
+
+            <table>
+                <tr>
+                    <th>Metric</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>Domain</td>
+                    <td><strong>communication</strong></td>
+                </tr>
+                <tr>
+                    <td>Status</td>
+                    <td><strong class="pass-check">PASS</strong></td>
+                </tr>
+                <tr>
+                    <td>Score</td>
+                    <td><strong>2/2</strong> (100%)</td>
+                </tr>
+                <tr>
+                    <td>Quality Score</td>
+                    <td><strong>4/4</strong></td>
+                </tr>
+                <tr>
+                    <td>Response Length</td>
+                    <td><span class="char-count">758 characters</span></td>
+                </tr>
+            </table>
+
+            <h3>Pattern Matching</h3>
+            <div>
+<p><strong>✓ FOUND:</strong><br><span class="pattern found">✓ API|interface</span><span class="pattern found">✓ \. .*\.</span></p>
+            </div>
+
+            <h3>Actual Agent Response</h3>
+            <div class="response-box">**What is a REST API?**
+
+A REST (Representational State of Resource) API, or Application Programming Interface, is like a messenger between different systems that need to communicate with each other. It allows different programs, apps, and services to "talk" to each other by sending and receiving data in a standardized way, enabling them to access and share resources such as information, files, or users. This facilitates the exchange of data between applications without requiring shared underlying logic.
+
+**Example:**
+
+Imagine you're ordering food from your favorite restaurant through their app. The REST API acts like an intermediary that takes your order (requests), processes it, and sends back your receipt with any additional details (responses).</div>
+        </div>
+
+        <div class="test-block pass">
+            <h2>Test #6: communication_002</h2>
+
+            <table>
+                <tr>
+                    <th>Metric</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>Domain</td>
+                    <td><strong>communication</strong></td>
+                </tr>
+                <tr>
+                    <td>Status</td>
+                    <td><strong class="pass-check">PASS</strong></td>
+                </tr>
+                <tr>
+                    <td>Score</td>
+                    <td><strong>3/3</strong> (100%)</td>
+                </tr>
+                <tr>
+                    <td>Quality Score</td>
+                    <td><strong>4/4</strong></td>
+                </tr>
+                <tr>
+                    <td>Response Length</td>
+                    <td><span class="char-count">772 characters</span></td>
+                </tr>
+            </table>
+
+            <h3>Pattern Matching</h3>
+            <div>
+<p><strong>✓ FOUND:</strong><br><span class="pattern found">✓ machine learning|ML</span><span class="pattern found">✓ deep learning|neural network</span><span class="pattern found">✓ difference|differ|whereas|while</span></p>
+            </div>
+
+            <h3>Actual Agent Response</h3>
+            <div class="response-box">**Machine Learning vs Deep Learning**
+
+As a software developer, you're likely familiar with traditional programming languages like Java or Python. Machine learning (ML) extends this concept by enabling computers to learn from data without being explicitly programmed. The key difference between ML and deep learning is that **deep learning uses neural networks composed of multiple layers** to analyze complex patterns in data, whereas machine learning relies on algorithms that can be applied directly to the data.
+
+In simpler terms:
+
+* Machine Learning: Computers use pre-defined rules or formulas (algorithms) to make predictions based on data.
+* Deep Learning: Computers create and train their own neural networks using large amounts of data to learn complex patterns.</div>
+        </div>
+
+        <div class="test-block pass">
+            <h2>Test #7: communication_003</h2>
+
+            <table>
+                <tr>
+                    <th>Metric</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>Domain</td>
+                    <td><strong>communication</strong></td>
+                </tr>
+                <tr>
+                    <td>Status</td>
+                    <td><strong class="pass-check">PASS</strong></td>
+                </tr>
+                <tr>
+                    <td>Score</td>
+                    <td><strong>2/2</strong> (100%)</td>
+                </tr>
+                <tr>
+                    <td>Quality Score</td>
+                    <td><strong>4/4</strong></td>
+                </tr>
+                <tr>
+                    <td>Response Length</td>
+                    <td><span class="char-count">1,611 characters</span></td>
+                </tr>
+            </table>
+
+            <h3>Pattern Matching</h3>
+            <div>
+<p><strong>✓ FOUND:</strong><br><span class="pattern found">✓ 1\.|2\.|first|second|step</span><span class="pattern found">✓ debug|error|issue</span></p>
+            </div>
+
+            <h3>Actual Agent Response</h3>
+            <div class="response-box">Here's a structured guide on how to debug a software issue:
+
+**Step 1: Understand the Problem**
+Clearly articulate and describe the problem you're trying to solve, including any error messages or symptoms that occur during execution.
+
+**Step 2: Gather Information**
+Collect relevant data about the issue, such as stack traces, log files, user input values, or system configuration settings, to help identify potential causes.
+
+**Step 3: Reproduce the Issue (if possible)**
+Determine whether you can reproduce the problem in a controlled environment, and if so, how often it occurs under specific conditions.
+
+**Step 4: Analyze the Code (and Data)**
+Carefully review the relevant code snippets, data structures, or configuration files to identify potential causes of the issue, using tools like debuggers, log analyzers, or code review software.
+
+**Step 5: Isolate and Test Individual Components**
+Systematically test each component or module involved in the problem, isolating it from other parts of the system, to determine if a specific section is causing the error.
+
+**Step 6: Use Debugging Tools (and Techniques)**
+Employ various debugging tools, such as print statements, debuggers, or logging libraries, to help identify and pinpoint the issue, and apply different techniques like stepping through code, inspecting variables, or using break points.
+
+**Step 7: Verify Fix Changes and Test Exhaustively**
+After fixing a potential cause of the problem, thoroughly test your changes in various scenarios, including edge cases and non-deterministic situations, to ensure that you haven't introduced new issues.</div>
+        </div>
+
+        <div class="test-block pass">
+            <h2>Test #8: communication_004</h2>
+
+            <table>
+                <tr>
+                    <th>Metric</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>Domain</td>
+                    <td><strong>communication</strong></td>
+                </tr>
+                <tr>
+                    <td>Status</td>
+                    <td><strong class="pass-check">PASS</strong></td>
+                </tr>
+                <tr>
+                    <td>Score</td>
+                    <td><strong>3/3</strong> (100%)</td>
+                </tr>
+                <tr>
+                    <td>Quality Score</td>
+                    <td><strong>4/4</strong></td>
+                </tr>
+                <tr>
+                    <td>Response Length</td>
+                    <td><span class="char-count">701 characters</span></td>
+                </tr>
+            </table>
+
+            <h3>Pattern Matching</h3>
+            <div>
+<p><strong>✓ FOUND:</strong><br><span class="pattern found">✓ security|cybersecurity</span><span class="pattern found">✓ risk|protect|prevent</span><span class="pattern found">✓ training|employee</span></p>
+            </div>
+
+            <h3>Actual Agent Response</h3>
+            <div class="response-box">**Protecting Your Organization's Future: Invest in Cybersecurity Training**
+
+As an organization, you have a unique competitive advantage that can be compromised by even one untrained employee. A single data breach or cyber attack can result in significant financial losses, damage to reputation, and loss of customer trust – all of which could irreparably harm your business. Investing in comprehensive cybersecurity training for all employees is essential to prevent such incidents and protect the future success of your organization. By educating employees on best practices and awareness, you'll not only safeguard against cyber threats but also foster a culture of security that benefits everyone.</div>
+        </div>
+
+    </div>
+</body>
+</html>

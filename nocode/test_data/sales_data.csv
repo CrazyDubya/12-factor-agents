@@ -1,0 +1,11 @@
+ProductID,ProductName,UnitsSold,PricePerUnit,Category
+101,Wireless Mouse,450,29.99,Electronics
+102,USB-C Cable,890,12.99,Electronics
+103,Laptop Stand,320,49.99,Accessories
+104,Webcam HD,280,79.99,Electronics
+105,Keyboard Mechanical,195,129.99,Electronics
+106,Monitor 27inch,145,399.99,Electronics
+107,Desk Lamp LED,520,34.99,Accessories
+108,Cable Organizer,670,9.99,Accessories
+109,Phone Holder,410,19.99,Accessories
+110,Bluetooth Speaker,235,89.99,Electronics

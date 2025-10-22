@@ -1,0 +1,33 @@
+{
+  "quarter": "Q1 2024",
+  "period": "January - March 2024",
+  "metrics": {
+    "revenue": {
+      "total": 2850000,
+      "growth_yoy": 12.5,
+      "currency": "USD"
+    },
+    "customers": {
+      "total": 1243,
+      "new": 187,
+      "churned": 45,
+      "retention_rate": 96.4
+    },
+    "engagement": {
+      "active_users": 8945,
+      "avg_session_duration_minutes": 23.5,
+      "daily_active_users": 3421
+    },
+    "support": {
+      "tickets_created": 892,
+      "tickets_resolved": 856,
+      "avg_resolution_time_hours": 8.2,
+      "satisfaction_score": 4.2
+    },
+    "product": {
+      "features_shipped": 12,
+      "bugs_fixed": 234,
+      "uptime_percentage": 99.2
+    }
+  }
+}

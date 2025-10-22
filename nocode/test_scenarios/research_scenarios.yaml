@@ -1,0 +1,104 @@
+domain: research
+description: Tests for research and information gathering capabilities
+
+tests:
+  - id: research_001
+    name: "Web Search - Basic Facts"
+    difficulty: easy
+    description: "Test ability to find and verify basic factual information using web search"
+    prompt: "Use web search to find out who won the Nobel Prize in Literature in 2023. Provide the answer with verification from multiple sources."
+    expected_behavior:
+      - "Uses WebSearch or similar tool"
+      - "Provides correct answer (Jon Fosse)"
+      - "Cites multiple sources"
+      - "Verifies consistency across sources"
+    validation:
+      response_patterns:
+        - "Jon Fosse"
+        - "2023"
+        - "Nobel.*Literature"
+    tags: [web-search, factual, verification]
+
+  - id: research_002
+    name: "Documentation Navigation"
+    difficulty: medium
+    description: "Test ability to navigate and extract information from technical documentation"
+    prompt: "Search for documentation about Python's asyncio library and explain what the 'gather' function does, including a practical use case."
+    expected_behavior:
+      - "Finds relevant documentation"
+      - "Explains asyncio.gather() accurately"
+      - "Provides practical example"
+      - "Demonstrates understanding of async concepts"
+    validation:
+      response_patterns:
+        - "gather"
+        - "concurrent|parallel"
+        - "await"
+    tags: [documentation, technical, explanation]
+
+  - id: research_003
+    name: "Multi-Source Research"
+    difficulty: hard
+    description: "Test ability to synthesize information from multiple sources"
+    prompt: "Research the current state of quantum computing. Compare at least 3 different approaches (e.g., superconducting qubits, trapped ions, topological) and summarize the advantages and challenges of each."
+    expected_behavior:
+      - "Finds information on multiple quantum computing approaches"
+      - "Compares at least 3 approaches"
+      - "Identifies advantages and challenges for each"
+      - "Synthesizes information coherently"
+      - "Cites sources"
+    validation:
+      response_patterns:
+        - "superconducting|trapped ion|topological|photonic"
+        - "advantage|benefit"
+        - "challenge|limitation"
+    tags: [multi-source, synthesis, comparison]
+
+  - id: research_004
+    name: "Fact Verification"
+    difficulty: medium
+    description: "Test ability to verify claims and identify misinformation"
+    prompt: "I read that 'humans only use 10% of their brain.' Is this true? Research and verify this claim."
+    expected_behavior:
+      - "Identifies this as a myth"
+      - "Provides scientific evidence"
+      - "Cites credible sources (neuroscience)"
+      - "Explains what the myth misunderstands"
+    validation:
+      response_patterns:
+        - "myth|false|incorrect|misconception"
+        - "brain|neuroscience"
+    tags: [verification, critical-thinking, debunking]
+
+  - id: research_005
+    name: "Historical Research"
+    difficulty: medium
+    description: "Test ability to research historical events with specific details"
+    prompt: "Research the Apollo 13 mission. What was the specific problem that occurred, when did it happen, and what was the key solution that saved the crew?"
+    expected_behavior:
+      - "Identifies oxygen tank explosion"
+      - "Provides specific date/time (April 13-14, 1970)"
+      - "Explains the solution (using LEM as lifeboat, CO2 filter adaptation)"
+      - "Shows understanding of the crisis timeline"
+    validation:
+      response_patterns:
+        - "oxygen.*tank|explosion"
+        - "1970|April"
+        - "lunar.*module|LEM|lifeboat"
+    tags: [historical, detail-oriented, problem-analysis]
+
+  - id: research_006
+    name: "Current Events Research"
+    difficulty: easy
+    description: "Test ability to find recent information"
+    prompt: "What were the top 3 technology trends discussed in the past month? Provide recent sources."
+    expected_behavior:
+      - "Uses recent sources (within past month)"
+      - "Identifies legitimate tech trends"
+      - "Provides source dates"
+      - "Shows awareness of current tech landscape"
+    validation:
+      response_patterns:
+        - "AI|artificial intelligence|machine learning|LLM"
+        - "202[3-9]"
+    tags: [current-events, tech-trends, timeliness]

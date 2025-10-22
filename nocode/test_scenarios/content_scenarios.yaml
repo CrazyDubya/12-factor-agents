@@ -1,0 +1,127 @@
+domain: content
+description: Tests for content creation and editing capabilities
+
+tests:
+  - id: content_001
+    name: "Document Summarization"
+    difficulty: easy
+    description: "Test ability to create concise summaries of longer documents"
+    prompt: "Read the article in test_data/long_article.md and create a 3-sentence summary suitable for an executive briefing."
+    context_files:
+      - "test_data/long_article.md"
+    expected_behavior:
+      - "Captures main points"
+      - "Maintains accuracy"
+      - "Meets length requirement (3 sentences)"
+      - "Appropriate tone for executives"
+    validation:
+      response_patterns:
+        - "\\. .*\\. .*\\."  # Three sentences
+    tags: [summarization, brevity, executive-communication]
+
+  - id: content_002
+    name: "Multi-Document Synthesis"
+    difficulty: hard
+    description: "Test ability to synthesize information from multiple documents into coherent content"
+    prompt: "Read the three blog posts in test_data/content_creation/ and create a comprehensive guide that combines the key insights from all three posts."
+    context_files:
+      - "test_data/content_creation/post1.md"
+      - "test_data/content_creation/post2.md"
+      - "test_data/content_creation/post3.md"
+    expected_behavior:
+      - "Reads all source documents"
+      - "Identifies key insights from each"
+      - "Synthesizes into coherent narrative"
+      - "Eliminates redundancy"
+      - "Maintains logical flow"
+    validation:
+      response_patterns:
+        - "guide|comprehensive"
+    tags: [synthesis, multi-source, writing]
+
+  - id: content_003
+    name: "Style Adaptation"
+    difficulty: medium
+    description: "Test ability to adapt content to different styles and audiences"
+    prompt: "Take the technical documentation in test_data/technical_doc.md and rewrite it for a non-technical audience (e.g., business stakeholders)."
+    context_files:
+      - "test_data/technical_doc.md"
+    expected_behavior:
+      - "Simplifies technical jargon"
+      - "Maintains accuracy"
+      - "Uses analogies or examples"
+      - "Focuses on business value"
+    validation:
+      response_patterns:
+        - "business|value|benefit"
+    tags: [style-adaptation, audience-awareness, simplification]
+
+  - id: content_004
+    name: "Content Formatting"
+    difficulty: easy
+    description: "Test ability to format content appropriately"
+    prompt: "Convert the plain text meeting notes in test_data/meeting_notes.txt into a well-formatted markdown document with headers, bullet points, and action items."
+    context_files:
+      - "test_data/meeting_notes.txt"
+    expected_behavior:
+      - "Uses markdown formatting correctly"
+      - "Creates logical structure with headers"
+      - "Uses bullet points for lists"
+      - "Highlights action items"
+    validation:
+      response_patterns:
+        - "^#{1,3} "  # Markdown headers
+        - "^[-*] "    # Bullet points
+    tags: [formatting, markdown, organization]
+
+  - id: content_005
+    name: "Creative Writing"
+    difficulty: medium
+    description: "Test ability to generate creative content based on constraints"
+    prompt: "Write a product announcement for a new AI-powered task management app. The announcement should be 200-250 words, highlight 3 key features, and maintain an enthusiastic but professional tone."
+    expected_behavior:
+      - "Meets word count (200-250)"
+      - "Highlights 3 distinct features"
+      - "Maintains appropriate tone"
+      - "Compelling and clear"
+    validation:
+      response_patterns:
+        - "feature|capability|benefit"
+    tags: [creative-writing, marketing, tone-control]
+
+  - id: content_006
+    name: "Editing and Improvement"
+    difficulty: medium
+    description: "Test ability to edit and improve existing content"
+    prompt: "Review the draft blog post in test_data/draft_blog.md. Identify issues with clarity, grammar, and structure. Then provide an improved version."
+    context_files:
+      - "test_data/draft_blog.md"
+    expected_behavior:
+      - "Identifies specific issues"
+      - "Provides concrete improvements"
+      - "Explains changes made"
+      - "Maintains original intent"
+    validation:
+      response_patterns:
+        - "improve|edit|fix|revise"
+        - "grammar|clarity|structure"
+    tags: [editing, improvement, critique]
+
+  - id: content_007
+    name: "Content Comparison"
+    difficulty: easy
+    description: "Test ability to compare different content versions"
+    prompt: "Compare version A and version B of the landing page copy in test_data/landing_v1.txt and test_data/landing_v2.txt. Which version is more effective and why?"
+    context_files:
+      - "test_data/landing_v1.txt"
+      - "test_data/landing_v2.txt"
+    expected_behavior:
+      - "Analyzes both versions"
+      - "Identifies key differences"
+      - "Evaluates effectiveness"
+      - "Provides reasoned recommendation"
+    validation:
+      response_patterns:
+        - "version|effective|better"
+        - "because|reason|since"
+    tags: [comparison, copywriting, analysis]

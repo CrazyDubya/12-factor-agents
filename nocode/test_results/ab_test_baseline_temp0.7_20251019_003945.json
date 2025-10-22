@@ -1,0 +1,86 @@
+{
+  "metadata": {
+    "variant": "baseline",
+    "temperature": 0.7,
+    "model": "qwen2.5:3b",
+    "total_tests": 6,
+    "pass_count": 4,
+    "partial_count": 2,
+    "fail_count": 0,
+    "success_rate": 83.33333333333334
+  },
+  "results": [
+    {
+      "test_id": "reasoning_001",
+      "domain": "reasoning",
+      "status": "pass",
+      "score": 2,
+      "max_score": 2,
+      "variant": "baseline",
+      "temperature": 0.7,
+      "modified_prompt_preview": "Given: All managers attend the weekly meeting. Sarah attends the weekly meeting. John is a manager. Can we conclude that Sarah is a manager? Explain your reasoning....",
+      "agent_response": "Based on the given information:\n\n1. All managers attend the weekly meeting.\n2. Sarah attends the weekly meeting.\n3. John is a manager.\n\nWe can deduce from point 1 and 2 that since all managers (including John, who we know to be a manager) attend the weekly meeting, anyone who attends the weekly meeting must be a manager (or someone not attending but still being classified as a \"manager\" in this context). \n\nHowever, point 3 only tells us that John is a manager. It does not provide information abo...",
+      "timestamp": "2025-10-19T00:38:24.911332"
+    },
+    {
+      "test_id": "reasoning_002",
+      "domain": "reasoning",
+      "status": "pass",
+      "score": 3,
+      "max_score": 3,
+      "variant": "baseline",
+      "temperature": 0.7,
+      "modified_prompt_preview": "Compare building a mobile app as: (A) native iOS and Android apps separately, (B) using React Native, or (C) as a progressive web app. Analyze the trade-offs in terms of performance, development time,...",
+      "agent_response": "Let's analyze each option based on several key aspects such as performance, development time, cost, and user experience.\n\n### A: Building Native iOS and Android Apps Separately\n\n#### Performance:\n- **Native iOS**: Typically performs better because the app is written specifically for iOS hardware and iOS-specific APIs.\n- **Native Android**: Likewise, performs better as it leverages Android's hardware and SDKs without any conversion issues.\n- **Progressive Web App (PWA)**: While PWA can emulate so...",
+      "timestamp": "2025-10-19T00:38:50.403924"
+    },
+    {
+      "test_id": "reasoning_003",
+      "domain": "reasoning",
+      "status": "partial",
+      "score": 2,
+      "max_score": 3,
+      "variant": "baseline",
+      "temperature": 0.7,
+      "modified_prompt_preview": "A company noticed that employees who drink coffee have 20% higher productivity. Should the company provide free coffee to all employees to boost productivity? What other factors should they consider?...",
+      "agent_response": "Offering free coffee to all employees can be an effective way to enhance their productivity, but it's important for a company to consider several other factors and implications before making such a decision:\n\n### 1. Cost: \nProviding free coffee has direct financial costs that must be factored into the overall budget of the organization.\n\n### 2. Budget: \nThe cost should be weighed against potential benefits like increased productivity, job satisfaction, and potentially reduced turnover rates due ...",
+      "timestamp": "2025-10-19T00:39:04.684469"
+    },
+    {
+      "test_id": "communication_001",
+      "domain": "communication",
+      "status": "partial",
+      "score": 1,
+      "max_score": 2,
+      "variant": "baseline",
+      "temperature": 0.7,
+      "modified_prompt_preview": "Explain what a REST API is to someone with no technical background in 2-3 sentences....",
+      "agent_response": "A REST API stands for Representational State of Resource API and it's like a set of rules that allows different software applications to communicate with each other over the internet, much like how you might use commands or messages to exchange information between friends who live far away but can't meet in person.",
+      "timestamp": "2025-10-19T00:39:06.427817"
+    },
+    {
+      "test_id": "communication_002",
+      "domain": "communication",
+      "status": "pass",
+      "score": 3,
+      "max_score": 3,
+      "variant": "baseline",
+      "temperature": 0.7,
+      "modified_prompt_preview": "Explain the difference between machine learning and deep learning to a software developer who is new to AI....",
+      "agent_response": "Sure! Let's break down the concepts of Machine Learning (ML) and Deep Learning (DL), starting with the basics.\n\n### Machine Learning\n\n**Machine Learning** is a subset of Artificial Intelligence that focuses on algorithms enabling computers to learn from and make predictions or decisions based on data, without being explicitly programmed. The main idea behind ML is to create models that can generalize well, making predictions about new, unseen data.\n\nHere are some key points for Machine Learning:...",
+      "timestamp": "2025-10-19T00:39:28.584513"
+    },
+    {
+      "test_id": "communication_003",
+      "domain": "communication",
+      "status": "pass",
+      "score": 2,
+      "max_score": 2,
+      "variant": "baseline",
+      "temperature": 0.7,
+      "modified_prompt_preview": "Explain the steps to debug a software issue. Structure your response clearly....",
+      "agent_response": "Debugging a software issue is an iterative process that involves identifying the problem accurately and systematically resolving it. Here\u2019s a structured approach to debugging:\n\n### 1. Reproduce the Issue\n- **Identify the Problem:** Clearly define what the problem is by describing symptoms or errors observed.\n- **Reproduce Steps:** Document every step you need to take to reproduce the issue consistently. This could involve specific inputs, configurations, and user actions.\n\n### 2. Gather Informat...",
+      "timestamp": "2025-10-19T00:39:45.443632"
+    }
+  ]
+}

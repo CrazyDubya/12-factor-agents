@@ -1,0 +1,86 @@
+{
+  "metadata": {
+    "variant": "few_shot",
+    "temperature": 0.7,
+    "model": "qwen2.5:3b",
+    "total_tests": 6,
+    "pass_count": 0,
+    "partial_count": 0,
+    "fail_count": 6,
+    "success_rate": 0.0
+  },
+  "results": [
+    {
+      "test_id": "reasoning_001",
+      "domain": "reasoning",
+      "status": "fail",
+      "score": 0,
+      "max_score": 2,
+      "variant": "few_shot",
+      "temperature": 0.7,
+      "modified_prompt_preview": "Here's how to approach reasoning:\n\nExample:\nQ: If all cats are mammals, and Fluffy is a cat, is Fluffy a mammal?\nA: Yes. Using deductive logic:\n   Premise 1: All cats are mammals\n   Premise 2: Fluffy ...",
+      "agent_response": "No, we cannot conclusively say that Sarah is a manager based on the given information.\n\nLet's break down the premises and reasoning:\n\nGiven Premises:\n1. All managers attend the weekly meeting.\n2. Sarah attends the weekly meeting.\n3. John is a manager.\n\nFrom these premises, we can deduce two things:\n- Since all managers attend the weekly meeting (Premise 1), and John is a manager (Premise 3), it logically follows that John must be attending the weekly meeting (deduced from Premise 1).\n\nHowever, P...",
+      "timestamp": "2025-10-19T00:34:50.859675"
+    },
+    {
+      "test_id": "reasoning_002",
+      "domain": "reasoning",
+      "status": "fail",
+      "score": 0,
+      "max_score": 3,
+      "variant": "few_shot",
+      "temperature": 0.7,
+      "modified_prompt_preview": "Here's how to approach reasoning:\n\nExample:\nQ: If all cats are mammals, and Fluffy is a cat, is Fluffy a mammal?\nA: Yes. Using deductive logic:\n   Premise 1: All cats are mammals\n   Premise 2: Fluffy ...",
+      "agent_response": "Let's analyze the three options for building a mobile application\u2014native iOS and Android apps, using React Native, and as a progressive web app\u2014in terms of performance, development time, cost, and user experience.\n\n### 1. **Native iOS and Android Apps (Option A)**\n**Performance:**\n- High performance due to direct integration with the underlying platform.\n- Optimized for device-specific features like camera, GPS, etc.\n  \n**Development Time:**\n- Requires different development efforts for each oper...",
+      "timestamp": "2025-10-19T00:35:09.587673"
+    },
+    {
+      "test_id": "reasoning_003",
+      "domain": "reasoning",
+      "status": "fail",
+      "score": 0,
+      "max_score": 3,
+      "variant": "few_shot",
+      "temperature": 0.7,
+      "modified_prompt_preview": "Here's how to approach reasoning:\n\nExample:\nQ: If all cats are mammals, and Fluffy is a cat, is Fluffy a mammal?\nA: Yes. Using deductive logic:\n   Premise 1: All cats are mammals\n   Premise 2: Fluffy ...",
+      "agent_response": "The reasoning approach you provided focuses on deductive logic: if A implies B, then any instance of A must be true if we accept that B is true. In this case, if drinking coffee (A) leads to 20% higher productivity (B), then providing free coffee could potentially lead to increased productivity among employees.\n\nHowever, a more comprehensive analysis would involve considering several other factors before concluding whether or not the company should provide free coffee:\n\n1. **Cost Considerations*...",
+      "timestamp": "2025-10-19T00:35:20.485524"
+    },
+    {
+      "test_id": "communication_001",
+      "domain": "communication",
+      "status": "fail",
+      "score": 0,
+      "max_score": 2,
+      "variant": "few_shot",
+      "temperature": 0.7,
+      "modified_prompt_preview": "Here are examples of clear explanations:\n\nExample 1:\nQ: Explain what a database is to someone non-technical.\nA: A database is like a digital filing cabinet. Just as you organize papers in folders and ...",
+      "agent_response": "A REST API is like a set of instructions that tells a computer program how to communicate and exchange data with another program or device over the internet, without needing to know any programming details. It's similar to sending an email: you don't need to understand the inner workings of your email server; you just follow the rules for what emails can look like and how to send them.",
+      "timestamp": "2025-10-19T00:35:22.557309"
+    },
+    {
+      "test_id": "communication_002",
+      "domain": "communication",
+      "status": "fail",
+      "score": 0,
+      "max_score": 3,
+      "variant": "few_shot",
+      "temperature": 0.7,
+      "modified_prompt_preview": "Here are examples of clear explanations:\n\nExample 1:\nQ: Explain what a database is to someone non-technical.\nA: A database is like a digital filing cabinet. Just as you organize papers in folders and ...",
+      "agent_response": "Certainly! Here\u2019s an explanation of the difference between machine learning and deep learning to a software developer who is new to AI:\n\nMachine Learning (ML) can be thought of as a broad category that includes various techniques for training algorithms to make predictions or decisions based on data. It's about teaching computers how to learn from examples without being explicitly programmed.\n\nDeep Learning, on the other hand, is a subset within machine learning. Deep learning uses neural networ...",
+      "timestamp": "2025-10-19T00:35:27.406358"
+    },
+    {
+      "test_id": "communication_003",
+      "domain": "communication",
+      "status": "fail",
+      "score": 0,
+      "max_score": 2,
+      "variant": "few_shot",
+      "temperature": 0.7,
+      "modified_prompt_preview": "Here are examples of clear explanations:\n\nExample 1:\nQ: Explain what a database is to someone non-technical.\nA: A database is like a digital filing cabinet. Just as you organize papers in folders and ...",
+      "agent_response": "Certainly! Here's a clear explanation on how to debug a software issue:\n\n---\n\n**Q: How can one go about debugging a software issue?**\n\n**A:** Debugging is a process used by developers and software engineers to find, understand, and fix problems in their code or applications. The steps involved in debugging can be structured as follows:\n\n1. **Identify the Problem**: The first step is to clearly define what the problem is. This involves understanding the symptoms of the issue and identifying any e...",
+      "timestamp": "2025-10-19T00:35:39.867796"
+    }
+  ]
+}

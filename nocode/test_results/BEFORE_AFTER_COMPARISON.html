@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>BEFORE/AFTER Comparison - Real Data</title>
+    <style>
+        body {
+            font-family: 'SF Mono', Monaco, 'Courier New', monospace;
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+        h1, h2, h3 {
+            color: #4ec9b0;
+            border-bottom: 2px solid #4ec9b0;
+            padding-bottom: 10px;
+        }
+        .summary-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .summary-box {
+            background: #252526;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        .summary-box.before { border-left: 4px solid #ce9178; }
+        .summary-box.after { border-left: 4px solid #4ec9b0; }
+        .metric {
+            margin: 10px 0;
+            padding: 10px;
+            background: #1e1e1e;
+            border-radius: 4px;
+        }
+        .metric .label {
+            color: #858585;
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+        .metric .value {
+            color: #4ec9b0;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .improvement {
+            color: #4ec9b0;
+            font-weight: bold;
+        }
+        .degradation {
+            color: #f48771;
+            font-weight: bold;
+        }
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .test-panel {
+            background: #252526;
+            padding: 15px;
+            border-radius: 8px;
+        }
+        .test-panel.before { border-left: 4px solid #ce9178; }
+        .test-panel.after { border-left: 4px solid #4ec9b0; }
+        .test-panel.changed { border: 2px solid #dcdcaa; }
+        .response-box {
+            background: #1e1e1e;
+            padding: 10px;
+            border-radius: 4px;
+            margin: 10px 0;
+            white-space: pre-wrap;
+            font-size: 12px;
+            max-height: 400px;
+            overflow-y: auto;
+            border: 1px solid #3e3e42;
+        }
+        .pattern {
+            display: inline-block;
+            padding: 3px 8px;
+            margin: 2px;
+            border-radius: 3px;
+            font-size: 11px;
+        }
+        .pattern.found {
+            background: #1a4d2e;
+            color: #4ec9b0;
+        }
+        .pattern.missing {
+            background: #4d1a1a;
+            color: #f48771;
+        }
+        .char-count {
+            color: #ce9178;
+            font-weight: bold;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0;
+        }
+        th, td {
+            padding: 8px;
+            border: 1px solid #3e3e42;
+            text-align: left;
+            font-size: 13px;
+        }
+        th {
+            background: #2d2d30;
+            color: #4ec9b0;
+        }
+        .status-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        .status-badge.pass { background: #1a4d2e; color: #4ec9b0; }
+        .status-badge.partial { background: #4d3a1a; color: #ce9178; }
+        .status-badge.fail { background: #4d1a1a; color: #f48771; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📊 BEFORE/AFTER COMPARISON - REAL DATA</h1>
+
+        <div class="summary-grid">
+            <div class="summary-box before">
+                <h2>❌ BEFORE (Original Prompts)</h2>
+                <div class="metric">
+                    <div class="label">Success Rate</div>
+                    <div class="value">93.8%</div>
+                </div>
+                <div class="metric">
+                    <div class="label">Passed / Total</div>
+                    <div class="value">7/8</div>
+                </div>
+                <div class="metric">
+                    <div class="label">Partial</div>
+                    <div class="value">1</div>
+                </div>
+                <div class="metric">
+                    <div class="label">Quality Score</div>
+                    <div class="value">3.5/4</div>
+                </div>
+            </div>
+
+            <div class="summary-box after">
+                <h2>✅ AFTER (Fixed Prompts)</h2>
+                <div class="metric">
+                    <div class="label">Success Rate</div>
+                    <div class="value">100.0%</div>
+                </div>
+                <div class="metric">
+                    <div class="label">Passed / Total</div>
+                    <div class="value">8/8</div>
+                </div>
+                <div class="metric">
+                    <div class="label">Partial</div>
+                    <div class="value">0</div>
+                </div>
+                <div class="metric">
+                    <div class="label">Quality Score</div>
+                    <div class="value">3.9/4</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="summary-box">
+            <h2>📈 IMPROVEMENT METRICS</h2>
+            <table>
+                <tr>
+                    <th>Metric</th>
+                    <th>Before</th>
+                    <th>After</th>
+                    <th>Change</th>
+                </tr>
+                <tr>
+                    <td>Success Rate</td>
+                    <td>93.8%</td>
+                    <td>100.0%</td>
+                    <td class="improvement">+6.2%</td>
+                </tr>
+                <tr>
+                    <td>Tests Passed</td>
+                    <td>7</td>
+                    <td>8</td>
+                    <td class="improvement">+1</td>
+                </tr>
+                <tr>
+                    <td>Partial Tests</td>
+                    <td>1</td>
+                    <td>0</td>
+                    <td class="improvement">-1</td>
+                </tr>
+                <tr>
+                    <td>Quality Score</td>
+                    <td>3.5</td>
+                    <td>3.9</td>
+                    <td class="improvement">+0.4</td>
+                </tr>
+            </table>
+        </div>
+
+        <h2>🔍 TEST-BY-TEST COMPARISON</h2>
+
+        <div style="margin: 30px 0; padding: 20px; background: #2d2d30; border-radius: 8px; ">
+            <h3>reasoning_001 </h3>
+
+            <table>
+                <tr>
+                    <th>Metric</th>
+                    <th>Before</th>
+                    <th>After</th>
+                    <th>Change</th>
+                </tr>
+                <tr>
+                    <td>Status</td>
+                    <td><span class="status-badge pass">pass</span></td>
+                    <td><span class="status-badge pass">pass</span></td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>Score</td>
+                    <td>2/2 (100%)</td>
+                    <td>2/2 (100%)</td>
+                    <td class="">0</td>
+                </tr>
+                <tr>
+                    <td>Response Length</td>
+                    <td class="char-count">1,330 chars</td>
+                    <td class="char-count">901 chars</td>
+                    <td class="improvement">-32%</td>
+                </tr>
+            </table>
+
+            <div class="comparison-grid">
+                <div class="test-panel before">
+                    <h4>❌ BEFORE</h4>
+                    <p><strong>Patterns:</strong></p>
+<span class="pattern found">✓ cannot|no|insufficient</span><span class="pattern found">✓ logic|reasoning|conclude</span>
+                    <h4>Response (1,330 chars):</h4>
+                    <div class="response-box">Based on the given information, let's break down the statements:
+
+1. All managers attend the weekly meeting.
+2. Sarah attends the weekly meeting.
+3. John is a manager.
+
+From these points, we can deduce some things:
+- Since all managers attend the weekly meeting (statement 1), and Sarah attends the weekly meeting (statement 2), it logically follows that Sarah must be one of those managers who attend the meeting.
+- However, from statement 3, we know John is a manager. This doesn't directly help us...</div>
+                </div>
+
+                <div class="test-panel after">
+                    <h4>✅ AFTER</h4>
+                    <p><strong>Patterns:</strong></p>
+<span class="pattern found">✓ cannot|no|insufficient</span><span class="pattern found">✓ logic|reasoning|conclude</span>
+                    <h4>Response (901 chars):</h4>
+                    <div class="response-box">Given the information provided:
+
+1. All managers attend the weekly meeting.
+2. Sarah attends the weekly meeting.
+3. John is a manager.
+
+We can infer from statements 1 and 3 combined (all managers attend the weekly meeting, and John is a manager) that John also attends the weekly meeting. However, this does not provide any direct information about whether Sarah is a manager or not. 
+
+While it's true that all managers are among those attending the weekly meeting, there could be other individuals w...</div>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin: 30px 0; padding: 20px; background: #2d2d30; border-radius: 8px; border: 2px solid #dcdcaa;">
+            <h3>reasoning_002 ⚠️ CHANGED</h3>
+
+            <table>
+                <tr>
+                    <th>Metric</th>
+                    <th>Before</th>
+                    <th>After</th>
+                    <th>Change</th>
+                </tr>
+                <tr>
+                    <td>Status</td>
+                    <td><span class="status-badge partial">partial</span></td>
+                    <td><span class="status-badge pass">pass</span></td>
+                    <td>✓ IMPROVED</td>
+                </tr>
+                <tr>
+                    <td>Score</td>
+                    <td>2/3 (67%)</td>
+                    <td>3/3 (100%)</td>
+                    <td class="improvement">+1</td>
+                </tr>
+                <tr>
+                    <td>Response Length</td>
+                    <td class="char-count">4,447 chars</td>
+                    <td class="char-count">3,995 chars</td>
+                    <td class="improvement">-10%</td>
+                </tr>
+            </table>
+
+            <div class="comparison-grid">
+                <div class="test-panel before">
+                    <h4>❌ BEFORE</h4>
+                    <p><strong>Patterns:</strong></p>
+<span class="pattern missing">✗ trade-off|advantage|disadvanta</span><span class="pattern found">✓ performance|cost|time</span><span class="pattern found">✓ native|React Native|PWA</span>
+                    <h4>Response (4,447 chars):</h4>
+                    <div class="response-box">Let's analyze each approach for building a mobile app - developing a native iOS and Android app, utilizing React Native, and creating a Progressive Web App (PWA).
+
+### 1. Developing Native Apps (iOS and Android)
+
+#### Performance:
+- **Pros**: Full access to device features through system APIs; high performance due to optimized native code.
+- **Cons**: Separate development and maintenance for each platform requires more time and effort. Development costs can be higher as it involves writing separ...</div>
+                </div>
+
+                <div class="test-panel after">
+                    <h4>✅ AFTER</h4>
+                    <p><strong>Patterns:</strong></p>
+<span class="pattern found">✓ trade-off|advantage|disadvanta</span><span class="pattern found">✓ performance|cost|time</span><span class="pattern found">✓ native|React Native|PWA</span>
+                    <h4>Response (3,995 chars):</h4>
+                    <div class="response-box">### Option A: Native iOS and Android Apps Separately
+
+#### Advantages:
+
+1. **Performance:** Native apps generally offer the best performance due to direct integration with mobile operating systems (iOS and Android). They can take full advantage of specific features provided by each platform, leading to a smoother user experience.
+2. **User Experience:** Native app developers have more control over every aspect, allowing for a highly polished look and feel tailored specifically to iOS or Android ...</div>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin: 30px 0; padding: 20px; background: #2d2d30; border-radius: 8px; ">
+            <h3>reasoning_003 </h3>
+
+            <table>
+                <tr>
+                    <th>Metric</th>
+                    <th>Before</th>
+                    <th>After</th>
+                    <th>Change</th>
+                </tr>
+                <tr>
+                    <td>Status</td>
+                    <td><span class="status-badge pass">pass</span></td>
+                    <td><span class="status-badge pass">pass</span></td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>Score</td>
+                    <td>3/3 (100%)</td>
+                    <td>3/3 (100%)</td>
+                    <td class="">0</td>
+                </tr>
+                <tr>
+                    <td>Response Length</td>
+                    <td class="char-count">2,708 chars</td>
+                    <td class="char-count">1,946 chars</td>
+                    <td class="improvement">-28%</td>
+                </tr>
+            </table>
+
+            <div class="comparison-grid">
+                <div class="test-panel before">
+                    <h4>❌ BEFORE</h4>
+                    <p><strong>Patterns:</strong></p>
+<span class="pattern found">✓ correlation|causation|cause</span><span class="pattern found">✓ factor|variable|consider</span><span class="pattern found">✓ confound|alternative</span>
+                    <h4>Response (2,708 chars):</h4>
+                    <div class="response-box">Providing free coffee to all employees might seem like an effective strategy to increase productivity, based on the observed correlation between coffee consumption and increased productivity. However, before implementing such a policy, several important factors need to be considered:
+
+1. **Cost**: Free coffee can add significantly to the company's expenses. The cost of purchasing and maintaining coffee machines, ensuring sufficient supplies, and disposing of waste could strain the budget.
+
+2. **...</div>
+                </div>
+
+                <div class="test-panel after">
+                    <h4>✅ AFTER</h4>
+                    <p><strong>Patterns:</strong></p>
+<span class="pattern found">✓ correlation|causation|cause</span><span class="pattern found">✓ factor|variable|consider</span><span class="pattern found">✓ confound|alternative</span>
+                    <h4>Response (1,946 chars):</h4>
+                    <div class="response-box">Certainly! Here are five key points for the company to consider regarding providing free coffee to boost employee productivity:
+
+1. **Cost Factor**: Free coffee might lead to an increase in overall operational costs for the company, impacting its profitability and financial health.
+
+2. **Employee Preferences**: Not all employees may enjoy or need coffee. Catering to a specific taste might not be inclusive of everyone's preferences and dietary needs.
+
+3. **Alternative Solutions**: Other methods l...</div>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin: 30px 0; padding: 20px; background: #2d2d30; border-radius: 8px; ">
+            <h3>reasoning_004 </h3>
+
+            <table>
+                <tr>
+                    <th>Metric</th>
+                    <th>Before</th>
+                    <th>After</th>
+                    <th>Change</th>
+                </tr>
+                <tr>
+                    <td>Status</td>
+                    <td><span class="status-badge pass">pass</span></td>
+                    <td><span class="status-badge pass">pass</span></td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>Score</td>
+                    <td>2/2 (100%)</td>
+                    <td>2/2 (100%)</td>
+                    <td class="">0</td>
+                </tr>
+                <tr>
+                    <td>Response Length</td>
+                    <td class="char-count">783 chars</td>
+                    <td class="char-count">553 chars</td>
+                    <td class="improvement">-29%</td>
+                </tr>
+            </table>
+
+            <div class="comparison-grid">
+                <div class="test-panel before">
+                    <h4>❌ BEFORE</h4>
+                    <p><strong>Patterns:</strong></p>
+<span class="pattern found">✓ 42</span><span class="pattern found">✓ pattern|sequence|difference</span>
+                    <h4>Response (783 chars):</h4>
+                    <div class="response-box">The given sequence is: 
+
+- \(2\)
+- \(6\)
+- \(12\)
+- \(20\)
+- \(30\)
+
+To find the pattern or rule for this sequence, let's examine how each number relates to its predecessor:
+
+- The difference between 2 and 6 is \(6 - 2 = 4\).
+- The difference between 6 and 12 is \(12 - 6 = 6\).
+- The difference between 12 and 20 is \(20 - 12 = 8\).
+- The difference between 20 and 30 is \(30 - 20 = 10\).
+
+The differences are increasing by 2 each time:
+- From 4 to 6: Difference increases by 2.
+- From 6 to 8: Diffe...</div>
+                </div>
+
+                <div class="test-panel after">
+                    <h4>✅ AFTER</h4>
+                    <p><strong>Patterns:</strong></p>
+<span class="pattern found">✓ 42</span><span class="pattern found">✓ pattern|sequence|difference</span>
+                    <h4>Response (553 chars):</h4>
+                    <div class="response-box">To find the pattern in the given sequence (2, 6, 12, 20, 30), let's look at the differences between consecutive terms:
+
+- The difference between 6 and 2 is 4.
+- The difference between 12 and 6 is 6.
+- The difference between 20 and 12 is 8.
+- The difference between 30 and 20 is 10.
+
+The pattern in the differences (4, 6, 8, 10) seems to be that each number increases by 2. Following this pattern, the next difference should be 12.
+
+Adding 12 to the last term of the sequence (30):
+
+\[ 30 + 12 = 42 \]...</div>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin: 30px 0; padding: 20px; background: #2d2d30; border-radius: 8px; ">
+            <h3>communication_001 </h3>
+
+            <table>
+                <tr>
+                    <th>Metric</th>
+                    <th>Before</th>
+                    <th>After</th>
+                    <th>Change</th>
+                </tr>
+                <tr>
+                    <td>Status</td>
+                    <td><span class="status-badge pass">pass</span></td>
+                    <td><span class="status-badge pass">pass</span></td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>Score</td>
+                    <td>2/2 (100%)</td>
+                    <td>2/2 (100%)</td>
+                    <td class="">0</td>
+                </tr>
+                <tr>
+                    <td>Response Length</td>
+                    <td class="char-count">380 chars</td>
+                    <td class="char-count">507 chars</td>
+                    <td class="">33%</td>
+                </tr>
+            </table>
+
+            <div class="comparison-grid">
+                <div class="test-panel before">
+                    <h4>❌ BEFORE</h4>
+                    <p><strong>Patterns:</strong></p>
+<span class="pattern found">✓ API|interface</span><span class="pattern found">✓ \. .*\.</span>
+                    <h4>Response (380 chars):</h4>
+                    <div class="response-box">A REST API is like a set of rules for talking between two computer programs over the internet. It's similar to how you might speak with your friend using simple words and clear instructions, but instead of people, it uses web requests and responses to share information or request data from another program on the internet in a way that's easy for computers to understand and use.</div>
+                </div>
+
+                <div class="test-panel after">
+                    <h4>✅ AFTER</h4>
+                    <p><strong>Patterns:</strong></p>
+<span class="pattern found">✓ API|interface</span><span class="pattern found">✓ \. .*\.</span>
+                    <h4>Response (507 chars):</h4>
+                    <div class="response-box">A REST API is like a set of rules for talking between different computer programs over the internet. Imagine you have two friends who want to share information about their toys, but they don't speak the same language. A REST API would be like creating a shared dictionary and set of commands that both friends can use to ask each other questions (like "Do you have a red car?") and give answers (like "Yes, I do!"), using a common understanding so they can communicate effectively across different pr...</div>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin: 30px 0; padding: 20px; background: #2d2d30; border-radius: 8px; ">
+            <h3>communication_002 </h3>
+
+            <table>
+                <tr>
+                    <th>Metric</th>
+                    <th>Before</th>
+                    <th>After</th>
+                    <th>Change</th>
+                </tr>
+                <tr>
+                    <td>Status</td>
+                    <td><span class="status-badge pass">pass</span></td>
+                    <td><span class="status-badge pass">pass</span></td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>Score</td>
+                    <td>3/3 (100%)</td>
+                    <td>3/3 (100%)</td>
+                    <td class="">0</td>
+                </tr>
+                <tr>
+                    <td>Response Length</td>
+                    <td class="char-count">3,990 chars</td>
+                    <td class="char-count">618 chars</td>
+                    <td class="improvement">-85%</td>
+                </tr>
+            </table>
+
+            <div class="comparison-grid">
+                <div class="test-panel before">
+                    <h4>❌ BEFORE</h4>
+                    <p><strong>Patterns:</strong></p>
+<span class="pattern found">✓ machine learning|ML</span><span class="pattern found">✓ deep learning|neural network</span><span class="pattern found">✓ difference|differ|whereas|whil</span>
+                    <h4>Response (3,990 chars):</h4>
+                    <div class="response-box">Sure! Let's compare machine learning (ML) and deep learning (DL), two of the most popular subfields within artificial intelligence.
+
+### Machine Learning
+Machine learning is a type of artificial intelligence that allows software applications to become more accurate at predicting outcomes or taking actions without being explicitly programmed to do so. The core idea behind ML is to use algorithms to make predictions based on data, thereby improving its performance over time through experience. The...</div>
+                </div>
+
+                <div class="test-panel after">
+                    <h4>✅ AFTER</h4>
+                    <p><strong>Patterns:</strong></p>
+<span class="pattern found">✓ machine learning|ML</span><span class="pattern found">✓ deep learning|neural network</span><span class="pattern found">✓ difference|differ|whereas|whil</span>
+                    <h4>Response (618 chars):</h4>
+                    <div class="response-box">Machine Learning involves algorithms that enable computers to learn from data, improve performance from it, and adjust as needed without being explicitly programmed. Deep Learning is a subset of Machine Learning that uses neural networks with many layers to automatically extract features from raw data for complex pattern recognition tasks. Essentially, while both aim to make predictions or decisions based on data, deep learning excels in handling large amounts of high-dimensional data through fe...</div>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin: 30px 0; padding: 20px; background: #2d2d30; border-radius: 8px; ">
+            <h3>communication_003 </h3>
+
+            <table>
+                <tr>
+                    <th>Metric</th>
+                    <th>Before</th>
+                    <th>After</th>
+                    <th>Change</th>
+                </tr>
+                <tr>
+                    <td>Status</td>
+                    <td><span class="status-badge pass">pass</span></td>
+                    <td><span class="status-badge pass">pass</span></td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>Score</td>
+                    <td>2/2 (100%)</td>
+                    <td>2/2 (100%)</td>
+                    <td class="">0</td>
+                </tr>
+                <tr>
+                    <td>Response Length</td>
+                    <td class="char-count">3,225 chars</td>
+                    <td class="char-count">758 chars</td>
+                    <td class="improvement">-76%</td>
+                </tr>
+            </table>
+
+            <div class="comparison-grid">
+                <div class="test-panel before">
+                    <h4>❌ BEFORE</h4>
+                    <p><strong>Patterns:</strong></p>
+<span class="pattern found">✓ 1\.|2\.|first|second|step</span><span class="pattern found">✓ debug|error|issue</span>
+                    <h4>Response (3,225 chars):</h4>
+                    <div class="response-box">Debugging a software issue involves a structured and systematic approach. Here are the steps you can follow:
+
+### 1. **Identify and Reproduce the Issue**
+   - **Identify:** Understand what problem is occurring and its impact on the system.
+   - **Replicate:** Try to create conditions under which the error consistently occurs so that it can be observed, reproduced, and studied.
+
+### 2. **Gather Information and Logs**
+   - **Log Files:** Collect logs from the affected software or application. Thes...</div>
+                </div>
+
+                <div class="test-panel after">
+                    <h4>✅ AFTER</h4>
+                    <p><strong>Patterns:</strong></p>
+<span class="pattern found">✓ 1\.|2\.|first|second|step</span><span class="pattern found">✓ debug|error|issue</span>
+                    <h4>Response (758 chars):</h4>
+                    <div class="response-box">Debugging a software issue effectively involves several crucial steps. First, identify and isolate the problem accurately by reproducing it under controlled conditions. Second, gather all relevant logs and error messages to understand what is happening internally. Third, use tools like debuggers or profilers to inspect the code execution flow and variables. Fourth, consider reviewing documentation and community resources for similar issues, as they might offer clues or known solutions. Fifth, im...</div>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin: 30px 0; padding: 20px; background: #2d2d30; border-radius: 8px; ">
+            <h3>communication_004 </h3>
+
+            <table>
+                <tr>
+                    <th>Metric</th>
+                    <th>Before</th>
+                    <th>After</th>
+                    <th>Change</th>
+                </tr>
+                <tr>
+                    <td>Status</td>
+                    <td><span class="status-badge pass">pass</span></td>
+                    <td><span class="status-badge pass">pass</span></td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>Score</td>
+                    <td>3/3 (100%)</td>
+                    <td>3/3 (100%)</td>
+                    <td class="">0</td>
+                </tr>
+                <tr>
+                    <td>Response Length</td>
+                    <td class="char-count">347 chars</td>
+                    <td class="char-count">365 chars</td>
+                    <td class="">5%</td>
+                </tr>
+            </table>
+
+            <div class="comparison-grid">
+                <div class="test-panel before">
+                    <h4>❌ BEFORE</h4>
+                    <p><strong>Patterns:</strong></p>
+<span class="pattern found">✓ security|cybersecurity</span><span class="pattern found">✓ risk|protect|prevent</span><span class="pattern found">✓ training|employee</span>
+                    <h4>Response (347 chars):</h4>
+                    <div class="response-box">Investing in comprehensive cybersecurity training for your employees is essential to fortify our digital fortress against emerging threats. Equipping them with the knowledge to identify and respond effectively to cyber risks empowers us to maintain operational resilience, protect sensitive data, and stay ahead of sophisticated cyber adversaries.</div>
+                </div>
+
+                <div class="test-panel after">
+                    <h4>✅ AFTER</h4>
+                    <p><strong>Patterns:</strong></p>
+<span class="pattern found">✓ security|cybersecurity</span><span class="pattern found">✓ risk|protect|prevent</span><span class="pattern found">✓ training|employee</span>
+                    <h4>Response (365 chars):</h4>
+                    <div class="response-box">In today's digital landscape, securing your organization against cyber threats has never been more critical. Investing in comprehensive cybersecurity training for all employees not only protects your company’s sensitive data and intellectual property but also fosters a culture of vigilance within your team, making your security measures more robust and effective.</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

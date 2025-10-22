@@ -1,0 +1,86 @@
+{
+  "metadata": {
+    "variant": "few_shot",
+    "temperature": 0.7,
+    "model": "qwen2.5:3b",
+    "total_tests": 6,
+    "pass_count": 4,
+    "partial_count": 2,
+    "fail_count": 0,
+    "success_rate": 83.33333333333334
+  },
+  "results": [
+    {
+      "test_id": "reasoning_001",
+      "domain": "reasoning",
+      "status": "pass",
+      "score": 2,
+      "max_score": 2,
+      "variant": "few_shot",
+      "temperature": 0.7,
+      "modified_prompt_preview": "Here's how to approach reasoning:\n\nExample:\nQ: If all cats are mammals, and Fluffy is a cat, is Fluffy a mammal?\nA: Yes. Using deductive logic:\n   Premise 1: All cats are mammals\n   Premise 2: Fluffy ...",
+      "agent_response": "Let's break down this problem step by step using deductive logic.\n\n### Given Information:\n1. All managers attend the weekly meeting.\n2. Sarah attends the weekly meeting.\n3. John is a manager.\n\n### Conclusion to be Determined:\nCan we conclude that Sarah is a manager?\n\nTo answer this, let's analyze the premises:\n\n**Premise 1:** All managers attend the weekly meeting.\n   - This means every individual who is a manager will definitely attend the weekly meeting.\n\n**Premise 2:** Sarah attends the weekl...",
+      "timestamp": "2025-10-19T00:41:09.496748"
+    },
+    {
+      "test_id": "reasoning_002",
+      "domain": "reasoning",
+      "status": "partial",
+      "score": 2,
+      "max_score": 3,
+      "variant": "few_shot",
+      "temperature": 0.7,
+      "modified_prompt_preview": "Here's how to approach reasoning:\n\nExample:\nQ: If all cats are mammals, and Fluffy is a cat, is Fluffy a mammal?\nA: Yes. Using deductive logic:\n   Premise 1: All cats are mammals\n   Premise 2: Fluffy ...",
+      "agent_response": "Let's analyze the approach to building a mobile app for different platforms: developing separate native iOS and Android apps (Option A), using React Native (Option B), or creating a Progressive Web App (PWA) (Option C).\n\n### Option A: Developing Separate Native Apps\n\n**Performance:** \n- **Pros**: Native apps provide the best performance, as they run natively on each platform. They can access system features directly and offer the highest level of optimization for both iOS and Android.\n- **Cons**...",
+      "timestamp": "2025-10-19T00:41:32.462826"
+    },
+    {
+      "test_id": "reasoning_003",
+      "domain": "reasoning",
+      "status": "partial",
+      "score": 2,
+      "max_score": 3,
+      "variant": "few_shot",
+      "temperature": 0.7,
+      "modified_prompt_preview": "Here's how to approach reasoning:\n\nExample:\nQ: If all cats are mammals, and Fluffy is a cat, is Fluffy a mammal?\nA: Yes. Using deductive logic:\n   Premise 1: All cats are mammals\n   Premise 2: Fluffy ...",
+      "agent_response": "To determine if providing free coffee to all employees would be beneficial, let's break down the reasoning and consider additional factors:\n\n### Deductive Reasoning Approach:\nPremise 1: Employees who drink coffee have a 20% higher productivity.\nPremise 2: All employees are required to drink coffee (in this hypothetical scenario).\n\nConclusion: Therefore, providing free coffee would theoretically result in all employees having a 20% higher productivity.\n\nHowever, there are several considerations t...",
+      "timestamp": "2025-10-19T00:41:45.309983"
+    },
+    {
+      "test_id": "communication_001",
+      "domain": "communication",
+      "status": "pass",
+      "score": 2,
+      "max_score": 2,
+      "variant": "few_shot",
+      "temperature": 0.7,
+      "modified_prompt_preview": "Here are examples of clear explanations:\n\nExample 1:\nQ: Explain what a database is to someone non-technical.\nA: A database is like a digital filing cabinet. Just as you organize papers in folders and ...",
+      "agent_response": "Sure! A REST API is like a set of instructions that tells web servers how to talk to each other over the internet. It's a way for different websites or apps to share data without showing all their inner workings, kind of like giving your friend instructions on how to find and take a cookie from the jar but not showing them where it is inside.",
+      "timestamp": "2025-10-19T00:41:47.346900"
+    },
+    {
+      "test_id": "communication_002",
+      "domain": "communication",
+      "status": "pass",
+      "score": 3,
+      "max_score": 3,
+      "variant": "few_shot",
+      "temperature": 0.7,
+      "modified_prompt_preview": "Here are examples of clear explanations:\n\nExample 1:\nQ: Explain what a database is to someone non-technical.\nA: A database is like a digital filing cabinet. Just as you organize papers in folders and ...",
+      "agent_response": "Certainly! Here\u2019s an explanation of the difference between machine learning and deep learning tailored for a software developer who is new to AI:\n\nQ: Explain the difference between machine learning and deep learning to someone familiar with programming, but not necessarily with AI.\n\nA: Machine learning (ML) and deep learning (DL) are both subsets within the broader field of artificial intelligence (AI), and they operate on different principles. Let's break it down step by step:\n\n### Machine Lear...",
+      "timestamp": "2025-10-19T00:42:03.057464"
+    },
+    {
+      "test_id": "communication_003",
+      "domain": "communication",
+      "status": "pass",
+      "score": 2,
+      "max_score": 2,
+      "variant": "few_shot",
+      "temperature": 0.7,
+      "modified_prompt_preview": "Here are examples of clear explanations:\n\nExample 1:\nQ: Explain what a database is to someone non-technical.\nA: A database is like a digital filing cabinet. Just as you organize papers in folders and ...",
+      "agent_response": "Certainly! Here\u2019s how I would explain the steps to debug a software issue in clear, structured terms:\n\n### Steps to Debug a Software Issue\n\nDebugging is the process of identifying and fixing errors or bugs in a program so that it functions as intended. Here are the general steps you can follow when debugging a software issue:\n\n1. **Identify the Problem:** The first step is to clearly understand what the problem is. This might involve reproducing the error, noting down all symptoms, and understan...",
+      "timestamp": "2025-10-19T00:42:17.109861"
+    }
+  ]
+}
