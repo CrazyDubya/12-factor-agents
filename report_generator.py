@@ -219,10 +219,13 @@ class ReportGenerator:
         avg_functions_per_file = total_functions / code_files if code_files > 0 else 0
         
         # Modularity score (lower avg lines per file is better)
+        # Target: 200 lines per file = 100%, scales down as files get larger
+        # Formula: 100 - ((avg_lines - 200) / 10) clamped to 50-100
         modularity_score = max(50, min(100, 100 - (avg_lines_per_file - 200) / 10))
         
-        # Documentation score
-        doc_score = max(50, 100 - (total_todos + total_fixmes * 2))
+        # Documentation score (fewer TODOs/FIXMEs = better)
+        # Formula: 100 - (TODOs + 2*FIXMEs), clamped to 50-100
+        doc_score = max(50, min(100, 100 - (total_todos + total_fixmes * 2)))
         
         # Overall score
         overall_score = int((modularity_score + doc_score) / 2)
@@ -337,15 +340,18 @@ class ReportGenerator:
         total_todos = metrics.get('total_todos', 0)
         total_fixmes = metrics.get('total_fixmes', 0)
         
-        # Calculate approximate scores
-        code_size_pct = min(100, (total_lines / 1000))
-        modularity_pct = min(100, (total_classes / 10) * 10)
-        documentation_pct = max(50, 100 - total_todos * 2)
+        # Calculate approximate scores (clamped to 0-100 range)
+        code_size_pct = min(100, (total_lines / 1000))  # Scale: 1000 lines = 100%
+        modularity_pct = min(100, (total_classes * 10))  # Scale: 10 classes = 100%
+        code_files_pct = min(100, (code_files * 5))  # Scale: 20 files = 100%
+        documentation_pct = max(0, min(100, 100 - total_todos * 2))  # Clamped to 0-100
+        tech_debt = total_todos + total_fixmes
+        tech_debt_pct = max(0, min(100, 100 - tech_debt * 2))  # Clamped to 0-100
         
         overall_rating = int((code_size_pct + modularity_pct + documentation_pct) / 3)
         
         def get_bar(pct):
-            filled = int(pct / 10)
+            filled = int(max(0, min(100, pct)) / 10)  # Clamp and scale
             return "█" * filled + "░" * (10 - filled)
         
         def get_grade(score):
@@ -363,11 +369,11 @@ class ReportGenerator:
 ║           FINAL HEALTH DASHBOARD                  ║
 ╠════════════════════════════════════════════════════╣
 ║                                                   ║
-║  Code Size:         {get_bar(min(100, code_size_pct))}  {self.format_number(total_lines):>6} lines     ║
-║  Modularity:        {get_bar(min(100, modularity_pct))}  {total_classes:>6} classes    ║
-║  Code Files:        {get_bar(min(100, code_files/2))}  {code_files:>6} files      ║
-║  Documentation:     {get_bar(documentation_pct)}  {100-total_todos*2:>3}% complete   ║
-║  Tech Debt:         {get_bar(100 - total_todos - total_fixmes*5)}  {total_todos + total_fixmes:>3} items       ║
+║  Code Size:         {get_bar(code_size_pct)}  {self.format_number(total_lines):>6} lines     ║
+║  Modularity:        {get_bar(modularity_pct)}  {total_classes:>6} classes    ║
+║  Code Files:        {get_bar(code_files_pct)}  {code_files:>6} files      ║
+║  Documentation:     {get_bar(documentation_pct)}  {int(documentation_pct):>3}% complete   ║
+║  Tech Debt:         {get_bar(tech_debt_pct)}  {tech_debt:>3} items       ║
 ║                                                   ║
 ║  OVERALL RATING:    {get_bar(overall_rating)}  {overall_rating}/100 ({get_grade(overall_rating)})      ║
 ║                                                   ║
