@@ -63,9 +63,6 @@ class CodeAnalyzer:
             print(f"Error reading {file_path}: {e}")
             return FileMetrics(path=str(file_path), lines=0, classes=0, functions=0)
         
-        # Count non-empty, non-comment lines (for future use)
-        # Currently we report total lines for simplicity
-        code_lines = sum(1 for line in lines if line.strip() and not line.strip().startswith('#'))
         
         # Count classes
         class_pattern = re.compile(r'^\s*class\s+\w+')
@@ -117,7 +114,7 @@ class CodeAnalyzer:
         
         # Count functions (matches: function declarations, arrow functions, async variants)
         # Examples: "export function foo()", "const bar = () =>", "async function baz()"
-        func_pattern = re.compile(r'^\s*(?:export\s+)?(?:async\s+)?(?:function\s+\w+|const\s+\w+\s*=\s*(?:async\s+)?\()')
+        func_pattern = re.compile(r'^\s*(?:export\s+)?(?:async\s+)?(?:function\s+\w+|const\s+\w+\s*=\s*(?:async\s+)?.*=>)')
         functions = sum(1 for line in lines if func_pattern.match(line))
         
         # Extract imports
