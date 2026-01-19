@@ -42,6 +42,10 @@ This tool analyzes your repository's structure and generates a professional code
 - Python 3.7 or higher
 - No external dependencies required (uses only standard library)
 
+### Example Report
+
+See [examples/EXAMPLE_REPORT.md](examples/EXAMPLE_REPORT.md) for a complete sample report generated for a demo e-commerce application.
+
 ### Basic Usage
 
 ```bash
@@ -84,7 +88,9 @@ python generate_review_report.py /path/to/repo \
 
 ## 📊 Report Example
 
-The generated report includes sections like:
+The generated report includes comprehensive sections with visual charts and metrics. See the full [example report](examples/EXAMPLE_REPORT.md) for a complete demonstration.
+
+Key report sections:
 
 ```markdown
 # 🔍 COMPREHENSIVE CODE REVIEW: YourProject
@@ -108,6 +114,8 @@ The generated report includes sections like:
 │ utils             ███████████████              2,156 (14.0%)   │
 ...
 ```
+
+**[→ View Complete Example Report](examples/EXAMPLE_REPORT.md)**
 
 ## 🔧 Architecture
 
