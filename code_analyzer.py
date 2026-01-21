@@ -84,9 +84,9 @@ class CodeAnalyzer:
                     for imp in match.group(2).split(','):
                         imports.append(imp.strip().split('.')[0])
         
-        # Count TODOs and FIXMEs
-        todos = sum(1 for line in lines if 'TODO' in line.upper())
-        fixmes = sum(1 for line in lines if 'FIXME' in line.upper())
+        # Count TODOs and FIXMEs (only in actual action comments, not descriptions)
+        todos = sum(1 for line in lines if line.strip().startswith('#') and 'TODO:' in line.upper() or (line.strip().startswith('#') and 'TODO' in line.upper() and 'COUNT' not in line.upper() and 'FIXME' not in line.upper()))
+        fixmes = sum(1 for line in lines if line.strip().startswith('#') and 'FIXME:' in line.upper() or (line.strip().startswith('#') and 'FIXME' in line.upper() and 'COUNT' not in line.upper() and 'TODO' not in line.upper()))
         
         return FileMetrics(
             path=str(file_path.relative_to(self.root_path)),
@@ -127,9 +127,9 @@ class CodeAnalyzer:
                 if not imp.startswith('.'):  # External import
                     imports.append(imp.split('/')[0])
         
-        # Count TODOs and FIXMEs
-        todos = sum(1 for line in lines if 'TODO' in line.upper())
-        fixmes = sum(1 for line in lines if 'FIXME' in line.upper())
+        # Count TODOs and FIXMEs (only in actual action comments, not descriptions)
+        todos = sum(1 for line in lines if (line.strip().startswith('//') or line.strip().startswith('/*') or line.strip().startswith('*')) and ('TODO:' in line.upper() or ('TODO' in line.upper() and 'COUNT' not in line.upper() and 'FIXME' not in line.upper())))
+        fixmes = sum(1 for line in lines if (line.strip().startswith('//') or line.strip().startswith('/*') or line.strip().startswith('*')) and ('FIXME:' in line.upper() or ('FIXME' in line.upper() and 'COUNT' not in line.upper() and 'TODO' not in line.upper())))
         
         return FileMetrics(
             path=str(file_path.relative_to(self.root_path)),
@@ -189,7 +189,7 @@ class CodeAnalyzer:
                 if ext:
                     file_types[ext] += 1
                 
-                # Analyze code files
+                # Analyze code files (excluding markdown to avoid false TODO/FIXME detection)
                 if ext in ['.py', '.js', '.jsx', '.ts', '.tsx', '.java', '.go', '.rs', '.rb']:
                     metrics = self.analyze_file(file_path)
                     self.file_metrics.append(metrics)
